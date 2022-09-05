@@ -4,12 +4,12 @@ author: "Елена Рыбина"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-output:
-  bookdown::gitbook: default
+# output:
+#   bookdown::gitbook: default
   #bookdown::pdf_book: default
 bibliography: [book.bib, packages.bib]
-description: 
-  "Семинарские занятия по статистике"
+description: |
+  Семинарские занятия по статистике
 link-citations: yes
 github-repo: elenary/StatsForDA
 ---
@@ -17,7 +17,7 @@ github-repo: elenary/StatsForDA
 # Статистика и ее место в жизни
 
 
-
+<!--chapter:end:index.Rmd-->
 
 
 
