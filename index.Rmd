@@ -1,0 +1,35 @@
+---
+title: "Статистика для анализа данных"
+author: "Елена Рыбина"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+  #bookdown::pdf_book: default
+description: |
+  Семинарские занятия по статистике
+link-citations: yes
+github-repo: elenary/AStatsForDA
+---
+
+```{r, eval=TRUE,echo=FALSE}
+library(tidyverse)
+# library(viridis)
+library(knitr)
+library(kableExtra)
+```
+
+```{r opts, echo = FALSE}
+knitr::opts_chunk$set(fig.path = "images/")
+```
+
+# Статистика и ее место в жизни
+
+Hi.
+
+Bye.
+
+# Статистика и ее место в жизни
+
+<!-- If you need PDF output, uncomment bookdown::pdf_book above in YAML. You will need a LaTeX installation, e.g., https://yihui.name/tinytex/ -->
