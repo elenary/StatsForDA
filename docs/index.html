@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="intro.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -53,74 +53,15 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.9/grViz.js"></script>
 
 
-<style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -133,8 +74,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li><a href="./">Статистика для анализа данных</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="#статистика-и-ее-место-в-жизни"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="#вероятности-формулировки-и-выводы"><i class="fa fa-check"></i><b>1.1</b> Вероятности, формулировки и выводы</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="#салемские-ведьмы"><i class="fa fa-check"></i><b>1.1.1</b> Салемские ведьмы</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="#суд-на-салли-кларк"><i class="fa fa-check"></i><b>1.1.2</b> Суд на Салли Кларк</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="#применение-статистики"><i class="fa fa-check"></i><b>1.2.1</b> Применение статистики</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="#виды-статистики"><i class="fa fa-check"></i><b>1.3</b> Виды статистики</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="#выборка"><i class="fa fa-check"></i><b>1.4</b> Выборка</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -158,8 +111,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="date"><em>2022-09-06</em></p>
 </div>
 <div id="статистика-и-ее-место-в-жизни" class="section level1 hasAnchor">
-<h1><span class="header-section-number">1</span> Статистика и ее место в жизни<a href="index.html#статистика-и-ее-место-в-жизни" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">1</span> Статистика и ее место в жизни<a href="#статистика-и-ее-место-в-жизни" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="вероятности-формулировки-и-выводы" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.1</span> Вероятности, формулировки и выводы<a href="#вероятности-формулировки-и-выводы" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="салемские-ведьмы" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.1.1</span> Салемские ведьмы<a href="#салемские-ведьмы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>В январе 1692 года у дочери пастора Сэмюэла Пэрриса — 9-летней Элизабет Пэррис (род. 28 ноября 1682 года) и его племянницы 11-летней Эбигейл Уильямс (род. 12 июля 1680 года) появились симптомы неизвестной болезни: девочки кричали, издавали странные звуки, прятались под мебелью, а их тела принимали необычные позы. Когда Пэррис пытался читать проповедь, они затыкали уши. Местные жители начали выдвигать логичные, на их взгляд, предположения, все из которых сводились к тому, что девочки были прокляты ведьмой. Эти догадки вскоре подтвердил доктор Уильям Григгс, заявивший, что уже сталкивался с подобными случаями в Бостоне. Девочки указали на предполагаемую ведьму — девушку по имени Титуба, бывшую служанкой-рабыней в доме Пэррисов. Вскоре число заболевших девочек и девушек увеличилось. 1 марта 1692 года по их показаниям были арестованы 3 женщины: Титуба, Сара Гуд и Сара Осборн. Подозреваемые были допрошены и подвергнуты осмотру в поисках признаков, которые бы указывали на то, что они являются ведьмами. Главной «уликой» по делу женщин были показания девочек, к которым якобы являлись духи обвиняемых. Все три женщины были удобными целями для обвинений: Титуба имела нетитульную национальность, Сара Гуд была нищенкой, а Сара Осборн — одинокой тяжелобольной вдовой, вовлечённой к тому же в судебный спор с пуританами. Против них говорил тот факт, что женщины длительное время не посещали церковь. Эти показания суд счел адекватными и вынес сразу нескольким жительницам Салема смертный приговор.</p>
+</blockquote>
+<p><img src="docs/salem.jpg" width="364" style="display: block; margin: auto;" /></p>
+</div>
+<div id="суд-на-салли-кларк" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.1.2</span> Суд на Салли Кларк<a href="#суд-на-салли-кларк" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>В 1998 году, в Англии, состоялось громкое судебное разбирательство — английский адвокат Салли Кларк (Sally Clark; 1964 – 15 марта 2007) была осуждена за убийство двух своих новорожденных сыновей. Ее первый сын Кристофер умер в декабре 1996 года, через 11 недель после рождения, а второй сын Гарри умер при аналогичных обстоятельствах в январе 1998 года, спустя 8 недель после рождения. Месяц спустя Кларк была арестована. Защита утверждала, что оба ребенка умерли в результате СВДС (синдромом внезапной детской смерти), но обвинение настаивало, что их убила Кларк. Обвинение привлекло профессионального эксперта, авторитетного профессора педиатрии сэра Роя Медоу, который заявил, что поскольку вероятность внезапной смерти ребенка составляет 1/8543, то шанс двух смертей от СВДС в одной семье равен 1/8543 * 1/8543, то есть 1 : 73 000 000. В то время количество рождений в Англии, Уэльсе и Шотландии составляло 700 000 в год, поэтому вероятность случайного возникновения этого события составляла 1 каждые 100 лет. Салли Кларк признали виновной. Честерский суд приговорил ее к пожизненному заключению восемью голосами за и двумя против. В 1999 году она была заключена в тюрьму, но в январе 2003-го приговор отменили.</p>
+</blockquote>
+<p><img src="docs/klark-95cl.jpg" width="80%" style="display: block; margin: auto;" /></p>
+<p>Статистика нужна для того, чтобы делать <em>выводы</em> о происходящем в окружающем мире.</p>
+<p>Часто выводы возможны не для абсолютного большинства случаев, а на каком-то временном интервале или для определенной группы людей. Эти может кажется нюансами, но эти ограничения очень важны, потому что, по сути, они защищают нас от вранья.</p>
+<p>Обратите внимание на формулировки: “большинство людей, живущих в стране…”, “чаще всего люди с таким признаком…”, “наиболее вероятно, что…”. Они крайне полезны и помогают нам не сделать откровенно неверный вывод: чаще всего мы ничего не можем сказать об абсолбтно всех людях на планете <em>(но есть некоторая вероятность, что можем)</em></p>
+<blockquote>
+Цифры обманчивы, особенно когда я сам ими занимаюсь; по этому поводу справедливо высказывание, приписываемое Дизраэли: «Существует три вида лжи: ложь, наглая ложь и статистика».
+<footer>
+— "Марк Твен, 5 июля 1907
+</footer>
+</blockquote>
+</div>
+</div>
+<div id="определение-статистики" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.2</span> Определение статистики<a href="#определение-статистики" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+Стати́стика — отрасль знаний, наука, в которой излагаются общие вопросы сбора, измерения, мониторинга, анализа массовых статистических (количественных или качественных) данных и их сравнение; изучение количественной стороны массовых общественных явлений в числовой форме
+<footer>
+— Википедия / Маля советская энциклопедия
+</footer>
+</blockquote>
+<blockquote>
+“Статистика – это раздел математики, изучающий описание наблюдаемых (на-пример в экспериментах) данных с помощью набора обобщенных параметров (таких как среднее значение) и ищущая закономерности связи между исходными данными и этими параметрами”.
+<footer>
+— Книга "Статистика в рисунках
+</footer>
+</blockquote>
+<blockquote>
+Статистика – набор обобщенных вычисляемых характеристик, полученных при обработке параметров данных, которые являются объектом анализа. Слово используется также и в смысле раздела математики или отдельной науки – математической статистики.
+<footer>
+— Книга "Статистика в рисунках
+</footer>
+</blockquote>
+<blockquote>
+Статистика – или математическая статистика, раздел математики, в которой систематизированы методы определения особенностей совокупностей, которые являются объектами исследования, и включающая описательную статистику и статистический вывод.
+<footer>
+— Книга "Статистика в рисунках
+</footer>
+</blockquote>
+<div id="применение-статистики" class="section level3 hasAnchor">
+<h3><span class="header-section-number">1.2.1</span> Применение статистики<a href="#применение-статистики" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Где применяется:</p>
+<ul>
+<li><p>Сколько человек живут у нас в стране?</p></li>
+<li><p>Дадут ли мне кредит?</p></li>
+<li><p>Сколько денег платить сотрудникам? А если сотрудник работает уже 5 лет? А 10?</p></li>
+<li><p>Что, прости господи, происходит с коронавирусом?</p></li>
+<li><p>Если я провела исследование, как понять, можно ли верить его результатам?</p></li>
+<li><p>игра *</p></li>
+</ul>
+<p><strong>Можно выделить несколько самых выжных задач статистики:</strong></p>
+<ul>
+<li>Описать существующую реальность</li>
+<li>Сделать вывод о причинах события или связях с ним</li>
+<li>Предсказать вероятность наступления какого-либо события</li>
+</ul>
+</div>
+</div>
+<div id="виды-статистики" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.3</span> Виды статистики<a href="#виды-статистики" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Представим, что мы провели исследование. Как ведут себя собранные данные? Что это за данные: они непрерывные или там много отдельных значений? Каковы максимальные и миниамальные значения? А самые встречающиеся? Какова вообще встречаемость разных значений?</p>
+<p>Такое описание данных называется <strong>описательной статистикой (descipritve stats)</strong>, потому что, как уже понятно из названия, описывает наши данные. Здесь мы можем получить сведения о характере данных, “пощупать” их, понять что-то – но не делаем выводы относительного того, <em>влияет ли на эти данные какой-либо параметр или связано ли изменение данных с каким-либо параметром.</em></p>
+<p>Другой раздел статистики – <strong>статистикой вывода (inferential stats)</strong>, где мы уже целенаправленно хотим сделать вывод относительно выдвинутых предположений, например, сравнить две групп по какому-либо параметру. Например, можем предположить, что студенты в разных городах имеют разную успеваемость по одному и тому же предмету, или что количество сна влияет на способность концентрироваться во время пары.</p>
+<div id="htmlwidget-40133dafb1f00fb8ebf9" style="width:100%;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-40133dafb1f00fb8ebf9">{"x":{"diagram":"\ndigraph {\n  graph []\n  node [shape = plaintext, fontsize = 10]\n    A [label = \"Статистика\"]\n    B [label = \"Опистальная статистика\"]\n    C [label = \"Статистика вывода\"]\n  edge []\n    A->B\n    A->C\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="выборка" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.4</span> Выборка<a href="#выборка" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Допустим, нас есть какое-то предположение о связи неких психологических конструктов относительно того, как работает психика у людей (теоретическая гипотеза). Мы придумываем дизайн исследования и уточняем гипотезу на языке исследования, делаем ее более конкретной. Далее проводим исследование и собираем данные на нашей выборке, часто не очень большой (обычно размер выборки варьируется от 30 до 100 человек, подробнее обсудим при рассмотрении статистической мощности). Проводим расчет статистического метода и делаем вывод по эмпирической гипотезе о связи наших конструктов, в том смысле, в котором мы их операционализировали. И когда мы делаем выводы, мы говорим не о нашей небольшой группе людей, которых мы исследовали – а о всей популяции людей, она называется <strong>генеральной совокупностью</strong>. Почему так можно?</p>
+<p><img src="docs/sample.png" width="100%" style="display: block; margin: auto;" />
+Собственно, за это и отвечает математика и теория вероятностей, заложенные внутрь статистических тестов. Мы предполагаем, что люди, участвующие в нашем исследовании – рандомные представители генеральной совокупности (ха-ха, так, конечно, никогда не бывает, но воообще важно, чтобы то, что мы исследуем только русскоязычных людей или студентов психфака не влияло на нашу зависимую переменную). И когда мы применяем статистический метод, мы оцениваем, какова вероятность, при условии, что мы выбрали случайных людей, получить такие результаты о связи НП и ЗП во всей генеральной совокупности?</p>
+<p>Важное понятие – <strong>репрезентативность выборки</strong>. Она достигается:</p>
+<ul>
+<li>Случайным выбором людей (берем не каких-то конкретных, которые нам больше нравятся)</li>
+<li>Объемом выборки.</li>
+</ul>
 
+
+</div>
 </div>
             </section>
 
@@ -167,7 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -209,7 +253,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["StatsForDA.pdf", "StatsForDA.epub"],
 "search": {
 "engine": "fuse",
 "options": null
