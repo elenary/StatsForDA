@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Выборка | Статистика для анализа данных</title>
+  <title>2 Выборка и выборочные оценки | Статистика для анализа данных</title>
   <meta name="description" content="Семинарские занятия по статистике" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Выборка | Статистика для анализа данных" />
+  <meta property="og:title" content="2 Выборка и выборочные оценки | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Семинарские занятия по статистике" />
   <meta name="github-repo" content="elenary/StatsForDA" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Выборка | Статистика для анализа данных" />
+  <meta name="twitter:title" content="2 Выборка и выборочные оценки | Статистика для анализа данных" />
   
   <meta name="twitter:description" content="Семинарские занятия по статистике" />
   
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="типы-шкал.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -87,12 +87,10 @@
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#виды-статистики"><i class="fa fa-check"></i><b>1.3</b> Виды статистики</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="выборка.html"><a href="выборка.html"><i class="fa fa-check"></i><b>2</b> Выборка</a><ul>
-<li class="chapter" data-level="2.1" data-path="выборка.html"><a href="выборка.html#выборочные-оценки"><i class="fa fa-check"></i><b>2.1</b> Выборочные оценки</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="выборка.html"><a href="выборка.html#репрезентативность-выборки"><i class="fa fa-check"></i><b>2.1.1</b> Репрезентативность выборки</a></li>
+<li class="chapter" data-level="2" data-path="выборка-и-выборочные-оценки.html"><a href="выборка-и-выборочные-оценки.html"><i class="fa fa-check"></i><b>2</b> Выборка и выборочные оценки</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="выборка-и-выборочные-оценки.html"><a href="выборка-и-выборочные-оценки.html#выборочные-оценки"><i class="fa fa-check"></i><b>2.0.1</b> Выборочные оценки</a></li>
+<li class="chapter" data-level="2.0.2" data-path="выборка-и-выборочные-оценки.html"><a href="выборка-и-выборочные-оценки.html#репрезентативность-выборки"><i class="fa fa-check"></i><b>2.0.2</b> Репрезентативность выборки</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="типы-шкал.html"><a href="типы-шкал.html"><i class="fa fa-check"></i><b>3</b> Типы шкал</a></li>
 </ul>
 
       </nav>
@@ -110,66 +108,32 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="выборка" class="section level1 hasAnchor">
-<h1><span class="header-section-number">2</span> Выборка<a href="выборка.html#выборка" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="выборка-и-выборочные-оценки" class="section level1 hasAnchor">
+<h1><span class="header-section-number">2</span> Выборка и выборочные оценки<a href="выборка-и-выборочные-оценки.html#выборка-и-выборочные-оценки" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <!-- Допустим, нас есть какое-то предположение о связи неких психологических конструктов относительно того, как работает психика у людей. Например, о том, что кофеин как-то влияет на такой конструкт, как внимание -- это наша **теоретическая гипотеза**. Чтобы ее проверить, нам нужно провести исследование и уточнить гипотезу на языке этого исследования, сделать ее более конкретной. Например, мы решили провести эксперимент, в котором экспериментальная группа пила 3 кружки кофе в первой половине дня, а контрольная группа пила декофеинизированный кофе. Далее мы делали несколько замеров решения какого-нибудь когнитивного теста на внимание во второй половине дня и смотрели, сколько ошибок допускают экспериментальной и контрольной выборок. десь мы уточнили. И когда мы делаем выводы, мы говорим не о нашей небольшой группе людей, которых мы исследовали – а о всей популяции людей, она называется **генеральной совокупностью**. Почему так можно? -->
 <p>Мы рассмотрели два примера – о влиянии кофеина на внимание и коммуникационного рабочего инструмента на продуктивность. В этих примерах мы предположили, что провели исследование – то есть набрали какое-то количество человек и сделали вывод, как в целом это работает у людей. Почему так происходит? Почему мы можем сделать вывод о всех людях, которые пьют кофе или пользуются этим инструментом? И зачем нам вообще это нужно?</p>
 <p align="center">
 <img src="docs/sample.png" width="80%" style="display: block; margin: auto;" />
 <em>Изображение с <a href="https://towardsdatascience.com/" class="uri">https://towardsdatascience.com/</a></em>
 </p>
-<div id="выборочные-оценки" class="section level2 hasAnchor">
-<h2><span class="header-section-number">2.1</span> Выборочные оценки<a href="выборка.html#выборочные-оценки" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="выборочные-оценки" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.0.1</span> Выборочные оценки<a href="выборка-и-выборочные-оценки.html#выборочные-оценки" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Как мы можем сделать вывод о всех людях в целом? Если мы хотим узнать средний рост людей на всей планете, будем ли мы измерять каждого человека и брать среднее арифметическое?</p>
 <p align="center">
 <img src="docs/height_distribution.png" width="100%" style="display: block; margin: auto;" />
 <a href="https://ourworldindata.org/human-height" class="uri">https://ourworldindata.org/human-height</a>
 </p>
-<p><strong>Генеральная совокупность</strong> – множество (или совокупность) всех изучаемых объектов в рамках определенного исследовательского вопроса.</p>
-<p><strong>Выборка</strong> или <strong>выборочная совокупность</strong> – часть генеральной совокупности, отобранная для изучения определенного исследовательского вопроса.</p>
-<p>Когда мы говорим о генеральной совокупности, мы говорим о ее <strong>параметрах</strong>, например, средний рост людей, обозначим его <strong>X</strong>. Мы не можем посчитать его напрямую, поэтому нам приходится прибегать к <strong>выборочным оценкам</strong>, которые часто обозначются той же буквой, что и параметр генеральной совокупности, только “с крышечкой” или “с чертой” <strong>X̅</strong> – выборочное среднее, средний рост людей на конкретной выборке.</p>
-<table>
-<thead>
-<tr class="header">
-<th>.</th>
-<th>Генеральная совокупность</th>
-<th>Выборка</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Размер</td>
-<td>N</td>
-<td>n</td>
-</tr>
-<tr class="even">
-<td>Параметр</td>
-<td>X</td>
-<td>X̅</td>
-</tr>
-</tbody>
-</table>
-<p>Итак, когда мы хотим сделать вывод о всех людях из генеральной совокупности – мы проводим исследование на небольшой выборке (в зависимости от метоода исследования необходимый размер выборки может быть от 10 до 1000 чловек) и оцениваем исследуемый параметр генеральной совокупности по выборочным оценкам.</p>
+<p>Собственно, за это и отвечает математика и теория вероятностей, на основании которых построеныв. Мы оцениваем, каковы вероятности сделать неправильный вывод (ложноположительный – в сторону наличия какого-либо эффекта, когда на самом деле его нет, или ложноотрицательный – в сторону отсутствия какого-либо эффекта, когда он на самом деле есть), оцениваем полученные результаты статистического теста, и, учитывая, что выборка была подробрана случайным образом, делаем вывод, какова вероятность получить такие же результаты на всей генеральной совокупности. Мы предполагаем, что люди, участвующие в нашем исследовании – рандомные представители генеральной совокупности <em>(ха-ха, так, конечно, почти никогда не бывает, и нам по-хорошему надо уточнить, что мы делаем вывод, например, только о русскоязычных людях или студентах психфака)</em>. И когда мы применяем статистический метод, мы оцениваем, какова вероятность, при условии, что мы выбрали случайных людей, получить такие результаты во всей генеральной совокупности?</p>
+</div>
 <div id="репрезентативность-выборки" class="section level3 hasAnchor">
-<h3><span class="header-section-number">2.1.1</span> Репрезентативность выборки<a href="выборка.html#репрезентативность-выборки" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Важным понятием является <strong>репрезентативность выборки</strong> – способность выборки отражать исследуемый параметр генеральной совокупности.</p>
-<p><em>Одна и та же выборка может быть репрезентативной для одного исследовательского вопроса и не репрезентативной для другого!</em></p>
-<p>Репрезентативность достигается:</p>
+<h3><span class="header-section-number">2.0.2</span> Репрезентативность выборки<a href="выборка-и-выборочные-оценки.html#репрезентативность-выборки" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Важное понятие – <strong>репрезентативность выборки</strong>. Она достигается:</p>
 <ul>
 <li><strong>Случайным выбором людей</strong> (берем не каких-то конкретных, которые нам больше нравятся, а случайным образом)</li>
-<li><strong>Объемом выборки</strong> (доказано, что при большом объеме выборки она достаточно представляет генеральную совокупность, чтобы дать ответ об исследуемом параметре)</li>
+<li><strong>Объемом выборки</strong> (доказано, что при большом объеме выборке прооявляется влияение факторов на случайные величины, об этом поговорим подробнее)</li>
 </ul>
-<p><strong>Способы формирования репрезентативных выборок</strong></p>
-<ul>
-<li>Простая случайная выборка (simple random samplle)</li>
-<li>Систематическая выборка (systematic sample)</li>
-<li>Кластерная выборка (cluster sample)</li>
-<li>Стратифицированная выборка (stratified sample)</li>
-</ul>
-<p><strong>Кейс</strong></p>
-<p><em>Некий Никита провел исследование, где они изучал взаимосвязь возраста, времени работы на одном месте и профессионального выгорания преподавателей в университетах. Для этого он выбрал несколько университетвов: МГУ, Высшая школа экономики и РАНХиГС. Никита давал опросник выгорания Маслач (Maslach Burnout Inventory, MBI) преподавателям департаментов психологии. На основании обработанных данных Никита сделал следующие выводы: 1) выгорание очень распространено в преподавательской среде России; 2) преподаватели МГУ в целом выгорают меньше, чем преподаватели в ВШЭ. Какие методы набора выборки использовал Никита? Верны ли выводы?</em></p>
-<p><img src="docs/2022-09-13%2009.30.13.jpg" width="80%" style="display: block; margin: auto;" /></p>
-</div>
+
+
 </div>
 </div>
             </section>
@@ -177,8 +141,8 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="типы-шкал.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -232,20 +196,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
