@@ -111,51 +111,6 @@
             <section class="normal" id="section-">
 <div id="данные-и-типы-шкал" class="section level1 hasAnchor">
 <h1><span class="header-section-number">3</span> Данные и типы шкал<a href="данные-и-типы-шкал.html#данные-и-типы-шкал" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<table>
-<colgroup>
-<col width="6%" />
-<col width="51%" />
-<col width="19%" />
-<col width="21%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Шкала</th>
-<th>Описание</th>
-<th>Возможные операции</th>
-<th>Примеры</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Наименований (номинальная)</strong></td>
-<td>Качественная (категориальная), нельзя установить “больше” или “меньше”</td>
-<td>=, <span class="math inline">\(\neq\)</span></td>
-<td>shcool, sex, address, famsize, Mjob, Fjob, schoolsup</td>
-</tr>
-<tr class="even">
-<td><strong>Порядка (ранговая)</strong></td>
-<td>Качественная (категориальная), можно установить “больше” или “меньше”, но нельзя посчитать количественно, на сколько больше или меньше</td>
-<td>=, <span class="math inline">\(\neq\)</span>, &gt;, &lt;</td>
-<td>Medu, Fedu, traveltime, studytime, famrel, freetime, goout, Dalc, Walc, health</td>
-</tr>
-<tr class="odd">
-<td><strong>Разности (интервальная)</strong></td>
-<td>Количественная, но нет абсоолютного нуля, можно посчитать <em>на сколько</em> больше или меньше, но нельзя посчитать, <em>во сколько раз</em></td>
-<td>=, <span class="math inline">\(\neq\)</span>, &gt;, &lt;, +, -</td>
-<td>G <em>(отнесу сюда, так как с оценками все сложно)</em></td>
-</tr>
-<tr class="even">
-<td><strong>Отношений (абсолютная)</strong></td>
-<td>Количественная, есть абсолютный ноль, можно посчитать и <em>на сколько</em> больше или меньше, и <em>во сколько раз</em></td>
-<td>=, <span class="math inline">\(\neq\)</span>, &gt;, &lt;, +, -, ×, ÷</td>
-<td>age, failures, absences</td>
-</tr>
-</tbody>
-</table>
-<p>Опишем переменные для гипотезы 1. Возраст (age) – это количественная переменная, в целом про возраст мы можем сказать, что он непрерывен (здесь возраст округлен до целых, поэтому на которотком промежутке возрастов это может сыграть роль) Чуть позже посмотрим на переменную возраста в описательных статистиках, чтобы убедиться, что можем работать с ней как с непрерывной переменной. У возраста есть абсолютный ноль (нельзя быть возраста “-10 лет”), можем сказать, что человек возраста 30 лет в два раза старше человека возраста 15 лет, поэтому возраст относится к шкале отношений.</p>
-<p>Walc – явно относится к порядковой шкале: можем сказать, что студенты, ответившие “4” на вопрос про употребление алкоголя, употребляют его больше, чем те, кто выбрал “2”, но не можем сказать, что в количестве выпитого алкоголя эта разница выражается как в два раза больше.</p>
-<p><em>К каким шкалам относятся переменные для гипотезы 2 и гипотезы 3?</em></p>
 
 
 </div>
@@ -219,20 +174,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
