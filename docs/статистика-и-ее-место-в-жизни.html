@@ -5,25 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Статистика для анализа данных</title>
-  <meta name="description" content="Семинарские занятия по статистике" />
+  <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Статистика для анализа данных" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Семинарские занятия по статистике" />
+  <meta property="og:description" content="Семинарские занятия по статистике для анализа данных" />
   <meta name="github-repo" content="elenary/StatsForDA" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Статистика для анализа данных" />
   
-  <meta name="twitter:description" content="Семинарские занятия по статистике" />
+  <meta name="twitter:description" content="Семинарские занятия по статистике для анализа данных" />
   
 
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2022-09-13" />
+<meta name="date" content="2022-09-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,78 +53,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/viz-1.8.2/viz.js"></script>
-<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
-<script src="libs/grViz-binding-1.0.9/grViz.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
-<style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -143,15 +73,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Статистика для анализа данных</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#вероятности-формулировки-и-выводы"><i class="fa fa-check"></i><b>1.1</b> Вероятности, формулировки и выводы</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#салемские-ведьмы"><i class="fa fa-check"></i><b>1.1.1</b> Салемские ведьмы</a></li>
-<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#суд-на-салли-кларк"><i class="fa fa-check"></i><b>1.1.2</b> Суд на Салли Кларк</a></li>
+<li class="chapter" data-level="1" data-path="статистика-и-ее-место-в-жизни.html"><a href="статистика-и-ее-место-в-жизни.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a><ul>
+<li class="chapter" data-level="1.1" data-path="статистика-и-ее-место-в-жизни.html"><a href="статистика-и-ее-место-в-жизни.html#вероятности-формулировки-и-выводы"><i class="fa fa-check"></i><b>1.1</b> Вероятности, формулировки и выводы</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="статистика-и-ее-место-в-жизни.html"><a href="статистика-и-ее-место-в-жизни.html#салемские-ведьмы"><i class="fa fa-check"></i><b>1.1.1</b> Салемские ведьмы</a></li>
+<li class="chapter" data-level="1.1.2" data-path="статистика-и-ее-место-в-жизни.html"><a href="статистика-и-ее-место-в-жизни.html#суд-на-салли-кларк"><i class="fa fa-check"></i><b>1.1.2</b> Суд на Салли Кларк</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#применение-статистики"><i class="fa fa-check"></i><b>1.2.1</b> Применение статистики</a></li>
+<li class="chapter" data-level="1.2" data-path="статистика-и-ее-место-в-жизни.html"><a href="статистика-и-ее-место-в-жизни.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="статистика-и-ее-место-в-жизни.html"><a href="статистика-и-ее-место-в-жизни.html#применение-статистики"><i class="fa fa-check"></i><b>1.2.1</b> Применение статистики</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#виды-статистики"><i class="fa fa-check"></i><b>1.3</b> Виды статистики</a></li>
+<li class="chapter" data-level="1.3" data-path="статистика-и-ее-место-в-жизни.html"><a href="статистика-и-ее-место-в-жизни.html#виды-статистики"><i class="fa fa-check"></i><b>1.3</b> Виды статистики</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="выборка.html"><a href="выборка.html"><i class="fa fa-check"></i><b>2</b> Выборка</a><ul>
 <li class="chapter" data-level="2.1" data-path="выборка.html"><a href="выборка.html#выборочные-оценки"><i class="fa fa-check"></i><b>2.1</b> Выборочные оценки</a></li>
@@ -182,25 +112,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Статистика для анализа данных</h1>
 <p class="author"><em>Елена Рыбина</em></p>
-<p class="date"><em>2022-09-13</em></p>
+<p class="date"><em>2022-09-19</em></p>
 </div>
 <div id="статистика-и-ее-место-в-жизни" class="section level1 hasAnchor">
-<h1><span class="header-section-number">1</span> Статистика и ее место в жизни<a href="index.html#статистика-и-ее-место-в-жизни" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">1</span> Статистика и ее место в жизни<a href="статистика-и-ее-место-в-жизни.html#статистика-и-ее-место-в-жизни" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="вероятности-формулировки-и-выводы" class="section level2 hasAnchor">
-<h2><span class="header-section-number">1.1</span> Вероятности, формулировки и выводы<a href="index.html#вероятности-формулировки-и-выводы" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">1.1</span> Вероятности, формулировки и выводы<a href="статистика-и-ее-место-в-жизни.html#вероятности-формулировки-и-выводы" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="салемские-ведьмы" class="section level3 hasAnchor">
-<h3><span class="header-section-number">1.1.1</span> Салемские ведьмы<a href="index.html#салемские-ведьмы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">1.1.1</span> Салемские ведьмы<a href="статистика-и-ее-место-в-жизни.html#салемские-ведьмы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>В январе 1692 года у дочери пастора Сэмюэла Пэрриса — 9-летней Элизабет Пэррис (род. 28 ноября 1682 года) и его племянницы 11-летней Эбигейл Уильямс (род. 12 июля 1680 года) появились симптомы неизвестной болезни: девочки кричали, издавали странные звуки, прятались под мебелью, а их тела принимали необычные позы. Когда Пэррис пытался читать проповедь, они затыкали уши. Местные жители начали выдвигать логичные, на их взгляд, предположения, все из которых сводились к тому, что девочки были прокляты ведьмой. Эти догадки вскоре подтвердил доктор Уильям Григгс, заявивший, что уже сталкивался с подобными случаями в Бостоне. Девочки указали на предполагаемую ведьму — девушку по имени Титуба, бывшую служанкой-рабыней в доме Пэррисов. Вскоре число заболевших девочек и девушек увеличилось. 1 марта 1692 года по их показаниям были арестованы 3 женщины: Титуба, Сара Гуд и Сара Осборн. Подозреваемые были допрошены и подвергнуты осмотру в поисках признаков, которые бы указывали на то, что они являются ведьмами. Главной «уликой» по делу женщин были показания девочек, к которым якобы являлись духи обвиняемых. Все три женщины были удобными целями для обвинений: Титуба имела нетитульную национальность, Сара Гуд была нищенкой, а Сара Осборн — одинокой тяжелобольной вдовой, вовлечённой к тому же в судебный спор с пуританами. Против них говорил тот факт, что женщины длительное время не посещали церковь. Эти показания суд счел адекватными и вынес сразу нескольким жительницам Салема смертный приговор.</p>
 </blockquote>
-<p><img src="docs/salem.jpg" width="364" style="display: block; margin: auto;" /></p>
+<img src="docs/images/salem.jpg" width="364" style="display: block; margin: auto;" />
+<p align="center">
+<em>Гравюра с просторов интернета, изображающая процесс на салемской ведьмой</em>
+</p>
 </div>
 <div id="суд-на-салли-кларк" class="section level3 hasAnchor">
-<h3><span class="header-section-number">1.1.2</span> Суд на Салли Кларк<a href="index.html#суд-на-салли-кларк" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">1.1.2</span> Суд на Салли Кларк<a href="статистика-и-ее-место-в-жизни.html#суд-на-салли-кларк" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>В 1998 году, в Англии, состоялось громкое судебное разбирательство — английский адвокат Салли Кларк (Sally Clark; 1964 – 15 марта 2007) была осуждена за убийство двух своих новорожденных сыновей. Ее первый сын Кристофер умер в декабре 1996 года, через 11 недель после рождения, а второй сын Гарри умер при аналогичных обстоятельствах в январе 1998 года, спустя 8 недель после рождения. Месяц спустя Кларк была арестована. Защита утверждала, что оба ребенка умерли в результате СВДС (синдромом внезапной детской смерти), но обвинение настаивало, что их убила Кларк. Обвинение привлекло профессионального эксперта, авторитетного профессора педиатрии сэра Роя Медоу, который заявил, что поскольку вероятность внезапной смерти ребенка составляет 1/8543, то шанс двух смертей от СВДС в одной семье равен 1/8543 * 1/8543, то есть 1 : 73 000 000. В то время количество рождений в Англии, Уэльсе и Шотландии составляло 700 000 в год, поэтому вероятность случайного возникновения этого события составляла 1 каждые 100 лет. Салли Кларк признали виновной. Честерский суд приговорил ее к пожизненному заключению восемью голосами за и двумя против. В 1999 году она была заключена в тюрьму, но в январе 2003-го приговор отменили.</p>
 </blockquote>
-<p><img src="docs/klark-95cl.jpg" width="80%" style="display: block; margin: auto;" /></p>
+<img src="docs/images/klark-95cl.jpg" width="80%" style="display: block; margin: auto;" />
+<p align="center">
+<em>Фотография с суда Салли Кларк</em>
+</p>
 <p>Статистика нужна для того, чтобы делать <em>выводы</em> о происходящем в окружающем мире.</p>
 <p>Часто выводы возможны не для абсолютного большинства случаев, а на каком-то временном интервале или для определенной группы людей. Эти может кажется нюансами, но эти ограничения очень важны, потому что, по сути, они защищают нас от вранья.</p>
 <p>Обратите внимание на формулировки: “большинство людей, живущих в стране…”, “чаще всего люди с таким признаком…”, “наиболее вероятно, что…”. Они крайне полезны и помогают нам не сделать откровенно неверный вывод: чаще всего мы ничего не можем сказать об абсолбтно всех людях на планете <em>(но есть некоторая вероятность, что можем)</em></p>
@@ -213,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="определение-статистики" class="section level2 hasAnchor">
-<h2><span class="header-section-number">1.2</span> Определение статистики<a href="index.html#определение-статистики" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">1.2</span> Определение статистики<a href="статистика-и-ее-место-в-жизни.html#определение-статистики" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
 Статистика — это набор математических процедур, которые необходимы для организации, обобщения и интерпретации информации.
 <footer>
@@ -245,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </footer>
 </blockquote>
 <div id="применение-статистики" class="section level3 hasAnchor">
-<h3><span class="header-section-number">1.2.1</span> Применение статистики<a href="index.html#применение-статистики" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">1.2.1</span> Применение статистики<a href="статистика-и-ее-место-в-жизни.html#применение-статистики" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Вопрос, в которых точно не обходится без статистики:</p>
 <ul>
 <li>Сколько человек живут у нас в стране?</li>
@@ -263,12 +199,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="виды-статистики" class="section level2 hasAnchor">
-<h2><span class="header-section-number">1.3</span> Виды статистики<a href="index.html#виды-статистики" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">1.3</span> Виды статистики<a href="статистика-и-ее-место-в-жизни.html#виды-статистики" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Представим, что мы провели исследование, например, о влиянии кофеина на внимание или использования нового инструмента рабочей коммуникации на продуктивность сотрудников. Прежде, чем делать вывод о том, как кофеин повлиял на способность сохранять внимание или о том, что новый инструмент повысил продуктивность сотрудников, нам хорошо бы сначала понять, что за данные у нас, можно ли им доверять? Как в целом они себя ведут, получились непрерывные значения, или там есть какие-то провалы? Каковы максимальные и минимальные значения, они соотноосятся с нашими представлениями о реальности? А какие самые встречающиеся? Какова вообще встречаемость разных значений? Ответы на эти вопросы позволяют нам поисследовать полученные данные и на начальном этапе проверить, не допустили ли мы какой-либо ошибки в данных, и первично оценить наши шансы на проверку предположения.</p>
 <p>Такое описание данных называется <strong>описательной статистикой (descipritve stats)</strong>, потому что, как уже понятно из названия, описывает наши данные. Здесь мы можем получить сведения о характере данных, “пощупать” их, понять что-то – но не делаем выводы относительного того, <em>влияет ли на эти данные какой-либо параметр или связано ли изменение данных с каким-либо параметром.</em></p>
-<div id="htmlwidget-415afc494a9afa0cd8e5" style="width:100%;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-415afc494a9afa0cd8e5">{"x":{"diagram":"\ndigraph {\n  graph []\n  node [shape = plaintext, fontsize = 10]\n    A [label = \"Статистика\"]\n    B [label = \"Описательная статистика\"]\n    C [label = \"Статистика вывода\"]\n  edge []\n    A->B\n    A->C\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p><img src="docs/images/stats.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>После того, как мы поисследовали данные и признали их адекватными и пригодными для работы, мы можем использовать их для выводов относительно выдвинутых предположений. Что там все-таки прооисходит с кофеином, он увеличил способность концентрироваться и сохранять внимание, или, наоборот, ухудшил? А с введением нового способа коммуникации между сотрудниками, стали ли они после этого делать больше задач, или все осталось на прежнем уровне? Чтобы ответить на эти вопросы, нам нужно <em>сравнить данные и оценить различия между ними</em>. Этим занимается другой раздел статистики – <strong>статистикой вывода (inferential stats)</strong>. Здесь уже мы не занимаемся описанием данных, а непосредственно делаем выводы их них, о связи переменных между собой или о влиянии одной переменной на другую. Например, если мы правильно провели статистический анализ <em>(а это не такая тривиальная задача – спойлер, большинство выводов, которые делаются на основании данных, ложные)</em>, то сможем заключить, что пить много кофе может, наоборот, негативно влиять на внимание, а использовать новый инструмент, где писать сообщения просто, быстро, и можно добавлять разные эмодзи – способствует увеличению сделанных сотрудниками задач. И можем даже предсказать, насколько больше задач будут делаться в таком случае.</p>
+
 </div>
 </div>
             </section>
@@ -331,20 +267,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
