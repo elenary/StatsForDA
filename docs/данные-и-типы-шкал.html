@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2022-09-19" />
+<meta name="date" content="2022-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="выборка.html"/>
-
+<link rel="next" href="вероятности-и-распределения.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -158,6 +158,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="данные-и-типы-шкал.html"><a href="данные-и-типы-шкал.html#типы-шкал"><i class="fa fa-check"></i><b>3.3</b> Типы шкал</a></li>
 <li class="chapter" data-level="3.4" data-path="данные-и-типы-шкал.html"><a href="данные-и-типы-шкал.html#непрерывные-и-дискретные-данные"><i class="fa fa-check"></i><b>3.4</b> Непрерывные и дискретные данные</a></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="вероятности-и-распределения.html"><a href="вероятности-и-распределения.html"><i class="fa fa-check"></i><b>4</b> Вероятности и распределения</a><ul>
+<li class="chapter" data-level="4.1" data-path="вероятности-и-распределения.html"><a href="вероятности-и-распределения.html#случайная-величина"><i class="fa fa-check"></i><b>4.1</b> Случайная величина</a></li>
+<li class="chapter" data-level="4.2" data-path="вероятности-и-распределения.html"><a href="вероятности-и-распределения.html#дискретные-случайные-величины-и-гистограмма"><i class="fa fa-check"></i><b>4.2</b> Дискретные случайные величины и гистограмма</a></li>
+<li class="chapter" data-level="4.3" data-path="вероятности-и-распределения.html"><a href="вероятности-и-распределения.html#непрерывные-случайные-величины-и-плотность-вероятности"><i class="fa fa-check"></i><b>4.3</b> Непрерывные случайные величины и плотность вероятности</a></li>
+<li class="chapter" data-level="4.4" data-path="вероятности-и-распределения.html"><a href="вероятности-и-распределения.html#распределения"><i class="fa fa-check"></i><b>4.4</b> Распределения</a></li>
+<li class="chapter" data-level="4.5" data-path="вероятности-и-распределения.html"><a href="вероятности-и-распределения.html#распределения-1"><i class="fa fa-check"></i><b>4.5</b> Распределения</a></li>
+<li class="chapter" data-level="4.6" data-path="вероятности-и-распределения.html"><a href="вероятности-и-распределения.html#распределения-2"><i class="fa fa-check"></i><b>4.6</b> Распределения</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="вероятности-и-распределения.html"><a href="вероятности-и-распределения.html#нормальное-распределение"><i class="fa fa-check"></i><b>4.6.1</b> Нормальное распределение</a></li>
+<li class="chapter" data-level="4.6.2" data-path="вероятности-и-распределения.html"><a href="вероятности-и-распределения.html#другие-распределения"><i class="fa fa-check"></i><b>4.6.2</b> Другие распределения</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -181,14 +192,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.1</span> Измерение и переменная<a href="данные-и-типы-шкал.html#измерение-и-переменная" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Что значит измерить что-либо? Это значит, <strong>привести в соответствие исследуемому признаку какое-либо значение на шкале</strong>.</p>
 <p>Что может примером признака? Что угодно, что нам нужно измерить в рамках исследования: количество кружек кофе в день, уровень концентрации, количество ошибок, время реакции, степень выгорания, количество выполненных задач, уровень нейротизма, рейтинг студента, количество детей в семье, температура и т.д.</p>
-<p><strong>Признак</strong>, который мы исследуем, по-другому называется <strong>переменной</strong>. С этим понятием мы будем сталкиваться постоянно в анализе данных. По сути, если мы посмотрим на табличку наблюдений, то любой столбец с измерениям – это переменная. По строкам располагаются наблюдения, например, каждый новый человек из нашей выборки.</p>
+<p><strong>Признак</strong>, который мы исследуем, по-другому называется <strong>переменной</strong>. С этим понятием мы будем сталкиваться постоянно в анализе данных. По сути, если мы посмотрим на табличку наблюдений, то любой столбец с измерениям – это переменная. По строкам располагаются наблюдения, например, каждый новый человек из нашей выборки. Значение в определенной колонке – это <strong>значение</strong> переменной данного наблюдения.</p>
 <p>Вернемся к кейсу с Никитой, которые изучает выгорание сотрудников ВУЗов. Сделаем табличку данных, которые мог намерить Никита.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="данные-и-типы-шкал.html#cb6-1"></a>teacher_number &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">30</span>,<span class="dv">1</span>)</span>
-<span id="cb6-2"><a href="данные-и-типы-шкал.html#cb6-2"></a>age &lt;-<span class="st">  </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">27</span>, <span class="dv">30</span>, <span class="dv">32</span>, <span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">41</span>),<span class="dv">5</span>)</span>
-<span id="cb6-3"><a href="данные-и-типы-шкал.html#cb6-3"></a>exp &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;от 1 до 2&quot;</span>, <span class="st">&quot;от 1 до 2&quot;</span>, <span class="st">&quot;от 3 до 5&quot;</span>, <span class="st">&quot;от 3 до 5&quot;</span>, <span class="st">&quot;от 1 до 2&quot;</span>, <span class="st">&quot;больше 5&quot;</span>),<span class="dv">5</span>)</span>
-<span id="cb6-4"><a href="данные-и-типы-шкал.html#cb6-4"></a>univer &lt;-<span class="st">  </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;MSU&quot;</span>, <span class="st">&quot;HSE&quot;</span>, <span class="st">&quot;MSU&quot;</span>, <span class="st">&quot;RANEPA&quot;</span>, <span class="st">&quot;HSE&quot;</span>, <span class="st">&quot;RANEPA&quot;</span>),<span class="dv">5</span>)</span>
-<span id="cb6-5"><a href="данные-и-типы-шкал.html#cb6-5"></a>burnout &lt;-<span class="st"> </span><span class="kw">tibble</span>(teacher_number, age, exp, univer)</span>
-<span id="cb6-6"><a href="данные-и-типы-шкал.html#cb6-6"></a><span class="kw">kable</span>(burnout[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,])</span></code></pre></div>
+<span id="cb6-2"><a href="данные-и-типы-шкал.html#cb6-2"></a>age &lt;-<span class="st">  </span><span class="kw">sample</span>(<span class="dv">22</span><span class="op">:</span><span class="dv">60</span>, <span class="dt">size =</span> <span class="dv">30</span>, <span class="dt">replace =</span> T)</span>
+<span id="cb6-3"><a href="данные-и-типы-шкал.html#cb6-3"></a>exp_years &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>, <span class="dt">size =</span> <span class="dv">30</span>, <span class="dt">replace =</span> T)</span>
+<span id="cb6-4"><a href="данные-и-типы-шкал.html#cb6-4"></a>exp_scaled &lt;-<span class="st"> </span><span class="kw">ifelse</span>(exp_years <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>exp_years <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;от 1 до 2&quot;</span>,</span>
+<span id="cb6-5"><a href="данные-и-типы-шкал.html#cb6-5"></a>                     <span class="kw">ifelse</span>(exp_years <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span> <span class="op">&amp;</span><span class="st"> </span>exp_years <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span>, <span class="st">&quot;от 3 до 5&quot;</span>,</span>
+<span id="cb6-6"><a href="данные-и-типы-шкал.html#cb6-6"></a>                            <span class="kw">ifelse</span>(exp_years <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>, <span class="st">&quot;больше 5&quot;</span>, exp_years)))</span>
+<span id="cb6-7"><a href="данные-и-типы-шкал.html#cb6-7"></a>burnout_MBI &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">19</span><span class="op">:</span><span class="dv">70</span>, <span class="dt">size =</span> <span class="dv">30</span>, <span class="dt">replace =</span> T)</span>
+<span id="cb6-8"><a href="данные-и-типы-шкал.html#cb6-8"></a>univer &lt;-<span class="st">  </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;MSU&quot;</span>, <span class="st">&quot;HSE&quot;</span>, <span class="st">&quot;MSU&quot;</span>, <span class="st">&quot;RANEPA&quot;</span>, <span class="st">&quot;HSE&quot;</span>, <span class="st">&quot;RANEPA&quot;</span>),<span class="dv">5</span>)</span>
+<span id="cb6-9"><a href="данные-и-типы-шкал.html#cb6-9"></a>burnout &lt;-<span class="st"> </span><span class="kw">tibble</span>(teacher_number, age, exp_years, exp_scaled, burnout_MBI, univer)</span>
+<span id="cb6-10"><a href="данные-и-типы-шкал.html#cb6-10"></a><span class="kw">kable</span>(burnout[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,])</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -198,8 +213,14 @@ teacher_number
 <th style="text-align:right;">
 age
 </th>
+<th style="text-align:right;">
+exp_years
+</th>
 <th style="text-align:left;">
-exp
+exp_scaled
+</th>
+<th style="text-align:right;">
+burnout_MBI
 </th>
 <th style="text-align:left;">
 univer
@@ -212,10 +233,16 @@ univer
 1
 </td>
 <td style="text-align:right;">
-27
+50
+</td>
+<td style="text-align:right;">
+2
 </td>
 <td style="text-align:left;">
 от 1 до 2
+</td>
+<td style="text-align:right;">
+25
 </td>
 <td style="text-align:left;">
 MSU
@@ -226,10 +253,16 @@ MSU
 2
 </td>
 <td style="text-align:right;">
-30
+31
+</td>
+<td style="text-align:right;">
+8
 </td>
 <td style="text-align:left;">
-от 1 до 2
+больше 5
+</td>
+<td style="text-align:right;">
+41
 </td>
 <td style="text-align:left;">
 HSE
@@ -240,10 +273,16 @@ HSE
 3
 </td>
 <td style="text-align:right;">
-32
+22
+</td>
+<td style="text-align:right;">
+2
 </td>
 <td style="text-align:left;">
-от 3 до 5
+от 1 до 2
+</td>
+<td style="text-align:right;">
+28
 </td>
 <td style="text-align:left;">
 MSU
@@ -254,10 +293,16 @@ MSU
 4
 </td>
 <td style="text-align:right;">
-26
+46
+</td>
+<td style="text-align:right;">
+8
 </td>
 <td style="text-align:left;">
-от 3 до 5
+больше 5
+</td>
+<td style="text-align:right;">
+34
 </td>
 <td style="text-align:left;">
 RANEPA
@@ -268,10 +313,16 @@ RANEPA
 5
 </td>
 <td style="text-align:right;">
-27
+31
+</td>
+<td style="text-align:right;">
+3
 </td>
 <td style="text-align:left;">
-от 1 до 2
+от 3 до 5
+</td>
+<td style="text-align:right;">
+65
 </td>
 <td style="text-align:left;">
 HSE
@@ -282,10 +333,16 @@ HSE
 6
 </td>
 <td style="text-align:right;">
-41
+29
+</td>
+<td style="text-align:right;">
+2
 </td>
 <td style="text-align:left;">
-больше 5
+от 1 до 2
+</td>
+<td style="text-align:right;">
+47
 </td>
 <td style="text-align:left;">
 RANEPA
@@ -296,10 +353,16 @@ RANEPA
 7
 </td>
 <td style="text-align:right;">
-27
+49
+</td>
+<td style="text-align:right;">
+5
 </td>
 <td style="text-align:left;">
-от 1 до 2
+от 3 до 5
+</td>
+<td style="text-align:right;">
+36
 </td>
 <td style="text-align:left;">
 MSU
@@ -310,10 +373,16 @@ MSU
 8
 </td>
 <td style="text-align:right;">
-30
+23
+</td>
+<td style="text-align:right;">
+4
 </td>
 <td style="text-align:left;">
-от 1 до 2
+от 3 до 5
+</td>
+<td style="text-align:right;">
+23
 </td>
 <td style="text-align:left;">
 HSE
@@ -324,10 +393,16 @@ HSE
 9
 </td>
 <td style="text-align:right;">
-32
+44
+</td>
+<td style="text-align:right;">
+2
 </td>
 <td style="text-align:left;">
-от 3 до 5
+от 1 до 2
+</td>
+<td style="text-align:right;">
+37
 </td>
 <td style="text-align:left;">
 MSU
@@ -338,10 +413,16 @@ MSU
 10
 </td>
 <td style="text-align:right;">
-26
+30
+</td>
+<td style="text-align:right;">
+2
 </td>
 <td style="text-align:left;">
-от 3 до 5
+от 1 до 2
+</td>
+<td style="text-align:right;">
+22
 </td>
 <td style="text-align:left;">
 RANEPA
@@ -397,13 +478,13 @@ RANEPA
 </tr>
 <tr class="odd">
 <td><strong>Порядковая (ранговая, ординальная)</strong></td>
-<td>Качественная (категориальная), можно установить “больше” или “меньше”, но нельзя посчитать количественно, на сколько больше или меньше</td>
+<td>Категориальная (качественная), можно установить “больше” или “меньше”, но нельзя посчитать количественно, на сколько больше или меньше</td>
 <td>=, <span class="math inline">\(\neq\)</span>, &gt;, &lt;</td>
 <td>Уровень образования, уровень нейротизма, спортивный рейтинг</td>
 </tr>
 <tr class="even">
 <td><strong>Наименований (номинальная)</strong></td>
-<td>Качественная (категориальная), нельзя установить “больше” или “меньше”</td>
+<td>Категориальная (качественная), нельзя установить “больше” или “меньше”</td>
 <td>=, <span class="math inline">\(\neq\)</span></td>
 <td>Пол, цвет, место жительства, название университета</td>
 </tr>
@@ -412,8 +493,10 @@ RANEPA
 </div>
 <div id="непрерывные-и-дискретные-данные" class="section level2 hasAnchor">
 <h2><span class="header-section-number">3.4</span> Непрерывные и дискретные данные<a href="данные-и-типы-шкал.html#непрерывные-и-дискретные-данные" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-
-
+<p>Видим, что самые богатые возможности для измерений у нас простираются в количественных шкалах – на шкале отношений (она самая крутая) и интервальной шкале (она похуже и вообще, на самом деле, в исследованиях в нашей области встречается редко).</p>
+<p>Количественные данные бывают дискретные, когда переменная принимает строго определенные значения, и непрерывные, когда может принимать какие угодно значения, до бесконечности или на заданном интервале.</p>
+<p>Например, в нашем примере с исследованием выгорания переменная возраст (age) может принимать любые значения: преподаватели могут быть и возраста 25 лет, и 27.5 лет, и 31.666.. лет – это все значения из <em>области допустимых значений для этой переменной</em>. Но если мы рассмотрим количество заболевших коронавирусом, то их никак не может быть 27.5 или 31.666.. – заболевшие не выражаются в дробных долях от одного человека.</p>
+<p>Важное понятие здесь – <strong>область допустимых значений</strong>. У непрерывной переменной это всегда интервал, например {0;+∞}, у дисретных – строго определенные значения, которые, тем не менее, могут тоже стремиться к бесконечности, например, {0;1;2;3;4;5;6;7;8…}</p>
 </div>
 </div>
             </section>
@@ -421,8 +504,8 @@ RANEPA
           </div>
         </div>
       </div>
-<a href="выборка.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="выборка.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="вероятности-и-распределения.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
