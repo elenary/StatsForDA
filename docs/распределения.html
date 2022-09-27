@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Данные и типы шкал | Статистика для анализа данных</title>
+  <title>5 Распределения | Статистика для анализа данных</title>
   <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Данные и типы шкал | Статистика для анализа данных" />
+  <meta property="og:title" content="5 Распределения | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Семинарские занятия по статистике для анализа данных" />
   <meta name="github-repo" content="elenary/StatsForDA" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Данные и типы шкал | Статистика для анализа данных" />
+  <meta name="twitter:title" content="5 Распределения | Статистика для анализа данных" />
   
   <meta name="twitter:description" content="Семинарские занятия по статистике для анализа данных" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="выборка.html"/>
-<link rel="next" href="вероятность-и-случайные-величины.html"/>
+<link rel="prev" href="вероятность-и-случайные-величины.html"/>
+<link rel="next" href="меры-центральной-тенденции.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -185,26 +185,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="данные-и-типы-шкал" class="section level1 hasAnchor">
-<h1><span class="header-section-number">3</span> Данные и типы шкал<a href="данные-и-типы-шкал.html#данные-и-типы-шкал" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="измерение-и-переменная" class="section level2 hasAnchor">
-<h2><span class="header-section-number">3.1</span> Измерение и переменная<a href="данные-и-типы-шкал.html#измерение-и-переменная" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Что значит измерить что-либо? Это значит, <strong>привести в соответствие исследуемому признаку какое-либо значение на шкале</strong>.</p>
-<p>Что может примером признака? Что угодно, что нам нужно измерить в рамках исследования: количество кружек кофе в день, уровень концентрации, количество ошибок, время реакции, степень выгорания, количество выполненных задач, уровень нейротизма, рейтинг студента, количество детей в семье, температура и т.д.</p>
-<p><strong>Признак</strong>, который мы исследуем, по-другому называется <strong>переменной</strong>. С этим понятием мы будем сталкиваться постоянно в анализе данных. По сути, если мы посмотрим на табличку наблюдений, то любой столбец с измерениям – это переменная. По строкам располагаются наблюдения, например, каждый новый человек из нашей выборки. Значение в определенной колонке – это <strong>значение</strong> переменной данного наблюдения.</p>
-<p>Вернемся к кейсу с Никитой, которые изучает выгорание сотрудников ВУЗов. Сделаем табличку данных, которые мог намерить Никита.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="данные-и-типы-шкал.html#cb6-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb6-2"><a href="данные-и-типы-шкал.html#cb6-2"></a><span class="kw">library</span>(kableExtra)</span>
-<span id="cb6-3"><a href="данные-и-типы-шкал.html#cb6-3"></a>teacher_number &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">30</span>,<span class="dv">1</span>)</span>
-<span id="cb6-4"><a href="данные-и-типы-шкал.html#cb6-4"></a>age &lt;-<span class="st">  </span><span class="kw">sample</span>(<span class="dv">22</span><span class="op">:</span><span class="dv">60</span>, <span class="dt">size =</span> <span class="dv">30</span>, <span class="dt">replace =</span> T)</span>
-<span id="cb6-5"><a href="данные-и-типы-шкал.html#cb6-5"></a>exp_years &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>, <span class="dt">size =</span> <span class="dv">30</span>, <span class="dt">replace =</span> T)</span>
-<span id="cb6-6"><a href="данные-и-типы-шкал.html#cb6-6"></a>exp_scaled &lt;-<span class="st"> </span><span class="kw">ifelse</span>(exp_years <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>exp_years <span class="op">&lt;=</span><span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;от 1 до 2&quot;</span>,</span>
-<span id="cb6-7"><a href="данные-и-типы-шкал.html#cb6-7"></a>                     <span class="kw">ifelse</span>(exp_years <span class="op">&gt;</span><span class="st"> </span><span class="dv">2</span> <span class="op">&amp;</span><span class="st"> </span>exp_years <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span>, <span class="st">&quot;от 3 до 5&quot;</span>,</span>
-<span id="cb6-8"><a href="данные-и-типы-шкал.html#cb6-8"></a>                            <span class="kw">ifelse</span>(exp_years <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>, <span class="st">&quot;больше 5&quot;</span>, exp_years)))</span>
-<span id="cb6-9"><a href="данные-и-типы-шкал.html#cb6-9"></a>burnout_MBI &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">19</span><span class="op">:</span><span class="dv">70</span>, <span class="dt">size =</span> <span class="dv">30</span>, <span class="dt">replace =</span> T)</span>
-<span id="cb6-10"><a href="данные-и-типы-шкал.html#cb6-10"></a>univer &lt;-<span class="st">  </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;MSU&quot;</span>, <span class="st">&quot;HSE&quot;</span>, <span class="st">&quot;MSU&quot;</span>, <span class="st">&quot;RANEPA&quot;</span>, <span class="st">&quot;HSE&quot;</span>, <span class="st">&quot;RANEPA&quot;</span>),<span class="dv">5</span>)</span>
-<span id="cb6-11"><a href="данные-и-типы-шкал.html#cb6-11"></a>burnout &lt;-<span class="st"> </span><span class="kw">tibble</span>(teacher_number, age, exp_years, exp_scaled, burnout_MBI, univer)</span>
-<span id="cb6-12"><a href="данные-и-типы-шкал.html#cb6-12"></a><span class="kw">kable</span>(burnout[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,])</span></code></pre></div>
+<div id="распределения" class="section level1 hasAnchor">
+<h1><span class="header-section-number">5</span> Распределения<a href="распределения.html#распределения" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Что такое распределение? Мы постоянно употребляем это слово.</p>
+<p>Говоря о распределениях, мы имеем в виду <strong>закон распределения случайной величины</strong> – соответствие между возможными значениями этой величины из области ее допустимых значений и: вероятностями этих значений – для дискретной величины, либо плотностью вероятности – для непрерывной величины.</p>
+<p>Законы распределений вероятностей можно вывести совсем не для всех величин! Но так сложилось, что некоторые закономерности, распределения вероятностей мы можем описать формулами, как в физике: сила тяжести (сила, с которой Земля притягивает все теля) прямо пропорциональная массе объекта, взятая с коэффициентом ускорения свободного падения <span class="math inline">\(F = m*g\)</span>. Мы это заметили относительно окружающего мира и вывели закон (не лично мы, а вообще представители планеты Земля). Точно так же и с распределниями: мы заметили, что вероятности распределения некоторых случайных величин подчиняются определенным законам, и записали их. Например, доказано, что непрерывные случайные величины, на которые действует множество случайных факторов (например, рост, вес и тд), распределяются в соответствии с <strong>распределением Гаусса</strong>, оно же – <strong>нормальное распределение</strong>. Его формула:</p>
+<p><span class="math inline">\(P(x) = \frac{e^{-(x - \mu)^{2}/(2\sigma^{2}) }} {\sigma\sqrt{2\pi}}\)</span></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="распределения.html#cb24-1"></a><span class="kw">plot</span>(<span class="kw">dnorm</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>, <span class="dt">mean =</span> <span class="dv">500</span>, <span class="dt">sd =</span> <span class="dv">100</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Или, например, экспоненциальное распределение:</p>
+<p><span class="math inline">\(P(x)= \lambda \times e^{-\lambda x}\)</span></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="распределения.html#cb25-1"></a><span class="kw">plot</span>(<span class="kw">dexp</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dt">rate =</span> <span class="fl">0.1</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+χ2-распределение:</p>
+<p><span class="math inline">\(P(x)= \lambda \times e^{-\lambda x}\)</span></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="распределения.html#cb26-1"></a><span class="kw">plot</span>(<span class="kw">dchisq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>, <span class="dt">df=</span><span class="dv">100</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>Или, например, биномиальное распределение:</p>
+<p><span class="math inline">\(P(k | n, p) = \frac{n!}{k!(n-k)!} \times p^k \times (1-p)^{n-k} = {n \choose k} \times p^k \times (1-p)^{n-k}\)</span></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="распределения.html#cb27-1"></a><span class="kw">plot</span>(<span class="kw">dbinom</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dt">size=</span><span class="dv">100</span>, <span class="dt">prob=</span><span class="fl">0.5</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+Посмотреть и ужаснуться можно тут <a href="http://www.math.wm.edu/~leemis/chart/UDR/UDR.html" class="uri">http://www.math.wm.edu/~leemis/chart/UDR/UDR.html</a>. Нам, к счастью, ничего из этого не понадобится.</p>
+<p>Менее пугающая версия <a href="https://www.johndcook.com/blog/distribution_chart/#normal" class="uri">https://www.johndcook.com/blog/distribution_chart/#normal</a></p>
+<p>На примере данных про выгорание:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="распределения.html#cb28-1"></a><span class="kw">kable</span>(burnout)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -429,75 +433,437 @@ MSU
 RANEPA
 </td>
 </tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
 </tbody>
 </table>
-<!--kable(burnout) %>% scroll_box(width = "100%")-->
-<p><em>Что здесь будет являться переменными?</em></p>
-<p>В определении измерения помимо признака есть второе важное понятие – это шкала.</p>
-<p><strong>Шкала</strong> – это система измерения. Для того, чтобы мы все могли пользоваться одинаковыми единицами измерениями и не сходили с ума, мы, люди планеты Земля, пользуемся едиными шкалами. Всего их 4, и они бывают <strong>метрические и неметрические</strong> – то есть, можем ли мы приложить измерительную линейку к ним или нет. В качестве измерительной линейки здесь имеется в виду любой условный прибор, в котором есть цена деления (сантиметр, грамм, секунда, штука).</p>
-</div>
-<div id="количественные-и-неколичественные-данные" class="section level2 hasAnchor">
-<h2><span class="header-section-number">3.2</span> Количественные и неколичественные данные<a href="данные-и-типы-шкал.html#количественные-и-неколичественные-данные" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Данные, измеренные метрическими шкалами – это <strong>количественные</strong> данные (например, рост, вес, число заболевших, температура. То, что нельзя измерить метрическими шкалами (например, цвет глаз, самочувствие, уровень нейротизма, уровень образования) – это <strong>неколичественные</strong> данные, которые могут носить разные названия: <strong>категориальные</strong>, иногда <strong>качественные</strong>.</p>
-<p><span style="color: grey;">Иногда данные называют качественными в противоположность количественным, но это не совсем верно: разделение на количественные и качественные обычно применяется по отношению к типам исследований, где качественные исследования – это, например, интервью или анализ блоков текста. Но в результате этого анализа у нас вполне могут получиться количественные переменные, например, количество раз, которые употреблялось то или иное слово, поэтому по отношению к данным, а не типам исследований, я рекомендую не использовать слово “качественные”. </span></p>
-<p>С количественными данными попроще – это все, что можно измерить метрической шкалой, условной линейкой.</p>
-<p>Среди неколичественных данных встречаются два типа: категориальные и ранговые (порядковые)</p>
-<p>Эти данные мы подробно рассмотрим на шкалах.</p>
-</div>
-<div id="типы-шкал" class="section level2 hasAnchor">
-<h2><span class="header-section-number">3.3</span> Типы шкал<a href="данные-и-типы-шкал.html#типы-шкал" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Как мы уже поняли, разные данные относятся к разным шкалам.</p>
-<p>Разные шкалы обладают разной <strong>измерительной мощностью</strong> – точностью, с которой мы измеряем признак. Один и тот же признак можно измерить с разной точностью: например, в зависимости от исследовательского вопроса, рост может быть выражен количественно в сантиметрах на интервале {0; ∞}, а может быть закодирован в виде {“меньше 150 см”; 150 см и больше}, если нас интересует только преобладание над определенной чертой.</p>
-<p>Всего существуют 4 шкалы, если располагать их снизу вверх по измерительной мощности: наименований, порядковая, интервальная, отношений.</p>
-<table>
-<colgroup>
-<col width="6%" />
-<col width="51%" />
-<col width="19%" />
-<col width="21%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Шкала</th>
-<th>Описание</th>
-<th>Возможные операции</th>
-<th>Примеры</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Отношений (абсолютная)</strong></td>
-<td>Количественная, есть абсолютный ноль, можно посчитать и <em>на сколько</em> больше или меньше, и <em>во сколько раз</em></td>
-<td>=, <span class="math inline">\(\neq\)</span>, &gt;, &lt;, +, -, ×, ÷</td>
-<td>Рост, вес, число заболевших</td>
-</tr>
-<tr class="even">
-<td><strong>Интервальная (разности)</strong></td>
-<td>Количественная, но нет абсоолютного нуля, можно посчитать <em>на сколько</em> больше или меньше, но нельзя посчитать, <em>во сколько раз</em></td>
-<td>=, <span class="math inline">\(\neq\)</span>, &gt;, &lt;, +, -</td>
-<td>Температура в градусах Цельсия, времяисчисление по разным календарям</td>
-</tr>
-<tr class="odd">
-<td><strong>Порядковая (ранговая, ординальная)</strong></td>
-<td>Категориальная (качественная), можно установить “больше” или “меньше”, но нельзя посчитать количественно, на сколько больше или меньше</td>
-<td>=, <span class="math inline">\(\neq\)</span>, &gt;, &lt;</td>
-<td>Уровень образования, уровень нейротизма, спортивный рейтинг</td>
-</tr>
-<tr class="even">
-<td><strong>Наименований (номинальная)</strong></td>
-<td>Категориальная (качественная), нельзя установить “больше” или “меньше”</td>
-<td>=, <span class="math inline">\(\neq\)</span></td>
-<td>Пол, цвет, место жительства, название университета</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="непрерывные-и-дискретные-данные" class="section level2 hasAnchor">
-<h2><span class="header-section-number">3.4</span> Непрерывные и дискретные данные<a href="данные-и-типы-шкал.html#непрерывные-и-дискретные-данные" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Видим, что самые богатые возможности для измерений у нас простираются в количественных шкалах – на шкале отношений (она самая крутая) и интервальной шкале (она похуже и вообще, на самом деле, в исследованиях в нашей области встречается редко).</p>
-<p>Количественные данные бывают дискретные, когда переменная принимает строго определенные значения, и непрерывные, когда может принимать какие угодно значения, до бесконечности или на заданном интервале.</p>
-<p>Например, в нашем примере с исследованием выгорания переменная возраст (age) может принимать любые значения: преподаватели могут быть и возраста 25 лет, и 27.5 лет, и 31.666.. лет – это все значения из <em>области допустимых значений для этой переменной</em>. Но если мы рассмотрим количество заболевших коронавирусом, то их никак не может быть 27.5 или 31.666.. – заболевшие не выражаются в дробных долях от одного человека.</p>
-<p>Важное понятие здесь – <strong>область допустимых значений</strong>. У непрерывной переменной это всегда интервал, например {0;+∞}, у дисретных – строго определенные значения, которые, тем не менее, могут тоже стремиться к бесконечности, например, {0;1;2;3;4;5;6;7;8…}</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="распределения.html#cb29-1"></a>burnout <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb29-2"><a href="распределения.html#cb29-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>exp_years)) <span class="op">+</span></span>
+<span id="cb29-3"><a href="распределения.html#cb29-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb29-4"><a href="распределения.html#cb29-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="распределения.html#cb30-1"></a>burnout <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb30-2"><a href="распределения.html#cb30-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>age)) <span class="op">+</span></span>
+<span id="cb30-3"><a href="распределения.html#cb30-3"></a><span class="st">  </span><span class="kw">geom_density</span>() <span class="op">+</span></span>
+<span id="cb30-4"><a href="распределения.html#cb30-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<div id="функции-распределения" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.1</span> Функции распределения<a href="распределения.html#функции-распределения" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Выше мы познакомились с плотностью вероятностью, зафиксируем все применимые к вероятности функции, которые бывают полезны:</p>
+<ul>
+<li><strong>функция плотности вероятности (probability density function)</strong> для непрерывных СВ (например, рост, вес) и <strong>функция вероятности (probability mass function)</strong> для дискретных СВ (например, количество заболевших) – самая простая базовая функция, часто обозначается буквой <code>d*</code></li>
+<li><strong>функция накопленной вероятности / плотности вероятности (cumulative distribution function)</strong> для непреревных СВ, часто обозначается буквой <code>p*</code></li>
+<li><strong>квантильная функция (quantile function)</strong>, она же обратная функция накопленной плотности распределения, об этом попозже, часто обозначается буквой <code>q*</code>
+<strong>Функция плотности вероятности (cumulative distribution function; cdf)</strong></li>
+</ul>
+<p>Зачем они нужны?</p>
+<p>Разберемся на примере тестов на IQ.</p>
+<p><strong>Функция плотности вероятности (probability density function)</strong></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="распределения.html#cb31-1"></a>iq &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">150</span>, <span class="fl">0.1</span>)</span>
+<span id="cb31-2"><a href="распределения.html#cb31-2"></a><span class="kw">plot</span>(iq, <span class="kw">dnorm</span>(iq, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><strong>Функция накопленной плотности (cumulative distribution function; cdf)</strong></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="распределения.html#cb32-1"></a><span class="kw">plot</span>(iq, <span class="kw">pnorm</span>(iq, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+
 </div>
 </div>
             </section>
@@ -505,8 +871,8 @@ RANEPA
           </div>
         </div>
       </div>
-<a href="выборка.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="вероятность-и-случайные-величины.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="вероятность-и-случайные-величины.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="меры-центральной-тенденции.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
