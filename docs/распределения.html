@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Распределения | Статистика для анализа данных</title>
+  <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Распределения | Статистика для анализа данных" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Семинарские занятия по статистике для анализа данных" />
+  <meta name="github-repo" content="elenary/StatsForDA" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Распределения | Статистика для анализа данных" />
+  
+  <meta name="twitter:description" content="Семинарские занятия по статистике для анализа данных" />
+  
+
+<meta name="author" content="Елена Рыбина" />
+
+
+<meta name="date" content="2022-10-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="вероятность-и-случайные-величины.html"/>
+<link rel="next" href="меры-центральной-тенденции.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Статистика для анализа данных</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#вероятности-формулировки-и-выводы"><i class="fa fa-check"></i><b>1.1</b> Вероятности, формулировки и выводы</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#применение-статистики"><i class="fa fa-check"></i><b>1.2.1</b> Применение статистики</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#виды-статистики"><i class="fa fa-check"></i><b>1.3</b> Виды статистики</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="выборка.html"><a href="выборка.html"><i class="fa fa-check"></i><b>2</b> Выборка</a><ul>
+<li class="chapter" data-level="2.1" data-path="выборка.html"><a href="выборка.html#выборочные-оценки"><i class="fa fa-check"></i><b>2.1</b> Выборочные оценки</a></li>
+<li class="chapter" data-level="2.2" data-path="выборка.html"><a href="выборка.html#репрезентативность-выборки"><i class="fa fa-check"></i><b>2.2</b> Репрезентативность выборки</a></li>
+<li class="chapter" data-level="2.3" data-path="выборка.html"><a href="выборка.html#зависимые-и-независимые-выборки"><i class="fa fa-check"></i><b>2.3</b> Зависимые и независимые выборки</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="данные-и-типы-шкал.html"><a href="данные-и-типы-шкал.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a><ul>
+<li class="chapter" data-level="3.1" data-path="данные-и-типы-шкал.html"><a href="данные-и-типы-шкал.html#измерение-и-переменная"><i class="fa fa-check"></i><b>3.1</b> Измерение и переменная</a></li>
+<li class="chapter" data-level="3.2" data-path="данные-и-типы-шкал.html"><a href="данные-и-типы-шкал.html#количественные-и-неколичественные-данные"><i class="fa fa-check"></i><b>3.2</b> Количественные и неколичественные данные</a></li>
+<li class="chapter" data-level="3.3" data-path="данные-и-типы-шкал.html"><a href="данные-и-типы-шкал.html#типы-шкал"><i class="fa fa-check"></i><b>3.3</b> Типы шкал</a></li>
+<li class="chapter" data-level="3.4" data-path="данные-и-типы-шкал.html"><a href="данные-и-типы-шкал.html#непрерывные-и-дискретные-данные"><i class="fa fa-check"></i><b>3.4</b> Непрерывные и дискретные данные</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="вероятность-и-случайные-величины.html"><a href="вероятность-и-случайные-величины.html"><i class="fa fa-check"></i><b>4</b> Вероятность и случайные величины</a><ul>
+<li class="chapter" data-level="4.1" data-path="вероятность-и-случайные-величины.html"><a href="вероятность-и-случайные-величины.html#случайная-величина"><i class="fa fa-check"></i><b>4.1</b> Случайная величина</a></li>
+<li class="chapter" data-level="4.2" data-path="вероятность-и-случайные-величины.html"><a href="вероятность-и-случайные-величины.html#вероятность"><i class="fa fa-check"></i><b>4.2</b> Вероятность</a></li>
+<li class="chapter" data-level="4.3" data-path="вероятность-и-случайные-величины.html"><a href="вероятность-и-случайные-величины.html#дискретные-св-и-статистическое-определение-вероятности"><i class="fa fa-check"></i><b>4.3</b> Дискретные СВ и статистическое определение вероятности</a></li>
+<li class="chapter" data-level="4.4" data-path="вероятность-и-случайные-величины.html"><a href="вероятность-и-случайные-величины.html#непрерывные-св-и-геометрическое-определение-вероятности"><i class="fa fa-check"></i><b>4.4</b> Непрерывные СВ и геометрическое определение вероятности</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="распределения.html"><a href="распределения.html"><i class="fa fa-check"></i><b>5</b> Распределения</a><ul>
+<li class="chapter" data-level="5.1" data-path="распределения.html"><a href="распределения.html#функции-распределения"><i class="fa fa-check"></i><b>5.1</b> Функции распределения</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="меры-центральной-тенденции.html"><a href="меры-центральной-тенденции.html"><i class="fa fa-check"></i><b>6</b> Меры центральной тенденции</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Статистика для анализа данных</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="распределения" class="section level1 hasAnchor">
+<h1><span class="header-section-number">5</span> Распределения<a href="распределения.html#распределения" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Что такое распределение? Мы постоянно употребляем это слово.</p>
+<p>Говоря о распределениях, мы имеем в виду <strong>закон распределения случайной величины</strong> – соответствие между возможными значениями этой величины из области ее допустимых значений и: вероятностями этих значений – для дискретной величины, либо плотностью вероятности – для непрерывной величины.</p>
+<p>Законы распределений вероятностей можно вывести совсем не для всех величин! Но так сложилось, что некоторые закономерности, распределения вероятностей мы можем описать формулами, как в физике: сила тяжести (сила, с которой Земля притягивает все теля) прямо пропорциональная массе объекта, взятая с коэффициентом ускорения свободного падения <span class="math inline">\(F = m*g\)</span>. Мы это заметили относительно окружающего мира и вывели закон (не лично мы, а вообще представители планеты Земля). Точно так же и с распределниями: мы заметили, что вероятности распределения некоторых случайных величин подчиняются определенным законам, и записали их. Например, доказано, что непрерывные случайные величины, на которые действует множество случайных факторов (например, рост, вес и тд), распределяются в соответствии с <strong>распределением Гаусса</strong>, оно же – <strong>нормальное распределение</strong>. Его формула:</p>
+<p><span class="math inline">\(P(x) = \frac{e^{-(x - \mu)^{2}/(2\sigma^{2}) }} {\sigma\sqrt{2\pi}}\)</span></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="распределения.html#cb19-1"></a><span class="kw">plot</span>(<span class="kw">dnorm</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>, <span class="dt">mean =</span> <span class="dv">500</span>, <span class="dt">sd =</span> <span class="dv">100</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Или, например, экспоненциальное распределение:</p>
+<p><span class="math inline">\(P(x)= \lambda \times e^{-\lambda x}\)</span></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="распределения.html#cb20-1"></a><span class="kw">plot</span>(<span class="kw">dexp</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dt">rate =</span> <span class="fl">0.1</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+χ2-распределение:</p>
+<p><span class="math inline">\(P(x)= \lambda \times e^{-\lambda x}\)</span></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="распределения.html#cb21-1"></a><span class="kw">plot</span>(<span class="kw">dchisq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>, <span class="dt">df=</span><span class="dv">100</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Или, например, биномиальное распределение:</p>
+<p><span class="math inline">\(P(k | n, p) = \frac{n!}{k!(n-k)!} \times p^k \times (1-p)^{n-k} = {n \choose k} \times p^k \times (1-p)^{n-k}\)</span></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="распределения.html#cb22-1"></a><span class="kw">plot</span>(<span class="kw">dbinom</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dt">size=</span><span class="dv">100</span>, <span class="dt">prob=</span><span class="fl">0.5</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+Посмотреть и ужаснуться можно тут <a href="http://www.math.wm.edu/~leemis/chart/UDR/UDR.html" class="uri">http://www.math.wm.edu/~leemis/chart/UDR/UDR.html</a>. Нам, к счастью, ничего из этого не понадобится.</p>
+<p>Менее пугающая версия <a href="https://www.johndcook.com/blog/distribution_chart/#normal" class="uri">https://www.johndcook.com/blog/distribution_chart/#normal</a></p>
+<p>На примере данных про выгорание:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="распределения.html#cb23-1"></a><span class="kw">kable</span>(burnout)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+teacher_number
+</th>
+<th style="text-align:right;">
+age
+</th>
+<th style="text-align:right;">
+exp_years
+</th>
+<th style="text-align:left;">
+exp_scaled
+</th>
+<th style="text-align:right;">
+burnout_MBI
+</th>
+<th style="text-align:left;">
+univer
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="распределения.html#cb24-1"></a>burnout <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb24-2"><a href="распределения.html#cb24-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>exp_years)) <span class="op">+</span></span>
+<span id="cb24-3"><a href="распределения.html#cb24-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb24-4"><a href="распределения.html#cb24-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="распределения.html#cb25-1"></a>burnout <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb25-2"><a href="распределения.html#cb25-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>age)) <span class="op">+</span></span>
+<span id="cb25-3"><a href="распределения.html#cb25-3"></a><span class="st">  </span><span class="kw">geom_density</span>() <span class="op">+</span></span>
+<span id="cb25-4"><a href="распределения.html#cb25-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<div id="функции-распределения" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.1</span> Функции распределения<a href="распределения.html#функции-распределения" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Выше мы познакомились с плотностью вероятностью, зафиксируем все применимые к вероятности функции, которые бывают полезны:</p>
+<ul>
+<li><strong>функция плотности вероятности (probability density function)</strong> для непрерывных СВ (например, рост, вес) и <strong>функция вероятности (probability mass function)</strong> для дискретных СВ (например, количество заболевших) – самая простая базовая функция, часто обозначается буквой <code>d*</code></li>
+<li><strong>функция накопленной вероятности / плотности вероятности (cumulative distribution function)</strong> для непреревных СВ, часто обозначается буквой <code>p*</code></li>
+<li><strong>квантильная функция (quantile function)</strong>, она же обратная функция накопленной плотности распределения, об этом попозже, часто обозначается буквой <code>q*</code>
+<strong>Функция плотности вероятности (cumulative distribution function; cdf)</strong></li>
+</ul>
+<p>Зачем они нужны?</p>
+<p>Разберемся на примере тестов на IQ.</p>
+<p><strong>Функция плотности вероятности (probability density function)</strong></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="распределения.html#cb26-1"></a>iq &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">150</span>, <span class="fl">0.1</span>)</span>
+<span id="cb26-2"><a href="распределения.html#cb26-2"></a><span class="kw">plot</span>(iq, <span class="kw">dnorm</span>(iq, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><strong>Функция накопленной плотности (cumulative distribution function; cdf)</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="распределения.html#cb27-1"></a><span class="kw">plot</span>(iq, <span class="kw">pnorm</span>(iq, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<!--chapter:end-->
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="вероятность-и-случайные-величины.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="меры-центральной-тенденции.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["StatsForDA.pdf", "StatsForDA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

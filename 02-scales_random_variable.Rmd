@@ -342,3 +342,4 @@ plot(iq, dnorm(iq, mean = 100, sd = 15))
 plot(iq, pnorm(iq, mean = 100, sd = 15))
 ```
 
+<!--chapter:end-->
