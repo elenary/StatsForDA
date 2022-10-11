@@ -18,6 +18,9 @@ library(tidyverse)
 library(kableExtra)
 ```
 
+
+https://forms.gle/sHstspPAeQA2Lf4Q7 
+
 # Статистика и ее место в жизни
 
 ## Вероятности, формулировки и выводы

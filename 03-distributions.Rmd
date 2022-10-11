@@ -51,7 +51,7 @@ burnout %>%
 
 <p align="center"> 
 ```{r}
-knitr::include_graphics("docs/images/Illustration-of-the-skewness-and-kurtosis-values-and-how-they-correlate-with-the-shape-of.png")
+knitr::include_graphics("docs/images/Illustration.jpeg")
 ```
 </p>
 
@@ -86,6 +86,12 @@ sample_data1
 
 ```{r}
 mean(sample_data1)
+```
+
+```{r}
+set.seed(42)
+sample(1:10, 8)
+
 ```
 
 
@@ -182,10 +188,9 @@ ggplot(NULL, aes(asymm_right)) +
   geom_histogram(aes(y = ..density..), alpha =.5, binwidth = .5) +
   geom_density() +
   geom_vline(xintercept = mean(asymm_right), color = colors['Mean']) +
-  geom_vline(xintercept = median(asymm_right), color = colors['Median']) +
-  geom_vline(xintercept = mode(asymm_right), color = colors['Mode']) +
   labs(x = 'Value',
-       y = 'Density')
+       y = 'Density') +
+  theme_minimal()
 ```
 
 
@@ -341,7 +346,13 @@ sd(students$Walc)
 
 <p align="center"> 
 ```{r fig.align = 'center', out.width="60%"}
-knitr::include_graphics("docs/images/Illustration.jpeg")
+knitr::include_graphics("docs/images/Boxplot_vs_PDF.png")
+```
+</p>
+
+<p align="center"> 
+```{r fig.align = 'center', out.width="60%"}
+knitr::include_graphics("docs/images/boxplots_hist.png")
 ```
 </p>
 
