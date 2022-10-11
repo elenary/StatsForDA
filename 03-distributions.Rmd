@@ -50,7 +50,7 @@ burnout %>%
 **"Вытянутость" (kurtosis)** -- показатель, насколько график вытянут вверх или "приплюснут" к оси абсцисс.
 
 <p align="center"> 
-```{r echo= FALSE, fig.align = 'center', out.width="60%"}
+```{r}
 knitr::include_graphics("docs/images/Illustration-of-the-skewness-and-kurtosis-values-and-how-they-correlate-with-the-shape-of.png")
 ```
 </p>
@@ -337,11 +337,13 @@ sd(students$Walc)
 ### Степени свободы
 
 
+## Боксплот и вайолинплот 
 
-
-Ст
-
-## Боксплот
+<p align="center"> 
+```{r fig.align = 'center', out.width="60%"}
+knitr::include_graphics("docs/images/Illustration.jpeg")
+```
+</p>
 
 
 # Центральная предельная теорема
