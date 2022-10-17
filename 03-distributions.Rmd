@@ -216,7 +216,9 @@ students %>%
   mutate("student" = paste0("id", row_number()), .before = "school")  %>% 
   drop_na() %>% 
   mutate(G_mat = rowMeans(dplyr::select(., c(G1_mat, G2_mat, G3_mat))),
-         G_por = rowMeans(dplyr::select(., c(G1_por, G2_por, G3_por)))) -> students
+         G_por = rowMeans(dplyr::select(., c(G1_por, G2_por, G3_por)))) %>% 
+  mutate(ansences_mat_groups = ifelse(absences_mat <=5, "less", ifelse(absences_mat <=15, "middle", "more"))) %>% 
+  mutate(ansences_por_groups = ifelse(absences_por <=5, "less", ifelse(absences_por <=15, "middle", "more"))) -> students-> students
 ```
 
 ```{r}
@@ -227,6 +229,7 @@ students %>%
   ggplot(aes(x=age)) +
   geom_histogram(binwidth = 1) +
   # geom_density(x=age) +
+  # labs(x = 'года') +
   theme_minimal()
 ```
 
@@ -319,7 +322,7 @@ sample_data1
 range(sample_data1)
 ```
 
-**Стандартное отклонение, оно же среднеквадратичное отклонение (standard deviation)** -- это среднее отклонение наблюдений от их среднег означения.
+**Стандартное отклонение, оно же среднеквадратичное отклонение (standard deviation)** -- это среднее отклонение наблюдений от их среднего означения.
 
 Свойства дисперсии.
 
@@ -355,6 +358,17 @@ knitr::include_graphics("docs/images/Boxplot_vs_PDF.png")
 knitr::include_graphics("docs/images/boxplots_hist.png")
 ```
 </p>
+
+
+```{r, eval=TRUE}
+library(viridis)
+students %>% 
+  ggplot(aes(x=ansences_mat_groups, y = G_mat)) +
+  geom_violin(aes(fill = ansences_mat_groups)) +
+  geom_boxplot(aes(fill = ansences_mat_groups), width=.1) +
+  scale_fill_viridis(discrete=TRUE) +
+  theme_minimal()
+```
 
 
 # Центральная предельная теорема
