@@ -38,3 +38,14 @@
 нормальное-распределение
 доверительный-интервал
 график-плотности-вероятности-и-гистограмма
+data-scales
+intro
+sample
+scales
+probability
+random-variable
+distributions
+descriptives
+normdist
+нормальное-распределение-и-его-свойства
+z-преобразование

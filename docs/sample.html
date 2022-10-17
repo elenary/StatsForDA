@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Выборка | Статистика для анализа данных</title>
+  <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Выборка | Статистика для анализа данных" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Семинарские занятия по статистике для анализа данных" />
+  <meta name="github-repo" content="elenary/StatsForDA" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Выборка | Статистика для анализа данных" />
+  
+  <meta name="twitter:description" content="Семинарские занятия по статистике для анализа данных" />
+  
+
+<meta name="author" content="Елена Рыбина" />
+
+
+<meta name="date" content="2022-10-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="data-scales.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Статистика для анализа данных</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#вероятности-формулировки-и-выводы"><i class="fa fa-check"></i><b>1.1</b> Вероятности, формулировки и выводы</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#применение-статистики"><i class="fa fa-check"></i><b>1.2.1</b> Применение статистики</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#виды-статистики"><i class="fa fa-check"></i><b>1.3</b> Виды статистики</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sample.html"><a href="sample.html"><i class="fa fa-check"></i><b>2</b> Выборка</a><ul>
+<li class="chapter" data-level="2.1" data-path="sample.html"><a href="sample.html#выборочные-оценки"><i class="fa fa-check"></i><b>2.1</b> Выборочные оценки</a></li>
+<li class="chapter" data-level="2.2" data-path="sample.html"><a href="sample.html#репрезентативность-выборки"><i class="fa fa-check"></i><b>2.2</b> Репрезентативность выборки</a></li>
+<li class="chapter" data-level="2.3" data-path="sample.html"><a href="sample.html#зависимые-и-независимые-выборки"><i class="fa fa-check"></i><b>2.3</b> Зависимые и независимые выборки</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-scales.html"><a href="data-scales.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-scales.html"><a href="data-scales.html#измерение-и-переменная"><i class="fa fa-check"></i><b>3.1</b> Измерение и переменная</a></li>
+<li class="chapter" data-level="3.2" data-path="data-scales.html"><a href="data-scales.html#количественные-и-неколичественные-данные"><i class="fa fa-check"></i><b>3.2</b> Количественные и неколичественные данные</a></li>
+<li class="chapter" data-level="3.3" data-path="data-scales.html"><a href="data-scales.html#типы-шкал"><i class="fa fa-check"></i><b>3.3</b> Типы шкал</a></li>
+<li class="chapter" data-level="3.4" data-path="data-scales.html"><a href="data-scales.html#непрерывные-и-дискретные-данные"><i class="fa fa-check"></i><b>3.4</b> Непрерывные и дискретные данные</a></li>
+<li class="chapter" data-level="3.5" data-path="data-scales.html"><a href="data-scales.html#случайная-величина"><i class="fa fa-check"></i><b>3.5</b> Случайная величина</a></li>
+<li class="chapter" data-level="3.6" data-path="data-scales.html"><a href="data-scales.html#вероятность"><i class="fa fa-check"></i><b>3.6</b> Вероятность</a></li>
+<li class="chapter" data-level="3.7" data-path="data-scales.html"><a href="data-scales.html#дискретные-св-и-статистическое-определение-вероятности"><i class="fa fa-check"></i><b>3.7</b> Дискретные СВ и статистическое определение вероятности</a></li>
+<li class="chapter" data-level="3.8" data-path="data-scales.html"><a href="data-scales.html#столбчатая-диаграмма"><i class="fa fa-check"></i><b>3.8</b> Столбчатая диаграмма</a></li>
+<li class="chapter" data-level="3.9" data-path="data-scales.html"><a href="data-scales.html#непрерывные-св-и-геометрическое-определение-вероятности"><i class="fa fa-check"></i><b>3.9</b> Непрерывные СВ и геометрическое определение вероятности</a></li>
+<li class="chapter" data-level="3.10" data-path="data-scales.html"><a href="data-scales.html#график-плотности-вероятности-и-гистограмма"><i class="fa fa-check"></i><b>3.10</b> График плотности вероятности и гистограмма</a></li>
+<li class="chapter" data-level="3.11" data-path="data-scales.html"><a href="data-scales.html#виды-распределений"><i class="fa fa-check"></i><b>3.11</b> Виды распределений</a></li>
+<li class="chapter" data-level="3.12" data-path="data-scales.html"><a href="data-scales.html#функции-распределения"><i class="fa fa-check"></i><b>3.12</b> Функции распределения</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="описательная-статистика.html"><a href="описательная-статистика.html"><i class="fa fa-check"></i><b>4</b> Описательная статистика</a><ul>
+<li class="chapter" data-level="4.1" data-path="описательная-статистика.html"><a href="описательная-статистика.html#описательные-визуализации"><i class="fa fa-check"></i><b>4.1</b> Описательные визуализации</a></li>
+<li class="chapter" data-level="4.2" data-path="описательная-статистика.html"><a href="описательная-статистика.html#меры-центральной-тенденции"><i class="fa fa-check"></i><b>4.2</b> Меры центральной тенденции</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="описательная-статистика.html"><a href="описательная-статистика.html#среднее-медиана-мода"><i class="fa fa-check"></i><b>4.2.1</b> Среднее, медиана, мода</a></li>
+<li class="chapter" data-level="4.2.2" data-path="описательная-статистика.html"><a href="описательная-статистика.html#особенности-использования"><i class="fa fa-check"></i><b>4.2.2</b> Особенности использования</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="описательная-статистика.html"><a href="описательная-статистика.html#квантили-квартили-и-перцентили"><i class="fa fa-check"></i><b>4.3</b> Квантили, квартили и перцентили</a></li>
+<li class="chapter" data-level="4.4" data-path="описательная-статистика.html"><a href="описательная-статистика.html#меры-вариативности"><i class="fa fa-check"></i><b>4.4</b> Меры вариативности</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="описательная-статистика.html"><a href="описательная-статистика.html#размах-стандартное-отклонение-и-дисперсия"><i class="fa fa-check"></i><b>4.4.1</b> Размах, стандартное отклонение и дисперсия</a></li>
+<li class="chapter" data-level="4.4.2" data-path="описательная-статистика.html"><a href="описательная-статистика.html#степени-свободы"><i class="fa fa-check"></i><b>4.4.2</b> Степени свободы</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="описательная-статистика.html"><a href="описательная-статистика.html#боксплот-и-вайолинплот"><i class="fa fa-check"></i><b>4.5</b> Боксплот и вайолинплот</a></li>
+<li class="chapter" data-level="4.6" data-path="описательная-статистика.html"><a href="описательная-статистика.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>4.6</b> Стандартное нормальное распределение</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Статистика для анализа данных</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sample" class="section level1 hasAnchor">
+<h1><span class="header-section-number">2</span> Выборка<a href="sample.html#sample" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- Допустим, нас есть какое-то предположение о связи неких психологических конструктов относительно того, как работает психика у людей. Например, о том, что кофеин как-то влияет на такой конструкт, как внимание -- это наша **теоретическая гипотеза**. Чтобы ее проверить, нам нужно провести исследование и уточнить гипотезу на языке этого исследования, сделать ее более конкретной. Например, мы решили провести эксперимент, в котором экспериментальная группа пила 3 кружки кофе в первой половине дня, а контрольная группа пила декофеинизированный кофе. Далее мы делали несколько замеров решения какого-нибудь когнитивного теста на внимание во второй половине дня и смотрели, сколько ошибок допускают экспериментальной и контрольной выборок. десь мы уточнили. И когда мы делаем выводы, мы говорим не о нашей небольшой группе людей, которых мы исследовали – а о всей популяции людей, она называется **генеральной совокупностью**. Почему так можно? -->
+<p>Мы рассмотрели два примера – о влиянии кофеина на внимание и коммуникационного рабочего инструмента на продуктивность. В этих примерах мы предположили, что провели исследование – то есть набрали какое-то количество человек и сделали вывод, как в целом это работает не только у этих человек, а вообще у людей. Почему так происходит? Почему мы можем распространить эти выводы на всех людей, которые теоретически могут пить кофе и воспользоваться этим коммуникационным инструментом? И зачем нам вообще это нужно?</p>
+<img src="docs/images/sample.png" width="80%" style="display: block; margin: auto;" />
+<p align="center">
+<em>Изображение с <a href="https://towardsdatascience.com/" class="uri">https://towardsdatascience.com/</a></em>
+</p>
+<div id="выборочные-оценки" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.1</span> Выборочные оценки<a href="sample.html#выборочные-оценки" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Как мы можем сделать вывод о всех людях в целом? Что мы будем делать, если хотим узнать средний рост людей на всей планете? Будем ли мы измерять каждого человека из почти 8 миллиардов на планете и брать среднее арифметическое?</p>
+<img src="docs/images/height_distribution.png" width="100%" style="display: block; margin: auto;" />
+<p align="center">
+<a href="https://ourworldindata.org/human-height" class="uri">https://ourworldindata.org/human-height</a>
+</p>
+<p><strong>Генеральная совокупность</strong> – множество (или совокупность) всех изучаемых объектов в рамках определенного исследовательского вопроса.</p>
+<p><strong>Выборка</strong> или <strong>выборочная совокупность</strong> – часть генеральной совокупности, отобранная для изучения определенного исследовательского вопроса.</p>
+<p>Когда мы говорим о генеральной совокупности, мы говорим о ее <strong>параметрах</strong>, например, средний рост людей, обозначим его <strong>X</strong>. Мы не можем посчитать его напрямую, поэтому нам приходится прибегать к <strong>выборочным оценкам</strong>, которые часто обозначются той же буквой, что и параметр генеральной совокупности, только “с крышечкой” или “с чертой” <strong>X̅</strong> – выборочное среднее, средний рост людей на конкретной выборке.</p>
+<table>
+<thead>
+<tr class="header">
+<th>.</th>
+<th>Генеральная совокупность</th>
+<th>Выборка</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Размер</td>
+<td>N</td>
+<td>n</td>
+</tr>
+<tr class="even">
+<td>Параметр</td>
+<td>X</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+<p>Итак, когда мы хотим сделать вывод о всех людях из генеральной совокупности – мы проводим исследование на небольшой выборке (в зависимости от метоода исследования необходимый размер выборки может быть от 10 до 1000 чловек) и оцениваем исследуемый параметр генеральной совокупности по выборочным оценкам.</p>
+</div>
+<div id="репрезентативность-выборки" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.2</span> Репрезентативность выборки<a href="sample.html#репрезентативность-выборки" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Важным понятием является <strong>репрезентативность выборки</strong> – способность выборки отражать исследуемый параметр генеральной совокупности.</p>
+<p><em>Одна и та же выборка может быть репрезентативной для одного исследовательского вопроса и не репрезентативной для другого!</em></p>
+<p>Репрезентативность достигается:</p>
+<ul>
+<li><strong>Случайным выбором людей</strong> (берем не каких-то конкретных, которые нам больше нравятся, а случайным образом)</li>
+<li><strong>Объемом выборки</strong> (доказано, что при большом объеме выборки она достаточно представляет генеральную совокупность, чтобы дать ответ об исследуемом параметре)</li>
+</ul>
+<p><strong>Способы формирования репрезентативных выборок</strong></p>
+<ul>
+<li>Простая случайная выборка (simple random samplle)</li>
+<li>Систематическая выборка (systematic sample)</li>
+<li>Кластерная выборка (cluster sample)</li>
+<li>Стратифицированная выборка (stratified sample)</li>
+</ul>
+</div>
+<div id="зависимые-и-независимые-выборки" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.3</span> Зависимые и независимые выборки<a href="sample.html#зависимые-и-независимые-выборки" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Еще одно важное понятие относительно выборок: они могут быть зависимые и независимые.</p>
+<p><strong>Независимые выборки</strong> используются, когда мы сравнениваем между собой группы наблюдений, относящиеся к разным людям (школам / институтам / и тд). Например, в нашем примере с влияением кофеина на внимание мы можем набрать группу людей, которые будут пить по 3 кружки кофе в день, и другую группу – кто будет пить декофеинизированный напиток. Это разные люди, никак не связанные между собой.</p>
+<p>Но если мы бы взяли одно и ту же группу людей, и на одной неделе измеряли их внимание после 3 кружек кофе, а потом <em>на этих же самых людях</em> проверяли, как действует декофеинизированный напиток – это будут уже <strong>зависимые выборки</strong>, так как это все еще те же самые люди.</p>
+<img src="docs/images/samples.png" width="100%" style="display: block; margin: auto;" />
+<p align="center">
+</p>
+<p><strong>Кейс</strong></p>
+<blockquote>
+<p>Некий Никита провел исследование, где они изучал взаимосвязь возраста, преподавательского стажа и профессионального выгорания преподавателей в университетах. Для этого он выбрал несколько университетвов: МГУ, Высшая школа экономики и РАНХиГС. Никита нашел по 10 преподавателей департаметов психологии из каждого вуза в социальной сети ВКонтакте и предлагал им заполнить опросник выгорания Маслач (Maslach Burnout Inventory, MBI). На основании обработанных данных Никита сделал следующие выводы: 1) в России чаще выгорают преподаватели более молодого возраста; 2) чаще выгорают преподаватели с меньшим преподавательским стажем; 3) преподаватели МГУ в целом выгорают меньше, чем преподаватели в ВШЭ. Какие методы набора выборки использовал Никита? Верны ли выводы?</p>
+</blockquote>
+<p><img src="docs/images/2022-09-13%2009.30.13.jpg" width="60%" style="display: block; margin: auto;" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-scales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["StatsForDA.pdf", "StatsForDA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
