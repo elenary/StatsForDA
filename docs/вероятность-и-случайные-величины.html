@@ -161,7 +161,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="вероятность-и-случайные-величины.html"><a href="вероятность-и-случайные-величины.html#дискретные-св-и-статистическое-определение-вероятности"><i class="fa fa-check"></i><b>4.3</b> Дискретные СВ и статистическое определение вероятности</a></li>
 <li class="chapter" data-level="4.4" data-path="вероятность-и-случайные-величины.html"><a href="вероятность-и-случайные-величины.html#столбчатая-диаграмма"><i class="fa fa-check"></i><b>4.4</b> Столбчатая диаграмма</a></li>
 <li class="chapter" data-level="4.5" data-path="вероятность-и-случайные-величины.html"><a href="вероятность-и-случайные-величины.html#непрерывные-св-и-геометрическое-определение-вероятности"><i class="fa fa-check"></i><b>4.5</b> Непрерывные СВ и геометрическое определение вероятности</a></li>
-<li class="chapter" data-level="4.6" data-path="вероятность-и-случайные-величины.html"><a href="вероятность-и-случайные-величины.html#график-плотности-вероятности"><i class="fa fa-check"></i><b>4.6</b> График плотности вероятности</a></li>
+<li class="chapter" data-level="4.6" data-path="вероятность-и-случайные-величины.html"><a href="вероятность-и-случайные-величины.html#график-плотности-вероятности-и-гистограмма"><i class="fa fa-check"></i><b>4.6</b> График плотности вероятности и гистограмма</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="распределения.html"><a href="распределения.html"><i class="fa fa-check"></i><b>5</b> Распределения</a><ul>
 <li class="chapter" data-level="5.1" data-path="распределения.html"><a href="распределения.html#виды-распределений"><i class="fa fa-check"></i><b>5.1</b> Виды распределений</a></li>
@@ -241,9 +241,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-2"><a href="вероятность-и-случайные-величины.html#cb2-2"></a>rolls &lt;-<span class="st"> </span><span class="kw">dice</span>(<span class="dv">20</span>,<span class="dv">1</span>)</span>
 <span id="cb2-3"><a href="вероятность-и-случайные-величины.html#cb2-3"></a><span class="kw">t</span>(rolls)</span></code></pre></div>
 <pre><code>##     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-## Red    3    2    5    5    1    3    1    6    3     2     4     5     1     6
+## Red    2    4    6    1    2    3    4    1    1     6     3     2     4     3
 ##     [,15] [,16] [,17] [,18] [,19] [,20]
-## Red     2     2     6     2     5     2</code></pre>
+## Red     1     1     6     2     3     5</code></pre>
 </div>
 <div id="столбчатая-диаграмма" class="section level2 hasAnchor">
 <h2><span class="header-section-number">4.4</span> Столбчатая диаграмма<a href="вероятность-и-случайные-величины.html#столбчатая-диаграмма" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -251,11 +251,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="вероятность-и-случайные-величины.html#cb4-1"></a><span class="kw">table</span>(rolls)</span></code></pre></div>
 <pre><code>## rolls
 ## 1 2 3 4 5 6 
-## 3 6 3 1 4 3</code></pre>
+## 5 4 4 3 1 3</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="вероятность-и-случайные-величины.html#cb6-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(rolls))</span></code></pre></div>
 <pre><code>## rolls
 ##    1    2    3    4    5    6 
-## 0.15 0.30 0.15 0.05 0.20 0.15</code></pre>
+## 0.25 0.20 0.20 0.15 0.05 0.15</code></pre>
 <p>Можем наглядно посмотреть это на <strong>столбчатой (столбиковой) диаграмме</strong> – графике, отображающем частоты встречаемости событий дискретной переменной.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="вероятность-и-случайные-величины.html#cb8-1"></a>rolls <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb8-2"><a href="вероятность-и-случайные-величины.html#cb8-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Red)) <span class="op">+</span></span>
@@ -280,8 +280,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>В пределе это число равно 0.</p>
 <p>Получается, что мы не можем посчитать математически (статистически), и приходится прибегать к геометрическому определению.</p>
 </div>
-<div id="график-плотности-вероятности" class="section level2 hasAnchor">
-<h2><span class="header-section-number">4.6</span> График плотности вероятности<a href="вероятность-и-случайные-величины.html#график-плотности-вероятности" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="график-плотности-вероятности-и-гистограмма" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.6</span> График плотности вероятности и гистограмма<a href="вероятность-и-случайные-величины.html#график-плотности-вероятности-и-гистограмма" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Построим таблицу и график частот для значений из отрезка.
 Для это сгенерируем набор из 10 случайных чисел в диапазоне [0;1].</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="вероятность-и-случайные-величины.html#cb9-1"></a><span class="kw">set.seed</span>(<span class="dv">42</span>)</span>
