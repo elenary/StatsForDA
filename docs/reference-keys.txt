@@ -38,3 +38,5 @@ probability
 distributions
 normdist
 доверительный-интервал
+ctm
+varm
