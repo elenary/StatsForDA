@@ -179,9 +179,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>5</b> Нормальное распределение</a><ul>
 <li class="chapter" data-level="5.1" data-path="normdist.html"><a href="normdist.html#центральная-предельная-теорема"><i class="fa fa-check"></i><b>5.1</b> Центральная предельная теорема</a></li>
-<li class="chapter" data-level="5.2" data-path="normdist.html"><a href="normdist.html#нормальное-распределение-и-его-свойства"><i class="fa fa-check"></i><b>5.2</b> Нормальное распределение и его свойства</a></li>
-<li class="chapter" data-level="5.3" data-path="normdist.html"><a href="normdist.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>5.3</b> Стандартное нормальное распределение</a></li>
-<li class="chapter" data-level="5.4" data-path="normdist.html"><a href="normdist.html#z-преобразование"><i class="fa fa-check"></i><b>5.4</b> Z-преобразование</a></li>
+<li class="chapter" data-level="5.2" data-path="normdist.html"><a href="normdist.html#стандартная-ошибка-среднего"><i class="fa fa-check"></i><b>5.2</b> Стандартная ошибка среднего</a></li>
+<li class="chapter" data-level="5.3" data-path="normdist.html"><a href="normdist.html#нормальное-распределение-и-его-свойства"><i class="fa fa-check"></i><b>5.3</b> Нормальное распределение и его свойства</a></li>
+<li class="chapter" data-level="5.4" data-path="normdist.html"><a href="normdist.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>5.4</b> Стандартное нормальное распределение</a></li>
+<li class="chapter" data-level="5.5" data-path="normdist.html"><a href="normdist.html#z-преобразование"><i class="fa fa-check"></i><b>5.5</b> Z-преобразование</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="доверительный-интервал.html"><a href="доверительный-интервал.html"><i class="fa fa-check"></i><b>6</b> Доверительный интервал</a></li>
 </ul>
@@ -219,25 +220,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Стандартное отклонение распределение выборочных срених называется <strong>стандартной ошибкой среднего (standard error of the mean (s.e.m. или se)</strong> и вычисляется по формуле <span class="math inline">\(\sigma_{\overline{x}}= \frac{\sigma} {\sqrt{n}}\)</span> или, используя выборочное стандартное отклонение по одной выборке <span class="math inline">\(s_{\overline{x}}= \frac{s} {\sqrt{n}}\)</span></p>
 <p><a href="https://gallery.shinyapps.io/CLT_mean/" class="uri">https://gallery.shinyapps.io/CLT_mean/</a></p>
 </div>
+<div id="стандартная-ошибка-среднего" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.2</span> Стандартная ошибка среднего<a href="normdist.html#стандартная-ошибка-среднего" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math inline">\(\mathrm{se} = \frac{\sigma}{\sqrt{n}} = \frac{sd}{\sqrt{n}}\)</span></p>
+</div>
 <div id="нормальное-распределение-и-его-свойства" class="section level2 hasAnchor">
-<h2><span class="header-section-number">5.2</span> Нормальное распределение и его свойства<a href="normdist.html#нормальное-распределение-и-его-свойства" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.3</span> Нормальное распределение и его свойства<a href="normdist.html#нормальное-распределение-и-его-свойства" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Мы уже обсуждали нормальное распределение, когда говорили про распределения в целом [# Распределения]. Это вероятностный закон, где заданным значениям признака приводится в соответствие вероятность встретить признак с таким значением, выраженный по формуле <span class="math inline">\(P(x) = \frac{e^{-(x - \mu)^{2}/(2\sigma^{2}) }} {\sigma\sqrt{2\pi}}\)</span></p>
-<p>Нормальное распределение интересно нам как минимум потому, что многие признаки, которые мы исследуем, согласно центральной предельной теореме распределены номрально. Помимо этого оно обладает рядом свойств:</p>
+<p>Часто можно увидеть такую запись, обозначающую нормальное распределение: <span class="math inline">\(\sim \mathcal{N}(\mu, \, \sigma^2)\)</span></p>
+<p align="center">
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="normdist.html#cb69-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;docs/images/different_norm_vis-1.png&quot;</span>)</span></code></pre></div>
+<img src="docs/images/different_norm_vis-1.png" width="60%" style="display: block; margin: auto;" />
+</p>
+<p>Нормальное распределение интересно нам как минимум потому, что многие признаки, которые мы исследуем, согласно центральной предельной теореме распределены номрально. Помимо этого <strong>нормальное распределение обладает рядом свойств</strong>:</p>
 <ul>
 <li>симметрично</li>
 <li>унимодально (только одна мода)</li>
 <li>отклонения от среднего подчинаются вероятностному закону: знаем, сколько процентов данных содержится в скольких стандартных отклонения от среднего</li>
 </ul>
 <p align="center">
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="normdist.html#cb69-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;docs/images/Standard_deviation_diagram.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="normdist.html#cb70-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;docs/images/Standard_deviation_diagram.png&quot;</span>)</span></code></pre></div>
 <img src="docs/images/Standard_deviation_diagram.png" width="60%" style="display: block; margin: auto;" />
 </p>
+<ul>
+<li>в пределах одного стандартного отклонения от среднего значения лежит 68% значений — это очень частотные значения;</li>
+<li>в пределах двух стандартных отклонений от среднего значения лежит 95% значений — бо́льшая часть выборки;</li>
+<li>в пределах трех стандартных отклонений от среднего значения лежит практически 100% выборки — то есть вся выборка.</li>
+</ul>
 </div>
 <div id="стандартное-нормальное-распределение" class="section level2 hasAnchor">
-<h2><span class="header-section-number">5.3</span> Стандартное нормальное распределение<a href="normdist.html#стандартное-нормальное-распределение" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.4</span> Стандартное нормальное распределение<a href="normdist.html#стандартное-нормальное-распределение" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p align="center">
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="normdist.html#cb71-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;docs/images/standatr_normrasp.png&quot;</span>)</span></code></pre></div>
+<img src="docs/images/standatr_normrasp.png" width="60%" style="display: block; margin: auto;" />
+</p>
 </div>
 <div id="z-преобразование" class="section level2 hasAnchor">
-<h2><span class="header-section-number">5.4</span> Z-преобразование<a href="normdist.html#z-преобразование" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.5</span> Z-преобразование<a href="normdist.html#z-преобразование" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><span class="math inline">\(z = \frac{x - \bar x}{s}\)</span></p>
 </div>
 </div>
