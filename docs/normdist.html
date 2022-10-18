@@ -206,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="центральная-предельная-теорема" class="section level2 hasAnchor">
 <h2><span class="header-section-number">5.1</span> Центральная предельная теорема<a href="normdist.html#центральная-предельная-теорема" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Центральная предельная теорема</strong> – важное понятие в статистике, применимой к исследованиям в социальных науках. Мы уже выучили, что переменные, с которыми мы работаем – это случайные величины [#random-variable]. Именно этот факт позволяет нам вычислять могие параметры по тем формулам, которые мы используем: если бы мы работали не с случайными величинами, у нас была бы совсем другая статистика (кажется, куда более сложная)!</p>
-<p>В общем виде, ее можно сформулировать так: случайная величина распределеяется нормально.</p>
+<p>В общем виде, ее можно сформулировать так: случайная величина, подверженная влиянию многих факторов, чье значение нельзя предсказать точноо, распределена нормально.</p>
 <p>Из нее есть важное следствие:
 &gt; Если мы проводим много одинаковых исследований, то выборочные средние этих исследований будут распределены нормально.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="normdist.html#cb64-1"></a>samplemeans &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)))</span>
@@ -221,13 +221,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="нормальное-распределение-и-его-свойства" class="section level2 hasAnchor">
 <h2><span class="header-section-number">5.2</span> Нормальное распределение и его свойства<a href="normdist.html#нормальное-распределение-и-его-свойства" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Мы уже обсуждали нормальное распределение, когда говорили про распределения в целом [# Распределения]. Это вероятностный закон, где заданым значениям признака приводится в соответствие вероятность встретить признак с таким значением, выраженный по формуле <span class="math inline">\(P(x) = \frac{e^{-(x - \mu)^{2}/(2\sigma^{2}) }} {\sigma\sqrt{2\pi}}\)</span></p>
+<p>Мы уже обсуждали нормальное распределение, когда говорили про распределения в целом [# Распределения]. Это вероятностный закон, где заданным значениям признака приводится в соответствие вероятность встретить признак с таким значением, выраженный по формуле <span class="math inline">\(P(x) = \frac{e^{-(x - \mu)^{2}/(2\sigma^{2}) }} {\sigma\sqrt{2\pi}}\)</span></p>
+<p>Нормальное распределение интересно нам как минимум потому, что многие признаки, которые мы исследуем, согласно центральной предельной теореме распределены номрально. Помимо этого оно обладает рядом свойств:</p>
+<ul>
+<li>симметрично</li>
+<li>унимодально (только одна мода)</li>
+<li>отклонения от среднего подчинаются вероятностному закону: знаем, сколько процентов данных содержится в скольких стандартных отклонения от среднего</li>
+</ul>
+<p align="center">
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="normdist.html#cb69-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;docs/images/Standard_deviation_diagram.png&quot;</span>)</span></code></pre></div>
+<img src="docs/images/Standard_deviation_diagram.png" width="60%" style="display: block; margin: auto;" />
+</p>
 </div>
 <div id="стандартное-нормальное-распределение" class="section level2 hasAnchor">
 <h2><span class="header-section-number">5.3</span> Стандартное нормальное распределение<a href="normdist.html#стандартное-нормальное-распределение" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
 <div id="z-преобразование" class="section level2 hasAnchor">
 <h2><span class="header-section-number">5.4</span> Z-преобразование<a href="normdist.html#z-преобразование" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math inline">\(z = \frac{x - \bar x}{s}\)</span></p>
 </div>
 </div>
             </section>
