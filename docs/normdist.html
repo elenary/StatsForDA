@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2022-10-18" />
+<meta name="date" content="2022-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,8 +53,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -182,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="normdist.html"><a href="normdist.html#стандартная-ошибка-среднего"><i class="fa fa-check"></i><b>5.2</b> Стандартная ошибка среднего</a></li>
 <li class="chapter" data-level="5.3" data-path="normdist.html"><a href="normdist.html#нормальное-распределение-и-его-свойства"><i class="fa fa-check"></i><b>5.3</b> Нормальное распределение и его свойства</a></li>
 <li class="chapter" data-level="5.4" data-path="normdist.html"><a href="normdist.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>5.4</b> Стандартное нормальное распределение</a></li>
-<li class="chapter" data-level="5.5" data-path="normdist.html"><a href="normdist.html#z-преобразование"><i class="fa fa-check"></i><b>5.5</b> Z-преобразование</a></li>
+<li class="chapter" data-level="5.5" data-path="normdist.html"><a href="normdist.html#z-преобразование-и-стандартизация"><i class="fa fa-check"></i><b>5.5</b> Z-преобразование и стандартизация</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="доверительный-интервал.html"><a href="доверительный-интервал.html"><i class="fa fa-check"></i><b>6</b> Доверительный интервал</a></li>
 </ul>
@@ -210,13 +208,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>В общем виде, ее можно сформулировать так: случайная величина, подверженная влиянию многих факторов, чье значение нельзя предсказать точноо, распределена нормально.</p>
 <p>Из нее есть важное следствие:
 &gt; Если мы проводим много одинаковых исследований, то выборочные средние этих исследований будут распределены нормально.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="normdist.html#cb64-1"></a>samplemeans &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)))</span>
-<span id="cb64-2"><a href="normdist.html#cb64-2"></a><span class="kw">hist</span>(samplemeans, <span class="dt">breaks =</span> <span class="dv">30</span>)</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="normdist.html#cb65-1"></a><span class="kw">mean</span>(samplemeans)</span></code></pre></div>
-<pre><code>## [1] 100.0147</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="normdist.html#cb67-1"></a><span class="kw">sd</span>(samplemeans)</span></code></pre></div>
-<pre><code>## [1] 1.424479</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="normdist.html#cb1-1"></a>samplemeans &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">mean</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)))</span>
+<span id="cb1-2"><a href="normdist.html#cb1-2"></a><span class="kw">hist</span>(samplemeans, <span class="dt">breaks =</span> <span class="dv">30</span>)</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="normdist.html#cb2-1"></a><span class="kw">mean</span>(samplemeans)</span></code></pre></div>
+<pre><code>## [1] 99.95581</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="normdist.html#cb4-1"></a><span class="kw">sd</span>(samplemeans)</span></code></pre></div>
+<pre><code>## [1] 1.492243</code></pre>
 <p>Стандартное отклонение распределение выборочных срених называется <strong>стандартной ошибкой среднего (standard error of the mean (s.e.m. или se)</strong> и вычисляется по формуле <span class="math inline">\(\sigma_{\overline{x}}= \frac{\sigma} {\sqrt{n}}\)</span> или, используя выборочное стандартное отклонение по одной выборке <span class="math inline">\(s_{\overline{x}}= \frac{s} {\sqrt{n}}\)</span></p>
 <p><a href="https://gallery.shinyapps.io/CLT_mean/" class="uri">https://gallery.shinyapps.io/CLT_mean/</a></p>
 </div>
@@ -229,7 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Мы уже обсуждали нормальное распределение, когда говорили про распределения в целом [# Распределения]. Это вероятностный закон, где заданным значениям признака приводится в соответствие вероятность встретить признак с таким значением, выраженный по формуле <span class="math inline">\(P(x) = \frac{e^{-(x - \mu)^{2}/(2\sigma^{2}) }} {\sigma\sqrt{2\pi}}\)</span></p>
 <p>Часто можно увидеть такую запись, обозначающую нормальное распределение: <span class="math inline">\(\sim \mathcal{N}(\mu, \, \sigma^2)\)</span></p>
 <p align="center">
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="normdist.html#cb69-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;docs/images/different_norm_vis-1.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="normdist.html#cb6-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;docs/images/different_norm_vis-1.png&quot;</span>)</span></code></pre></div>
 <img src="docs/images/different_norm_vis-1.png" width="60%" style="display: block; margin: auto;" />
 </p>
 <p>Нормальное распределение интересно нам как минимум потому, что многие признаки, которые мы исследуем, согласно центральной предельной теореме распределены номрально. Помимо этого <strong>нормальное распределение обладает рядом свойств</strong>:</p>
@@ -239,7 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>отклонения от среднего подчинаются вероятностному закону: знаем, сколько процентов данных содержится в скольких стандартных отклонения от среднего</li>
 </ul>
 <p align="center">
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="normdist.html#cb70-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;docs/images/Standard_deviation_diagram.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="normdist.html#cb7-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;docs/images/Standard_deviation_diagram.png&quot;</span>)</span></code></pre></div>
 <img src="docs/images/Standard_deviation_diagram.png" width="60%" style="display: block; margin: auto;" />
 </p>
 <ul>
@@ -251,12 +249,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="стандартное-нормальное-распределение" class="section level2 hasAnchor">
 <h2><span class="header-section-number">5.4</span> Стандартное нормальное распределение<a href="normdist.html#стандартное-нормальное-распределение" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p align="center">
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="normdist.html#cb71-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;docs/images/standatr_normrasp.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="normdist.html#cb8-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;docs/images/standatr_normrasp.png&quot;</span>)</span></code></pre></div>
 <img src="docs/images/standatr_normrasp.png" width="60%" style="display: block; margin: auto;" />
 </p>
 </div>
-<div id="z-преобразование" class="section level2 hasAnchor">
-<h2><span class="header-section-number">5.5</span> Z-преобразование<a href="normdist.html#z-преобразование" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="z-преобразование-и-стандартизация" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.5</span> Z-преобразование и стандартизация<a href="normdist.html#z-преобразование-и-стандартизация" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><span class="math inline">\(z = \frac{x - \bar x}{s}\)</span></p>
 </div>
 </div>
