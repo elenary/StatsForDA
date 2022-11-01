@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Статистический вывод | Статистика для анализа данных</title>
+  <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Статистический вывод | Статистика для анализа данных" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Семинарские занятия по статистике для анализа данных" />
+  <meta name="github-repo" content="elenary/StatsForDA" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Статистический вывод | Статистика для анализа данных" />
+  
+  <meta name="twitter:description" content="Семинарские занятия по статистике для анализа данных" />
+  
+
+<meta name="author" content="Елена Рыбина" />
+
+
+<meta name="date" content="2022-11-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="normdist.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Статистика для анализа данных</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#вероятности-формулировки-и-выводы"><i class="fa fa-check"></i><b>1.1</b> Вероятности, формулировки и выводы</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#применение-статистики"><i class="fa fa-check"></i><b>1.2.1</b> Применение статистики</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#виды-статистики"><i class="fa fa-check"></i><b>1.3</b> Виды статистики</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sample.html"><a href="sample.html"><i class="fa fa-check"></i><b>2</b> Выборка</a><ul>
+<li class="chapter" data-level="2.1" data-path="sample.html"><a href="sample.html#выборочные-оценки"><i class="fa fa-check"></i><b>2.1</b> Выборочные оценки</a></li>
+<li class="chapter" data-level="2.2" data-path="sample.html"><a href="sample.html#репрезентативность-выборки"><i class="fa fa-check"></i><b>2.2</b> Репрезентативность выборки</a></li>
+<li class="chapter" data-level="2.3" data-path="sample.html"><a href="sample.html#зависимые-и-независимые-выборки"><i class="fa fa-check"></i><b>2.3</b> Зависимые и независимые выборки</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a><ul>
+<li class="chapter" data-level="3.1" data-path="scales.html"><a href="scales.html#измерение-и-переменная"><i class="fa fa-check"></i><b>3.1</b> Измерение и переменная</a></li>
+<li class="chapter" data-level="3.2" data-path="scales.html"><a href="scales.html#количественные-и-неколичественные-данные"><i class="fa fa-check"></i><b>3.2</b> Количественные и неколичественные данные</a></li>
+<li class="chapter" data-level="3.3" data-path="scales.html"><a href="scales.html#типы-шкал"><i class="fa fa-check"></i><b>3.3</b> Типы шкал</a></li>
+<li class="chapter" data-level="3.4" data-path="scales.html"><a href="scales.html#непрерывные-и-дискретные-данные"><i class="fa fa-check"></i><b>3.4</b> Непрерывные и дискретные данные</a></li>
+<li class="chapter" data-level="3.5" data-path="scales.html"><a href="scales.html#random-variable"><i class="fa fa-check"></i><b>3.5</b> Случайная величина</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>4</b> Вероятность и случайные величины</a><ul>
+<li class="chapter" data-level="4.1" data-path="scales.html"><a href="scales.html#random-variable"><i class="fa fa-check"></i><b>4.1</b> Случайная величина</a></li>
+<li class="chapter" data-level="4.2" data-path="probability.html"><a href="probability.html#вероятность"><i class="fa fa-check"></i><b>4.2</b> Вероятность</a></li>
+<li class="chapter" data-level="4.3" data-path="probability.html"><a href="probability.html#дискретные-св-и-статистическое-определение-вероятности"><i class="fa fa-check"></i><b>4.3</b> Дискретные СВ и статистическое определение вероятности</a></li>
+<li class="chapter" data-level="4.4" data-path="probability.html"><a href="probability.html#столбчатая-диаграмма"><i class="fa fa-check"></i><b>4.4</b> Столбчатая диаграмма</a></li>
+<li class="chapter" data-level="4.5" data-path="probability.html"><a href="probability.html#непрерывные-св-и-геометрическое-определение-вероятности"><i class="fa fa-check"></i><b>4.5</b> Непрерывные СВ и геометрическое определение вероятности</a></li>
+<li class="chapter" data-level="4.6" data-path="probability.html"><a href="probability.html#график-плотности-вероятности-и-гистограмма"><i class="fa fa-check"></i><b>4.6</b> График плотности вероятности и гистограмма</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Распределения</a><ul>
+<li class="chapter" data-level="5.1" data-path="distributions.html"><a href="distributions.html#виды-распределений"><i class="fa fa-check"></i><b>5.1</b> Виды распределений</a></li>
+<li class="chapter" data-level="5.2" data-path="distributions.html"><a href="distributions.html#функции-распределения"><i class="fa fa-check"></i><b>5.2</b> Функции распределения</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a><ul>
+<li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#описательные-визуализации"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a></li>
+<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="descriptives.html"><a href="descriptives.html#среднее-медиана-мода"><i class="fa fa-check"></i><b>6.2.1</b> Среднее, медиана, мода</a></li>
+<li class="chapter" data-level="6.2.2" data-path="descriptives.html"><a href="descriptives.html#особенности-использования"><i class="fa fa-check"></i><b>6.2.2</b> Особенности использования</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="descriptives.html"><a href="descriptives.html#квантили-квартили-и-перцентили"><i class="fa fa-check"></i><b>6.3</b> Квантили, квартили и перцентили</a></li>
+<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.4</b> Меры вариативности</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="descriptives.html"><a href="descriptives.html#размах-стандартное-отклонение-и-дисперсия"><i class="fa fa-check"></i><b>6.4.1</b> Размах, стандартное отклонение и дисперсия</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="descriptives.html"><a href="descriptives.html#боксплот-и-вайолинплот"><i class="fa fa-check"></i><b>6.5</b> Боксплот и вайолинплот</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение и оценки популяции</a><ul>
+<li class="chapter" data-level="7.1" data-path="normdist.html"><a href="normdist.html#центральная-предельная-теорема"><i class="fa fa-check"></i><b>7.1</b> Центральная предельная теорема</a></li>
+<li class="chapter" data-level="7.2" data-path="normdist.html"><a href="normdist.html#стандартная-ошибка-среднего"><i class="fa fa-check"></i><b>7.2</b> Стандартная ошибка среднего</a></li>
+<li class="chapter" data-level="7.3" data-path="normdist.html"><a href="normdist.html#нормальное-распределение-и-его-свойства"><i class="fa fa-check"></i><b>7.3</b> Нормальное распределение и его свойства</a></li>
+<li class="chapter" data-level="7.4" data-path="normdist.html"><a href="normdist.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>7.4</b> Стандартное нормальное распределение</a></li>
+<li class="chapter" data-level="7.5" data-path="normdist.html"><a href="normdist.html#z-преобразование-и-стандартизация"><i class="fa fa-check"></i><b>7.5</b> Z-преобразование и стандартизация</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="статистический-вывод.html"><a href="статистический-вывод.html"><i class="fa fa-check"></i><b>8</b> Статистический вывод</a><ul>
+<li class="chapter" data-level="8.1" data-path="статистический-вывод.html"><a href="статистический-вывод.html#идея-статистического-тестирования-гипотез-nhst"><i class="fa fa-check"></i><b>8.1</b> Идея статистического тестирования гипотез (NHST)</a></li>
+<li class="chapter" data-level="8.2" data-path="статистический-вывод.html"><a href="статистический-вывод.html#чек-лист-проверки-гипотезы"><i class="fa fa-check"></i><b>8.2</b> Чек-лист проверки гипотезы</a></li>
+<li class="chapter" data-level="8.3" data-path="статистический-вывод.html"><a href="статистический-вывод.html#эмпирические-гипотезы-данные-и-выводы"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы, данные и выводы</a></li>
+<li class="chapter" data-level="8.4" data-path="статистический-вывод.html"><a href="статистический-вывод.html#нулевая-и-альтернативные-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные гипотезы</a></li>
+<li class="chapter" data-level="8.5" data-path="статистический-вывод.html"><a href="статистический-вывод.html#ошибки-первого-и-второго-рода"><i class="fa fa-check"></i><b>8.5</b> Ошибки первого и второго рода</a></li>
+<li class="chapter" data-level="8.6" data-path="статистический-вывод.html"><a href="статистический-вывод.html#выбор-уровня-значимости-и-статистическая-мощности"><i class="fa fa-check"></i><b>8.6</b> Выбор уровня значимости и статистическая мощности</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Статистика для анализа данных</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="статистический-вывод" class="section level1 hasAnchor">
+<h1><span class="header-section-number">8</span> Статистический вывод<a href="статистический-вывод.html#статистический-вывод" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Мы закончили со введением в статистику, обсудили случайные величины и вероятность и научились считать описательные статистики: меры центральной тенденции, куда “тяготеет” центр масс наших данных (среднее, медиана, мода), и меры вариативности, показывающие, как сильно изменяются наши данные от наблюдения к наблюдению (дисперсия, стандартное отклонение, межквартильный размах). Описательные статистики были нужны нам, чтобы описать наши данные, заменить большую непонятную табличку сырых данных на конкретные значения и сделать какие-то или предположения о том, есть ли между ними различия, если мы говорим о выборке из генеральной совокупности, либо какие-то выводы, если наши данные представляют всю генеральную совокупность.</p>
+<p>Помимо описания данных, мы говорили о выборочных оценках – рассчитанных на нашей выборке параметров в попытке оценить эти параметры у генеральной совокупности. Параметры нас, как правило, интересуют те, которые задают распределение признака в популяции. Вспоминаем, что в психологичесуких исследованиях наши признаки чаще всего являются случайными величинами, а значит, по центральной предельной теореме, распределены нормально.</p>
+<p><strong>Оценки, которые мы получали:</strong></p>
+<ul>
+<li>Точечные оценки: выборочное среднее (M, <span class="math inline">\(\overline X\)</span> ) и выборочное стандартное отклонение (s, sd)</li>
+<li>Интервальные оценки: доверительный интервал, в котором с заданной вероятностью находится популяционное среднее: M ± CI. Чаще всего рассматривается 95% или 99% доверительные интервалы.</li>
+</ul>
+<p>Вспомним, что популяционные и выборочные оценки пишутся специально по-разному, чтобы не запутаться, о выборке или генеральной совокупности идет речь:</p>
+<table>
+<thead>
+<tr class="header">
+<th>.</th>
+<th>Генеральная совокупность</th>
+<th>Выборка</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Среднее</td>
+<td><span class="math inline">\(\mu\)</span></td>
+<td>M, <span class="math inline">\(\overline X\)</span></td>
+</tr>
+<tr class="even">
+<td>Стандартное отклонение</td>
+<td><span class="math inline">\(\sigma\)</span></td>
+<td>s, sd</td>
+</tr>
+</tbody>
+</table>
+<p align="center">
+<img src="docs/images/sample-inference.png" width="100%" style="display: block; margin: auto;" />
+</p>
+<p>Вспомним расчет доверительного интервала:</p>
+<blockquote>
+<p>Исследование семейных пар в России (объем выборки составил 100 семейных пар), в которых есть дети подросткового возраста, показало, что те пары, где отец и мать работают полный рабочий день, они проводят со своими детьми в среднем 15 часов свободного времени в неделю. Согласно данным проведенного исследования, стандартное отклонение оказалось равным 4,5 (ч). Можно ли на уровне доверия 0,99 утверждать, что в семьях, в которых работают и отец, и мать, в среднем в течение недели родители проводят с детьми подросткового возраста больше 14 часов?</p>
+</blockquote>
+<div id="идея-статистического-тестирования-гипотез-nhst" class="section level2 hasAnchor">
+<h2><span class="header-section-number">8.1</span> Идея статистического тестирования гипотез (NHST)<a href="статистический-вывод.html#идея-статистического-тестирования-гипотез-nhst" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Мы находим в рамках фреквентистской (частотной) статистики – то есть говорим о частотах и вероятностях. На выборочных оценках одного проведенное исследования мы мало что могли бы сказать: допустим, мы поисследовали 100 семейных пар и посчитали, что среднее время, которое родители проводят с детьми в России, равно 15 часов, но как понять, равно ли среднее в генеральной совокупности так же 15, а не например 18?</p>
+<p>Идея статистического тестирования гипотез (null hypothesis statistical testing) базируется на том, что мы выдвигаем какое-то предположение относительно генеральной совокупности и ее среднего (математического ожидания) и статистически проверяем: если мы будем выбирать много выборок и считать их средние, какова веротность получить такие или более отличающиеся от популяционных выборочные оценки чисто случайным образом, если на самом деле это не так?</p>
+<blockquote>
+<p>Допустим, мы предполагаем, что в мире родители проводят со своими детьми в среднем не 15, а 18 часов свободного времени в неделю. Отличается статически значимо время, которое проводят родители с детьми в России?</p>
+</blockquote>
+<p><span class="math inline">\(\mu\)</span> = 18, M = 15, n = 100, sd = 4.5</p>
+<p>Построим распределение выборочных средних. Мы предположили, что популяционное среднее равно 18, а чему равно стандартное отклонение этого распределения?</p>
+<p>Сначала считаем стандартную ошибку среднего <span class="math inline">\(\mathrm{se} = \frac{\sigma}{\sqrt{n}} = \frac{sd}{\sqrt{n}}\)</span></p>
+<p>Как понять, насколько далеко наше выборочное среднее отклонилось от популяционного в 18?</p>
+<p>Надо посчитать z-оценку!</p>
+<!-- $z = \frac{x - \bar x}{s}$ -->
+<p><a href="https://gallery.shinyapps.io/dist_calc/" class="uri">https://gallery.shinyapps.io/dist_calc/</a></p>
+</div>
+<div id="чек-лист-проверки-гипотезы" class="section level2 hasAnchor">
+<h2><span class="header-section-number">8.2</span> Чек-лист проверки гипотезы<a href="статистический-вывод.html#чек-лист-проверки-гипотезы" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Сформулирована <strong>эмпирическая гипотеза</strong> (гипотеза на языке возможностей того исследования, которое будет проводиться), выделены <strong>зависимая и независимая переменная</strong> и характер исследуемой связи между ними.</li>
+<li>Есть понимание, как будут выглядеть собранные данные.</li>
+<li>Сформулированы <strong>нулевая</strong> <span class="math inline">\(H_0\)</span> и <strong>альтернативная</strong> <span class="math inline">\(H_1\)</span> <strong>гипотезы</strong></li>
+<li>Выбраны <strong>уровень значимости</strong> <span class="math inline">\(\alpha\)</span> (чаще всего α=0.05) и <strong>статистическая мощность</strong> <span class="math inline">\(power = 1-\beta\)</span> (чаще всего power=0.8).</li>
+<li>Выбран <strong>статистический метод</strong> проверки гипотезы (например, t-test, Манна-Уитни тест, ANOVA, тест Краскела-Уоллиса, корреляционный тест, линейная регрессия и т.д.).</li>
+<li>На основании α, power и размера эффекта предыдущих исследований для выбранного статистического метода рассчитан <strong>размер необходимой выборки</strong>.</li>
+<li>Выбрана среда анализа данных, данные предобработаны.</li>
+<li>Для выбранных переменных по отдельности посчитаны <strong>описательные статистики</strong>, переменные визуализированы с помощью гистограммы (histogram) или столбчатой диаграммы (barplot) или графика плотности вероятности (density plot).</li>
+<li>Проведен <strong>статистический тест</strong> выбранным статистическим методом, рассчитаны p-value, ключевая статистика (t-значение, F-значение, R, R2 и т.д) и размер эффекта (Cohen’s d, eta squared и тд).</li>
+<li>Полученные в ходе статистического теста <strong>статистики проинтерпретированы</strong></li>
+<li>На основании полученных статистик <strong>сделаны выводы относительно эмпирической гипотезы</strong>.</li>
+<li>Данные в<strong>изуализированы</strong> иллюстрирующим статистический тест графиком (диаграмма рассеяния с линией тренда, боксплот, вайолин плот и другие).</li>
+</ul>
+</div>
+<div id="эмпирические-гипотезы-данные-и-выводы" class="section level2 hasAnchor">
+<h2><span class="header-section-number">8.3</span> Эмпирические гипотезы, данные и выводы<a href="статистический-вывод.html#эмпирические-гипотезы-данные-и-выводы" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Эмпирические гипотезы</strong> – те, которые мы можем проверить опытным путем. Чтобы правильно их сформулировать, нам надо также определиться с типом эмпирического исследования, которое возможно для проверки наших теоретических гипотез. В психологических исследованиях это чаще всего <strong>эксперимент, квази-эксперимент, корреляционное исследование (и лонгитюдное исследование</strong> как его подвид). Иногдd бывает <strong>case study</strong>, исследование одного конкретного случая, чаще в когнитивной психологии и нейронауках.</p>
+<p>Эмпирические гипотезы сформулированы в проверяемом для нашего исследования виде, то есть переведенные на язык исследования, исходя из наших предполагаемых переменных и их значений.</p>
+<p align="center">
+<img src="docs/images/hypothesis.png" width="100%" style="display: block; margin: auto;" />
+</p>
+<p>Ситуация 1</p>
+<blockquote>
+<p>Предположим, что группа ученых хочет исследовать влияние курения на возникновение ментальных расстройств Какие исследования можно провести для исследования этого вопроса?</p>
+</blockquote>
+<p>Ситуация 2</p>
+<blockquote>
+<p>Предположим, __ вызывает __</p>
+</blockquote>
+<p>Ситуация 3</p>
+<blockquote>
+<p>Предположим, что перед выборам в государственную думу группа социологов проводит опрос общественного мнения с целью выявления предпочтений к кандидатам. Для этого операторы колл-центра обзванивали телефонные номера, выбранные случайным образом из справочника телефонов Москвы, по принципу “каждый десятый номер”. Обзвон продолжался в течение недели в рабочее время операторов колл-центра с 10 до 18.</p>
+</blockquote>
+<p>Как сделать правильный вывод?</p>
+<ul>
+<li>Сформулировать осмысленную проверяемую ипотезу</li>
+<li>Подобрать репрезентативную выборку</li>
+<li>Собрать на ней качественные (хорошие) данные</li>
+<li>Обработать данные в соответствии с алгоритмом качественной обработки</li>
+</ul>
+<p><em>Garbage in, garbage out (GIGO).</em></p>
+<p align="center">
+<img src="docs/images/garbage.jpg" width="100%" style="display: block; margin: auto;" />
+</p>
+</div>
+<div id="нулевая-и-альтернативные-гипотезы" class="section level2 hasAnchor">
+<h2><span class="header-section-number">8.4</span> Нулевая и альтернативные гипотезы<a href="статистический-вывод.html#нулевая-и-альтернативные-гипотезы" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="ошибки-первого-и-второго-рода" class="section level2 hasAnchor">
+<h2><span class="header-section-number">8.5</span> Ошибки первого и второго рода<a href="статистический-вывод.html#ошибки-первого-и-второго-рода" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Уровень значимости <span class="math inline">\(\alpha\)</span> и статистическая мощность <span class="math inline">\(power = 1-\beta\)</span> – это два из самых важных параметров в тестировании гипотез. Эти понятия задают вероятностные рамки, в которых мы будем проводить тест. Первая рамка – это вероятность получить значимый результат (значимые различия между группами или связь между переменными), если его на самом нет в генеральной совокупности – ложноположительный результат, false positive, она же ошибка первого рода <span class="math inline">\(\alpha\)</span>.</p>
+<p align="center">
+<img src="docs/images/errors_types.jpg" width="100%" style="display: block; margin: auto;" />
+</p>
+<p>Вторая рамка – вероятность получить незначимый результат, если его на самом деле он есть в генеральной совокупности – ложноотрицательный результат, false negative, она же ошибка второго рода <span class="math inline">\(\beta\)</span>.</p>
+<p align="center">
+<img src="docs/images/errors.jpg" width="100%" style="display: block; margin: auto;" />
+</p>
+</div>
+<div id="выбор-уровня-значимости-и-статистическая-мощности" class="section level2 hasAnchor">
+<h2><span class="header-section-number">8.6</span> Выбор уровня значимости и статистическая мощности<a href="статистический-вывод.html#выбор-уровня-значимости-и-статистическая-мощности" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Уровень значимости <span class="math inline">\(\alpha\)</span> мы задаем сами (!). А вероятность, при которой в генеральной совокупности на самом деле есть разница между группами или связь, но мы не получили ее на наших данных – это β - статистическая мощность теста.</p>
+<p>Уровень значимости<br />
+α
+– это уровень вероятности, при достижении которого мы будем считать, что нулевая гипотеза<br />
+H
+0
+подтвердилась, и значимых различий или связи между переменными нет. Это просто значение из пространства вероятностей получить значимый результат (различия или связь) случайным образом, при условии, что его на самом деле нет в генеральноой совокупности. Психологи просто выбрали значение<br />
+α
+=
+0.05
+и решили, что 5% ложноположительных результатов в психологии – подходящий вариант (сейчас идет большая дискуссия, так ли это). А если мы возьмем, например, физику элементарных частиц, то здесь речь об открытии новой частиц идет только на уровне<br />
+α
+=
+0.000001
+!</p>
+<p>Уровень статистической мощности (statistical power) – это положительная метрика, уровень вероятности, при которой мы гарантируем, что если различия между группами или связь между переменными есть в генеральной совокупности, то мы сможем найти ее на наших данных при помощи нашего статистического теста. Если смотреть на таблицу ошибок первого и второго, статистическая мощность это<br />
+1
+−
+β
+, то есть обратная величина к вероятности ошибки второго рода, не найти значимый эффект, если он есть<br />
+β
+(статистическая мощность и вероятность ошибки второго рода – противоположные понятия, в суммме эти вероятности дают 1). В психологии конвенционально сложилось, что чаще всего статистическую мощность принимают на уровне<br />
+p
+o
+w
+e
+r
+=
+0.8</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="normdist.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["StatsForDA.pdf", "StatsForDA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
