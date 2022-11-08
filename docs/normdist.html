@@ -199,11 +199,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="inference.html"><a href="inference.html#нулевая-и-альтернативные-статистические-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные статистические гипотезы</a><ul>
 <li class="chapter" data-level="8.4.1" data-path="inference.html"><a href="inference.html#направленные-и-ненаправленные-гипотезы"><i class="fa fa-check"></i><b>8.4.1</b> Направленные и ненаправленные гипотезы</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="inference.html"><a href="inference.html#ошибки-первого-и-второго-рода"><i class="fa fa-check"></i><b>8.5</b> Ошибки первого и второго рода</a></li>
-<li class="chapter" data-level="8.6" data-path="inference.html"><a href="inference.html#уровень-значимости-и-статистическая-мощность"><i class="fa fa-check"></i><b>8.6</b> Уровень значимости и статистическая мощность</a></li>
-<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#выбор-статистического-критерия"><i class="fa fa-check"></i><b>8.7</b> Выбор статистического критерия</a></li>
-<li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#размер-выборки"><i class="fa fa-check"></i><b>8.8</b> Размер выборки</a></li>
-<li class="chapter" data-level="8.9" data-path="inference.html"><a href="inference.html#расчет-статического-критерия-и-проверка-значимости"><i class="fa fa-check"></i><b>8.9</b> Расчет статического критерия и проверка значимости</a></li>
+<li class="chapter" data-level="8.5" data-path="inference.html"><a href="inference.html#уровень-значимости-и-статистическая-мощность"><i class="fa fa-check"></i><b>8.5</b> Уровень значимости и статистическая мощность</a></li>
+<li class="chapter" data-level="8.6" data-path="inference.html"><a href="inference.html#выбор-статистического-критерия"><i class="fa fa-check"></i><b>8.6</b> Выбор статистического критерия</a></li>
+<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#размер-выборки"><i class="fa fa-check"></i><b>8.7</b> Размер выборки</a></li>
+<li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#расчет-статического-критерия-и-проверка-значимости"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости</a></li>
 </ul></li>
 </ul>
 
@@ -235,9 +234,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 &gt; Если мы проводим много одинаковых исследований, то выборочные средние этих исследований будут распределены нормально.</p>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="normdist.html#cb1-1"></a><span class="kw">mean</span>(means_from_samples)</span></code></pre></div>
-<pre><code>## [1] 99.88689</code></pre>
+<pre><code>## [1] 100.0913</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="normdist.html#cb3-1"></a><span class="kw">sd</span>(means_from_samples)</span></code></pre></div>
-<pre><code>## [1] 1.484114</code></pre>
+<pre><code>## [1] 1.467077</code></pre>
 <p>Стандартное отклонение распределение выборочных срених называется <strong>стандартной ошибкой среднего (standard error of the mean (s.e.m. или se)</strong> и вычисляется по формуле <span class="math inline">\(\sigma_{\overline{x}}= \frac{\sigma} {\sqrt{n}}\)</span> или, используя выборочное стандартное отклонение по одной выборке <span class="math inline">\(s_{\overline{x}}= \frac{s} {\sqrt{n}}\)</span></p>
 <p>Визуализация принципов работы
 <a href="https://gallery.shinyapps.io/CLT_mean/" class="uri">https://gallery.shinyapps.io/CLT_mean/</a></p>
