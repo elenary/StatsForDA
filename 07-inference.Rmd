@@ -342,7 +342,7 @@ ANOVA | $\eta^2, \omega^2$ | 0.01 | 0.06 | 0.14
 
 "Calculating and reporting effect sizes to facilitate cumulative science: a practical primer for t-tests and ANOVAs" https://www.frontiersin.org/articles/10.3389/fpsyg.2013.00863/full 
 
-**Размер эффекта, уровень значимости $\alpha$, статистическая мощность и размер выборки -- связанные параметры. Зная 3 их них, всегда можно вычислить четвертый!** и размер выборки -- связанные параметры. Зная 3 их них, всегда можно вычислить четвертый!
+**Размер эффекта, уровень значимости $\alpha$, статистическая мощность и размер выборки -- связанные параметры. Зная 3 их них, всегда можно вычислить четвертый!** 
 
 <p align="center"> 
 ```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="80%"}
