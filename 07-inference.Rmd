@@ -381,13 +381,18 @@ knitr::include_graphics("docs/images/pvalue_dist_2.png")
 
 Для того, чтобы детально поразбираться в нюансах размера эффекта и выборки, можно пройти курс Лакенса https://www.coursera.org/learn/statistical-inferences (кажется, теперь только с vpn)
 
-
+<div>
+<details>
+<summary>*Мем про статистически вывод*</summary>
 <p align="center"> 
-```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="80%"}
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="100%"}
 knitr::include_graphics("docs/images/meme_effsize.png")
 ```
 Мем из Когнитивного патимейкера
 </p>
+
+</details>
+</div>
 
 ## Расчет статического критерия и проверка значимости
 
