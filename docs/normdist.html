@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2022-11-08" />
+<meta name="date" content="2022-11-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -181,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение и оценки</a><ul>
 <li class="chapter" data-level="7.1" data-path="normdist.html"><a href="normdist.html#ctt"><i class="fa fa-check"></i><b>7.1</b> Центральная предельная теорема</a></li>
-<li class="chapter" data-level="7.2" data-path="normdist.html"><a href="normdist.html#стандартная-ошибка-среднего"><i class="fa fa-check"></i><b>7.2</b> Стандартная ошибка среднего</a></li>
+<li class="chapter" data-level="7.2" data-path="normdist.html"><a href="normdist.html#стандартная-ошибка-среднего-standart_error"><i class="fa fa-check"></i><b>7.2</b> Стандартная ошибка среднего (#standart_error)</a></li>
 <li class="chapter" data-level="7.3" data-path="normdist.html"><a href="normdist.html#нормальное-распределение-и-его-свойства"><i class="fa fa-check"></i><b>7.3</b> Нормальное распределение и его свойства</a></li>
 <li class="chapter" data-level="7.4" data-path="normdist.html"><a href="normdist.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>7.4</b> Стандартное нормальное распределение</a></li>
 <li class="chapter" data-level="7.5" data-path="normdist.html"><a href="normdist.html#z-преобразование-и-стандартизация"><i class="fa fa-check"></i><b>7.5</b> Z-преобразование и стандартизация</a></li>
@@ -189,7 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>8</b> Статистический вывод</a><ul>
 <li class="chapter" data-level="8.1" data-path="inference.html"><a href="inference.html#идея-статистического-вывода"><i class="fa fa-check"></i><b>8.1</b> Идея статистического вывода</a></li>
-<li class="chapter" data-level="8.2" data-path="inference.html"><a href="inference.html#nhst-чек-лист-проверки-гипотезы"><i class="fa fa-check"></i><b>8.2</b> NHST: чек-лист проверки гипотезы</a></li>
+<li class="chapter" data-level="8.2" data-path="inference.html"><a href="inference.html#nhst-алгоритм-проверки-гипотезы-и-анализа-данных"><i class="fa fa-check"></i><b>8.2</b> NHST: алгоритм проверки гипотезы и анализа данных</a></li>
 <li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a><ul>
 <li class="chapter" data-level="8.3.1" data-path="inference.html"><a href="inference.html#эмпирические-методы"><i class="fa fa-check"></i><b>8.3.1</b> Эмпирические методы</a></li>
 <li class="chapter" data-level="8.3.2" data-path="inference.html"><a href="inference.html#зависимые-и-независимые-переменные"><i class="fa fa-check"></i><b>8.3.2</b> Зависимые и независимые переменные</a></li>
@@ -203,6 +203,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.6" data-path="inference.html"><a href="inference.html#выбор-статистического-критерия"><i class="fa fa-check"></i><b>8.6</b> Выбор статистического критерия</a></li>
 <li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#размер-выборки"><i class="fa fa-check"></i><b>8.7</b> Размер выборки</a></li>
 <li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#расчет-статического-критерия-и-проверка-значимости"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a><ul>
+<li class="chapter" data-level="9.1" data-path="stats_criteria.html"><a href="stats_criteria.html#ключевые-статистики-критериев"><i class="fa fa-check"></i><b>9.1</b> Ключевые статистики критериев</a></li>
+<li class="chapter" data-level="9.2" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.2</b> Выбор статистического критерия</a></li>
 </ul></li>
 </ul>
 
@@ -234,15 +238,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 &gt; Если мы проводим много одинаковых исследований, то выборочные средние этих исследований будут распределены нормально.</p>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="normdist.html#cb1-1"></a><span class="kw">mean</span>(means_from_samples)</span></code></pre></div>
-<pre><code>## [1] 100.0913</code></pre>
+<pre><code>## [1] 100.0379</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="normdist.html#cb3-1"></a><span class="kw">sd</span>(means_from_samples)</span></code></pre></div>
-<pre><code>## [1] 1.467077</code></pre>
+<pre><code>## [1] 1.49215</code></pre>
 <p>Стандартное отклонение распределение выборочных срених называется <strong>стандартной ошибкой среднего (standard error of the mean (s.e.m. или se)</strong> и вычисляется по формуле <span class="math inline">\(\sigma_{\overline{x}}= \frac{\sigma} {\sqrt{n}}\)</span> или, используя выборочное стандартное отклонение по одной выборке <span class="math inline">\(s_{\overline{x}}= \frac{s} {\sqrt{n}}\)</span></p>
 <p>Визуализация принципов работы
 <a href="https://gallery.shinyapps.io/CLT_mean/" class="uri">https://gallery.shinyapps.io/CLT_mean/</a></p>
 </div>
-<div id="стандартная-ошибка-среднего" class="section level2 hasAnchor">
-<h2><span class="header-section-number">7.2</span> Стандартная ошибка среднего<a href="normdist.html#стандартная-ошибка-среднего" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="стандартная-ошибка-среднего-standart_error" class="section level2 hasAnchor">
+<h2><span class="header-section-number">7.2</span> Стандартная ошибка среднего (#standart_error)<a href="normdist.html#стандартная-ошибка-среднего-standart_error" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><span class="math inline">\(se = \frac{\sigma}{\sqrt{n}} = \frac{sd}{\sqrt{n}}\)</span></p>
 </div>
 <div id="нормальное-распределение-и-его-свойства" class="section level2 hasAnchor">

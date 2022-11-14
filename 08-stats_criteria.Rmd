@@ -1,0 +1,42 @@
+#  Статистические критерии {#stats_criteria} 
+
+```{r, eval=TRUE, echo = FALSE, message = FALSE}
+library(tidyverse)
+library(kableExtra)
+studens_mat <- read_csv("student-mat.csv") %>% 
+  rename_with(., ~ paste0(., "_mat"), .cols = c(absences, paid, G1, G2, G3)) -> studens_mat 
+studens_por <- read_csv("student-por.csv") %>% 
+  rename_with(., ~ paste0(., "_por"), .cols = c(absences, paid, G1, G2, G3)) -> studens_por
+studens_mat %>% 
+  full_join(studens_por, by = c("school","sex","age","address","famsize","Pstatus","Medu","Fedu",
+                             "Mjob","Fjob","reason", "guardian", "traveltime","studytime", "failures", "schoolsup", "famsup",
+                             "activities", "nursery", "higher", "internet", "romantic", "famrel", "freetime", "goout", 
+                             "Dalc", "Walc", "health")) -> students 
+
+students %>% 
+  mutate("student" = paste0("id", row_number()), .before = "school")  %>% 
+  drop_na() %>% 
+  mutate(G_mat = rowMeans(dplyr::select(., c(G1_mat, G2_mat, G3_mat))),
+         G_por = rowMeans(dplyr::select(., c(G1_por, G2_por, G3_por)))) %>% 
+  mutate(ansences_mat_groups = ifelse(absences_mat <=5, "less", ifelse(absences_mat <=15, "middle", "more"))) %>% 
+  mutate(ansences_por_groups = ifelse(absences_por <=5, "less", ifelse(absences_por <=15, "middle", "more"))) -> students-> students
+```
+
+## Ключевые статистики критериев
+
+https://gallery.shinyapps.io/dist_calc/ 
+
+## Выбор статистического критерия 
+
+**Вопросы, которые влияют на принятие решения относительно статистического теста:**
+
+1. Зависимая переменная непрерывная (интервальная шкала или шкала отношений) или категориальная / дискретная (номинативная или порядковая шкала)?
+2. Если ЗП непрерывная -- она описывается параметрическим (чаще всего нормальным) распределением? *(определяется чаще "на глаз" по графику плотности вероятности или QQ-графиками, тесты на нормальность почти всегда будут давать негативный результат из-за чувствительности и поэтому в современном анализе данных используются мало)*
+3. Сколько независимых переменных?
+4. НП непрерывные (интервальная и шкала отношений) или категориальные / дискретные (номинативная и порядковая)?
+5. Если НП категориальные и мы сравниваем группы -- данные в группах зависимы или нет? Если нет, как сильно отличаются данные в группах, можем ли сказать, что дисперсия ЗП примерно одинакова в группах или нет? (*равенство дисперсий называется Homogeneity of Variance, проверяется с помощью Levene's test*)
+
+Есть большое количество схем, но обычно они сильно перегруженны и сложны в использовании, больше путают, чем помогают. 
+
+Но я зачем-то все равно решила попробовать нарисовать свою, и вот результат:
+<https://miro.com/app/board/uXjVOxmKhr8=/?share_link_id=245423331470>
