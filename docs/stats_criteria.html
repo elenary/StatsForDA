@@ -204,7 +204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.5" data-path="inference.html"><a href="inference.html#уровень-значимости-и-статистическая-мощность"><i class="fa fa-check"></i><b>8.5</b> Уровень значимости и статистическая мощность</a></li>
 <li class="chapter" data-level="8.6" data-path="inference.html"><a href="inference.html#выбор-статистического-критерия"><i class="fa fa-check"></i><b>8.6</b> Выбор статистического критерия</a></li>
 <li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#размер-выборки-sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки (#sample_size)</a></li>
-<li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#расчет-статического-критерия-и-проверка-значимости"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости</a></li>
+<li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#расчет-статического-критерия-и-проверка-значимости-stat_test_example"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости (#stat_test_example)</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a><ul>
 <li class="chapter" data-level="9.0.1" data-path="stats_criteria.html"><a href="stats_criteria.html#степени-свободы"><i class="fa fa-check"></i><b>9.0.1</b> Степени свободы</a></li>
@@ -212,7 +212,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.1.1" data-path="stats_criteria.html"><a href="stats_criteria.html#статистики-z-t-f"><i class="fa fa-check"></i><b>9.1.1</b> Статистики (Z, T, F)</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.2</b> Выбор статистического критерия</a></li>
-<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#t-тест-сравнение-средних-двух-групп"><i class="fa fa-check"></i><b>9.3</b> T-тест (сравнение средних двух групп)</a></li>
+<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#t-тест-сравнение-средних-двух-групп"><i class="fa fa-check"></i><b>9.3</b> T-тест (сравнение средних двух групп)</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="stats_criteria.html"><a href="stats_criteria.html#допущения-для-т-теста"><i class="fa fa-check"></i><b>9.3.1</b> Допущения для т-теста</a></li>
+<li class="chapter" data-level="9.3.2" data-path="stats_criteria.html"><a href="stats_criteria.html#зависимые-и-независимые-выборки-1"><i class="fa fa-check"></i><b>9.3.2</b> Зависимые и независимые выборки</a></li>
+<li class="chapter" data-level="9.3.3" data-path="stats_criteria.html"><a href="stats_criteria.html#вычисление-т-теста"><i class="fa fa-check"></i><b>9.3.3</b> Вычисление т-теста</a></li>
+</ul></li>
 <li class="chapter" data-level="9.4" data-path="stats_criteria.html"><a href="stats_criteria.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>9.4</b> ANOVA (дисперсионный анализ)</a></li>
 </ul></li>
 </ul>
@@ -234,19 +238,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="stats_criteria" class="section level1 hasAnchor">
 <h1><span class="header-section-number">9</span> Статистические критерии<a href="stats_criteria.html#stats_criteria" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="stats_criteria.html#cb1-1"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb1-2"><a href="stats_criteria.html#cb1-2"></a><span class="st">  </span><span class="kw">write_csv</span>(<span class="dt">file =</span> <span class="st">&quot;students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="stats_criteria.html#cb1-1"></a><span class="co"># students %&gt;% </span></span>
+<span id="cb1-2"><a href="stats_criteria.html#cb1-2"></a><span class="co">#   write_csv(file = &quot;students.csv&quot;)</span></span></code></pre></div>
 <p>Статистическим критерием называется правило, по которому мы будем пытаться отвергнуть нулевую гипотезу. Разным гипотезам и данным подходят разные критерии.</p>
 <p>Статистический критерий включает:</p>
 <ul>
-<li>Теоретическое распределение, на котором мы будем располагать сравниваемые средние</li>
-<li>Формулу, которым задается это распределение, по которому мы будем рассчитывать искомое значение критерия (как уже рассчитывали <span class="math inline">\(Z_{Mмаленькие}\)</span>)</li>
+<li>Теоретическое распределение, на котором мы будем располагать сравниваемые средние: вид кривой и математическая формула этого вероятностного закона</li>
+<li>Формулу, по которому мы будем рассчитывать искомое значение критерия (как уже рассчитывали <span class="math inline">\(Z_{Mмаленькие}\)</span>) исходя из наших данных на выборке</li>
 <li>Соответствие рассчитанного значения и процентов расположенных данных до этого значения на распределении</li>
-<li>Формулу для рассчета числа степеней свобооды</li>
+<li>Формулу для рассчета числа степеней свобооды для этого критерия</li>
 </ul>
 <div id="степени-свободы" class="section level3 hasAnchor">
 <h3><span class="header-section-number">9.0.1</span> Степени свободы<a href="stats_criteria.html#степени-свободы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Число степененй свободы (Degrees of Freedom, df) – количество направления для изменения признака. Формула для расчета степеней свободы своя для каждого статистического критерия (нам не нужно рассчитывать самостоятельно) и зависит, собственно, от вида статистического критерия, дизайна нашего исследования (сколько сравнений мы проводим) и числа наблюдений в выборке.</p>
+<p>Для t-критерия число степеней свободы высчитывается очень просто: <span class="math inline">\(df = n_1 -1 + n_2 - 1 = n_1 + n_2 - 2\)</span></p>
 </div>
 <div id="ключевые-статистики-критериев" class="section level2 hasAnchor">
 <h2><span class="header-section-number">9.1</span> Ключевые статистики критериев<a href="stats_criteria.html#ключевые-статистики-критериев" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -254,6 +259,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">9.1.1</span> Статистики (Z, T, F)<a href="stats_criteria.html#статистики-z-t-f" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Z-распределение</strong></p>
 <p>В прошлый раз мы рассмотрели пример, когда сравнивали среднее время, которое проводят родители с детьми, в больших и маленьких городах, и сравнивали эти значения на примере [Z-распределения] {stat_test_example): мы получали Z-статистику и находили соответствующий распределению Z-оценок процент данных для найденной точки.</p>
+<p align="center">
+<img src="docs/images/z_dist.png" width="100%" style="display: block; margin: auto;" />
+</p>
 <p><span class="math inline">\(Z = \frac{M - \mu}{\frac{\sigma}{\sqrt{n}}} = \frac{M - \mu}{\frac{sd}{\sqrt{n}}}\)</span></p>
 <p>Это самый простой вариант критерия для проверки статистических гипотез – но не единственный. На самом деле, в качестве распределения, на которое мы помещаем точки (средние) и сравниваем их друг с другом, могут быть и другие, в зависимости от характера наших данных. Рассмотрим основные из них.</p>
 <p><a href="https://gallery.shinyapps.io/dist_calc/" class="uri">https://gallery.shinyapps.io/dist_calc/</a></p>
@@ -262,9 +270,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="docs/images/t-dist.png" width="100%" style="display: block; margin: auto;" />
 </p>
 <p>Как мы видим, оно очень похоже на Z-распределение, но у него чуть более приподнятые хвосты.</p>
+<p>Формула, которой задается вероятностный закон Т-распределения Стьюдента:</p>
+<p align="center">
+<img src="docs/images/t-dist-pdf.png" width="100%" style="display: block; margin: auto;" />
+</p>
 <p>Негласно считается, что при объеме выборки от n=30 t-распределение считается близким к Z-распределению, которе является нормальным, и можем использовать его. Но в реальности это не совсем так.</p>
+<p>Формула для расчета T-значения исходя из наших данных:</p>
 <p><span class="math inline">\(t = \frac{M_1 - M_2}{\frac{sd_{1;2}}{\sqrt{n_{1;2}}}} = \frac{M_1 - M_2}{\sqrt{\frac{sd_1^2}{n_1} + \frac{sd_2^2}{n_2}}}\)</span></p>
 <p><strong>F-распределение</strong></p>
+<p align="center">
+<img src="docs/images/F-dist.png" width="100%" style="display: block; margin: auto;" />
+</p>
 <p><span class="math inline">\(\chi^2\)</span><strong>-распределение</strong></p>
 </div>
 </div>
@@ -272,7 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.2</span> Выбор статистического критерия<a href="stats_criteria.html#выбор-статистического-критерия-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Вопросы, которые влияют на принятие решения относительно статистического теста:</strong></p>
 <ol style="list-style-type: decimal">
-<li>Зависимая переменная количественная (интервальная шкала или шкала отношений) или категориальная (номинативная или порядковая шкала)?</li>
+<li>Зависимая переменная: количественная (интервальная шкала или шкала отношений) или категориальная (номинативная или порядковая шкала)?</li>
 <li>Если ЗП количественная – она описывается параметрическим (чаще всего нормальным) распределением? <em>(определяется чаще “на глаз” по графику плотности вероятности или QQ-графиками, тесты на нормальность почти всегда будут давать негативный результат из-за чувствительности и поэтому в современном анализе данных используются мало)</em></li>
 <li>Сколько независимых переменных?</li>
 <li>НП количественные (интервальная и шкала отношений) или категориальные (номинативная и порядковая)?</li>
@@ -418,10 +434,10 @@ G_mat
 G_por
 </th>
 <th style="text-align:left;">
-ansences_mat_groups
+absences_mat_groups
 </th>
 <th style="text-align:left;">
-ansences_por_groups
+absences_por_groups
 </th>
 </tr>
 </thead>
@@ -1739,7 +1755,53 @@ less
 </tbody>
 </table>
 </div>
-<p>Первый вопроос мы подробноо разбирали в прошлый раз. Сейчас остановимся на третьем, который уже затрагивали</p>
+<p>Первый вопроос мы подробно разбирали в прошлый раз. Сейчас остановимся на третьем, который уже затрагивали.</p>
+<p>Пройдем по алгоритму выбора статистического теста: <a href="https://miro.com/app/board/uXjVOxmKhr8=/?share_link_id=245423331470" class="uri">https://miro.com/app/board/uXjVOxmKhr8=/?share_link_id=245423331470</a></p>
+<p>Помимо осноовных отраженных ответвлений, для каждого критерия еще существует ряд допущений.</p>
+<div id="допущения-для-т-теста" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.3.1</span> Допущения для т-теста<a href="stats_criteria.html#допущения-для-т-теста" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Данные распределены нормально (или, если измеряемый признак является случайной велиичной, в группах больше 30 наблюдений) ()</li>
+<li>Дисперсии гомогенны</li>
+</ol>
+</div>
+<div id="зависимые-и-независимые-выборки-1" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.3.2</span> Зависимые и независимые выборки<a href="stats_criteria.html#зависимые-и-независимые-выборки-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="вычисление-т-теста" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.3.3</span> Вычисление т-теста<a href="stats_criteria.html#вычисление-т-теста" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Средний балл и стандартное отклонение в группах тех, кто прогуливает меньше всего (на паре мы назвали их прихожанами):</p>
+<pre><code>## # A tibble: 1 x 3
+##    mean    sd     n
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+## 1  11.2  3.70   207</code></pre>
+<p>Средний балл в группах прогулищиков:</p>
+<pre><code>## # A tibble: 1 x 3
+##    mean    sd     n
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+## 1  10.2  3.52    22</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="stats_criteria.html#cb4-1"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-2"><a href="stats_criteria.html#cb4-2"></a><span class="st">  </span><span class="kw">filter</span>(absences_mat_groups <span class="op">!=</span><span class="st"> &quot;middle&quot;</span>) -&gt;<span class="st"> </span>students_<span class="dv">2</span></span>
+<span id="cb4-3"><a href="stats_criteria.html#cb4-3"></a></span>
+<span id="cb4-4"><a href="stats_criteria.html#cb4-4"></a><span class="kw">t.test</span>(students_<span class="dv">2</span><span class="op">$</span>G_mat <span class="op">~</span><span class="st"> </span>students_<span class="dv">2</span><span class="op">$</span>absences_mat_groups, <span class="dt">paired =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  students_2$G_mat by students_2$absences_mat_groups
+## t = 1.2839, df = 26.204, p-value = 0.2104
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.6112609  2.6475660
+## sample estimates:
+## mean in group less mean in group more 
+##           11.23027           10.21212</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="stats_criteria.html#cb6-1"></a>students_<span class="dv">2</span> <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-2"><a href="stats_criteria.html#cb6-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>absences_mat_groups, <span class="dt">y =</span> G_mat)) <span class="op">+</span></span>
+<span id="cb6-3"><a href="stats_criteria.html#cb6-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> absences_mat_groups)) <span class="op">+</span></span>
+<span id="cb6-4"><a href="stats_criteria.html#cb6-4"></a><span class="st">  </span><span class="co"># scale_fill_viridis(discrete=TRUE) +</span></span>
+<span id="cb6-5"><a href="stats_criteria.html#cb6-5"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
 </div>
 <div id="anova-дисперсионный-анализ" class="section level2 hasAnchor">
 <h2><span class="header-section-number">9.4</span> ANOVA (дисперсионный анализ)<a href="stats_criteria.html#anova-дисперсионный-анализ" class="anchor-section" aria-label="Anchor link to header"></a></h2>
