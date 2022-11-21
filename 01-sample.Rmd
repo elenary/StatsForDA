@@ -49,7 +49,7 @@ knitr::include_graphics("docs/images/height_distribution.png")
 *  Кластерная выборка (cluster sample)
 *  Стратифицированная выборка (stratified sample)
 
-## Зависимые и независимые выборки
+## Зависимые и независимые выборки {#dependent_samples}
 
 Еще одно важное понятие относительно выборок: они могут быть зависимые и независимые.
 
