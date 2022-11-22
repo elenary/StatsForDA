@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2022-11-21" />
+<meta name="date" content="2022-11-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="sample.html"><a href="sample.html"><i class="fa fa-check"></i><b>2</b> Выборка</a><ul>
 <li class="chapter" data-level="2.1" data-path="sample.html"><a href="sample.html#выборочные-оценки"><i class="fa fa-check"></i><b>2.1</b> Выборочные оценки</a></li>
 <li class="chapter" data-level="2.2" data-path="sample.html"><a href="sample.html#репрезентативность-выборки"><i class="fa fa-check"></i><b>2.2</b> Репрезентативность выборки</a></li>
-<li class="chapter" data-level="2.3" data-path="sample.html"><a href="sample.html#зависимые-и-независимые-выборки"><i class="fa fa-check"></i><b>2.3</b> Зависимые и независимые выборки</a></li>
+<li class="chapter" data-level="2.3" data-path="sample.html"><a href="sample.html#dependent_samples"><i class="fa fa-check"></i><b>2.3</b> Зависимые и независимые выборки</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a><ul>
 <li class="chapter" data-level="3.1" data-path="scales.html"><a href="scales.html#измерение-и-переменная"><i class="fa fa-check"></i><b>3.1</b> Измерение и переменная</a></li>
@@ -170,7 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="distributions.html"><a href="distributions.html#функции-распределения"><i class="fa fa-check"></i><b>5.2</b> Функции распределения</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a><ul>
-<li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#описательные-визуализации"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a></li>
+<li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#descriptive_vis"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a></li>
 <li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="descriptives.html"><a href="descriptives.html#среднее-медиана-мода"><i class="fa fa-check"></i><b>6.2.1</b> Среднее, медиана, мода</a></li>
 <li class="chapter" data-level="6.2.2" data-path="descriptives.html"><a href="descriptives.html#особенности-использования"><i class="fa fa-check"></i><b>6.2.2</b> Особенности использования</a></li>
@@ -183,7 +183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение и оценки</a><ul>
 <li class="chapter" data-level="7.1" data-path="normdist.html"><a href="normdist.html#ctt"><i class="fa fa-check"></i><b>7.1</b> Центральная предельная теорема</a></li>
-<li class="chapter" data-level="7.2" data-path="normdist.html"><a href="normdist.html#стандартная-ошибка-среднего-standart_error"><i class="fa fa-check"></i><b>7.2</b> Стандартная ошибка среднего (#standart_error)</a></li>
+<li class="chapter" data-level="7.2" data-path="normdist.html"><a href="normdist.html#standart_error"><i class="fa fa-check"></i><b>7.2</b> Стандартная ошибка среднего</a></li>
 <li class="chapter" data-level="7.3" data-path="normdist.html"><a href="normdist.html#нормальное-распределение-и-его-свойства"><i class="fa fa-check"></i><b>7.3</b> Нормальное распределение и его свойства</a></li>
 <li class="chapter" data-level="7.4" data-path="normdist.html"><a href="normdist.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>7.4</b> Стандартное нормальное распределение</a></li>
 <li class="chapter" data-level="7.5" data-path="normdist.html"><a href="normdist.html#z-преобразование-и-стандартизация"><i class="fa fa-check"></i><b>7.5</b> Z-преобразование и стандартизация</a></li>
@@ -207,17 +207,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#расчет-статического-критерия-и-проверка-значимости-stat_test_example"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости (#stat_test_example)</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a><ul>
-<li class="chapter" data-level="9.0.1" data-path="stats_criteria.html"><a href="stats_criteria.html#степени-свободы"><i class="fa fa-check"></i><b>9.0.1</b> Степени свободы</a></li>
-<li class="chapter" data-level="9.1" data-path="stats_criteria.html"><a href="stats_criteria.html#ключевые-статистики-критериев"><i class="fa fa-check"></i><b>9.1</b> Ключевые статистики критериев</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="stats_criteria.html"><a href="stats_criteria.html#статистики-z-t-f"><i class="fa fa-check"></i><b>9.1.1</b> Статистики (Z, T, F)</a></li>
+<li class="chapter" data-level="9.1" data-path="stats_criteria.html"><a href="stats_criteria.html#степени-свободы"><i class="fa fa-check"></i><b>9.1</b> Степени свободы</a></li>
+<li class="chapter" data-level="9.2" data-path="stats_criteria.html"><a href="stats_criteria.html#ключевые-распределения-и-статистики-критериев-z-t-f"><i class="fa fa-check"></i><b>9.2</b> Ключевые распределения и статистики критериев (Z, T, F)</a></li>
+<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.3</b> Выбор статистического критерия</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="stats_criteria.html"><a href="stats_criteria.html#параметрические-и-непараметрические-критерии"><i class="fa fa-check"></i><b>9.3.1</b> Параметрические и непараметрические критерии</a></li>
+<li class="chapter" data-level="9.3.2" data-path="stats_criteria.html"><a href="stats_criteria.html#зависимые-и-независимые-выборки"><i class="fa fa-check"></i><b>9.3.2</b> Зависимые и независимые выборки</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.2</b> Выбор статистического критерия</a></li>
-<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#t-тест-сравнение-средних-двух-групп"><i class="fa fa-check"></i><b>9.3</b> T-тест (сравнение средних двух групп)</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="stats_criteria.html"><a href="stats_criteria.html#допущения-для-т-теста"><i class="fa fa-check"></i><b>9.3.1</b> Допущения для т-теста</a></li>
-<li class="chapter" data-level="9.3.2" data-path="stats_criteria.html"><a href="stats_criteria.html#зависимые-и-независимые-выборки-1"><i class="fa fa-check"></i><b>9.3.2</b> Зависимые и независимые выборки</a></li>
-<li class="chapter" data-level="9.3.3" data-path="stats_criteria.html"><a href="stats_criteria.html#вычисление-т-теста"><i class="fa fa-check"></i><b>9.3.3</b> Вычисление т-теста</a></li>
+<li class="chapter" data-level="9.4" data-path="stats_criteria.html"><a href="stats_criteria.html#t-тест-сравнение-средних-двух-групп"><i class="fa fa-check"></i><b>9.4</b> T-тест (сравнение средних двух групп)</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="stats_criteria.html"><a href="stats_criteria.html#допущения-для-т-теста"><i class="fa fa-check"></i><b>9.4.1</b> Допущения для т-теста</a></li>
+<li class="chapter" data-level="9.4.2" data-path="stats_criteria.html"><a href="stats_criteria.html#непараметрические-аналоги"><i class="fa fa-check"></i><b>9.4.2</b> Непараметрические аналоги</a></li>
+<li class="chapter" data-level="9.4.3" data-path="stats_criteria.html"><a href="stats_criteria.html#независимые-и-парные-тесты"><i class="fa fa-check"></i><b>9.4.3</b> Независимые и парные тесты</a></li>
+<li class="chapter" data-level="9.4.4" data-path="stats_criteria.html"><a href="stats_criteria.html#вычисление-т-теста-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>9.4.4</b> Вычисление т-теста и непараметрических аналогов</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="stats_criteria.html"><a href="stats_criteria.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>9.4</b> ANOVA (дисперсионный анализ)</a></li>
+<li class="chapter" data-level="9.5" data-path="stats_criteria.html"><a href="stats_criteria.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>9.5</b> ANOVA (дисперсионный анализ)</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="stats_criteria.html"><a href="stats_criteria.html#факторы-и-уровни"><i class="fa fa-check"></i><b>9.5.1</b> Факторы и уровни</a></li>
+<li class="chapter" data-level="9.5.2" data-path="stats_criteria.html"><a href="stats_criteria.html#почему-он-дисперсионный"><i class="fa fa-check"></i><b>9.5.2</b> Почему он дисперсионный</a></li>
+<li class="chapter" data-level="9.5.3" data-path="stats_criteria.html"><a href="stats_criteria.html#допущения-для-anova"><i class="fa fa-check"></i><b>9.5.3</b> Допущения для ANOVA</a></li>
+<li class="chapter" data-level="9.5.4" data-path="stats_criteria.html"><a href="stats_criteria.html#непараметрические-аналоги-1"><i class="fa fa-check"></i><b>9.5.4</b> Непараметрические аналоги</a></li>
+<li class="chapter" data-level="9.5.5" data-path="stats_criteria.html"><a href="stats_criteria.html#просто-anova-и-с-повторными-измерениями"><i class="fa fa-check"></i><b>9.5.5</b> Просто ANOVA и с повторными измерениями</a></li>
+<li class="chapter" data-level="9.5.6" data-path="stats_criteria.html"><a href="stats_criteria.html#взимодействие-факторов"><i class="fa fa-check"></i><b>9.5.6</b> Взимодействие факторов</a></li>
+<li class="chapter" data-level="9.5.7" data-path="stats_criteria.html"><a href="stats_criteria.html#пост-хоки-и-множественные-сравнения"><i class="fa fa-check"></i><b>9.5.7</b> Пост-хоки и множественные сравнения</a></li>
+<li class="chapter" data-level="9.5.8" data-path="stats_criteria.html"><a href="stats_criteria.html#вычисление-anova-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>9.5.8</b> Вычисление ANOVA и непараметрических аналогов</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -1999,27 +2010,27 @@ less
 <p>На примере первого вопроса разберем процесс проверки нулевой гипотезы, то, как работает <em>любой</em> статистический критерий.</p>
 <p><span class="math inline">\(\mu\)</span> = 14, M = 15, n = 100, sd = 4.5</p>
 <p>Сформулириуем нулевую и альтернативные гипотезы. Нулевая гипотеза – всегда гипотеза об отсутствии различий, то есть, что среднее время, которое проводят родители с детьми в неделю, не отличается в больших и маленьких городах.
-<span class="math inline">\(H_0\)</span>: <span class="math inline">\(M_{большие} = M_{маленькие}\)</span>
-<span class="math inline">\(H_1\)</span>: <span class="math inline">\(M_{большие} \neq M_{маленькие}\)</span></p>
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_{большие} = \mu_{маленькие}\)</span>
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_{большие} \neq \mu_{маленькие}\)</span></p>
 <p>Далее мы начинаем проверять наше нулевое предположение, будем пытаться опровергнуть нулевую гипотезу.</p>
 <p>Итак, предполагаем, что нулевая гипотеза верна.
-Далее, если мы исходим из того, что она верна, то <span class="math inline">\(M_{большие}\)</span> и <span class="math inline">\(M_{маленькие}\)</span> будут в одной точке. Так как речь идет про два средних разных выборок, то нам нужно распределение выборочных средних, на котором мы и сможем разместить <span class="math inline">\(M_{большие}\)</span> и <span class="math inline">\(M_{маленькие}\)</span>.</p>
+Далее, если мы исходим из того, что она верна, то <span class="math inline">\(\mu_{большие}\)</span> и <span class="math inline">\(\mu_{маленькие}\)</span> будут в одной точке. Так как речь идет про два средних разных выборок, то нам нужно распределение выборочных средних, на котором мы и сможем разместить <span class="math inline">\(\mu_{большие}\)</span> и <span class="math inline">\(\mu_{маленькие}\)</span>.</p>
 <p align="center">
 <img src="docs/images/means_dist.png" width="80%" style="display: block; margin: auto;" />
 </p>
-<p>Далее, нам нужно как-то оценить, насколько <span class="math inline">\(M_{маленькие}\)</span> удалено от <span class="math inline">\(M_{большие}\)</span>. Что мы делаем всегда, когда нам нужно сравнить, какое из значений, взятых из разных выборок, больше или меньше другого? Переходим к стандартному нормальному распределению – распределению Z-оценок!
+<p>Далее, нам нужно как-то оценить, насколько <span class="math inline">\(\mu_{маленькие}\)</span> удалено от <span class="math inline">\(\mu_{большие}\)</span>. Что мы делаем всегда, когда нам нужно сравнить, какое из значений, взятых из разных выборок, больше или меньше другого? Переходим к стандартному нормальному распределению – распределению Z-оценок!
 <span class="math inline">\(Z = \frac{X - \bar X}{sd}\)</span></p>
 <p>Причем стандартным отклонением этого распределения будет <a href="standart_error">стандартная ошибка среднего</a> – величина стандартного отклонения для распределения выборочных средних.</p>
-<p>Возьмем за середину распределения <span class="math inline">\(M_{большие}\)</span> (произвольно, можем взять любое из средних). Чтобы перевести <span class="math inline">\(M_{маленькие}\)</span> в Z-оценку, сначала посчитаем стандартную ошибку среднего <span class="math inline">\(\mathrm{se} = \frac{\sigma}{\sqrt{n}} = \frac{sd}{\sqrt{n}}\)</span>.
+<p>Возьмем за середину распределения <span class="math inline">\(\mu_{большие}\)</span> (произвольно, можем взять любое из средних). Чтобы перевести <span class="math inline">\(\mu_{маленькие}\)</span> в Z-оценку, сначала посчитаем стандартную ошибку среднего <span class="math inline">\(\mathrm{se} = \frac{\sigma}{\sqrt{n}} = \frac{sd}{\sqrt{n}}\)</span>.
 <span class="math inline">\(se = \frac{4.5}{\sqrt{10}} = 0.45\)</span> <em>(мы уже считали ее для расчета доверительного интервала – математика этих процессов почти идентична!)</em></p>
-<p><span class="math inline">\(Z_{Mмаленькие} = \frac{M_{маленькие} - M_{большие}}{se}\)</span>.</p>
+<p><span class="math inline">\(Z_{Mмаленькие} = \frac{\mu_{маленькие} - \mu_{большие}}{se}\)</span>.</p>
 <p><span class="math inline">\(Z_{Mмаленькие} = \frac{15-14}{0.45} = 2.2\)</span></p>
-<p>Теперь мы можем расположить <span class="math inline">\(M_{маленькие}\)</span> на Z-распределении с серединой в <span class="math inline">\(M_{большие}\)</span> и посмотреть, насколько сильно они получилиьсь далеко друг от друга.</p>
+<p>Теперь мы можем расположить <span class="math inline">\(\mu_{маленькие}\)</span> на Z-распределении с серединой в <span class="math inline">\(\mu_{большие}\)</span> и посмотреть, насколько сильно они получилиьсь далеко друг от друга.</p>
 <p align="center">
 <img src="docs/images/z_dist.png" width="80%" style="display: block; margin: auto;" />
 </p>
-<p>Мы знаем, что числу 2 на распределении Z-оценок соответствует примерно 96% данных (мы знаем распределение данных для любого нормального распределения). И вспомним, что мы строили это распределение исходя из предположения равенства нулевой гипотезы, что <span class="math inline">\(M_{большие} = M_{маленькие}\)</span>. Как тогда мы можем проинтерпретировать полученные оценки?</p>
-<p>Получилось, что вероятность получить значение $M_{маленькие} = 15 $ или еще более далекое от от <span class="math inline">\(M_{большие}= 14\)</span> при верности предположения что <span class="math inline">\(M_{большие} = M_{маленькие}\)</span> составляет <span class="math inline">\(P(M_{маленькие} | M_{большие} = M_{маленькие}) = 1 - 0.96 = 0.04\)</span>. <strong>Это и есть наше p-value</strong>, целевая статистика, которую мы стремимся получить.</p>
+<p>Мы знаем, что числу 2 на распределении Z-оценок соответствует примерно 96% данных (мы знаем распределение данных для любого нормального распределения). И вспомним, что мы строили это распределение исходя из предположения равенства нулевой гипотезы, что <span class="math inline">\(\mu_{большие} = \mu_{маленькие}\)</span>. Как тогда мы можем проинтерпретировать полученные оценки?</p>
+<p>Получилось, что вероятность получить значение $_{маленькие} = 15 $ или еще более далекое от от <span class="math inline">\(\mu_{большие}= 14\)</span> при верности предположения что <span class="math inline">\(\mu_{большие} = \mu_{маленькие}\)</span> составляет <span class="math inline">\(P(M_{маленькие} | \mu_{большие} = \mu_{маленькие}) = 1 - 0.96 = 0.04\)</span>. <strong>Это и есть наше p-value</strong>, целевая статистика, которую мы стремимся получить.</p>
 <p>В интерпретации p-value много путаницы, чтобы распутаться, можно почитать эти статьи:</p>
 <ul>
 <li><p>Статья “A Dirty Dozen: Twelve P-Value Misconceptions” <a href="https://sixsigmadsi.com/wp-content/uploads/2020/10/A-Dirty-Dozen-Twelve-P-Value-Misconceptions.pdf" class="uri">https://sixsigmadsi.com/wp-content/uploads/2020/10/A-Dirty-Dozen-Twelve-P-Value-Misconceptions.pdf</a></p></li>

@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2022-11-21" />
+<meta name="date" content="2022-11-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -170,7 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="distributions.html"><a href="distributions.html#функции-распределения"><i class="fa fa-check"></i><b>5.2</b> Функции распределения</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a><ul>
-<li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#описательные-визуализации"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a></li>
+<li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#descriptive_vis"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a></li>
 <li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="descriptives.html"><a href="descriptives.html#среднее-медиана-мода"><i class="fa fa-check"></i><b>6.2.1</b> Среднее, медиана, мода</a></li>
 <li class="chapter" data-level="6.2.2" data-path="descriptives.html"><a href="descriptives.html#особенности-использования"><i class="fa fa-check"></i><b>6.2.2</b> Особенности использования</a></li>
@@ -219,7 +219,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4.3" data-path="stats_criteria.html"><a href="stats_criteria.html#независимые-и-парные-тесты"><i class="fa fa-check"></i><b>9.4.3</b> Независимые и парные тесты</a></li>
 <li class="chapter" data-level="9.4.4" data-path="stats_criteria.html"><a href="stats_criteria.html#вычисление-т-теста-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>9.4.4</b> Вычисление т-теста и непараметрических аналогов</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="stats_criteria.html"><a href="stats_criteria.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>9.5</b> ANOVA (дисперсионный анализ)</a></li>
+<li class="chapter" data-level="9.5" data-path="stats_criteria.html"><a href="stats_criteria.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>9.5</b> ANOVA (дисперсионный анализ)</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="stats_criteria.html"><a href="stats_criteria.html#факторы-и-уровни"><i class="fa fa-check"></i><b>9.5.1</b> Факторы и уровни</a></li>
+<li class="chapter" data-level="9.5.2" data-path="stats_criteria.html"><a href="stats_criteria.html#почему-он-дисперсионный"><i class="fa fa-check"></i><b>9.5.2</b> Почему он дисперсионный</a></li>
+<li class="chapter" data-level="9.5.3" data-path="stats_criteria.html"><a href="stats_criteria.html#допущения-для-anova"><i class="fa fa-check"></i><b>9.5.3</b> Допущения для ANOVA</a></li>
+<li class="chapter" data-level="9.5.4" data-path="stats_criteria.html"><a href="stats_criteria.html#непараметрические-аналоги-1"><i class="fa fa-check"></i><b>9.5.4</b> Непараметрические аналоги</a></li>
+<li class="chapter" data-level="9.5.5" data-path="stats_criteria.html"><a href="stats_criteria.html#просто-anova-и-с-повторными-измерениями"><i class="fa fa-check"></i><b>9.5.5</b> Просто ANOVA и с повторными измерениями</a></li>
+<li class="chapter" data-level="9.5.6" data-path="stats_criteria.html"><a href="stats_criteria.html#взимодействие-факторов"><i class="fa fa-check"></i><b>9.5.6</b> Взимодействие факторов</a></li>
+<li class="chapter" data-level="9.5.7" data-path="stats_criteria.html"><a href="stats_criteria.html#пост-хоки-и-множественные-сравнения"><i class="fa fa-check"></i><b>9.5.7</b> Пост-хоки и множественные сравнения</a></li>
+<li class="chapter" data-level="9.5.8" data-path="stats_criteria.html"><a href="stats_criteria.html#вычисление-anova-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>9.5.8</b> Вычисление ANOVA и непараметрических аналогов</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -312,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Поэтому в современной культуре исследований проверке на нормальность уже не отводится такое сакральное значение. Важнее, например, оперировать размером выборки: если она достаточно большая (можем вернуться к эмприческому правилу к n &gt;= 30), то достаточно взлянуть на распределение данных и QQ-plot, и если они не вызывают подозрений, смело использовать параметрические методы. Если выборка маленькая или если данные при большой выборке явно сильно отличаются от колоколообразной гауссианы, то лучше использовать a) непараметрические аналоги б) обобщенные линейные модели (про них поговорим позже).</p>
 <p>Итак, я бы не рекомендовала делать тщательную проверку на нормальность вроде теста Колмогорова-Смирноова или Шапиро-Улика (хотя можно их считать, это не возбраняется), а оценить принадлежность к параметрическому (в данном случае нормальному) распределению следующим образом:</p>
 <ol style="list-style-type: decimal">
-<li>График плотности вероятности или гистограмма: симметричность и эксцесс</li>
+<li>График плотности вероятности или гистограмма: симметричность и эксцесс <a href="descriptives.html#descriptive_vis">обсуждали их тут</a></li>
 <li>QQ-plot</li>
 </ol>
 <p align="center">
@@ -332,6 +341,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.4</span> T-тест (сравнение средних двух групп)<a href="stats_criteria.html#t-тест-сравнение-средних-двух-групп" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Первым из статистических критериев мы рассмотрим один из самых простых вариантов – т-тест.</p>
 <p>Это статистический критерий, распределение которого относится к семейству Т-распределений – очень похоже на нормальное, но с более приподнятыми хвостами. Используется для сравнения средних двух групп, измеренных в метрической (количественной) шкале. Для остальных шкал т-тест не подходит <em>(хотя признаки, измеренные по шкале Лайкерта, например, по шкале от 1 до 5, иногда могут приписываться к количественным ихмерениям, но в рамках этого курса мы не будем это затрагивать)</em></p>
+<p>Нулевая и альтернативная гипотезы:</p>
+<p align="center">
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_1 = \mu_2\)</span>
+</p>
+<p align="center">
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_1 \neq \mu_2\)</span>
+</p>
 <p>Вернемся к данным про студентов и нашим вопросам</p>
 <blockquote>
 <p>Допустим, мы исследовали семьи с подростками в крупных (GP school) и небольших городах (MS school) и на нашей выборке посчитали, что в крупных городах родители проводят со своими детьми в среднем 14 часов, а в небольших городах – 15 часов в неделю (из данных задания на доверительный интвервал).
@@ -1847,8 +1863,1553 @@ less
 </div>
 <div id="anova-дисперсионный-анализ" class="section level2 hasAnchor">
 <h2><span class="header-section-number">9.5</span> ANOVA (дисперсионный анализ)<a href="stats_criteria.html#anova-дисперсионный-анализ" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://angelgardt.github.io/SFDA2022/book/oneway-anova.html" class="uri">https://angelgardt.github.io/SFDA2022/book/oneway-anova.html</a></p>
+<p>Хорошую главу (даже две) про ANOVA написал мой друг и коллега Антон Ангельгардт, почитайте для закрепления.
+<a href="https://angelgardt.github.io/SFDA2022/book/oneway-anova.html" class="uri">https://angelgardt.github.io/SFDA2022/book/oneway-anova.html</a></p>
+<p><strong>ANOVA (ANalysis Of VAriance)</strong> – статистический критерий, распределение и ключевая статистика которого относятся к семейству F-распределений. Это то чуть скошенное влево распределение, уже сильно отличающееся от нормального. На этом распределении мы (точнее специально обученные программы) будут располагать F-значение, которое будет вычисляться (и это не имеет ничего общего с тем, как распределены переменные – к ним все еще действует допущение о нормальности или большог ообъема выборки). Этот критерий используется, когда зависимая переменная (ЗП) измерена в метрической (количественной) шкале. Независимые переменные (НП) могут бытькатегориальными, но ЗП всегда количественная, иначе чуда не произойдет.</p>
+<p align="center">
+<img src="docs/images/F-dist.png" width="70%" style="display: block; margin: auto;" />
+</p>
+<p>ANOVA используется тогда, когда число сравнений, которые нам нужно сделать, становится больше двух. Можно сделать и два сравнения с помощью ANOVA, но это будет бессмысленно, так как по сути это старый добрый т-тест.</p>
+<p>Нулевая и альтернативные гипотеза для ANOVA:</p>
+<p align="center">
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_1 = \mu_2 = ... =\mu_n\)</span>
+</p>
+<p align="center">
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_1 \neq \mu_2 \neq ... \neq \mu_n\)</span>
+</p>
+<p>Как получается, что нам нужно сделать больше двух сравнений?</p>
+<div id="факторы-и-уровни" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.5.1</span> Факторы и уровни<a href="stats_criteria.html#факторы-и-уровни" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Фактором</strong> в линейных моделях и дисперсионном анализе называется независимая переменная.</p>
+<p>Как правило, мы применяем ANOVA для сравнения групп, поэтому эта независимая переменная – категориальная, она принимает конечное число значений. Значений НП – это те группы, которые мы сравниваем между собой, они называются <strong>уровнями НП или уровнями фактора</strong>.</p>
+<p align="center">
+<img src="docs/images/levels.png" width="70%" style="display: block; margin: auto;" />
+</p>
+<p>В зависимости от числа НП и уровней НП можно конкретизировать экспериментальный план и план для ANOVA</p>
+<p align="center">
+<img src="docs/images/factors_levels.png" width="100%" style="display: block; margin: auto;" />
+</p>
+</div>
+<div id="почему-он-дисперсионный" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.5.2</span> Почему он дисперсионный<a href="stats_criteria.html#почему-он-дисперсионный" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Чтобы перейти к анализу, надо немного разобраться, что это воообще за метод, и почему он называется анализом дисперсий, хотя сравниваются тут, как и в большинстве статистических критериев, средние значения по группам. Дело в том, что этот метод действительно учитывает дисперсию (хоть и не сравнивает ее между группами в качестве ключевого сравнения). Всю дисперсию можно разделить на межгрупповую и внутригрупповую. Если окажеется, что дисперсия между группами больше, чем внутри, то можно сделать вывод в пользу различий между группами.</p>
+<p>В качесте дисперсии для математики ANOVA обычно берется только числитель, без деления на число элементов в группе (<a href="descriptives.html#varm">а саму дисперсию мы считали здесь</a>.</p>
+<p>Общая сумма квадратов складывается из межгрупповой суммы квадратов (SSE, Sum of Squares Explained или SSB, Sum of Squares Between groups) и внутригрупповой (SSR, Sum of Squares Random или SSW, Sum of Squares Within groups)</p>
+<p align="center">
+<span class="math inline">\(SST = SSE + SSR\)</span>
+</p>
+<p>Предположим, что у нас есть m групп по n наблюдений в каждой из них (для простоты возьмем равные по численности группы).
+Тогда общая сумма квадратов (дисперсия без знаменателя) равна:</p>
+<p align="center">
+<span class="math inline">\(SST = \sum_{i=1}^{m \times n} (x_i - \bar x)^2\)</span>
+</p>
+<p align="center">
+<span class="math inline">\(df_{SST} = m \times n-1\)</span>, m * n – количество всех элементов во всех группах
+</p>
+<p>Как вычислить межгрупповую и внутригрупповую сумму квадратов?</p>
+<p align="center">
+<span class="math inline">\(SSE = \sum_{j=1}^m (\bar x_j - \bar x)^2\)</span>
+</p>
+<p align="center">
+<span class="math inline">\(df_{SSE} = m-1\)</span>, m – количество групп
+</p>
+<p align="center">
+<span class="math inline">\(SSR = \sum_{j=1}^m\sum_{i=1}^n (x_i - \bar x_j)^2\)</span>
+</p>
+<p align="center">
+<span class="math inline">\(df_{SSR} = k-1\)</span>, n – количество элементов во группе, m – число групп
+</p>
+</div>
+<div id="допущения-для-anova" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.5.3</span> Допущения для ANOVA<a href="stats_criteria.html#допущения-для-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Пройдем по алгоритму выбора статистического теста: <a href="https://miro.com/app/board/uXjVOxmKhr8=/?share_link_id=245423331470" class="uri">https://miro.com/app/board/uXjVOxmKhr8=/?share_link_id=245423331470</a></p>
+<p>Помимо основных отраженных ответвлений, для каждого критерия существует ряд допущений.</p>
+<p>Допущения (assumptions) – это утверждения про характер наших данных, без соблюдения которых параметрические тесты будут работать некорректно (поэтому их никто и не любит).</p>
+<ol style="list-style-type: decimal">
+<li>Данные распределены нормально (или, если измеряемый признак является случайной велиичной, в группах больше 30 наблюдений)</li>
+<li>Дисперсии однородны (гомогенны) – проверяется с помощью теста Левеня (Levene’s Test of Homogeneity of Variance).</li>
+</ol>
+</div>
+<div id="непараметрические-аналоги-1" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.5.4</span> Непараметрические аналоги<a href="stats_criteria.html#непараметрические-аналоги-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>В случае, если допущения нормальности (помним, что это скорее про большое число наблюдений в выборке и визуально значительное отличие от гауссианы) и однородности дисперсий нарушаются, мы не можем использовать ANOVA, и нужно использовать непараметрические аналоги .</p>
+<p align="center">
+<img src="docs/images/anova-tests.png" width="70%" style="display: block; margin: auto;" />
+</p>
+</div>
+<div id="просто-anova-и-с-повторными-измерениями" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.5.5</span> Просто ANOVA и с повторными измерениями<a href="stats_criteria.html#просто-anova-и-с-повторными-измерениями" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Тут тоже все довольно просто:</p>
+<ul>
+<li>Если у нас независимые выборки, то мы используем ANOVA или его непараметрический аналог – тест Краскелла-Уоллиса.</li>
+<li>Если выборки зависимые, то мы используем ANOVA c повторными измерениями (repeated measures) или его непараметрический аналог – тест Фридмана.</li>
+</ul>
+<p>Обилие наименований может быть пугающим, но по сути, это один и тот же тест с небольшими поправками – просто в разных названиях увековечено больше статистиков!</p>
+</div>
+<div id="взимодействие-факторов" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.5.6</span> Взимодействие факторов<a href="stats_criteria.html#взимодействие-факторов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p align="center">
+<img src="docs/images/anova_factors.png" width="80%" style="display: block; margin: auto;" />
+</p>
+</div>
+<div id="пост-хоки-и-множественные-сравнения" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.5.7</span> Пост-хоки и множественные сравнения<a href="stats_criteria.html#пост-хоки-и-множественные-сравнения" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="вычисление-anova-и-непараметрических-аналогов" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.5.8</span> Вычисление ANOVA и непараметрических аналогов<a href="stats_criteria.html#вычисление-anova-и-непараметрических-аналогов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Посмотрим опять на данные и поисследуем зависимость балла по математике от того, живут ли студенты в городах (переменная <code>address</code> значение U (urban)) или деревнях (переменная <code>address</code> значение R).</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+student
+</th>
+<th style="text-align:left;">
+school
+</th>
+<th style="text-align:left;">
+sex
+</th>
+<th style="text-align:right;">
+age
+</th>
+<th style="text-align:left;">
+address
+</th>
+<th style="text-align:left;">
+famsize
+</th>
+<th style="text-align:left;">
+Pstatus
+</th>
+<th style="text-align:right;">
+Medu
+</th>
+<th style="text-align:right;">
+Fedu
+</th>
+<th style="text-align:left;">
+Mjob
+</th>
+<th style="text-align:left;">
+Fjob
+</th>
+<th style="text-align:left;">
+reason
+</th>
+<th style="text-align:left;">
+guardian
+</th>
+<th style="text-align:right;">
+traveltime
+</th>
+<th style="text-align:right;">
+studytime
+</th>
+<th style="text-align:right;">
+failures
+</th>
+<th style="text-align:left;">
+schoolsup
+</th>
+<th style="text-align:left;">
+famsup
+</th>
+<th style="text-align:left;">
+paid_mat
+</th>
+<th style="text-align:left;">
+activities
+</th>
+<th style="text-align:left;">
+nursery
+</th>
+<th style="text-align:left;">
+higher
+</th>
+<th style="text-align:left;">
+internet
+</th>
+<th style="text-align:left;">
+romantic
+</th>
+<th style="text-align:right;">
+famrel
+</th>
+<th style="text-align:right;">
+freetime
+</th>
+<th style="text-align:right;">
+goout
+</th>
+<th style="text-align:right;">
+Dalc
+</th>
+<th style="text-align:right;">
+Walc
+</th>
+<th style="text-align:right;">
+health
+</th>
+<th style="text-align:right;">
+absences_mat
+</th>
+<th style="text-align:right;">
+G1_mat
+</th>
+<th style="text-align:right;">
+G2_mat
+</th>
+<th style="text-align:right;">
+G3_mat
+</th>
+<th style="text-align:left;">
+paid_por
+</th>
+<th style="text-align:right;">
+absences_por
+</th>
+<th style="text-align:right;">
+G1_por
+</th>
+<th style="text-align:right;">
+G2_por
+</th>
+<th style="text-align:right;">
+G3_por
+</th>
+<th style="text-align:right;">
+G_mat
+</th>
+<th style="text-align:right;">
+G_por
+</th>
+<th style="text-align:left;">
+absences_mat_groups
+</th>
+<th style="text-align:left;">
+absences_por_groups
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+id1
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+at_home
+</td>
+<td style="text-align:left;">
+teacher
+</td>
+<td style="text-align:left;">
+course
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+5.666667
+</td>
+<td style="text-align:right;">
+7.333333
+</td>
+<td style="text-align:left;">
+middle
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id2
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+at_home
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+course
+</td>
+<td style="text-align:left;">
+father
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+5.333333
+</td>
+<td style="text-align:right;">
+10.333333
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id4
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+health
+</td>
+<td style="text-align:left;">
+services
+</td>
+<td style="text-align:left;">
+home
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14.666667
+</td>
+<td style="text-align:right;">
+14.000000
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id5
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+home
+</td>
+<td style="text-align:left;">
+father
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+8.666667
+</td>
+<td style="text-align:right;">
+12.333333
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id6
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+LE3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+services
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+reputation
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+15.000000
+</td>
+<td style="text-align:right;">
+12.333333
+</td>
+<td style="text-align:left;">
+middle
+</td>
+<td style="text-align:left;">
+middle
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id7
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+LE3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+home
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+11.666667
+</td>
+<td style="text-align:right;">
+12.666667
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id8
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+teacher
+</td>
+<td style="text-align:left;">
+home
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+5.666667
+</td>
+<td style="text-align:right;">
+12.000000
+</td>
+<td style="text-align:left;">
+middle
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id9
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+LE3
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+services
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+home
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+17.666667
+</td>
+<td style="text-align:right;">
+16.000000
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id10
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+home
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+14.666667
+</td>
+<td style="text-align:right;">
+12.333333
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id11
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+teacher
+</td>
+<td style="text-align:left;">
+health
+</td>
+<td style="text-align:left;">
+reputation
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+9.000000
+</td>
+<td style="text-align:right;">
+14.000000
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Первый вопроос мы подробно разбирали в прошлый раз. Сейчас остановимся на третьем, который уже затрагивали.</p>
 
+</div>
 </div>
 </div>
             </section>
