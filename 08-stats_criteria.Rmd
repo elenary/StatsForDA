@@ -365,6 +365,10 @@ knitr::include_graphics("docs/images/anova_factors.png")
 
 ### Пост-хоки и множественные сравнения
 
+Если мы провели тест, сравнили полученное p-значение с $\alpha$, и оказалось, что p-значение < $\alpha$, и мы можем отвергнуть нулевую гипотезу $H_0$ в пользу альтернативной $H_1$. Значит ли это, что отличаются средние во всех группах? Или может быть так, что $\mu_1 = \mu_2$ и $\mu_1 \neq \mu_3$? Может.
+
+АНОВА говорит, что в каких-то группах есть значимые отличия между средними, но не говорит, в каких именно. А чтобы узнать, в каких группах есть значимые отличия, нужно провести серию пост-хок (post hoc), апостериорных тестов. Это просто попарные т-тесты с поправкой на множественные сравнения.
+
 ### Вычисление ANOVA и непараметрических аналогов
 
 Посмотрим опять на данные и поисследуем зависимость балла по математике от того, живут ли студенты в городах (переменная `address` значение U (urban)) или деревнях (переменная `address` значение R).
@@ -373,6 +377,33 @@ knitr::include_graphics("docs/images/anova_factors.png")
 kable(students[1:10,]) %>% scroll_box(width = "100%") 
 ```
 
-Первый вопроос мы подробно разбирали в прошлый раз. Сейчас остановимся на третьем, который уже затрагивали.
+```{r, eval=TRUE, message = FALSE, warning= FALSE}
+library("ez")
+model_abs_mat_ez = ezANOVA(data = students, dv = G_mat, wid = student,
+                           between = absences_mat_groups)
+model_abs_mat_ez
+```
 
+```{r, eval=TRUE, message = FALSE, warning= FALSE}
 
+model_address_mat_ez = ezANOVA(data = students, dv = G_mat, wid = student,
+                           between = address)
+model_address_mat_ez
+```
+
+```{r}
+students %>% 
+  ggplot(aes(x=absences_mat_groups, y = G_mat)) +
+  geom_boxplot(aes(fill = absences_mat_groups)) +
+  # scale_fill_viridis(discrete=TRUE) +
+  theme_minimal()
+```
+
+```{r, eval=TRUE}
+students %>% 
+  ggplot(aes(x=absences_mat_groups, y = G_mat)) +
+  geom_violin(aes(fill = absences_mat_groups)) +
+  geom_boxplot(aes(fill = absences_mat_groups), width=.1) +
+  # scale_fill_viridis(discrete=TRUE) +
+  theme_minimal()
+```
