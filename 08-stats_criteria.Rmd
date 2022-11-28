@@ -48,9 +48,11 @@ students %>%
 ```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="100%"}
 knitr::include_graphics("docs/images/z_dist.png")
 ```
-</p>
+
 
 $Z = \frac{M - \mu}{\frac{\sigma}{\sqrt{n}}} = \frac{M - \mu}{\frac{sd}{\sqrt{n}}}$
+
+</p>
 
 Это самый простой вариант критерия для проверки статистических гипотез -- но не единственный. На самом деле, в качестве распределения, на которое мы помещаем точки (средние) и сравниваем их друг с другом, могут быть и другие, в зависимости от характера наших данных. Рассмотрим основные из них.
 
@@ -79,7 +81,9 @@ knitr::include_graphics("docs/images/t-dist-pdf.png")
 
 Формула для расчета T-значения исходя из наших данных:
 
+<p align="center"> 
 $t = \frac{M_1 - M_2}{\frac{sd_{1;2}}{\sqrt{n_{1;2}}}} = \frac{M_1 - M_2}{\sqrt{\frac{sd_1^2}{n_1} + \frac{sd_2^2}{n_2}}}$
+</p>
 
 **F-распределение**
 
@@ -90,6 +94,12 @@ knitr::include_graphics("docs/images/F-dist.png")
 </p>
 
 $\chi^2$**-распределение**
+
+<p align="center"> 
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="100%"}
+knitr::include_graphics("docs/images/chisq_dist.png")
+```
+</p>
 
 
 ## Выбор статистического критерия 

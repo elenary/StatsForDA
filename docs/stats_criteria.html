@@ -266,9 +266,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Z-распределение</strong></p>
 <p>В прошлый раз мы рассмотрели пример, когда сравнивали среднее время, которое проводят родители с детьми, в больших и маленьких городах, и сравнивали эти значения на примере [Z-распределения] {stat_test_example): мы получали Z-статистику и находили соответствующий распределению Z-оценок процент данных для найденной точки.</p>
 <p align="center">
-<img src="docs/images/z_dist.png" width="100%" style="display: block; margin: auto;" />
-</p>
+<p><img src="docs/images/z_dist.png" width="100%" style="display: block; margin: auto;" /></p>
 <p><span class="math inline">\(Z = \frac{M - \mu}{\frac{\sigma}{\sqrt{n}}} = \frac{M - \mu}{\frac{sd}{\sqrt{n}}}\)</span></p>
+</p>
 <p>Это самый простой вариант критерия для проверки статистических гипотез – но не единственный. На самом деле, в качестве распределения, на которое мы помещаем точки (средние) и сравниваем их друг с другом, могут быть и другие, в зависимости от характера наших данных. Рассмотрим основные из них.</p>
 <p><a href="https://gallery.shinyapps.io/dist_calc/" class="uri">https://gallery.shinyapps.io/dist_calc/</a></p>
 <p><strong>T-распределение Стьюдента</strong></p>
@@ -282,12 +282,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </p>
 <p>Негласно считается, что при объеме выборки от n=30 t-распределение считается близким к Z-распределению, которе является нормальным, и можем использовать его. Но в реальности это не совсем так.</p>
 <p>Формула для расчета T-значения исходя из наших данных:</p>
-<p><span class="math inline">\(t = \frac{M_1 - M_2}{\frac{sd_{1;2}}{\sqrt{n_{1;2}}}} = \frac{M_1 - M_2}{\sqrt{\frac{sd_1^2}{n_1} + \frac{sd_2^2}{n_2}}}\)</span></p>
+<p align="center">
+<span class="math inline">\(t = \frac{M_1 - M_2}{\frac{sd_{1;2}}{\sqrt{n_{1;2}}}} = \frac{M_1 - M_2}{\sqrt{\frac{sd_1^2}{n_1} + \frac{sd_2^2}{n_2}}}\)</span>
+</p>
 <p><strong>F-распределение</strong></p>
 <p align="center">
 <img src="docs/images/F-dist.png" width="100%" style="display: block; margin: auto;" />
 </p>
 <p><span class="math inline">\(\chi^2\)</span><strong>-распределение</strong></p>
+<p align="center">
+<img src="docs/images/chisq_dist.png" width="100%" style="display: block; margin: auto;" />
+</p>
 </div>
 <div id="выбор-статистического-критерия-1" class="section level2 hasAnchor">
 <h2><span class="header-section-number">9.3</span> Выбор статистического критерия<a href="stats_criteria.html#выбор-статистического-критерия-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1856,8 +1861,8 @@ less
 ## sample estimates:
 ## mean in group less mean in group more 
 ##           11.23027           10.21212</code></pre>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
 </div>
 <div id="anova-дисперсионный-анализ" class="section level2 hasAnchor">
@@ -3434,14 +3439,14 @@ less
 <span id="cb9-3"><a href="stats_criteria.html#cb9-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> absences_mat_groups)) <span class="op">+</span></span>
 <span id="cb9-4"><a href="stats_criteria.html#cb9-4"></a><span class="st">  </span><span class="co"># scale_fill_viridis(discrete=TRUE) +</span></span>
 <span id="cb9-5"><a href="stats_criteria.html#cb9-5"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="stats_criteria.html#cb10-1"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb10-2"><a href="stats_criteria.html#cb10-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>absences_mat_groups, <span class="dt">y =</span> G_mat)) <span class="op">+</span></span>
 <span id="cb10-3"><a href="stats_criteria.html#cb10-3"></a><span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> absences_mat_groups)) <span class="op">+</span></span>
 <span id="cb10-4"><a href="stats_criteria.html#cb10-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> absences_mat_groups), <span class="dt">width=</span>.<span class="dv">1</span>) <span class="op">+</span></span>
 <span id="cb10-5"><a href="stats_criteria.html#cb10-5"></a><span class="st">  </span><span class="co"># scale_fill_viridis(discrete=TRUE) +</span></span>
 <span id="cb10-6"><a href="stats_criteria.html#cb10-6"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 
 </div>
 </div>
