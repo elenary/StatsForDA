@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>11 Статистические критерии: линейные модели | Статистика для анализа данных</title>
+  <title>11 Проверка линейной свзяи | Статистика для анализа данных</title>
   <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="11 Статистические критерии: линейные модели | Статистика для анализа данных" />
+  <meta property="og:title" content="11 Проверка линейной свзяи | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Семинарские занятия по статистике для анализа данных" />
   <meta name="github-repo" content="elenary/StatsForDA" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="11 Статистические критерии: линейные модели | Статистика для анализа данных" />
+  <meta name="twitter:title" content="11 Проверка линейной свзяи | Статистика для анализа данных" />
   
   <meta name="twitter:description" content="Семинарские занятия по статистике для анализа данных" />
   
@@ -53,8 +53,74 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -167,12 +233,13 @@
 <li class="chapter" data-level="10.2.10" data-path="сравнение-средних-по-группам.html"><a href="сравнение-средних-по-группам.html#вычисление-anova-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>10.2.10</b> Вычисление ANOVA и непараметрических аналогов</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html"><i class="fa fa-check"></i><b>11</b> Статистические критерии: линейные модели</a><ul>
+<li class="chapter" data-level="11" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html"><i class="fa fa-check"></i><b>11</b> Проверка линейной свзяи</a><ul>
 <li class="chapter" data-level="11.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#линейная-регрессия"><i class="fa fa-check"></i><b>11.1</b> Линейная регрессия</a></li>
-<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляция-и-корреляционный-тест"><i class="fa fa-check"></i><b>11.2</b> Корреляция и корреляционный тест</a><ul>
+<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционный-анализ"><i class="fa fa-check"></i><b>11.2</b> Корреляционный анализ</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционный-тест"><i class="fa fa-check"></i><b>11.2.1</b> Корреляционный тест</a></li>
 <li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-корреляционного-теста"><i class="fa fa-check"></i><b>11.2.2</b> Допущения для корреляционного теста</a></li>
-<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#интерпретация-результатов"><i class="fa fa-check"></i><b>11.2.3</b> Интерпретация результатов</a></li>
+<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#непараметрические-аналоги-2"><i class="fa fa-check"></i><b>11.2.3</b> Непараметрические аналоги</a></li>
+<li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-корреляционного-теста"><i class="fa fa-check"></i><b>11.2.4</b> Расчет корреляционного теста</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -193,12 +260,19 @@
 
             <section class="normal" id="section-">
 <div id="stats_criteria_linear" class="section level1 hasAnchor">
-<h1><span class="header-section-number">11</span> Статистические критерии: линейные модели<a href="stats_criteria_linear.html#stats_criteria_linear" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">11</span> Проверка линейной свзяи<a href="stats_criteria_linear.html#stats_criteria_linear" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="линейная-регрессия" class="section level2 hasAnchor">
 <h2><span class="header-section-number">11.1</span> Линейная регрессия<a href="stats_criteria_linear.html#линейная-регрессия" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Нулевая и альтернативная гипотезы:</p>
+<p align="center">
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_1 = \mu_2\)</span>
+</p>
+<p align="center">
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_1 \neq \mu_2\)</span>
+</p>
 </div>
-<div id="корреляция-и-корреляционный-тест" class="section level2 hasAnchor">
-<h2><span class="header-section-number">11.2</span> Корреляция и корреляционный тест<a href="stats_criteria_linear.html#корреляция-и-корреляционный-тест" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="корреляционный-анализ" class="section level2 hasAnchor">
+<h2><span class="header-section-number">11.2</span> Корреляционный анализ<a href="stats_criteria_linear.html#корреляционный-анализ" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Корреляция</strong> – это связь между переменными.</p>
 <p>Корреляция – это, по сути, то же самое, что и линейная регрессия с одним фактором.</p>
 <p>Чтобы вывести ее формулу и смысл, познакомимся с понятием ковариации.</p>
@@ -210,7 +284,7 @@
 <p align="center">
 <span class="math inline">\(\text{cov}(x,y)=\frac{\sum_{i=1}^n (x_i - \bar x) (y_i - \bar y )}{n-1}\)</span>
 </p>
-<p><strong>Коэффициент корреляции</strong> – это показатель силы и направления связи между переменными. По сути это ковариация переменных, но взвешенная на стандартные отклонения этих переменных. Это сделано для того, чтобы стандартизовать коэффициент, уйти от абсолютных значений к относительным и расположить этот коэффицент в границах [-1;1]</p>
+<p><strong>Коэффициент корреляции</strong> – это показатель силы и направления связи между переменными. По сути это ковариация переменных, но взвешенная на стандартные отклонения этих переменных. Это сделано для того, чтобы стандартизовать коэффициент, уйти от абсолютных значений к относительным и расположить этот коэффицент в границах [-1;1]. Для коэффициента корреляции Пирсена:</p>
 <p align="center">
 <span class="math inline">\(\text{corr}(x,y) = r_{xy} = \frac{\text{cov(x, y)}}{sd_x sd_y}\)</span>
 </p>
@@ -219,19 +293,1523 @@
 <p><a href="http://guessthecorrelation.com/" class="uri">http://guessthecorrelation.com/</a></p>
 <div id="корреляционный-тест" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.2.1</span> Корреляционный тест<a href="stats_criteria_linear.html#корреляционный-тест" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Гипотезы о наличии корреляции между переменными проверяются при помощи корреляционного теста. Это точно такой же статистический критерий, по сути – ровно то же самое, что линейная регрессия с одной переменной. Корреляционный тест применяется, когда и ЗП, и НП являются количественными переменными (не категориальными!)</p>
+<p>Гипотезы о наличии корреляции между переменными проверяются при помощи корреляционного теста. Это точно такой же статистический критерий, по сути – ровно то же самое, что линейная регрессия с одной переменной. Корреляционный тест применяется, когда и ЗП, и НП являются количественными переменными либо выраженными в порядковкой шкале (но не номинативной). Для количественной шкалы обычно используется коэффициент корреляции Пирсена, для порядковой – коэффициент корреляции Спирмена.</p>
 <p>Корреляционный тест использует – вы не поверите – уже знакомое нам T-распределение Стьюдента!
 (<em>то есть, нам надо запомнить вообще всего два распределения: T-распределение и F-распределение</em>)</p>
+<p>Число степеней свободы вычисляется по формуле</p>
+<p align="center">
+<span class="math inline">\(df = n - 2\)</span>, n – число наблюдений
+</p>
+<p>Нулевая и альтернативная гипотезы для корреляционного теста:</p>
+<p align="center">
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(r_{xy} = 0\)</span>
+</p>
+<p align="center">
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(r_{xy} \neq 0\)</span>
+</p>
+<p>Как и остальные критерии, он имеет допущения.</p>
 </div>
 <div id="допущения-для-корреляционного-теста" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.2.2</span> Допущения для корреляционного теста<a href="stats_criteria_linear.html#допущения-для-корреляционного-теста" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li>Данные ЗП распределены нормально – обсуждали эту проверку <a href="stats_criteria.html#param_nonparam">здесь</a></li>
-<li>Линейная монотонное распределение ЗП</li>
+<li>ЗП и НП измерены в количественной или порядковой шкале</li>
+<li>ЗП распределена нормально – обсуждали эту проверку <a href="stats_criteria.html#param_nonparam">здесь</a></li>
+<li>ЗП распределена линейно и монотонно – то есть нет выборосов, нет картины нелинейной взаимосвязи или скоплений данных в разных местах.</li>
 </ol>
 </div>
-<div id="интерпретация-результатов" class="section level3 hasAnchor">
-<h3><span class="header-section-number">11.2.3</span> Интерпретация результатов<a href="stats_criteria_linear.html#интерпретация-результатов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="непараметрические-аналоги-2" class="section level3 hasAnchor">
+<h3><span class="header-section-number">11.2.3</span> Непараметрические аналоги<a href="stats_criteria_linear.html#непараметрические-аналоги-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Если ЗП сильно отличается от нормального распределения, или выборка мала, или ЗП закодирована в порядковой шкале – в коррялционном тесте используется коэффициент корреляции Спирмена вместо Пирсена, и этоо единственное различие.</p>
+</div>
+<div id="расчет-корреляционного-теста" class="section level3 hasAnchor">
+<h3><span class="header-section-number">11.2.4</span> Расчет корреляционного теста<a href="stats_criteria_linear.html#расчет-корреляционного-теста" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Проведем тест для следующей гипотезы.</p>
+<blockquote>
+<p><code>Чем ниже студенты оценивают качество семейных отношений famrel, тем выше они отмечают частоту употребления алкоголя Walc</code></p>
+</blockquote>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+student
+</th>
+<th style="text-align:left;">
+school
+</th>
+<th style="text-align:left;">
+sex
+</th>
+<th style="text-align:right;">
+age
+</th>
+<th style="text-align:left;">
+address
+</th>
+<th style="text-align:left;">
+famsize
+</th>
+<th style="text-align:left;">
+Pstatus
+</th>
+<th style="text-align:right;">
+Medu
+</th>
+<th style="text-align:right;">
+Fedu
+</th>
+<th style="text-align:left;">
+Mjob
+</th>
+<th style="text-align:left;">
+Fjob
+</th>
+<th style="text-align:left;">
+reason
+</th>
+<th style="text-align:left;">
+guardian
+</th>
+<th style="text-align:right;">
+traveltime
+</th>
+<th style="text-align:right;">
+studytime
+</th>
+<th style="text-align:right;">
+failures
+</th>
+<th style="text-align:left;">
+schoolsup
+</th>
+<th style="text-align:left;">
+famsup
+</th>
+<th style="text-align:left;">
+paid_mat
+</th>
+<th style="text-align:left;">
+activities
+</th>
+<th style="text-align:left;">
+nursery
+</th>
+<th style="text-align:left;">
+higher
+</th>
+<th style="text-align:left;">
+internet
+</th>
+<th style="text-align:left;">
+romantic
+</th>
+<th style="text-align:right;">
+famrel
+</th>
+<th style="text-align:right;">
+freetime
+</th>
+<th style="text-align:right;">
+goout
+</th>
+<th style="text-align:right;">
+Dalc
+</th>
+<th style="text-align:right;">
+Walc
+</th>
+<th style="text-align:right;">
+health
+</th>
+<th style="text-align:right;">
+absences_mat
+</th>
+<th style="text-align:right;">
+G1_mat
+</th>
+<th style="text-align:right;">
+G2_mat
+</th>
+<th style="text-align:right;">
+G3_mat
+</th>
+<th style="text-align:left;">
+paid_por
+</th>
+<th style="text-align:right;">
+absences_por
+</th>
+<th style="text-align:right;">
+G1_por
+</th>
+<th style="text-align:right;">
+G2_por
+</th>
+<th style="text-align:right;">
+G3_por
+</th>
+<th style="text-align:right;">
+G_mat
+</th>
+<th style="text-align:right;">
+G_por
+</th>
+<th style="text-align:left;">
+absences_mat_groups
+</th>
+<th style="text-align:left;">
+absences_por_groups
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+id1
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+at_home
+</td>
+<td style="text-align:left;">
+teacher
+</td>
+<td style="text-align:left;">
+course
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+5.666667
+</td>
+<td style="text-align:right;">
+7.333333
+</td>
+<td style="text-align:left;">
+middle
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id2
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+at_home
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+course
+</td>
+<td style="text-align:left;">
+father
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+5.333333
+</td>
+<td style="text-align:right;">
+10.333333
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id4
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+health
+</td>
+<td style="text-align:left;">
+services
+</td>
+<td style="text-align:left;">
+home
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14.666667
+</td>
+<td style="text-align:right;">
+14.000000
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id5
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+home
+</td>
+<td style="text-align:left;">
+father
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+8.666667
+</td>
+<td style="text-align:right;">
+12.333333
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id6
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+LE3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+services
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+reputation
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+15.000000
+</td>
+<td style="text-align:right;">
+12.333333
+</td>
+<td style="text-align:left;">
+middle
+</td>
+<td style="text-align:left;">
+middle
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id7
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+LE3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+home
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+11.666667
+</td>
+<td style="text-align:right;">
+12.666667
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id8
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+teacher
+</td>
+<td style="text-align:left;">
+home
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+5.666667
+</td>
+<td style="text-align:right;">
+12.000000
+</td>
+<td style="text-align:left;">
+middle
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id9
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+LE3
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+services
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+home
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+17.666667
+</td>
+<td style="text-align:right;">
+16.000000
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id10
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+other
+</td>
+<td style="text-align:left;">
+home
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+14.666667
+</td>
+<td style="text-align:right;">
+12.333333
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+id11
+</td>
+<td style="text-align:left;">
+GP
+</td>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+U
+</td>
+<td style="text-align:left;">
+GT3
+</td>
+<td style="text-align:left;">
+T
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+teacher
+</td>
+<td style="text-align:left;">
+health
+</td>
+<td style="text-align:left;">
+reputation
+</td>
+<td style="text-align:left;">
+mother
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+9.000000
+</td>
+<td style="text-align:right;">
+14.000000
+</td>
+<td style="text-align:left;">
+less
+</td>
+<td style="text-align:left;">
+less
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Пойдем также по алгоритму.</p>
+<p>ЗП – порядковая, НП – порядковая. Наша гипотеза не о сравнении групп, об ассоциативной (корреляционной) связи.</p>
+<p>Так как ЗП и НП порядковые, мне нужно использовать непараметрический аналог корреляциии Пирсона – ранговую корреляцию Спирмена (либо порядковую логистическую регрессию (если я хочу, чтобы связь имела предсказательную силу)).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="stats_criteria_linear.html#cb1-1"></a><span class="kw">cor.test</span>(students<span class="op">$</span>famrel, students<span class="op">$</span>Walc, <span class="dt">method =</span> <span class="st">&#39;spearman&#39;</span>)</span></code></pre></div>
+<pre><code>## Warning in cor.test.default(students$famrel, students$Walc, method =
+## &quot;spearman&quot;): Cannot compute exact p-value with ties</code></pre>
+<pre><code>## 
+##  Spearman&#39;s rank correlation rho
+## 
+## data:  students$famrel and students$Walc
+## S = 6173557, p-value = 0.0196
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho 
+## -0.130423</code></pre>
+<p>Первый вариант визуализации – мозаичный плот: размер плитки отражает частоту совпадения таких значений двух переменных. Указываем НП как x=product(НП), и ЗП как fill = ЗП.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="stats_criteria_linear.html#cb4-1"></a><span class="kw">library</span>(ggmosaic)</span>
+<span id="cb4-2"><a href="stats_criteria_linear.html#cb4-2"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb4-3"><a href="stats_criteria_linear.html#cb4-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>()) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb4-4"><a href="stats_criteria_linear.html#cb4-4"></a><span class="st">  </span><span class="kw">geom_mosaic</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">product</span>(famrel), <span class="dt">fill =</span> Walc)) <span class="op">+</span></span>
+<span id="cb4-5"><a href="stats_criteria_linear.html#cb4-5"></a><span class="st">  </span><span class="kw">scale_fill_viridis</span>(<span class="dt">discrete=</span><span class="ot">TRUE</span>) <span class="op">+</span></span>
+<span id="cb4-6"><a href="stats_criteria_linear.html#cb4-6"></a><span class="st">  </span><span class="kw">theme_minimal</span>() </span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Другой вариант – хитмеп, как в коррелограмме, где размеры фиксированные, а за частоту совпадений отвечает цвет.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="stats_criteria_linear.html#cb5-1"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb5-2"><a href="stats_criteria_linear.html#cb5-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(famrel), <span class="dt">y =</span> <span class="kw">as.factor</span>(Walc))) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb5-3"><a href="stats_criteria_linear.html#cb5-3"></a><span class="st">  </span><span class="kw">geom_bin2d</span>() <span class="op">+</span></span>
+<span id="cb5-4"><a href="stats_criteria_linear.html#cb5-4"></a><span class="st">  </span><span class="kw">scale_fill_viridis</span>() <span class="op">+</span></span>
+<span id="cb5-5"><a href="stats_criteria_linear.html#cb5-5"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
+<span id="cb5-6"><a href="stats_criteria_linear.html#cb5-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb5-7"><a href="stats_criteria_linear.html#cb5-7"></a>        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+### Интерпретация результатов</p>
+<p>Важно, что при очень большой выборке даже совсем слабая корреляционная связь будет достигать статистической с=значимости</p>
 <p align="center">
 <img src="docs/images/corr_causation.png" width="80%" style="display: block; margin: auto;" />
 </p>
