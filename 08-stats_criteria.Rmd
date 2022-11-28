@@ -421,7 +421,7 @@ knitr::include_graphics("docs/images/nonlinear.png")
 ```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="80%"}
 knitr::include_graphics("docs/images/anova_interaction1.jpg")
 ```
-Картинка ![отсюда](https://angelgardt.github.io/SFDA2022/book/twoway-anova.html#factor_interaction) </p>
+Картинка [отсюда](https://angelgardt.github.io/SFDA2022/book/twoway-anova.html#factor_interaction) </p>
 
 В случае нескольких факторов (независимых переменных), расчет и логика применения ANOVA точно такие же, добавляется только еще один фактор и взаимодействие первогоо фактора со вторым:
 
