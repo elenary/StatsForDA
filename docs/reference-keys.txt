@@ -97,3 +97,6 @@ standart_error
 постхоки-и-множественные-сравнения
 пост-хоки-и-множественные-сравнения
 descriptive_vis
+sample_size
+stat_test_example
+nhst
