@@ -102,3 +102,4 @@ stat_test_example
 nhst
 param_nonparam
 variables
+f-распределение-фишера

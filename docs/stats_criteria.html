@@ -221,12 +221,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.5" data-path="stats_criteria.html"><a href="stats_criteria.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>9.5</b> ANOVA (дисперсионный анализ)</a><ul>
 <li class="chapter" data-level="9.5.1" data-path="stats_criteria.html"><a href="stats_criteria.html#факторы-и-уровни"><i class="fa fa-check"></i><b>9.5.1</b> Факторы и уровни</a></li>
 <li class="chapter" data-level="9.5.2" data-path="stats_criteria.html"><a href="stats_criteria.html#почему-он-дисперсионный"><i class="fa fa-check"></i><b>9.5.2</b> Почему он дисперсионный</a></li>
-<li class="chapter" data-level="9.5.3" data-path="stats_criteria.html"><a href="stats_criteria.html#допущения-для-anova"><i class="fa fa-check"></i><b>9.5.3</b> Допущения для ANOVA</a></li>
-<li class="chapter" data-level="9.5.4" data-path="stats_criteria.html"><a href="stats_criteria.html#непараметрические-аналоги-1"><i class="fa fa-check"></i><b>9.5.4</b> Непараметрические аналоги</a></li>
-<li class="chapter" data-level="9.5.5" data-path="stats_criteria.html"><a href="stats_criteria.html#просто-anova-и-с-повторными-измерениями"><i class="fa fa-check"></i><b>9.5.5</b> Просто ANOVA и с повторными измерениями</a></li>
-<li class="chapter" data-level="9.5.6" data-path="stats_criteria.html"><a href="stats_criteria.html#взимодействие-факторов"><i class="fa fa-check"></i><b>9.5.6</b> Взимодействие факторов</a></li>
-<li class="chapter" data-level="9.5.7" data-path="stats_criteria.html"><a href="stats_criteria.html#пост-хоки-и-множественные-сравнения"><i class="fa fa-check"></i><b>9.5.7</b> Пост-хоки и множественные сравнения</a></li>
-<li class="chapter" data-level="9.5.8" data-path="stats_criteria.html"><a href="stats_criteria.html#вычисление-anova-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>9.5.8</b> Вычисление ANOVA и непараметрических аналогов</a></li>
+<li class="chapter" data-level="9.5.3" data-path="stats_criteria.html"><a href="stats_criteria.html#f-распределение-фишера"><i class="fa fa-check"></i><b>9.5.3</b> F-распределение (Фишера)</a></li>
+<li class="chapter" data-level="9.5.4" data-path="stats_criteria.html"><a href="stats_criteria.html#допущения-для-anova"><i class="fa fa-check"></i><b>9.5.4</b> Допущения для ANOVA</a></li>
+<li class="chapter" data-level="9.5.5" data-path="stats_criteria.html"><a href="stats_criteria.html#непараметрические-аналоги-1"><i class="fa fa-check"></i><b>9.5.5</b> Непараметрические аналоги</a></li>
+<li class="chapter" data-level="9.5.6" data-path="stats_criteria.html"><a href="stats_criteria.html#просто-anova-и-с-повторными-измерениями"><i class="fa fa-check"></i><b>9.5.6</b> Просто ANOVA и с повторными измерениями</a></li>
+<li class="chapter" data-level="9.5.7" data-path="stats_criteria.html"><a href="stats_criteria.html#взимодействие-факторов"><i class="fa fa-check"></i><b>9.5.7</b> Взимодействие факторов</a></li>
+<li class="chapter" data-level="9.5.8" data-path="stats_criteria.html"><a href="stats_criteria.html#пост-хоки-и-множественные-сравнения"><i class="fa fa-check"></i><b>9.5.8</b> Пост-хоки и множественные сравнения</a></li>
+<li class="chapter" data-level="9.5.9" data-path="stats_criteria.html"><a href="stats_criteria.html#вычисление-anova-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>9.5.9</b> Вычисление ANOVA и непараметрических аналогов</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1869,11 +1870,8 @@ less
 </div>
 <div id="anova-дисперсионный-анализ" class="section level2 hasAnchor">
 <h2><span class="header-section-number">9.5</span> ANOVA (дисперсионный анализ)<a href="stats_criteria.html#anova-дисперсионный-анализ" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>ANOVA (ANalysis Of VAriance)</strong> – статистический критерий, распределение и ключевая статистика которого относятся к семейству F-распределений. Это то чуть скошенное влево распределение, уже сильно отличающееся от нормального. На этом распределении мы (точнее специально обученные программы) будут располагать F-значение, которое будет вычисляться (и это не имеет ничего общего с тем, как распределены переменные – к ним все еще действует допущение о нормальности или большог ообъема выборки). Этот критерий используется, когда зависимая переменная (ЗП) измерена в метрической (количественной) шкале. Независимые переменные (НП) могут бытькатегориальными, но ЗП всегда количественная, иначе чуда не произойдет.</p>
-<p align="center">
-<img src="docs/images/F-dist.png" width="70%" style="display: block; margin: auto;" />
-</p>
-<p>ANOVA используется тогда, когда число сравнений, которые нам нужно сделать, становится больше двух. Можно сделать и два сравнения с помощью ANOVA, но это будет бессмысленно, так как по сути это старый добрый т-тест.</p>
+<p><strong>ANOVA (ANalysis Of VAriance)</strong> – статистический критерий, распределение и ключевая статистика которого относятся к семейству F-распределений. Это то чуть скошенное влево распределение, уже сильно отличающееся от нормального. На этом распределении мы (точнее специально обученные программы) будут располагать F-значение, которое будет вычисляться. Этот критерий используется, когда зависимая переменная (ЗП) измерена в метрической (количественной) шкале, а независимые переменные (НП) – категориальные (порядковые или номинативные). ANOVA применяется, когда число проводимых сравниваемых становится больше двух – то есть, либо это одна НП, которая может принимать три значения (уровня), либо число НП больше или равно двум.</p>
+<p><strong>ANOVA используется тогда, когда число сравнений, которые нам нужно сделать, становится больше двух</strong>. Можно сделать и два сравнения с помощью ANOVA, но это будет бессмысленно, так как по сути это старый добрый т-тест.</p>
 <p>Нулевая и альтернативные гипотеза для ANOVA:</p>
 <p align="center">
 <span class="math inline">\(H_0\)</span>: <span class="math inline">\(\mu_1 = \mu_2 = ... =\mu_n\)</span>
@@ -1881,24 +1879,39 @@ less
 <p align="center">
 <span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu_1 \neq \mu_2 \neq ... \neq \mu_n\)</span>
 </p>
-<p>Как получается, что нам нужно сделать больше двух сравнений?</p>
+<p>Как вообще получается, что нам нужно сделать больше двух сравнений?</p>
 <div id="факторы-и-уровни" class="section level3 hasAnchor">
 <h3><span class="header-section-number">9.5.1</span> Факторы и уровни<a href="stats_criteria.html#факторы-и-уровни" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Фактором</strong> в линейных моделях и дисперсионном анализе называется независимая переменная.</p>
+<p><strong>Фактором</strong> или <strong>предиктором</strong> в линейных моделях и дисперсионном анализе называется независимая переменная.</p>
 <p>Как правило, мы применяем ANOVA для сравнения групп, поэтому эта независимая переменная – категориальная, она принимает конечное число значений. Значений НП – это те группы, которые мы сравниваем между собой, они называются <strong>уровнями НП или уровнями фактора</strong>.</p>
 <p align="center">
 <img src="docs/images/levels.png" width="70%" style="display: block; margin: auto;" />
 </p>
-<p>В зависимости от числа НП и уровней НП можно конкретизировать экспериментальный план и план для ANOVA</p>
+<p>В зависимости от числа НП и уровней НП можно конкретизировать экспериментальный план и план для ANOVA:</p>
 <p align="center">
 <img src="docs/images/factors_levels.png" width="100%" style="display: block; margin: auto;" />
 </p>
 </div>
 <div id="почему-он-дисперсионный" class="section level3 hasAnchor">
 <h3><span class="header-section-number">9.5.2</span> Почему он дисперсионный<a href="stats_criteria.html#почему-он-дисперсионный" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Чтобы перейти к анализу, надо немного разобраться, что это воообще за метод, и почему он называется анализом дисперсий, хотя сравниваются тут, как и в большинстве статистических критериев, средние значения по группам. Дело в том, что этот метод действительно учитывает дисперсию (хоть и не сравнивает ее между группами в качестве ключевого сравнения). Всю дисперсию можно разделить на межгрупповую и внутригрупповую. Если окажеется, что дисперсия между группами больше, чем внутри, то можно сделать вывод в пользу различий между группами.</p>
-<p>В качесте дисперсии для математики ANOVA обычно берется только числитель, без деления на число элементов в группе (<a href="descriptives.html#varm">а саму дисперсию мы считали здесь</a>.</p>
-<p>Общая сумма квадратов складывается из межгрупповой суммы квадратов (SSE, Sum of Squares Explained или SSB, Sum of Squares Between groups) и внутригрупповой (SSR, Sum of Squares Random или SSW, Sum of Squares Within groups)</p>
+<p>Чтобы перейти к непосредственно анализу, надо немного разобраться, что это воообще за метод, и почему он называется дисперсионным, хотя предположения мы строим, как и в большинстве статистических критериев, относительно средних значений по группам. Дело в том, что этот метод действительно учитывает дисперсию, а точнее, разницу дисперсий. Математика ANOVA основана на том, что при объединении нескольких выборок с примерно одинаковой дисперсией, но разными средним, дисперсия увеличивается пропорционально средним этих значений. Это связано с тем, что всю дисперсию можно разделить на межгрупповую и внутригрупповую. Если окажется, что дисперсия между группами больше, чем внутри, то можно сделать вывод в пользу различий между группами. Для того, чтобы зафиксировать различия между группами, внутригрупповая дисперсия здесь должна быть как можно меньше: чем она меньше внутри групп и больше между групп, тем более серьезный вывод об отличиях групп мы сможем сделать.</p>
+<p>F-значение считается, по сути, как отношение дисперсий двух групп.</p>
+<p>В качесте дисперсии для математики ANOVA обычно берется только ее числитель, без деления на число элементов в группе (<a href="descriptives.html#varm">а саму дисперсию мы считали здесь</a>. Числитель дисперсии без знаменателя – <strong>это сумма квадратов (Sum of Squares)</strong></p>
+<p align="center">
+<span class="math inline">\(D = \frac{\sum_{i=1}^{n} (x_i - \overline{x})^2}{n}\)</span>
+</p>
+<p>Заодно вспомним, что стандартное отклонение – это корень из дисперсии:</p>
+<p align="center">
+<span class="math inline">\(\sigma = \frac{\sum_{i=1}^{n} (x_i - \overline{x})}{\sqrt{n}}\)</span>
+</p>
+<p>А сумма кавдратов – это числитель дисперсии, SST (Sum of Squares Total):</p>
+<p align="center">
+<span class="math inline">\(SST = \sum_{i=1}^{n} (x_i - \overline{x})^2\)</span>
+</p>
+<p>Общая сумма квадратов SST складывается из <strong>межгрупповой</strong> суммы квадратов (SSE, Sum of Squares Explained или SSB, Sum of Squares Between groups) и <strong>внутригрупповой</strong> (SSR, Sum of Squares Random или SSW, Sum of Squares Within groups)</p>
+<p align="center">
+<img src="docs/images/anova_SS.jpg" width="70%" style="display: block; margin: auto;" />
+</p>
 <p align="center">
 <span class="math inline">\(SST = SSE + SSR\)</span>
 </p>
@@ -1906,9 +1919,6 @@ less
 Тогда общая сумма квадратов (дисперсия без знаменателя) равна:</p>
 <p align="center">
 <span class="math inline">\(SST = \sum_{i=1}^{m \times n} (x_i - \bar x)^2\)</span>
-</p>
-<p align="center">
-<span class="math inline">\(df_{SST} = m \times n-1\)</span>, m * n – количество всех элементов во всех группах
 </p>
 <p>Как вычислить межгрупповую и внутригрупповую сумму квадратов?</p>
 <p align="center">
@@ -1918,31 +1928,55 @@ less
 <span class="math inline">\(df_{SSE} = m-1\)</span>, m – количество групп
 </p>
 <p align="center">
-<span class="math inline">\(SSR = \sum_{j=1}^m\sum_{i=1}^n (x_i - \bar x_j)^2\)</span>
+<span class="math inline">\(SSR = \sum_{j=1}^m\sum_{i=1}^n (x_{ij} - \bar x_j)^2\)</span>
 </p>
 <p align="center">
-<span class="math inline">\(df_{SSR} = k-1\)</span>, n – количество элементов во группе, m – число групп
+<span class="math inline">\(df_{SSR} = m \times n - m\)</span>, n – количество элементов во группе, m – число групп
+</p>
+<p>Желаемый результат здесь – наименьшее значение SSR (внутригрупповой) и наибольшее SSE (межгрупповой).</p>
+<p>Отсюда логически вытекает один из важных показателей для интпреретации результатов ANOVA:</p>
+<p align="center">
+<span class="math inline">\(R^2 = \frac{SSE}{SST}\)</span> – процент объясненной факторами дисперсии (коэффициент детерминации), то есть то, насколько хорошо наши факторы объясняют изменчивость данных.
+</p>
+<p>А до подсчета F-значения остается один шаг – посчитать средние суммы квадратов, то есть поделить их на число степененй свобооды для каждой суммы квадратов (точно так же, как мы делили дисперсию на число наблюдений! Возвращаемся к ее смыслу)</p>
+<p align="center">
+<span class="math inline">\(MSE = \frac{SSE}{df_{SSE}} = \frac{SSE}{m-1}\)</span>
+</p>
+<p align="center">
+<span class="math inline">\(MSR = \frac{SSR}{df_{SSR}} = \frac{SSR}{m \times n - m}\)</span>
+</p>
+<p>И можем посчитать F-значение, которое будем располагать на F-распределении (напомню, что за нас обычно это делают специально обученные машины)</p>
+<p align="center">
+<span class="math inline">\(F = \frac{MSE}{MSR} = \frac{SSE \times (m \times n - m)}{(m-1) \times SSR}\)</span>
 </p>
 </div>
+<div id="f-распределение-фишера" class="section level3 hasAnchor">
+<h3><span class="header-section-number">9.5.3</span> F-распределение (Фишера)<a href="stats_criteria.html#f-распределение-фишера" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p align="center">
+<img src="docs/images/F-dist.png" width="70%" style="display: block; margin: auto;" />
+</p>
+<p>F-распределение или распределение Фишера – это распределение величины, которая высчитывается как отношение средних квадратов внутригрупповой и межгрупповой изменчивости (очень похоже на дисперсию) и включает туда рассчитанное количество степеней свободы для внутригрупповой и межгрупповой изменчивости. При очень большой выборке, большом значении степеней свободы, оно тоже будет походить на нормальное!</p>
+<p>При малом числе степеней свободы (малой выборке) F-распределение визуально отличается от нормального – но для проверки допущения это не имеет никакого значения, так как это распределение F-статистик, а не зависимой переменной – к ним все еще действует допущение о нормальности или большог ообъема выборки.</p>
+</div>
 <div id="допущения-для-anova" class="section level3 hasAnchor">
-<h3><span class="header-section-number">9.5.3</span> Допущения для ANOVA<a href="stats_criteria.html#допущения-для-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.5.4</span> Допущения для ANOVA<a href="stats_criteria.html#допущения-для-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Пройдем по алгоритму выбора статистического теста: <a href="https://miro.com/app/board/uXjVOxmKhr8=/?share_link_id=245423331470" class="uri">https://miro.com/app/board/uXjVOxmKhr8=/?share_link_id=245423331470</a></p>
 <p>Помимо основных отраженных ответвлений, для каждого критерия существует ряд допущений.</p>
 <p>Допущения (assumptions) – это утверждения про характер наших данных, без соблюдения которых параметрические тесты будут работать некорректно (поэтому их никто и не любит).</p>
 <ol style="list-style-type: decimal">
-<li>Данные распределены нормально (или, если измеряемый признак является случайной велиичной, в группах больше 30 наблюдений)</li>
+<li>Данные распределены нормально (или, если измеряемый признак является случайной велиичной, в группах больше 30 наблюдений) – обсуждали эту проверку <a href="stats_criteria.html#param_nonparam">здесь</a></li>
 <li>Дисперсии однородны (гомогенны) – проверяется с помощью теста Левеня (Levene’s Test of Homogeneity of Variance).</li>
 </ol>
 </div>
 <div id="непараметрические-аналоги-1" class="section level3 hasAnchor">
-<h3><span class="header-section-number">9.5.4</span> Непараметрические аналоги<a href="stats_criteria.html#непараметрические-аналоги-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.5.5</span> Непараметрические аналоги<a href="stats_criteria.html#непараметрические-аналоги-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>В случае, если допущения нормальности (помним, что это скорее про большое число наблюдений в выборке и визуально значительное отличие от гауссианы) и однородности дисперсий нарушаются, мы не можем использовать ANOVA, и нужно использовать непараметрические аналоги .</p>
 <p align="center">
 <img src="docs/images/anova-tests.png" width="70%" style="display: block; margin: auto;" />
 </p>
 </div>
 <div id="просто-anova-и-с-повторными-измерениями" class="section level3 hasAnchor">
-<h3><span class="header-section-number">9.5.5</span> Просто ANOVA и с повторными измерениями<a href="stats_criteria.html#просто-anova-и-с-повторными-измерениями" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.5.6</span> Просто ANOVA и с повторными измерениями<a href="stats_criteria.html#просто-anova-и-с-повторными-измерениями" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Тут тоже все довольно просто:</p>
 <ul>
 <li>Если у нас независимые выборки, то мы используем ANOVA или его непараметрический аналог – тест Краскелла-Уоллиса.</li>
@@ -1951,18 +1985,18 @@ less
 <p>Обилие наименований может быть пугающим, но по сути, это один и тот же тест с небольшими поправками – просто в разных названиях увековечено больше статистиков!</p>
 </div>
 <div id="взимодействие-факторов" class="section level3 hasAnchor">
-<h3><span class="header-section-number">9.5.6</span> Взимодействие факторов<a href="stats_criteria.html#взимодействие-факторов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.5.7</span> Взимодействие факторов<a href="stats_criteria.html#взимодействие-факторов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p align="center">
 <img src="docs/images/anova_factors.png" width="80%" style="display: block; margin: auto;" />
 </p>
 </div>
 <div id="пост-хоки-и-множественные-сравнения" class="section level3 hasAnchor">
-<h3><span class="header-section-number">9.5.7</span> Пост-хоки и множественные сравнения<a href="stats_criteria.html#пост-хоки-и-множественные-сравнения" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.5.8</span> Пост-хоки и множественные сравнения<a href="stats_criteria.html#пост-хоки-и-множественные-сравнения" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Если мы провели тест, сравнили полученное p-значение с <span class="math inline">\(\alpha\)</span>, и оказалось, что p-значение &lt; <span class="math inline">\(\alpha\)</span>, и мы можем отвергнуть нулевую гипотезу <span class="math inline">\(H_0\)</span> в пользу альтернативной <span class="math inline">\(H_1\)</span>. Значит ли это, что отличаются средние во всех группах? Или может быть так, что <span class="math inline">\(\mu_1 = \mu_2\)</span> и <span class="math inline">\(\mu_1 \neq \mu_3\)</span>? Может.</p>
 <p>АНОВА говорит, что в каких-то группах есть значимые отличия между средними, но не говорит, в каких именно. А чтобы узнать, в каких группах есть значимые отличия, нужно провести серию пост-хок (post hoc), апостериорных тестов. Это просто попарные т-тесты с поправкой на множественные сравнения.</p>
 </div>
 <div id="вычисление-anova-и-непараметрических-аналогов" class="section level3 hasAnchor">
-<h3><span class="header-section-number">9.5.8</span> Вычисление ANOVA и непараметрических аналогов<a href="stats_criteria.html#вычисление-anova-и-непараметрических-аналогов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.5.9</span> Вычисление ANOVA и непараметрических аналогов<a href="stats_criteria.html#вычисление-anova-и-непараметрических-аналогов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Посмотрим опять на данные и поисследуем зависимость балла по математике от того, живут ли студенты в городах (переменная <code>address</code> значение U (urban)) или деревнях (переменная <code>address</code> значение R).</p>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
@@ -3441,14 +3475,14 @@ less
 <span id="cb9-3"><a href="stats_criteria.html#cb9-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> absences_mat_groups)) <span class="op">+</span></span>
 <span id="cb9-4"><a href="stats_criteria.html#cb9-4"></a><span class="st">  </span><span class="co"># scale_fill_viridis(discrete=TRUE) +</span></span>
 <span id="cb9-5"><a href="stats_criteria.html#cb9-5"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="stats_criteria.html#cb10-1"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb10-2"><a href="stats_criteria.html#cb10-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>absences_mat_groups, <span class="dt">y =</span> G_mat)) <span class="op">+</span></span>
 <span id="cb10-3"><a href="stats_criteria.html#cb10-3"></a><span class="st">  </span><span class="kw">geom_violin</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> absences_mat_groups)) <span class="op">+</span></span>
 <span id="cb10-4"><a href="stats_criteria.html#cb10-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> absences_mat_groups), <span class="dt">width=</span>.<span class="dv">1</span>) <span class="op">+</span></span>
 <span id="cb10-5"><a href="stats_criteria.html#cb10-5"></a><span class="st">  </span><span class="co"># scale_fill_viridis(discrete=TRUE) +</span></span>
 <span id="cb10-6"><a href="stats_criteria.html#cb10-6"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 
 </div>
 </div>
