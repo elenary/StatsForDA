@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Статистика для анализа данных</title>
+  <title>11 Статистические критерии: линейные модели | Статистика для анализа данных</title>
   <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Статистика для анализа данных" />
+  <meta property="og:title" content="11 Статистические критерии: линейные модели | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Семинарские занятия по статистике для анализа данных" />
   <meta name="github-repo" content="elenary/StatsForDA" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Статистика для анализа данных" />
+  <meta name="twitter:title" content="11 Статистические критерии: линейные модели | Статистика для анализа данных" />
   
   <meta name="twitter:description" content="Семинарские занятия по статистике для анализа данных" />
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="сравнение-средних-по-группам.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -192,18 +192,59 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="stats_criteria_linear" class="section level1 hasAnchor">
+<h1><span class="header-section-number">11</span> Статистические критерии: линейные модели<a href="stats_criteria_linear.html#stats_criteria_linear" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="линейная-регрессия" class="section level2 hasAnchor">
+<h2><span class="header-section-number">11.1</span> Линейная регрессия<a href="stats_criteria_linear.html#линейная-регрессия" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="корреляция-и-корреляционный-тест" class="section level2 hasAnchor">
+<h2><span class="header-section-number">11.2</span> Корреляция и корреляционный тест<a href="stats_criteria_linear.html#корреляция-и-корреляционный-тест" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Корреляция</strong> – это связь между переменными.</p>
+<p>Корреляция – это, по сути, то же самое, что и линейная регрессия с одним фактором.</p>
+<p>Чтобы вывести ее формулу и смысл, познакомимся с понятием ковариации.</p>
+<p><strong>Ко-вариация (co-variance)</strong> – это мера со-изменчивость данных, показатель того, как наблюдения по переменным меняются друг относительно друга.</p>
+<p align="center">
+<img src="docs/images/correlation.jpeg" width="70%" style="display: block; margin: auto;" />
+Картинка <a href="https://angelgardt.github.io/SFDA2022/book/twoway-anova.html#factor_interaction">отсюда</a>
+</p>
+<p align="center">
+<span class="math inline">\(\text{cov}(x,y)=\frac{\sum_{i=1}^n (x_i - \bar x) (y_i - \bar y )}{n-1}\)</span>
+</p>
+<p><strong>Коэффициент корреляции</strong> – это показатель силы и направления связи между переменными. По сути это ковариация переменных, но взвешенная на стандартные отклонения этих переменных. Это сделано для того, чтобы стандартизовать коэффициент, уйти от абсолютных значений к относительным и расположить этот коэффицент в границах [-1;1]</p>
+<p align="center">
+<span class="math inline">\(\text{corr}(x,y) = r_{xy} = \frac{\text{cov(x, y)}}{sd_x sd_y}\)</span>
+</p>
+<p><strong>Коэффициент детерминации</strong> – показатель, в какой степении изменчивость данных объясняется этой переменной</p>
+<p><a href="https://rpsychologist.com/correlation/" class="uri">https://rpsychologist.com/correlation/</a></p>
+<p><a href="http://guessthecorrelation.com/" class="uri">http://guessthecorrelation.com/</a></p>
+<div id="корреляционный-тест" class="section level3 hasAnchor">
+<h3><span class="header-section-number">11.2.1</span> Корреляционный тест<a href="stats_criteria_linear.html#корреляционный-тест" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Гипотезы о наличии корреляции между переменными проверяются при помощи корреляционного теста. Это точно такой же статистический критерий, по сути – ровно то же самое, что линейная регрессия с одной переменной. Корреляционный тест применяется, когда и ЗП, и НП являются количественными переменными (не категориальными!)</p>
+<p>Корреляционный тест использует – вы не поверите – уже знакомое нам T-распределение Стьюдента!
+(<em>то есть, нам надо запомнить вообще всего два распределения: T-распределение и F-распределение</em>)</p>
+</div>
+<div id="допущения-для-корреляционного-теста" class="section level3 hasAnchor">
+<h3><span class="header-section-number">11.2.2</span> Допущения для корреляционного теста<a href="stats_criteria_linear.html#допущения-для-корреляционного-теста" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Данные ЗП распределены нормально – обсуждали эту проверку <a href="stats_criteria.html#param_nonparam">здесь</a></li>
+<li>Линейная монотонное распределение ЗП</li>
+</ol>
+</div>
+<div id="интерпретация-результатов" class="section level3 hasAnchor">
+<h3><span class="header-section-number">11.2.3</span> Интерпретация результатов<a href="stats_criteria_linear.html#интерпретация-результатов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p align="center">
+<img src="docs/images/corr_causation.png" width="80%" style="display: block; margin: auto;" />
+</p>
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
+<a href="сравнение-средних-по-группам.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

@@ -1,0 +1,74 @@
+#  Статистические критерии: линейные модели {#stats_criteria_linear} 
+
+```{r, eval=TRUE, echo = FALSE, message = FALSE}
+library(tidyverse)
+library(kableExtra)
+studens_mat <- read_csv("student-mat.csv") %>% 
+  rename_with(., ~ paste0(., "_mat"), .cols = c(absences, paid, G1, G2, G3)) -> studens_mat 
+studens_por <- read_csv("student-por.csv") %>% 
+  rename_with(., ~ paste0(., "_por"), .cols = c(absences, paid, G1, G2, G3)) -> studens_por
+studens_mat %>% 
+  full_join(studens_por, by = c("school","sex","age","address","famsize","Pstatus","Medu","Fedu",
+                             "Mjob","Fjob","reason", "guardian", "traveltime","studytime", "failures", "schoolsup", "famsup",
+                             "activities", "nursery", "higher", "internet", "romantic", "famrel", "freetime", "goout", 
+                             "Dalc", "Walc", "health")) -> students 
+
+students %>% 
+  mutate("student" = paste0("id", row_number()), .before = "school")  %>% 
+  drop_na() %>% 
+  mutate(G_mat = rowMeans(dplyr::select(., c(G1_mat, G2_mat, G3_mat))),
+         G_por = rowMeans(dplyr::select(., c(G1_por, G2_por, G3_por)))) %>% 
+  mutate(absences_mat_groups = ifelse(absences_mat <=5, "less", ifelse(absences_mat <=15, "middle", "more"))) %>% 
+  mutate(absences_por_groups = ifelse(absences_por <=5, "less", ifelse(absences_por <=15, "middle", "more"))) -> students
+```
+
+## Линейная регрессия 
+
+## Корреляция и корреляционный тест
+
+**Корреляция** -- это связь между переменными.
+
+Корреляция -- это, по сути, то же самое, что и линейная регрессия с одним фактором.
+
+Чтобы вывести ее формулу и смысл, познакомимся с понятием ковариации.
+
+**Ко-вариация (co-variance)** -- это мера со-изменчивость данных, показатель того, как наблюдения по переменным меняются друг относительно друга.
+
+<p align="center"> 
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="70%"}
+knitr::include_graphics("docs/images/correlation.jpeg")
+```
+Картинка [отсюда](https://angelgardt.github.io/SFDA2022/book/twoway-anova.html#factor_interaction) </p>
+
+<p align="center"> $\text{cov}(x,y)=\frac{\sum_{i=1}^n (x_i - \bar x) (y_i - \bar y )}{n-1}$</p>
+
+**Коэффициент корреляции** -- это показатель силы и направления связи между переменными. По сути это ковариация переменных, но взвешенная на стандартные отклонения этих переменных. Это сделано для того, чтобы стандартизовать коэффициент, уйти от абсолютных значений к относительным и расположить этот коэффицент в границах [-1;1]
+
+<p align="center"> $\text{corr}(x,y) = r_{xy} = \frac{\text{cov(x, y)}}{sd_x sd_y}$</p>
+
+**Коэффициент детерминации** -- показатель, в какой степении изменчивость данных объясняется этой переменной
+
+https://rpsychologist.com/correlation/
+
+http://guessthecorrelation.com/
+
+### Корреляционный тест
+
+Гипотезы о наличии корреляции между переменными проверяются при помощи корреляционного теста. Это точно такой же статистический критерий, по сути -- ровно то же самое, что линейная регрессия с одной переменной. Корреляционный тест применяется, когда и ЗП, и НП являются количественными переменными (не категориальными!)
+
+Корреляционный тест использует -- вы не поверите -- уже знакомое нам T-распределение Стьюдента!
+(*то есть, нам надо запомнить вообще всего два распределения: T-распределение и F-распределение*)
+
+### Допущения для корреляционного теста
+
+1. Данные ЗП распределены нормально -- обсуждали эту проверку [здесь](#param_nonparam)
+2. Линейная монотонное распределение ЗП
+
+### Интерпретация результатов
+
+<p align="center"> 
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="80%"}
+knitr::include_graphics("docs/images/corr_causation.png")
+```
+</p>
+
