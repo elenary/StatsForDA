@@ -103,3 +103,7 @@ nhst
 param_nonparam
 variables
 f-распределение-фишера
+ttest
+levels
+нелинейные-эффекты
+multiple_anova
