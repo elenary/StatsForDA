@@ -100,3 +100,5 @@ descriptive_vis
 sample_size
 stat_test_example
 nhst
+param_nonparam
+variables

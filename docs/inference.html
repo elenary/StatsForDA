@@ -193,7 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="inference.html"><a href="inference.html#идея-статистического-вывода"><i class="fa fa-check"></i><b>8.1</b> Идея статистического вывода</a></li>
 <li class="chapter" data-level="8.2" data-path="inference.html"><a href="inference.html#nhst"><i class="fa fa-check"></i><b>8.2</b> NHST: алгоритм проверки гипотезы и анализа данных</a></li>
 <li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="inference.html"><a href="inference.html#зависимые-и-независимые-переменные"><i class="fa fa-check"></i><b>8.3.1</b> Зависимые и независимые переменные</a></li>
+<li class="chapter" data-level="8.3.1" data-path="inference.html"><a href="inference.html#variables"><i class="fa fa-check"></i><b>8.3.1</b> Зависимые и независимые переменные</a></li>
 <li class="chapter" data-level="8.3.2" data-path="inference.html"><a href="inference.html#уровни-нп-в-категориальных-переменных"><i class="fa fa-check"></i><b>8.3.2</b> Уровни НП в категориальных переменных</a></li>
 <li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#связь-между-зп-и-нп"><i class="fa fa-check"></i><b>8.3.3</b> Связь между ЗП и НП</a></li>
 </ul></li>
@@ -209,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.1" data-path="stats_criteria.html"><a href="stats_criteria.html#степени-свободы"><i class="fa fa-check"></i><b>9.1</b> Степени свободы</a></li>
 <li class="chapter" data-level="9.2" data-path="stats_criteria.html"><a href="stats_criteria.html#ключевые-распределения-и-статистики-критериев-z-t-f"><i class="fa fa-check"></i><b>9.2</b> Ключевые распределения и статистики критериев (Z, T, F)</a></li>
 <li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.3</b> Выбор статистического критерия</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="stats_criteria.html"><a href="stats_criteria.html#параметрические-и-непараметрические-критерии"><i class="fa fa-check"></i><b>9.3.1</b> Параметрические и непараметрические критерии</a></li>
+<li class="chapter" data-level="9.3.1" data-path="stats_criteria.html"><a href="stats_criteria.html#param_nonparam"><i class="fa fa-check"></i><b>9.3.1</b> Параметрические и непараметрические критерии</a></li>
 <li class="chapter" data-level="9.3.2" data-path="stats_criteria.html"><a href="stats_criteria.html#зависимые-и-независимые-выборки"><i class="fa fa-check"></i><b>9.3.2</b> Зависимые и независимые выборки</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="stats_criteria.html"><a href="stats_criteria.html#t-тест-сравнение-средних-двух-групп"><i class="fa fa-check"></i><b>9.4</b> T-тест (сравнение средних двух групп)</a><ul>
@@ -1823,8 +1823,8 @@ less
 <p>Эмпирическая гипотеза 2: <code>Студенты, кто оценивает отношения с родителями как менее поддерживающие (переменная famrel, менее поддерживающие в значениях 1-2), чаще употребляют алкоголь (переменная Walc, употребление в выходные дни, значения 4-5)</code></p>
 <p>Эмпирическая гипотеза 3 <code>Студенты, у кого было много пропусков (absences_mat или absences_por, высокие значения), будут иметь более низкий средний балл (среднее из G1_mat, G2_mat, G3_mat или G1_por, G2_por, G3_por -- низкие значения)</code></p>
 <p>Давайте сначала подумаем, что это за гипотезы, какие зависимые и независимые переменные, наличие или отсутствие какой связи между зависимой и независимыми переменными нам хочется проверить?</p>
-<div id="зависимые-и-независимые-переменные" class="section level3 hasAnchor">
-<h3><span class="header-section-number">8.3.1</span> Зависимые и независимые переменные<a href="inference.html#зависимые-и-независимые-переменные" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="variables" class="section level3 hasAnchor">
+<h3><span class="header-section-number">8.3.1</span> Зависимые и независимые переменные<a href="inference.html#variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Независимые переменные</strong> – это все, чем мы манипулируем по ходу проведения исследования, какие различия создаем с целью получить разный результат. <strong>Зависимая</strong> – целевая переменная, различия в которой как раз хотим получить путем манипуляции независимыми переменными, то, что мы измереяем. При описании исследования всегда важно записывать ЗП и НП, наряду с эмпирической (если метод это эксперимент, то экспериментальной) гипотезой. Эмпирическая гипотеза и переменные – сердце нашего исследования, самое основное из языка, на котором описывается исследование, без понимания, что мы хгтим прооверить, чула не получится.</p>
 <p>При описании ЗП и НП важно указать, к какой шкале они относятся? Это важно понимать, чтобы потом выбрать, как анализировать данные.</p>
 <p>Для гипотезы 1</p>
