@@ -3,6 +3,7 @@
 ```{r, eval=TRUE, echo = FALSE, message = FALSE}
 library(tidyverse)
 library(kableExtra)
+library(viridis)
 studens_mat <- read_csv("student-mat.csv") %>% 
   rename_with(., ~ paste0(., "_mat"), .cols = c(absences, paid, G1, G2, G3)) -> studens_mat 
 studens_por <- read_csv("student-por.csv") %>% 
