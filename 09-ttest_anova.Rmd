@@ -1,4 +1,4 @@
-# Сравнение средних по группам 
+# Сравнение средних по группам {#stats_criteria_ttest_anova} 
 
 ```{r, eval=TRUE, echo = FALSE, message = FALSE}
 library(tidyverse)
