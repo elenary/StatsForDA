@@ -270,7 +270,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Теперь мы переходим к статистическим критериям, которые используются, когда обе переменные, и ЗП, и НП – количественные.</p>
 <div id="линейная-регрессия" class="section level2 hasAnchor">
 <h2><span class="header-section-number">11.1</span> Линейная регрессия<a href="stats_criteria_linear.html#линейная-регрессия" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Линейная регрессия – метод анализа, …</p>
 <p>Линейная регрессия – это ровно та же известная нам ANOVA, только если заменить категориальные НП на количественные!</p>
 <div id="коэффициенты-регрессии" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.1.1</span> Коэффициенты регрессии<a href="stats_criteria_linear.html#коэффициенты-регрессии" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -291,10 +290,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>При подсчете коэффициентов первым высчитывается <span class="math inline">\(b_1\)</span>, и он зависит от величины вариативности данных по переменным x и y (стандартных отклонений или дисперсий) и <strong>в случае равной вариативности является коэффициентом корреляции</strong> <span class="math inline">\(r_{xy}\)</span></li>
 </ul>
 <p align="center">
-$b_{1_{xy}} =  r_{xy} $
+<span class="math inline">\(b_{1_{xy}} = \frac{sd_y}{sd_x} r_{xy}\)</span>
 </p>
 <p align="center">
-$b_o = y -b_{1_{xy}}x $
+<span class="math inline">\(b_o = \bar y -b_{1_{xy}}\bar x\)</span>
 </p>
 <p>Коэффициенты считаются таким образом, чтобы сумма квадратов остатков была минимальна. Это называется <strong>методом наименьших квадратов</strong>.</p>
 </div>
