@@ -92,7 +92,6 @@ students %>%
 ```
 
 
-
 ```{r, eval=TRUE}
 students %>% 
   filter(absences_mat_groups != "middle") -> students_2
@@ -262,7 +261,7 @@ knitr::include_graphics("docs/images/nonlinear.png")
 ```
 </p>
 
-### Многофкторый ANOVA и взаимодействие факторов {#multiple_anova}
+### Многофакторый ANOVA и взаимодействие факторов {#multiple_anova}
 
 Многофакторный ANOVA -- тот же ANOVA, только когда у нас больше одной [независимой переменной (фактора)](#levels). Многофакторный ANOVA обычно обозначается примерно так: $ANOVA \ 2 \times 3$ -- это значит, что у нас два фактора, 2 уровня в первом фактора и 3 уровня во втором.
 
@@ -319,13 +318,22 @@ kable(students[1:10,]) %>% scroll_box(width = "100%")
 
 4) Выберем статистический критерий для проверки. Сделаем проверку ЗП на нормальность и сравним дисперсии двух выборок. 
 
+```{r, eval=TRUE, message = FALSE, warning= FALSE}
+students %>% 
+  ggplot(aes(x=G_mat, y = ..density..)) +
+  geom_histogram() +
+  geom_density() +
+  theme_minimal()
+```
+
 5) В нашем случае критерий -- однофакторный ANOVA с независимыми выборками. Вычислим его
 
 ```{r, eval=TRUE, message = FALSE, warning= FALSE}
 library("ez")
-model_abs_mat_ez = ezANOVA(data = students, dv = G_mat, wid = student,
-                           between = absences_mat_groups)
+model_abs_mat_ez <-  ezANOVA(data = students, dv = G_mat, wid = student,
+                           between = Mjob)
 model_abs_mat_ez
+summary(model_abs_mat_ez)
 ```
 
 6) Как интпрерпретировать результаты? Ключевая для нас статистика -- это F-значение
@@ -333,25 +341,25 @@ model_abs_mat_ez
 Еще хорошую и более поробную главу (даже две) про ANOVA написал мой друг и коллега Антон Ангельгардт, если интересно углубиться, можно почитать его материал.
 https://angelgardt.github.io/SFDA2022/book/oneway-anova.html
 ```{r, eval=TRUE, message = FALSE, warning= FALSE}
-
-model_address_mat_ez = ezANOVA(data = students, dv = G_mat, wid = student,
-                           between = address)
-model_address_mat_ez
+model_abs_mat_ez <-  ezANOVA(data = students, dv = G_mat, wid = student,
+                           between = Mjob)
+model_abs_mat_ez
+summary(model_abs_mat_ez)
 ```
 
 ```{r}
 students %>% 
-  ggplot(aes(x=absences_mat_groups, y = G_mat)) +
-  geom_boxplot(aes(fill = absences_mat_groups)) +
-  # scale_fill_viridis(discrete=TRUE) +
+  ggplot(aes(x=Mjob, y = G_mat)) +
+  geom_boxplot(aes(fill = Mjob)) +
+  scale_fill_viridis(discrete=TRUE) +
   theme_minimal()
 ```
 
 ```{r, eval=TRUE}
 students %>% 
-  ggplot(aes(x=absences_mat_groups, y = G_mat)) +
-  geom_violin(aes(fill = absences_mat_groups)) +
-  geom_boxplot(aes(fill = absences_mat_groups), width=.1) +
-  # scale_fill_viridis(discrete=TRUE) +
+  ggplot(aes(x=Mjob, y = G_mat)) +
+  geom_violin(aes(fill = Mjob)) +
+  geom_boxplot(aes(fill = Mjob), width=.1) +
+  scale_fill_viridis(discrete=TRUE) +
   theme_minimal()
 ```
