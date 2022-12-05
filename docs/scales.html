@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2022-11-08" />
+<meta name="date" content="2022-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -147,7 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="sample.html"><a href="sample.html"><i class="fa fa-check"></i><b>2</b> Выборка</a><ul>
 <li class="chapter" data-level="2.1" data-path="sample.html"><a href="sample.html#выборочные-оценки"><i class="fa fa-check"></i><b>2.1</b> Выборочные оценки</a></li>
 <li class="chapter" data-level="2.2" data-path="sample.html"><a href="sample.html#репрезентативность-выборки"><i class="fa fa-check"></i><b>2.2</b> Репрезентативность выборки</a></li>
-<li class="chapter" data-level="2.3" data-path="sample.html"><a href="sample.html#зависимые-и-независимые-выборки"><i class="fa fa-check"></i><b>2.3</b> Зависимые и независимые выборки</a></li>
+<li class="chapter" data-level="2.3" data-path="sample.html"><a href="sample.html#dependent_samples"><i class="fa fa-check"></i><b>2.3</b> Зависимые и независимые выборки</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a><ul>
 <li class="chapter" data-level="3.1" data-path="scales.html"><a href="scales.html#измерение-и-переменная"><i class="fa fa-check"></i><b>3.1</b> Измерение и переменная</a></li>
@@ -168,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="distributions.html"><a href="distributions.html#функции-распределения"><i class="fa fa-check"></i><b>5.2</b> Функции распределения</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a><ul>
-<li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#описательные-визуализации"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a></li>
+<li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#descriptive_vis"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a></li>
 <li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="descriptives.html"><a href="descriptives.html#среднее-медиана-мода"><i class="fa fa-check"></i><b>6.2.1</b> Среднее, медиана, мода</a></li>
 <li class="chapter" data-level="6.2.2" data-path="descriptives.html"><a href="descriptives.html#особенности-использования"><i class="fa fa-check"></i><b>6.2.2</b> Особенности использования</a></li>
@@ -181,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение и оценки</a><ul>
 <li class="chapter" data-level="7.1" data-path="normdist.html"><a href="normdist.html#ctt"><i class="fa fa-check"></i><b>7.1</b> Центральная предельная теорема</a></li>
-<li class="chapter" data-level="7.2" data-path="normdist.html"><a href="normdist.html#стандартная-ошибка-среднего"><i class="fa fa-check"></i><b>7.2</b> Стандартная ошибка среднего</a></li>
+<li class="chapter" data-level="7.2" data-path="normdist.html"><a href="normdist.html#standart_error"><i class="fa fa-check"></i><b>7.2</b> Стандартная ошибка среднего</a></li>
 <li class="chapter" data-level="7.3" data-path="normdist.html"><a href="normdist.html#нормальное-распределение-и-его-свойства"><i class="fa fa-check"></i><b>7.3</b> Нормальное распределение и его свойства</a></li>
 <li class="chapter" data-level="7.4" data-path="normdist.html"><a href="normdist.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>7.4</b> Стандартное нормальное распределение</a></li>
 <li class="chapter" data-level="7.5" data-path="normdist.html"><a href="normdist.html#z-преобразование-и-стандартизация"><i class="fa fa-check"></i><b>7.5</b> Z-преобразование и стандартизация</a></li>
@@ -189,20 +189,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>8</b> Статистический вывод</a><ul>
 <li class="chapter" data-level="8.1" data-path="inference.html"><a href="inference.html#идея-статистического-вывода"><i class="fa fa-check"></i><b>8.1</b> Идея статистического вывода</a></li>
-<li class="chapter" data-level="8.2" data-path="inference.html"><a href="inference.html#nhst-чек-лист-проверки-гипотезы"><i class="fa fa-check"></i><b>8.2</b> NHST: чек-лист проверки гипотезы</a></li>
+<li class="chapter" data-level="8.2" data-path="inference.html"><a href="inference.html#nhst"><i class="fa fa-check"></i><b>8.2</b> NHST: алгоритм проверки гипотезы и анализа данных</a></li>
 <li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="inference.html"><a href="inference.html#эмпирические-методы"><i class="fa fa-check"></i><b>8.3.1</b> Эмпирические методы</a></li>
-<li class="chapter" data-level="8.3.2" data-path="inference.html"><a href="inference.html#зависимые-и-независимые-переменные"><i class="fa fa-check"></i><b>8.3.2</b> Зависимые и независимые переменные</a></li>
-<li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#уровни-нп-в-категориальных-переменных"><i class="fa fa-check"></i><b>8.3.3</b> Уровни НП в категориальных переменных</a></li>
-<li class="chapter" data-level="8.3.4" data-path="inference.html"><a href="inference.html#связь-между-зп-и-нп"><i class="fa fa-check"></i><b>8.3.4</b> Связь между ЗП и НП</a></li>
+<li class="chapter" data-level="8.3.1" data-path="inference.html"><a href="inference.html#variables"><i class="fa fa-check"></i><b>8.3.1</b> Зависимые и независимые переменные</a></li>
+<li class="chapter" data-level="8.3.2" data-path="inference.html"><a href="inference.html#уровни-нп-в-категориальных-переменных"><i class="fa fa-check"></i><b>8.3.2</b> Уровни НП в категориальных переменных</a></li>
+<li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#связь-между-зп-и-нп"><i class="fa fa-check"></i><b>8.3.3</b> Связь между ЗП и НП</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="inference.html"><a href="inference.html#нулевая-и-альтернативные-статистические-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные статистические гипотезы</a><ul>
 <li class="chapter" data-level="8.4.1" data-path="inference.html"><a href="inference.html#направленные-и-ненаправленные-гипотезы"><i class="fa fa-check"></i><b>8.4.1</b> Направленные и ненаправленные гипотезы</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="inference.html"><a href="inference.html#уровень-значимости-и-статистическая-мощность"><i class="fa fa-check"></i><b>8.5</b> Уровень значимости и статистическая мощность</a></li>
 <li class="chapter" data-level="8.6" data-path="inference.html"><a href="inference.html#выбор-статистического-критерия"><i class="fa fa-check"></i><b>8.6</b> Выбор статистического критерия</a></li>
-<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#размер-выборки"><i class="fa fa-check"></i><b>8.7</b> Размер выборки</a></li>
-<li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#расчет-статического-критерия-и-проверка-значимости"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости</a></li>
+<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки</a></li>
+<li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#stat_test_example"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a><ul>
+<li class="chapter" data-level="9.1" data-path="stats_criteria.html"><a href="stats_criteria.html#степени-свободы"><i class="fa fa-check"></i><b>9.1</b> Степени свободы</a></li>
+<li class="chapter" data-level="9.2" data-path="stats_criteria.html"><a href="stats_criteria.html#ключевые-распределения-и-статистики-критериев-z-t-f"><i class="fa fa-check"></i><b>9.2</b> Ключевые распределения и статистики критериев (Z, T, F)</a></li>
+<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.3</b> Выбор статистического критерия</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="stats_criteria.html"><a href="stats_criteria.html#param_nonparam"><i class="fa fa-check"></i><b>9.3.1</b> Параметрические и непараметрические критерии</a></li>
+<li class="chapter" data-level="9.3.2" data-path="stats_criteria.html"><a href="stats_criteria.html#зависимые-и-независимые-выборки"><i class="fa fa-check"></i><b>9.3.2</b> Зависимые и независимые выборки</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html"><i class="fa fa-check"></i><b>10</b> Сравнение средних по группам</a><ul>
+<li class="chapter" data-level="10.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#ttest"><i class="fa fa-check"></i><b>10.1</b> T-тест</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#допущения-для-т-теста"><i class="fa fa-check"></i><b>10.1.1</b> Допущения для т-теста</a></li>
+<li class="chapter" data-level="10.1.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#непараметрические-аналоги"><i class="fa fa-check"></i><b>10.1.2</b> Непараметрические аналоги</a></li>
+<li class="chapter" data-level="10.1.3" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#независимые-и-парные-тесты"><i class="fa fa-check"></i><b>10.1.3</b> Независимые и парные тесты</a></li>
+<li class="chapter" data-level="10.1.4" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#вычисление-т-теста-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>10.1.4</b> Вычисление т-теста и непараметрических аналогов</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>10.2</b> ANOVA (дисперсионный анализ)</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#levels"><i class="fa fa-check"></i><b>10.2.1</b> Факторы и уровни</a></li>
+<li class="chapter" data-level="10.2.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#почему-он-дисперсионный"><i class="fa fa-check"></i><b>10.2.2</b> Почему он дисперсионный</a></li>
+<li class="chapter" data-level="10.2.3" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#f-распределение-фишера"><i class="fa fa-check"></i><b>10.2.3</b> F-распределение (Фишера)</a></li>
+<li class="chapter" data-level="10.2.4" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#допущения-для-anova"><i class="fa fa-check"></i><b>10.2.4</b> Допущения для ANOVA</a></li>
+<li class="chapter" data-level="10.2.5" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#непараметрические-аналоги-1"><i class="fa fa-check"></i><b>10.2.5</b> Непараметрические аналоги</a></li>
+<li class="chapter" data-level="10.2.6" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#просто-anova-и-с-повторными-измерениями"><i class="fa fa-check"></i><b>10.2.6</b> Просто ANOVA и с повторными измерениями</a></li>
+<li class="chapter" data-level="10.2.7" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#нелинейные-эффекты"><i class="fa fa-check"></i><b>10.2.7</b> Нелинейные эффекты</a></li>
+<li class="chapter" data-level="10.2.8" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#multiple_anova"><i class="fa fa-check"></i><b>10.2.8</b> Многофакторый ANOVA и взаимодействие факторов</a></li>
+<li class="chapter" data-level="10.2.9" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#пост-хоки-и-множественные-сравнения"><i class="fa fa-check"></i><b>10.2.9</b> Пост-хоки и множественные сравнения</a></li>
+<li class="chapter" data-level="10.2.10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#вычисление-anova-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>10.2.10</b> Вычисление ANOVA и непараметрических аналогов</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html"><i class="fa fa-check"></i><b>11</b> Проверка линейной свзяи</a><ul>
+<li class="chapter" data-level="11.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#corr_test"><i class="fa fa-check"></i><b>11.1</b> Корреляционный анализ</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционный-тест"><i class="fa fa-check"></i><b>11.1.1</b> Корреляционный тест</a></li>
+<li class="chapter" data-level="11.1.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-корреляционного-теста"><i class="fa fa-check"></i><b>11.1.2</b> Допущения для корреляционного теста</a></li>
+<li class="chapter" data-level="11.1.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#непараметрические-аналоги-2"><i class="fa fa-check"></i><b>11.1.3</b> Непараметрические аналоги</a></li>
+<li class="chapter" data-level="11.1.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-корреляционного-теста"><i class="fa fa-check"></i><b>11.1.4</b> Расчет корреляционного теста</a></li>
+<li class="chapter" data-level="11.1.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#интерпретация-результатов"><i class="fa fa-check"></i><b>11.1.5</b> Интерпретация результатов</a></li>
+<li class="chapter" data-level="11.1.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционные-матрицы"><i class="fa fa-check"></i><b>11.1.6</b> Корреляционные матрицы</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#линейный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициенты-регрессии"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
+<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии"><i class="fa fa-check"></i><b>11.2.2</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
+<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.3</b> Допущения для регрессионного анализа</a></li>
+<li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.4</b> Расчет регрессионного анализа</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -270,16 +313,16 @@ univer
 1
 </td>
 <td style="text-align:right;">
-59
+44
 </td>
 <td style="text-align:right;">
-5
+1
 </td>
 <td style="text-align:left;">
-от 3 до 5
+от 1 до 2
 </td>
 <td style="text-align:right;">
-38
+45
 </td>
 <td style="text-align:left;">
 MSU
@@ -290,16 +333,16 @@ MSU
 2
 </td>
 <td style="text-align:right;">
-35
+38
 </td>
 <td style="text-align:right;">
-4
+8
 </td>
 <td style="text-align:left;">
-от 3 до 5
+больше 5
 </td>
 <td style="text-align:right;">
-20
+47
 </td>
 <td style="text-align:left;">
 HSE
@@ -310,7 +353,7 @@ HSE
 3
 </td>
 <td style="text-align:right;">
-38
+34
 </td>
 <td style="text-align:right;">
 3
@@ -319,7 +362,7 @@ HSE
 от 3 до 5
 </td>
 <td style="text-align:right;">
-35
+59
 </td>
 <td style="text-align:left;">
 MSU
@@ -330,16 +373,16 @@ MSU
 4
 </td>
 <td style="text-align:right;">
-50
+42
 </td>
 <td style="text-align:right;">
-4
+8
 </td>
 <td style="text-align:left;">
-от 3 до 5
+больше 5
 </td>
 <td style="text-align:right;">
-57
+65
 </td>
 <td style="text-align:left;">
 RANEPA
@@ -350,16 +393,16 @@ RANEPA
 5
 </td>
 <td style="text-align:right;">
-53
+59
 </td>
 <td style="text-align:right;">
-7
+3
 </td>
 <td style="text-align:left;">
-больше 5
+от 3 до 5
 </td>
 <td style="text-align:right;">
-31
+55
 </td>
 <td style="text-align:left;">
 HSE
@@ -370,16 +413,16 @@ HSE
 6
 </td>
 <td style="text-align:right;">
-42
+26
 </td>
 <td style="text-align:right;">
-2
+5
 </td>
 <td style="text-align:left;">
-от 1 до 2
+от 3 до 5
 </td>
 <td style="text-align:right;">
-52
+21
 </td>
 <td style="text-align:left;">
 RANEPA
@@ -390,16 +433,16 @@ RANEPA
 7
 </td>
 <td style="text-align:right;">
-33
+38
 </td>
 <td style="text-align:right;">
-7
+3
 </td>
 <td style="text-align:left;">
-больше 5
+от 3 до 5
 </td>
 <td style="text-align:right;">
-48
+67
 </td>
 <td style="text-align:left;">
 MSU
@@ -410,16 +453,16 @@ MSU
 8
 </td>
 <td style="text-align:right;">
-59
+35
 </td>
 <td style="text-align:right;">
-3
+2
 </td>
 <td style="text-align:left;">
-от 3 до 5
+от 1 до 2
 </td>
 <td style="text-align:right;">
-28
+57
 </td>
 <td style="text-align:left;">
 HSE
@@ -430,16 +473,16 @@ HSE
 9
 </td>
 <td style="text-align:right;">
-29
+49
 </td>
 <td style="text-align:right;">
-1
+7
 </td>
 <td style="text-align:left;">
-от 1 до 2
+больше 5
 </td>
 <td style="text-align:right;">
-66
+28
 </td>
 <td style="text-align:left;">
 MSU
@@ -450,16 +493,16 @@ MSU
 10
 </td>
 <td style="text-align:right;">
-28
+41
 </td>
 <td style="text-align:right;">
-4
+7
 </td>
 <td style="text-align:left;">
-от 3 до 5
+больше 5
 </td>
 <td style="text-align:right;">
-38
+34
 </td>
 <td style="text-align:left;">
 RANEPA
