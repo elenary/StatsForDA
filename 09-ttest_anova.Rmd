@@ -99,7 +99,7 @@ students %>%
 t.test(students_2$G_mat ~ students_2$absences_mat_groups, paired = FALSE)
 ```
 
-```{r eval=TRUE, echo = TRUE, warning=FALSE}
+```{r eval=TRUE, echo = FALSE, warning=FALSE}
 students_2 %>% 
   ggplot(aes(x=absences_mat_groups, y = G_mat)) +
   geom_boxplot(aes(fill = absences_mat_groups)) +
@@ -107,7 +107,7 @@ students_2 %>%
   theme_minimal()
 ```
 
-```{r eval=TRUE, echo = TRUE, warning=FALSE}
+```{r eval=TRUE, echo = FALSE, warning=FALSE}
 students_2 %>% 
   ggplot(aes(x=absences_mat_groups, y = G_mat)) +
   geom_violin(aes(fill = absences_mat_groups)) +
@@ -354,7 +354,7 @@ model_abs_mat_ez
 summary(model_abs_mat_ez)
 ```
 
-```{r}
+```{r, eval=TRUE, echo=FALSE}
 students %>% 
   ggplot(aes(x=Mjob, y = G_mat)) +
   geom_boxplot(aes(fill = Mjob)) +
@@ -363,7 +363,7 @@ students %>%
   theme_minimal()
 ```
 
-```{r, eval=TRUE}
+```{r, eval=TRUE, echo=FALSE}
 students %>% 
   ggplot(aes(x=Mjob, y = G_mat)) +
   geom_violin(aes(fill = Mjob)) +
@@ -371,7 +371,7 @@ students %>%
   scale_fill_viridis(discrete=TRUE) +
   theme_minimal()
 ```
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 # students %>% 
 #   ggplot(aes(x=Mjob, y = G_mat)) +
 #   geom_point(aes(fill = Mjob)) +
