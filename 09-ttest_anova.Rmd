@@ -92,7 +92,6 @@ students %>%
   summarise(mean = mean(G_mat), sd = sd(G_mat), n = length(G_mat))
 ```
 
-
 ```{r, eval=TRUE}
 students %>% 
   filter(absences_mat_groups != "middle") -> students_2
@@ -100,7 +99,7 @@ students %>%
 t.test(students_2$G_mat ~ students_2$absences_mat_groups, paired = FALSE)
 ```
 
-```{r eval=TRUE, echo = FALSE, warning=FALSE}
+```{r eval=TRUE, echo = TRUE, warning=FALSE}
 students_2 %>% 
   ggplot(aes(x=absences_mat_groups, y = G_mat)) +
   geom_boxplot(aes(fill = absences_mat_groups)) +
@@ -108,7 +107,7 @@ students_2 %>%
   theme_minimal()
 ```
 
-```{r eval=TRUE, echo = FALSE, warning=FALSE}
+```{r eval=TRUE, echo = TRUE, warning=FALSE}
 students_2 %>% 
   ggplot(aes(x=absences_mat_groups, y = G_mat)) +
   geom_violin(aes(fill = absences_mat_groups)) +
