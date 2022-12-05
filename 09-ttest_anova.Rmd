@@ -318,14 +318,14 @@ kable(students[1:10,]) %>% scroll_box(width = "100%")
 
 4) Выберем статистический критерий для проверки. Сделаем проверку ЗП на нормальность и сравним дисперсии двух выборок. 
 
-```{r, eval=TRUE, message = FALSE, warning= FALSE, out.width="60%"}
+```{r, eval=TRUE, , echo=FALSE,  message = FALSE, warning= FALSE, out.width="60%"}
 students %>% 
   ggplot(aes(x=G_mat, y = ..density..)) +
   geom_histogram() +
   geom_density() +
   theme_minimal()
 ```
-```{r, eval=TRUE, message = FALSE, warning= FALSE, out.width="60%"}
+```{r, eval=TRUE, , echo=FALSE, message = FALSE, warning= FALSE, out.width="60%"}
 students %>% 
   ggplot(aes(sample=G_mat)) +
   stat_qq() +
