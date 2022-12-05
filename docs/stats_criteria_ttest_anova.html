@@ -1945,7 +1945,7 @@ less
 </div>
 <div id="вычисление-anova-и-непараметрических-аналогов" class="section level3 hasAnchor">
 <h3><span class="header-section-number">10.2.10</span> Вычисление ANOVA и непараметрических аналогов<a href="stats_criteria_ttest_anova.html#вычисление-anova-и-непараметрических-аналогов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Посмотрим опять на данные и поисследуем зависимость балла по математике (переменная <code>G_mat</code>) от того, живут ли студенты в городах (переменная <code>address</code> значение U (urban)) или деревнях (переменная <code>address</code> значение R).</p>
+<p>Посмотрим опять на данные и поисследуем зависимость балла по математике (переменная <code>G_mat</code>) от работы матери (переменная <code>Mjob</code>).</p>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <thead>
@@ -3396,10 +3396,10 @@ less
 </table>
 </div>
 <ol style="list-style-type: decimal">
-<li>Формулируем эмпирическю гипотезу. Уже обсуждали, что ЗП здесь – <code>G_mat</code>, количественная непрерывная. НП – <code>address</code>, категориальная номинативная, включает 2 уровня – U и R.</li>
+<li>Формулируем эмпирическю гипотезу. Уже обсуждали, что ЗП здесь – <code>G_mat</code>, количественная непрерывная. НП – <code>Mjob</code>, категориальная номинативная, включает 5 уровней.</li>
 </ol>
 <p align="center">
-<code>G_mat</code> ~ <code>address</code>
+<code>G_mat</code> ~ <code>Mjob</code>
 </p>
 <ol start="2" style="list-style-type: decimal">
 <li>Формулируем нулевую гипотезу:</li>
@@ -3430,18 +3430,14 @@ less
 ## $`Levene&#39;s Test for Homogeneity of Variance`
 ##   DFn DFd      SSn      SSd         F         p p&lt;.05
 ## 1   4 315 12.53941 1434.182 0.6885308 0.6003484</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="stats_criteria_ttest_anova.html#cb7-1"></a><span class="kw">summary</span>(model_abs_mat_ez)</span></code></pre></div>
-<pre><code>##                                           Length Class      Mode
-## ANOVA                                     7      data.frame list
-## Levene&#39;s Test for Homogeneity of Variance 7      data.frame list</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>Как интпрерпретировать результаты? Ключевая для нас статистика – это F-значение</li>
 </ol>
 <p>Еще хорошую и более поробную главу (даже две) про ANOVA написал мой друг и коллега Антон Ангельгардт, если интересно углубиться, можно почитать его материал.
 <a href="https://angelgardt.github.io/SFDA2022/book/oneway-anova.html" class="uri">https://angelgardt.github.io/SFDA2022/book/oneway-anova.html</a></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="stats_criteria_ttest_anova.html#cb9-1"></a>model_abs_mat_ez &lt;-<span class="st">  </span><span class="kw">ezANOVA</span>(<span class="dt">data =</span> students, <span class="dt">dv =</span> G_mat, <span class="dt">wid =</span> student,</span>
-<span id="cb9-2"><a href="stats_criteria_ttest_anova.html#cb9-2"></a>                           <span class="dt">between =</span> Mjob)</span>
-<span id="cb9-3"><a href="stats_criteria_ttest_anova.html#cb9-3"></a>model_abs_mat_ez</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="stats_criteria_ttest_anova.html#cb7-1"></a>model_abs_mat_ez &lt;-<span class="st">  </span><span class="kw">ezANOVA</span>(<span class="dt">data =</span> students, <span class="dt">dv =</span> G_mat, <span class="dt">wid =</span> student,</span>
+<span id="cb7-2"><a href="stats_criteria_ttest_anova.html#cb7-2"></a>                           <span class="dt">between =</span> Mjob)</span>
+<span id="cb7-3"><a href="stats_criteria_ttest_anova.html#cb7-3"></a>model_abs_mat_ez</span></code></pre></div>
 <pre><code>## $ANOVA
 ##   Effect DFn DFd        F          p p&lt;.05        ges
 ## 1   Mjob   4 315 4.132617 0.00280909     * 0.04986108
@@ -3449,7 +3445,7 @@ less
 ## $`Levene&#39;s Test for Homogeneity of Variance`
 ##   DFn DFd      SSn      SSd         F         p p&lt;.05
 ## 1   4 315 12.53941 1434.182 0.6885308 0.6003484</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="stats_criteria_ttest_anova.html#cb11-1"></a><span class="kw">summary</span>(model_abs_mat_ez)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="stats_criteria_ttest_anova.html#cb9-1"></a><span class="kw">summary</span>(model_abs_mat_ez)</span></code></pre></div>
 <pre><code>##                                           Length Class      Mode
 ## ANOVA                                     7      data.frame list
 ## Levene&#39;s Test for Homogeneity of Variance 7      data.frame list</code></pre>
