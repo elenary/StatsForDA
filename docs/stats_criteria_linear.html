@@ -300,6 +300,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p align="center">
 <span class="math inline">\(R^2 = r_{xy}^2 = \frac{\text{cov(x, y)}}{sd_x sd_y} = \frac{\sum_{i=1}^n (x_i - \bar x) (y_i - \bar y )}{(n-1)sd_x sd_y}\)</span>
 </p>
+<p align="center">
+<img src="docs/images/correlation2.png" width="70%" style="display: block; margin: auto;" />
+Из статьи в википедии про <a href="https://en.wikipedia.org/wiki/Correlation">корреляцию</a>
+</p>
 <p><a href="https://rpsychologist.com/correlation/" class="uri">https://rpsychologist.com/correlation/</a></p>
 <p><a href="http://guessthecorrelation.com/" class="uri">http://guessthecorrelation.com/</a></p>
 <div id="корреляционный-тест" class="section level3 hasAnchor">
@@ -330,11 +334,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Примеры, как может выглядеть нелинейное распределение:</p>
 <p align="center">
 <img src="docs/images/Correlation_examples2.svg.png" width="100%" style="display: block; margin: auto;" />
+Картинка из <a href="https://en.wikipedia.org/wiki/Correlation">википедии про корреляцию</a>
 </p>
 </div>
 <div id="непараметрические-аналоги-2" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.1.3</span> Непараметрические аналоги<a href="stats_criteria_linear.html#непараметрические-аналоги-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Если ЗП сильно отличается от нормального распределения, или выборка мала, или ЗП закодирована в порядковой шкале – в коррялционном тесте используется коэффициент корреляции Спирмена вместо Пирсена, и это единственное различие.</p>
+<p>Если ЗП сильно отличается от нормального распределения, или выборка мала, или ЗП закодирована в порядковой шкале – в корреляционном тесте используется коэффициент корреляции Спирмена вместо Пирсона, и это единственное различие.</p>
 <p>Есть еще тау-Кендалла, это почти то же самое, что и корреляция Спирмена, но мы не будем ее рассматривать, так как она применяется крайне редко.</p>
 <p align="center">
 <img src="docs/images/scheme-corr.png" width="70%" style="display: block; margin: auto;" />
@@ -1800,8 +1805,6 @@ less
 <p>ЗП – порядковая, НП – порядковая. Наша гипотеза не о сравнении групп между собой, а то, что эти переменные коррелируют, между ними есть линейная связь.</p>
 <p>Так как ЗП и НП порядковые, мне нужно использовать непараметрический аналог корреляциии Пирсона – ранговую корреляцию Спирмена (либо порядковую логистическую регрессию (если я хочу, чтобы связь имела предсказательную силу), но об этом не в этот раз).</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="stats_criteria_linear.html#cb1-1"></a><span class="kw">cor.test</span>(students<span class="op">$</span>famrel, students<span class="op">$</span>Walc, <span class="dt">method =</span> <span class="st">&#39;spearman&#39;</span>)</span></code></pre></div>
-<pre><code>## Warning in cor.test.default(students$famrel, students$Walc, method =
-## &quot;spearman&quot;): Cannot compute exact p-value with ties</code></pre>
 <pre><code>## 
 ##  Spearman&#39;s rank correlation rho
 ## 
@@ -1811,28 +1814,18 @@ less
 ## sample estimates:
 ##       rho 
 ## -0.130423</code></pre>
-<p>Первый вариант визуализации – мозаичный плот: размер плитки отражает частоту совпадения таких значений двух переменных. Указываем НП как x=product(НП), и ЗП как fill = ЗП.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="stats_criteria_linear.html#cb4-1"></a><span class="kw">library</span>(ggmosaic)</span>
-<span id="cb4-2"><a href="stats_criteria_linear.html#cb4-2"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb4-3"><a href="stats_criteria_linear.html#cb4-3"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>()) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb4-4"><a href="stats_criteria_linear.html#cb4-4"></a><span class="st">  </span><span class="kw">geom_mosaic</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">product</span>(famrel), <span class="dt">fill =</span> Walc)) <span class="op">+</span></span>
-<span id="cb4-5"><a href="stats_criteria_linear.html#cb4-5"></a><span class="st">  </span><span class="kw">scale_fill_viridis</span>(<span class="dt">discrete=</span><span class="ot">TRUE</span>) <span class="op">+</span></span>
-<span id="cb4-6"><a href="stats_criteria_linear.html#cb4-6"></a><span class="st">  </span><span class="kw">theme_minimal</span>() </span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<p>Другой вариант – хитмеп, как в коррелограмме, где размеры фиксированные, а за частоту совпадений отвечает цвет.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="stats_criteria_linear.html#cb5-1"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb5-2"><a href="stats_criteria_linear.html#cb5-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(famrel), <span class="dt">y =</span> <span class="kw">as.factor</span>(Walc))) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb5-3"><a href="stats_criteria_linear.html#cb5-3"></a><span class="st">  </span><span class="kw">geom_bin2d</span>() <span class="op">+</span></span>
-<span id="cb5-4"><a href="stats_criteria_linear.html#cb5-4"></a><span class="st">  </span><span class="kw">scale_fill_viridis</span>() <span class="op">+</span></span>
-<span id="cb5-5"><a href="stats_criteria_linear.html#cb5-5"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
-<span id="cb5-6"><a href="stats_criteria_linear.html#cb5-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), </span>
-<span id="cb5-7"><a href="stats_criteria_linear.html#cb5-7"></a>        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<p>Если бы у нас были две количественные переменные, то мы бы просто визуализировали их диаграммой рассеяния с уже привычной линией посреди точек. Но у нас две порядковые переменные, поэтому диаграмма рассеяния даст непонятный вариант.</p>
+<p>Поэтому будем использовать мозаичный плот: размер плитки отражает частоту совпадения таких значений двух переменных.</p>
+<p><img src="StatsForDA_files/figure-html/corr%20mosaic-1.png" width="672" /></p>
+<p>Другой вариант – хитмеп, тут размеры фиксированные, а за частоту совпадений отвечает цвет.
+<img src="StatsForDA_files/figure-html/corr%20heatmap-1.png" width="672" />
 ### Интерпретация результатов</p>
-<p>Важно, что при очень большой выборке даже совсем слабая корреляционная связь будет достигать статистической значимости</p>
+<p>Важно, что при очень большой выборке даже совсем слабая корреляционная связь будет достигать статистической значимости!</p>
+<p>Еще один важный момент – в корреляционном тесте, даже при правильно простроенном эксперименте, мы не сможем заключить причинно-следственную связь. Возможна ситуация</p>
 <p align="center">
 <img src="docs/images/corr_causation.png" width="80%" style="display: block; margin: auto;" />
 </p>
+<p><a href="https://tylervigen.com/view_correlation?id=12692" class="uri">https://tylervigen.com/view_correlation?id=12692</a></p>
 </div>
 <div id="корреляционные-матрицы" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.1.5</span> Корреляционные матрицы<a href="stats_criteria_linear.html#корреляционные-матрицы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1855,12 +1848,9 @@ less
 <span class="math inline">\(y = b_o + b_1x\)</span>
 </p>
 <p align="center">
-<img src="docs/images/anova_SS.jpg" width="70%" style="display: block; margin: auto;" />
+<img src="docs/images/anova_to_regression.png" width="70%" style="display: block; margin: auto;" />
 </p>
-<p align="center">
-<img src="docs/images/lm_errors.jpeg" width="70%" style="display: block; margin: auto;" />
-</p>
-<p>Естьнесколько формул для вычисления коэффициентов линейной регрессии, но все они взаимовычисляемы. Вручную считать мы их не будем, поэтому что важно запомнить:</p>
+<p>Есть несколько формул для вычисления коэффициентов линейной регрессии, но все они взаимовычисляемы. Вручную считать мы их не будем, поэтому что важно запомнить:</p>
 <ul>
 <li>Коэффициент <span class="math inline">\(b_1\)</span> отвечает на наклон прямой <strong>(slope)</strong></li>
 <li>Коэффициент <span class="math inline">\(b_0\)</span> отвечает за смещение прямой вдоль оси y <strong>(intercept)</strong></li>
@@ -1876,6 +1866,10 @@ less
 </div>
 <div id="регрессионный-анализ-тестирование-коэффициентов-регрессии" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.2.2</span> Регрессионный анализ (тестирование коэффициентов регрессии)<a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Регрессионный анализ принадлежит семейству Т-распределения, так же, как и корреляционный анализ. Число степеней свободы рассчитывает по формуле:</p>
+<p align="center">
+<span class="math inline">\(df = n - 2\)</span>, n – число наблюдений
+</p>
 <p>Нулевая и альтернативная гипотезы:</p>
 <p align="center">
 <span class="math inline">\(H_0\)</span>: <span class="math inline">\(b_{1_{xy}} = 0\)</span>
@@ -1883,21 +1877,32 @@ less
 <p align="center">
 <span class="math inline">\(H_1\)</span>: <span class="math inline">\(b_{1_{xy}} \neq 0\)</span>
 </p>
+<p>Ключевой статистикой является Т-значение, оно вычисляется по формуле:</p>
+<p align="center">
+<span class="math inline">\(T = \frac{b_1}{se}\)</span>
+</p>
+Еще одно, если не самое важное значение для линейной регрессии – это коэффициент детерминации. Мы уже сталкивались с ним, когда говорили про ANOVA и корреляцию:
+<p align="center">
+<span class="math inline">\(R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}\)</span>
+</p>
+<p align="center">
+<span class="math inline">\(R^2 = r_{xy}^2 = \frac{\text{cov(x, y)}}{sd_x sd_y} = \frac{\sum_{i=1}^n (x_i - \bar x) (y_i - \bar y )}{(n-1)sd_x sd_y}\)</span>
+</p>
 </div>
 <div id="допущения-для-регрессионного-анализа" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.2.3</span> Допущения для регрессионного анализа<a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>(ЗП и НП измерены в количественной или порядковой шкале)</p>
 <ol style="list-style-type: decimal">
 <li>Распределение НП по ЗП линейно – то есть нет выборосов, нет картины нелинейной взаимосвязи или скоплений данных в разных местах.</li>
-<li>Остатки (residuals) распределены нормально – все то же самое, как <a href="stats_criteria.html#param_nonparam">здесь</a>, только для остатков</li>
-<li>Остатки (residuals) варьируются примерно одинаково вдоль всей прямой (гомоскедастичность)
-<a href="https://gallery.shinyapps.io/slr_diag/" class="uri">https://gallery.shinyapps.io/slr_diag/</a></li>
+<li>Остатки (residuals) распределены нормально – все то же самое, как <a href="stats_criteria.html#param_nonparam">здесь</a>, только для остатков (график плотности вероятности или QQ-plot)</li>
+<li>Остатки (residuals) варьируются примерно одинаково вдоль всей прямой – гомогенность (или гомоскедастичность, homoscedasticity) остатков. Проверяется тестом Левеня (Levene’s Test of Homogeneity of Variance)</li>
 </ol>
+<p><a href="https://gallery.shinyapps.io/slr_diag/" class="uri">https://gallery.shinyapps.io/slr_diag/</a></p>
 </div>
 <div id="расчет-регрессионного-анализа" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.2.4</span> Расчет регрессионного анализа<a href="stats_criteria_linear.html#расчет-регрессионного-анализа" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="stats_criteria_linear.html#cb6-1"></a>model_Gmat &lt;-<span class="st"> </span><span class="kw">lm</span>(students<span class="op">$</span>G_mat <span class="op">~</span><span class="st"> </span>students<span class="op">$</span>absences_mat)</span>
-<span id="cb6-2"><a href="stats_criteria_linear.html#cb6-2"></a><span class="kw">summary</span>(model_Gmat)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="stats_criteria_linear.html#cb3-1"></a>model_Gmat &lt;-<span class="st"> </span><span class="kw">lm</span>(students<span class="op">$</span>G_mat <span class="op">~</span><span class="st"> </span>students<span class="op">$</span>absences_mat)</span>
+<span id="cb3-2"><a href="stats_criteria_linear.html#cb3-2"></a><span class="kw">summary</span>(model_Gmat)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = students$G_mat ~ students$absences_mat)
