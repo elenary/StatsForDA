@@ -66,10 +66,10 @@ knitr::include_graphics("docs/images/correlation.jpeg")
 <p align="center"> $R^2 = r_{xy}^2 = \frac{\text{cov(x, y)}}{sd_x sd_y} = \frac{\sum_{i=1}^n (x_i - \bar x) (y_i - \bar y )}{(n-1)sd_x sd_y}$</p>
 
 <p align="center"> 
-```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="70%"}
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="50%"}
 knitr::include_graphics("docs/images/correlation2.png")
 ```
-Из статьи в википедии про [корреляцию](https://en.wikipedia.org/wiki/Correlation)</p>
+Пример с сайта https://rpsychologist.com/correlation/</p>
 
 https://rpsychologist.com/correlation/
 
@@ -117,7 +117,7 @@ knitr::include_graphics("docs/images/Correlation_examples2.svg.png")
 ```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="70%"}
 knitr::include_graphics("docs/images/scheme-corr.png")
 ```
-Из статьи в википедии про [корреляцию](https://en.wikipedia.org/wiki/Correlation)</p>
+</p>
 
 ### Расчет корреляционного теста
 
@@ -138,8 +138,15 @@ kable(students[1:10,]) %>% scroll_box(width = "100%")
 ```{r, eval=TRUE,  message = FALSE, warning= FALSE}
 cor.test(students$famrel, students$Walc, method = 'spearman')
 ```
-Если бы у нас были две количественные переменные, то мы бы просто визуализировали их диаграммой рассеяния с уже привычной линией посреди точек. Но у нас две порядковые переменные, поэтому диаграмма рассеяния даст непонятный вариант.
+Если бы у нас были две количественные переменные, то мы бы просто визуализировали их диаграммой рассеяния с уже привычной линией посреди точек. Например, такой:
 
+<p align="center"> 
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="100%"}
+knitr::include_graphics("docs/images/scatterplot.png")
+```
+Картинка [отсюда](https://angelgardt.github.io/SFDA2022/book/correlations.html) </p>
+
+Но у нас две порядковые переменные, поэтому диаграмма рассеяния даст непонятный вариант.
 Поэтому будем использовать мозаичный плот: размер плитки отражает частоту совпадения таких значений двух переменных.
 
 ```{r corr mosaic, eval=TRUE, echo = FALSE, message = FALSE, warning= FALSE}
@@ -165,6 +172,8 @@ students %>%
 
 Важно, что при очень большой выборке даже совсем слабая корреляционная связь будет достигать статистической значимости!
 
+[Размеры эффекта при корреляции](#sample_size) в сравнении с другими статистиками
+
 Еще один важный момент -- в корреляционном тесте, даже при правильно простроенном эксперименте, мы не сможем заключить причинно-следственную связь. Возможна ситуация
 
 <p align="center"> 
@@ -179,6 +188,12 @@ https://tylervigen.com/view_correlation?id=12692
 
 Часто встречется анализ корреляционных матриц -- когда корреляции вычисляются попарно для каждой матрицы переменных. Это можно встретить, например, при корреляции опросников: допустим, есть опросник О1 и О2. В опроснике О1 есть субшкалы С11, С12, С13, С14, С15, а в О2 соответственно -- С21, С22, С23, С24, С25. Тогда мы можем построить корреляционную матрицу для субшкал этих опросников.
 
+<p align="center"> 
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="70%"}
+knitr::include_graphics("docs/images/corrplot.png")
+```
+</p>
+
 ## Линейный регрессионный анализ
 
 Линейная регрессия -- это ровно та же известная нам ANOVA, только если заменить категориальные НП на количественные!
@@ -190,7 +205,9 @@ https://tylervigen.com/view_correlation?id=12692
 * Для проверки гипотез о наличии линейной связи между количественными или порядковыми переменными
 * Для предсказания значений ЗП за пределами имеющихся данных 
 
+Пока что нас интересует первая из этих функций, хотя очень часто линейный регрессионный анализ интересен именно с точки зрения второй.
 
+Регрессионный анализ строится на построении регрессионной прямой: любая прямая имеет вид $y = kx + b$, в регрессионном анализе это уравнение часто записывается как $y = b_0 + b_1x$. И задача регрессионного анализа -- это определение и тестирование коэффициентов $b_0$ и $b_1$ регрессии.
 
 ### Коэффициенты регрессии
 
@@ -198,12 +215,12 @@ https://tylervigen.com/view_correlation?id=12692
 <p align="center">$y = b_o + b_1x$ </p>
 
 <p align="center"> 
-```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="70%"}
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="90%"}
 knitr::include_graphics("docs/images/anova_to_regression.png")
 ```
 </p>
 
-Есть несколько формул для вычисления коэффициентов линейной регрессии, но все они взаимовычисляемы. Вручную считать мы их не будем, поэтому что важно запомнить:
+Есть несколько формул для вычисления коэффициентов линейной регрессии, но все они взаимовычисляемы. 
 
 * Коэффициент $b_1$ отвечает на наклон прямой **(slope)**
 * Коэффициент $b_0$ отвечает за смещение прямой вдоль оси y **(intercept)**

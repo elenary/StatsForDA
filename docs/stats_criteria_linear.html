@@ -202,7 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="inference.html"><a href="inference.html#уровень-значимости-и-статистическая-мощность"><i class="fa fa-check"></i><b>8.5</b> Уровень значимости и статистическая мощность</a></li>
 <li class="chapter" data-level="8.6" data-path="inference.html"><a href="inference.html#выбор-статистического-критерия"><i class="fa fa-check"></i><b>8.6</b> Выбор статистического критерия</a></li>
-<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки</a></li>
+<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки и размер эффекта</a></li>
 <li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#stat_test_example"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a><ul>
@@ -301,8 +301,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math inline">\(R^2 = r_{xy}^2 = \frac{\text{cov(x, y)}}{sd_x sd_y} = \frac{\sum_{i=1}^n (x_i - \bar x) (y_i - \bar y )}{(n-1)sd_x sd_y}\)</span>
 </p>
 <p align="center">
-<img src="docs/images/correlation2.png" width="70%" style="display: block; margin: auto;" />
-Из статьи в википедии про <a href="https://en.wikipedia.org/wiki/Correlation">корреляцию</a>
+<img src="docs/images/correlation2.png" width="50%" style="display: block; margin: auto;" />
+Пример с сайта <a href="https://rpsychologist.com/correlation/" class="uri">https://rpsychologist.com/correlation/</a>
 </p>
 <p><a href="https://rpsychologist.com/correlation/" class="uri">https://rpsychologist.com/correlation/</a></p>
 <p><a href="http://guessthecorrelation.com/" class="uri">http://guessthecorrelation.com/</a></p>
@@ -343,7 +343,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Есть еще тау-Кендалла, это почти то же самое, что и корреляция Спирмена, но мы не будем ее рассматривать, так как она применяется крайне редко.</p>
 <p align="center">
 <img src="docs/images/scheme-corr.png" width="70%" style="display: block; margin: auto;" />
-Из статьи в википедии про <a href="https://en.wikipedia.org/wiki/Correlation">корреляцию</a>
 </p>
 </div>
 <div id="расчет-корреляционного-теста" class="section level3 hasAnchor">
@@ -1814,13 +1813,19 @@ less
 ## sample estimates:
 ##       rho 
 ## -0.130423</code></pre>
-<p>Если бы у нас были две количественные переменные, то мы бы просто визуализировали их диаграммой рассеяния с уже привычной линией посреди точек. Но у нас две порядковые переменные, поэтому диаграмма рассеяния даст непонятный вариант.</p>
-<p>Поэтому будем использовать мозаичный плот: размер плитки отражает частоту совпадения таких значений двух переменных.</p>
+<p>Если бы у нас были две количественные переменные, то мы бы просто визуализировали их диаграммой рассеяния с уже привычной линией посреди точек. Например, такой:</p>
+<p align="center">
+<img src="docs/images/scatterplot.png" width="100%" style="display: block; margin: auto;" />
+Картинка <a href="https://angelgardt.github.io/SFDA2022/book/correlations.html">отсюда</a>
+</p>
+<p>Но у нас две порядковые переменные, поэтому диаграмма рассеяния даст непонятный вариант.
+Поэтому будем использовать мозаичный плот: размер плитки отражает частоту совпадения таких значений двух переменных.</p>
 <p><img src="StatsForDA_files/figure-html/corr%20mosaic-1.png" width="672" /></p>
 <p>Другой вариант – хитмеп, тут размеры фиксированные, а за частоту совпадений отвечает цвет.
 <img src="StatsForDA_files/figure-html/corr%20heatmap-1.png" width="672" />
 ### Интерпретация результатов</p>
 <p>Важно, что при очень большой выборке даже совсем слабая корреляционная связь будет достигать статистической значимости!</p>
+<p><a href="inference.html#sample_size">Размеры эффекта при корреляции</a> в сравнении с другими статистиками</p>
 <p>Еще один важный момент – в корреляционном тесте, даже при правильно простроенном эксперименте, мы не сможем заключить причинно-следственную связь. Возможна ситуация</p>
 <p align="center">
 <img src="docs/images/corr_causation.png" width="80%" style="display: block; margin: auto;" />
@@ -1830,6 +1835,9 @@ less
 <div id="корреляционные-матрицы" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.1.5</span> Корреляционные матрицы<a href="stats_criteria_linear.html#корреляционные-матрицы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Часто встречется анализ корреляционных матриц – когда корреляции вычисляются попарно для каждой матрицы переменных. Это можно встретить, например, при корреляции опросников: допустим, есть опросник О1 и О2. В опроснике О1 есть субшкалы С11, С12, С13, С14, С15, а в О2 соответственно – С21, С22, С23, С24, С25. Тогда мы можем построить корреляционную матрицу для субшкал этих опросников.</p>
+<p align="center">
+<img src="docs/images/corrplot.png" width="70%" style="display: block; margin: auto;" />
+</p>
 </div>
 </div>
 <div id="линейный-регрессионный-анализ" class="section level2 hasAnchor">
@@ -1841,6 +1849,8 @@ less
 <li>Для проверки гипотез о наличии линейной связи между количественными или порядковыми переменными</li>
 <li>Для предсказания значений ЗП за пределами имеющихся данных</li>
 </ul>
+<p>Пока что нас интересует первая из этих функций, хотя очень часто линейный регрессионный анализ интересен именно с точки зрения второй.</p>
+<p>Регрессионный анализ строится на построении регрессионной прямой: любая прямая имеет вид <span class="math inline">\(y = kx + b\)</span>, в регрессионном анализе это уравнение часто записывается как <span class="math inline">\(y = b_0 + b_1x\)</span>. И задача регрессионного анализа – это определение и тестирование коэффициентов <span class="math inline">\(b_0\)</span> и <span class="math inline">\(b_1\)</span> регрессии.</p>
 <div id="коэффициенты-регрессии" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.2.1</span> Коэффициенты регрессии<a href="stats_criteria_linear.html#коэффициенты-регрессии" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 Уравнение регрессионной прямой:
@@ -1848,9 +1858,9 @@ less
 <span class="math inline">\(y = b_o + b_1x\)</span>
 </p>
 <p align="center">
-<img src="docs/images/anova_to_regression.png" width="70%" style="display: block; margin: auto;" />
+<img src="docs/images/anova_to_regression.png" width="90%" style="display: block; margin: auto;" />
 </p>
-<p>Есть несколько формул для вычисления коэффициентов линейной регрессии, но все они взаимовычисляемы. Вручную считать мы их не будем, поэтому что важно запомнить:</p>
+<p>Есть несколько формул для вычисления коэффициентов линейной регрессии, но все они взаимовычисляемы.</p>
 <ul>
 <li>Коэффициент <span class="math inline">\(b_1\)</span> отвечает на наклон прямой <strong>(slope)</strong></li>
 <li>Коэффициент <span class="math inline">\(b_0\)</span> отвечает за смещение прямой вдоль оси y <strong>(intercept)</strong></li>

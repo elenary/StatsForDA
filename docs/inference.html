@@ -202,7 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="inference.html"><a href="inference.html#уровень-значимости-и-статистическая-мощность"><i class="fa fa-check"></i><b>8.5</b> Уровень значимости и статистическая мощность</a></li>
 <li class="chapter" data-level="8.6" data-path="inference.html"><a href="inference.html#выбор-статистического-критерия"><i class="fa fa-check"></i><b>8.6</b> Выбор статистического критерия</a></li>
-<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки</a></li>
+<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки и размер эффекта</a></li>
 <li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#stat_test_example"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a><ul>
@@ -1966,7 +1966,7 @@ less
 <p>Как понять, какой тест выбрать? Это, наверное, один из самых сложных вопросов в статистике. На него влияет большое количество нюансов, мы рассмотрим их в <a href="stats_criteria.html#stats_criteria">следующем разделе</a></p>
 </div>
 <div id="sample_size" class="section level2 hasAnchor">
-<h2><span class="header-section-number">8.7</span> Размер выборки<a href="inference.html#sample_size" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">8.7</span> Размер выборки и размер эффекта<a href="inference.html#sample_size" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Расчет размера выборки</strong> – важнейший этап, потому что именно он отвечает за нивелирование ошибки второго рода, сделать ложноотрицательный вывод. Вполне может оказаться так, что из-за маленькой выборки мы просто не смогли зафиксировать различия, которые на самом деле есть в генеральной совокупности!</p>
 <p>Этот пункт раньше часто пропускался: казалось, что размер выборки не требует определенного расчета, и достаточно опираться на предыдущие исследование. Оказалось, что это не так, подробнее о последствиях такого подхода поговорим далее.</p>
 <p>Чтобы посчитать необходимую выборку, нужно знать примерный размер эффекта, который мы можем обнаружить, уровень значимости <span class="math inline">\(\alpha\)</span>, и статистическую мощность.</p>
@@ -2038,6 +2038,13 @@ less
 <td align="center">0.14</td>
 <td align="center">0.39</td>
 <td align="center">0.59</td>
+</tr>
+<tr class="odd">
+<td align="center">корреляционный тест</td>
+<td align="center"><span class="math inline">\(r_{xy}\)</span></td>
+<td align="center">0.1</td>
+<td align="center">0.3</td>
+<td align="center">0.7</td>
 </tr>
 </tbody>
 </table>
