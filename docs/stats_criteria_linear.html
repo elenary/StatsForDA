@@ -1815,14 +1815,14 @@ less
 ## -0.130423</code></pre>
 <p>Если бы у нас были две количественные переменные, то мы бы просто визуализировали их диаграммой рассеяния с уже привычной линией посреди точек. Например, такой:</p>
 <p align="center">
-<img src="docs/images/scatterplot.png" width="100%" style="display: block; margin: auto;" />
+<img src="docs/images/scatterplot.png" width="60%" style="display: block; margin: auto;" />
 Картинка <a href="https://angelgardt.github.io/SFDA2022/book/correlations.html">отсюда</a>
 </p>
 <p>Но у нас две порядковые переменные, поэтому диаграмма рассеяния даст непонятный вариант.
 Поэтому будем использовать мозаичный плот: размер плитки отражает частоту совпадения таких значений двух переменных.</p>
-<p><img src="StatsForDA_files/figure-html/corr%20mosaic-1.png" width="672" /></p>
+<p><img src="StatsForDA_files/figure-html/corr%20mosaic-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Другой вариант – хитмеп, тут размеры фиксированные, а за частоту совпадений отвечает цвет.
-<img src="StatsForDA_files/figure-html/corr%20heatmap-1.png" width="672" />
+<img src="StatsForDA_files/figure-html/corr%20heatmap-1.png" width="60%" style="display: block; margin: auto;" />
 ### Интерпретация результатов</p>
 <p>Важно, что при очень большой выборке даже совсем слабая корреляционная связь будет достигать статистической значимости!</p>
 <p><a href="inference.html#sample_size">Размеры эффекта при корреляции</a> в сравнении с другими статистиками</p>
@@ -1853,9 +1853,9 @@ less
 <p>Регрессионный анализ строится на построении регрессионной прямой: любая прямая имеет вид <span class="math inline">\(y = kx + b\)</span>, в регрессионном анализе это уравнение часто записывается как <span class="math inline">\(y = b_0 + b_1x\)</span>. И задача регрессионного анализа – это определение и тестирование коэффициентов <span class="math inline">\(b_0\)</span> и <span class="math inline">\(b_1\)</span> регрессии.</p>
 <div id="коэффициенты-регрессии" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.2.1</span> Коэффициенты регрессии<a href="stats_criteria_linear.html#коэффициенты-регрессии" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-Уравнение регрессионной прямой:
+Уравнение проведенной нами регрессионной прямой:
 <p align="center">
-<span class="math inline">\(y = b_o + b_1x\)</span>
+<span class="math inline">\(\hat y = b_o + b_1x\)</span>
 </p>
 <p align="center">
 <img src="docs/images/anova_to_regression.png" width="90%" style="display: block; margin: auto;" />
@@ -1919,7 +1919,10 @@ less
 <p align="center">
 <span class="math inline">\(R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}\)</span>
 </p>
-<p><strong>Множественный регрессионный анализ</strong> – подразумевает все то же самое, только появляются новые</p>
+<p><strong>Множественный регрессионный анализ</strong> – подразумевает все то же самое, только появляются новые предикторы (независимые переменные, они же факторы)</p>
+<p align="center">
+<span class="math inline">\(y_i = b_o + b_1x_i\)</span>
+</p>
 </div>
 <div id="допущения-для-регрессионного-анализа" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.2.3</span> Допущения для регрессионного анализа<a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа" class="anchor-section" aria-label="Anchor link to header"></a></h3>

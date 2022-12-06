@@ -140,7 +140,7 @@ cor.test(students$famrel, students$Walc, method = 'spearman')
 Если бы у нас были две количественные переменные, то мы бы просто визуализировали их диаграммой рассеяния с уже привычной линией посреди точек. Например, такой:
 
 <p align="center"> 
-```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="100%"}
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="60%"}
 knitr::include_graphics("docs/images/scatterplot.png")
 ```
 Картинка [отсюда](https://angelgardt.github.io/SFDA2022/book/correlations.html) </p>
@@ -148,7 +148,7 @@ knitr::include_graphics("docs/images/scatterplot.png")
 Но у нас две порядковые переменные, поэтому диаграмма рассеяния даст непонятный вариант.
 Поэтому будем использовать мозаичный плот: размер плитки отражает частоту совпадения таких значений двух переменных.
 
-```{r corr mosaic, eval=TRUE, echo = FALSE, message = FALSE, warning= FALSE}
+```{r corr mosaic, eval=TRUE, echo = FALSE, message = FALSE, warning= FALSE, fig.align = 'center', out.width="60%"}
 library(ggmosaic)
 students %>% 
   ggplot(aes()) + 
@@ -158,7 +158,7 @@ students %>%
 ```
 
 Другой вариант -- хитмеп, тут размеры фиксированные, а за частоту совпадений отвечает цвет.
-```{r corr heatmap, eval=TRUE, echo = FALSE, message = FALSE, warning= FALSE}
+```{r corr heatmap, eval=TRUE, echo = FALSE, message = FALSE, warning= FALSE, fig.align = 'center', out.width="60%"}
 students %>% 
   ggplot(aes(x = as.factor(famrel), y = as.factor(Walc))) + 
   geom_bin2d() +
@@ -211,8 +211,8 @@ knitr::include_graphics("docs/images/corrplot.png")
 
 ### Коэффициенты регрессии
 
-Уравнение регрессионной прямой:
-<p align="center">$y = b_o + b_1x$ </p>
+Уравнение проведенной нами регрессионной прямой:
+<p align="center">$\hat y = b_o + b_1x$ </p>
 
 <p align="center"> 
 ```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="90%"}
@@ -275,7 +275,9 @@ knitr::include_graphics("docs/images/lr.png")
 
 <p align="center">$R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}$ </p>
 
-**Множественный регрессионный анализ** -- подразумевает все то же самое, только появляются новые 
+**Множественный регрессионный анализ** -- подразумевает все то же самое, только появляются новые предикторы (независимые переменные, они же факторы)
+
+<p align="center">$y_i = b_o + b_1x_i$ </p>
 
 ### Допущения для регрессионного анализа
 
