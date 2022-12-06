@@ -300,7 +300,7 @@ students %>%
 ```
 
 ```{r, eval=TRUE}
-model_Gmat <- lm(students$G_mat ~ students$G_por)
+model_Gmat <- lm(students$G_mat ~ students$G_por) 
 summary(model_Gmat)
 ```
 ```{r, eval=TRUE}
