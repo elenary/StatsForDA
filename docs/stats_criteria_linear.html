@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2022-12-06" />
+<meta name="date" content="2022-12-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="stats_criteria_ttest_anova.html"/>
-
+<link rel="next" href="stats_criteria_categ.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -195,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a><ul>
 <li class="chapter" data-level="8.3.1" data-path="inference.html"><a href="inference.html#variables"><i class="fa fa-check"></i><b>8.3.1</b> Зависимые и независимые переменные</a></li>
 <li class="chapter" data-level="8.3.2" data-path="inference.html"><a href="inference.html#уровни-нп-в-категориальных-переменных"><i class="fa fa-check"></i><b>8.3.2</b> Уровни НП в категориальных переменных</a></li>
-<li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#связь-между-зп-и-нп"><i class="fa fa-check"></i><b>8.3.3</b> Связь между ЗП и НП</a></li>
+<li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#relationship"><i class="fa fa-check"></i><b>8.3.3</b> Связь между ЗП и НП</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="inference.html"><a href="inference.html#нулевая-и-альтернативные-статистические-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные статистические гипотезы</a><ul>
 <li class="chapter" data-level="8.4.1" data-path="inference.html"><a href="inference.html#направленные-и-ненаправленные-гипотезы"><i class="fa fa-check"></i><b>8.4.1</b> Направленные и ненаправленные гипотезы</a></li>
@@ -239,14 +239,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-корреляционного-теста"><i class="fa fa-check"></i><b>11.1.2</b> Допущения для корреляционного теста</a></li>
 <li class="chapter" data-level="11.1.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#непараметрические-аналоги-2"><i class="fa fa-check"></i><b>11.1.3</b> Непараметрические аналоги</a></li>
 <li class="chapter" data-level="11.1.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-корреляционного-теста"><i class="fa fa-check"></i><b>11.1.4</b> Расчет корреляционного теста</a></li>
-<li class="chapter" data-level="11.1.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционные-матрицы"><i class="fa fa-check"></i><b>11.1.5</b> Корреляционные матрицы</a></li>
+<li class="chapter" data-level="11.1.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#интерпретация-результатов"><i class="fa fa-check"></i><b>11.1.5</b> Интерпретация результатов</a></li>
+<li class="chapter" data-level="11.1.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционные-матрицы"><i class="fa fa-check"></i><b>11.1.6</b> Корреляционные матрицы</a></li>
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#линейный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициенты-регрессии"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
-<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии"><i class="fa fa-check"></i><b>11.2.2</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
-<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.3</b> Допущения для регрессионного анализа</a></li>
-<li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.4</b> Расчет регрессионного анализа</a></li>
+<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициент-детерминации-и-доля-объясненной-изменчивости"><i class="fa fa-check"></i><b>11.2.2</b> Коэффициент детерминации и доля объясненной изменчивости</a></li>
+<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии"><i class="fa fa-check"></i><b>11.2.3</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
+<li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#множественный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2.4</b> Множественный регрессионный анализ</a></li>
+<li class="chapter" data-level="11.2.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.5</b> Допущения для регрессионного анализа</a></li>
+<li class="chapter" data-level="11.2.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.6</b> Расчет регрессионного анализа</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html"><i class="fa fa-check"></i><b>12</b> Анализ категориальных данных</a><ul>
+<li class="chapter" data-level="12.1" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#логистическая-регрессия"><i class="fa fa-check"></i><b>12.1</b> Логистическая регрессия</a></li>
+<li class="chapter" data-level="12.2" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#хи-квадрат"><i class="fa fa-check"></i><b>12.2</b> Хи-квадрат</a></li>
 </ul></li>
 </ul>
 
@@ -326,10 +333,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="допущения-для-корреляционного-теста" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.1.2</span> Допущения для корреляционного теста<a href="stats_criteria_linear.html#допущения-для-корреляционного-теста" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>(ЗП и НП измерены в количественной или порядковой шкале)</p>
 <ol style="list-style-type: decimal">
-<li>ЗП и НП измерены в количественной или порядковой шкале</li>
-<li>Распределение НП по ЗП линейно – то есть нет выборосов, нет картины нелинейной взаимосвязи или скоплений данных в разных местах.</li>
-<li>(не обязательно) ЗП распределена нормально – обсуждали эту проверку <a href="stats_criteria.html#param_nonparam">здесь</a></li>
+<li>Распределение НП по ЗП линейно – нет картины нелинейной взаимосвязи или скоплений данных в разных местах.</li>
+<li>ЗП распределена нормально (не обязательно строгое соответствие) и нет заметных выбросов – обсуждали эту проверку <a href="stats_criteria.html#param_nonparam">здесь</a></li>
 </ol>
 <p>Примеры, как может выглядеть нелинейное распределение:</p>
 <p align="center">
@@ -1822,18 +1829,21 @@ less
 Поэтому будем использовать мозаичный плот: размер плитки отражает частоту совпадения таких значений двух переменных.</p>
 <p><img src="StatsForDA_files/figure-html/corr%20mosaic-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Другой вариант – хитмеп, тут размеры фиксированные, а за частоту совпадений отвечает цвет.
-<img src="StatsForDA_files/figure-html/corr%20heatmap-1.png" width="60%" style="display: block; margin: auto;" />
-### Интерпретация результатов</p>
-<p>Важно, что при очень большой выборке даже совсем слабая корреляционная связь будет достигать статистической значимости!</p>
-<p><a href="inference.html#sample_size">Размеры эффекта при корреляции</a> в сравнении с другими статистиками</p>
-<p>Еще один важный момент – в корреляционном тесте, даже при правильно простроенном эксперименте, мы не сможем заключить причинно-следственную связь. Возможна ситуация</p>
+<img src="StatsForDA_files/figure-html/corr%20heatmap-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="интерпретация-результатов" class="section level3 hasAnchor">
+<h3><span class="header-section-number">11.1.5</span> Интерпретация результатов<a href="stats_criteria_linear.html#интерпретация-результатов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Когда мы интерпретируем результаты корреляционного теста, нас, как обычно, интересует значение статистики (t-значение или F-значение), p-value и размер эффекта. Для корреляционного теста значением статистики будет t-значение, но обычно фигурирует не оно, а коэффциент корреляции между переменными x и y <span class="math inline">\(r_xy\)</span> – он же является и размер эффекта, показателем величины различий. Корреляционный тест – это единственный тест, где нам не нужна дополнительная метрика о размере эффекта (например Cohen’s d), а мы уже по самому коэффициенту судим о силе различий.</p>
+<p>В примере выше мы получили r = -0.13. В коэффициенте корреляции мы смотрим на два параметра: это знак и модуль числа. Здесь у нас отрицательная корреляция, то есть связь будет обратной: с увеличением одной переменной (например, оценки качества семейных отношений <code>famrel</code>) будет уменьшаться вторая переменная (частота употребления алкоголя <code>Walc</code>). 0.13 по модулю – небольшое число, это довольно слабая корреляция (свериться с разбиением по размерам можно в разделе про <a href="inference.html#sample_size">размеры эффекта</a>).</p>
+<p>Важно, что при очень большой выборке даже совсем слабая корреляционная связь будет достигать статистической значимости! Поэтому не стоит увлекаться корреляционными тестами для поиска связей всего со всем: вы ее точно найдете, и она даже будет значимой. Как видите, даже r=0.1 может достигать порог статистической значимости.</p>
+<p>Искать корреляцию стоит между осмысленными переменнами: так как при больших выборках она может быть значимой, может оказаться, что коррелируют между собой число фильмов, где снимался Николас Кейдж, и число самоубийств путем утопления – очевидно, что эти величины не связаны между собой, и корреляция тут случайна. Можно посмотреть на странные корреляции на сайте <a href="https://tylervigen.com/view_correlation?id=12692" class="uri">https://tylervigen.com/view_correlation?id=12692</a></p>
+<p>Еще один важный момент – в корреляционном тесте, даже при идеально простроенном эксперименте, мы не сможем заключить причинно-следственную связь. Но важно не путь теоретическую возможность сделать вывод о причинно-следственной связи и методы статистического анализа: они как теплое и красное, относятся к разным вещам. За возможность сделать вывод говорит дизайн исследования, а не статистический тест. Если у нас хорошо проведенный контролируемый эксперимент, и соблюдаются 3 условия установления причинно-следственной связи (<a href="inference.html#relationship">обсуждали это здесь</a>), то мы можем ее заключить. При этом, применение того же ANOVA может относиться и не к эксперименту, и вывод мы все равно будем делать о корреляционной (ассоциативной) связи.</p>
 <p align="center">
 <img src="docs/images/corr_causation.png" width="80%" style="display: block; margin: auto;" />
 </p>
-<p><a href="https://tylervigen.com/view_correlation?id=12692" class="uri">https://tylervigen.com/view_correlation?id=12692</a></p>
 </div>
 <div id="корреляционные-матрицы" class="section level3 hasAnchor">
-<h3><span class="header-section-number">11.1.5</span> Корреляционные матрицы<a href="stats_criteria_linear.html#корреляционные-матрицы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">11.1.6</span> Корреляционные матрицы<a href="stats_criteria_linear.html#корреляционные-матрицы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Часто встречется анализ корреляционных матриц – когда корреляции вычисляются попарно для каждой матрицы переменных. Это можно встретить, например, при корреляции опросников: допустим, есть опросник О1 и О2. В опроснике О1 есть субшкалы С11, С12, С13, С14, С15, а в О2 соответственно – С21, С22, С23, С24, С25. Тогда мы можем построить корреляционную матрицу для субшкал этих опросников.</p>
 <p align="center">
 <img src="docs/images/corrplot.png" width="70%" style="display: block; margin: auto;" />
@@ -1842,55 +1852,99 @@ less
 </div>
 <div id="линейный-регрессионный-анализ" class="section level2 hasAnchor">
 <h2><span class="header-section-number">11.2</span> Линейный регрессионный анализ<a href="stats_criteria_linear.html#линейный-регрессионный-анализ" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Линейная регрессия – это ровно та же известная нам ANOVA, только если заменить категориальные НП на количественные!</p>
-<p>А еще линейная регрессия – это то же самое, что корреляция, только для нескольких НП. Совмещая ANOVA и корреляционный анализ, получили линейный регрессионный!</p>
-<p>Регрессионный анализ – довольная мощная штука, потому что здесь мы впервые начинаем говорить о <em>предсказательной функции</em> анализа. Выходит, что регрессионный анализ может применяться:</p>
+<p><strong>Линейный регрессионный анализ</strong> – это ровно тот же известный нам ANOVA (дисперсионный анализ), только если заменить категориальные НП на количественные!</p>
+<p>Сама линейная регрессия – это прямая, которую мы пытаемся провести через все наши точки таким образом, чтобы она захватывала наибольшее их количество. По сути это то же самое, что и корреляция, только более мощный инструмент – сюда мы можем вводить несколько НП.</p>
+<p align="center">
+<img src="docs/images/anova_to_regression.png" width="90%" style="display: block; margin: auto;" />
+</p>
+<p>Регрессионный анализ – довольная мощная штука, потому что здесь мы впервые начинаем говорить еще и о <em>предсказательной функции</em> анализа. Выходит, что регрессионный анализ может применяться:</p>
 <ul>
 <li>Для проверки гипотез о наличии линейной связи между количественными или порядковыми переменными</li>
 <li>Для предсказания значений ЗП за пределами имеющихся данных</li>
 </ul>
 <p>Пока что нас интересует первая из этих функций, хотя очень часто линейный регрессионный анализ интересен именно с точки зрения второй.</p>
-<p>Регрессионный анализ строится на построении регрессионной прямой: любая прямая имеет вид <span class="math inline">\(y = kx + b\)</span>, в регрессионном анализе это уравнение часто записывается как <span class="math inline">\(y = b_0 + b_1x\)</span>. И задача регрессионного анализа – это определение и тестирование коэффициентов <span class="math inline">\(b_0\)</span> и <span class="math inline">\(b_1\)</span> регрессии.</p>
+<p>Регрессионный анализ строится на построении регрессионной прямой: любая прямая имеет вид <span class="math inline">\(y = kx + b\)</span>, в регрессионном анализе это уравнение часто записывается как <span class="math inline">\(y = b_0 + b_1x\)</span>. И задача регрессионного анализа – это определение и тестирование коэффициентов <span class="math inline">\(b_0\)</span> и <span class="math inline">\(b_1\)</span> линейной регрессии.</p>
 <div id="коэффициенты-регрессии" class="section level3 hasAnchor">
 <h3><span class="header-section-number">11.2.1</span> Коэффициенты регрессии<a href="stats_criteria_linear.html#коэффициенты-регрессии" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 Уравнение проведенной нами регрессионной прямой:
 <p align="center">
 <span class="math inline">\(\hat y = b_o + b_1x\)</span>
 </p>
+Мы видим, что большинство точек не ложатся на прямую идеально – остается еще некоторое расстояние по оси y до самой точки. Поэтому еслимы будем записывать уравнение для каждой точки, используя уравнение регрессионной прямой, оно будет иметь вид:
 <p align="center">
-<img src="docs/images/anova_to_regression.png" width="90%" style="display: block; margin: auto;" />
+<span class="math inline">\(y = b_o + b_1x + e\)</span>
 </p>
-<p>Есть несколько формул для вычисления коэффициентов линейной регрессии, но все они взаимовычисляемы.</p>
-<ul>
-<li>Коэффициент <span class="math inline">\(b_1\)</span> отвечает на наклон прямой <strong>(slope)</strong></li>
-<li>Коэффициент <span class="math inline">\(b_0\)</span> отвечает за смещение прямой вдоль оси y <strong>(intercept)</strong></li>
-<li>При подсчете коэффициентов первым высчитывается <span class="math inline">\(b_1\)</span>, и он зависит от величины вариативности данных по переменным x и y (стандартных отклонений или дисперсий) и <strong>в случае равной вариативности является коэффициентом корреляции</strong> <span class="math inline">\(r_{xy}\)</span></li>
-</ul>
-<p>Коэффициенты считаются таким образом, чтобы сумма квадратов остатков была минимальна. Это называется <strong>методом наименьших квадратов</strong>.</p>
-Остатки – это отличия исходных данных от предсказанных нашей моделью, то, что “остается”:
+То расстояние по оси y, что осталось до точек после того, как мы провели через них прямую, называется <strong>остатками</strong> – то есть это отличия исходных данных от описываемых нашей моделью (прямой), то, что “остается”:
 <p align="center">
 <span class="math inline">\(e = y - \hat y\)</span>
 </p>
-При построении регрессионной прямой нам надо стремиться к уменьшению этой суммы:
+<p>Обратите внимание: когда мы говорим про уравнение прямой линии, мы обозначаем y как <span class="math inline">\(\hat\)</span>, а когда говорим о фактических точках – обозначем его просто <span class="math inline">\(y\)</span>.</p>
+<p>Регрессионная прямая часто еще называется <strong>моделью</strong>. Уравнение регрессионной прямой с каждыми новыми коэффициентами – новая модель.</p>
+<p align="center">
+<img src="docs/images/lr.png" width="70%" style="display: block; margin: auto;" />
+</p>
+<ul>
+<li>Коэффициент <span class="math inline">\(b_1\)</span> отвечает на наклон прямой <strong>(slope)</strong></li>
+<li>Коэффициент <span class="math inline">\(b_0\)</span> отвечает за смещение прямой вдоль оси y <strong>(intercept)</strong></li>
+</ul>
+<p>Коэффициенты считаются таким образом, чтобы сумма квадратов остатков была минимальна. Это называется <strong>методом наименьших квадратов</strong>.</p>
+При построении регрессионной прямой нам надо стремиться к уменьшению суммы остатков:
 <p align="center">
 <span class="math inline">\(\sum_{i=1}^{n} e^2 = \sum_{i=1}^{n}(y - \hat y)^2\)</span>
 </p>
-<p align="center">
-<img src="docs/images/lr.png" width="90%" style="display: block; margin: auto;" />
-</p>
-<p>Формулы коэффициентов по методу наименьших квадратов:</p>
+<p>Формулы коэффициентов по методу наименьших квадратов получаются равнымм:</p>
 <p align="center">
 <span class="math inline">\(b_{1_{xy}} = \frac{sd_y}{sd_x} r_{xy}\)</span>
 </p>
 <p align="center">
 <span class="math inline">\(b_o = \bar y - b_{1_{xy}}\bar x\)</span>
 </p>
+<p>При подсчете коэффициентов первым высчитывается <span class="math inline">\(b_1\)</span>, и он, как видно из формулы, зависит от величины вариативности данных по переменным x и y (стандартных отклонений или дисперсий). <strong>В случае равной вариативности</strong> <span class="math inline">\(b_1\)</span> <strong>является коэффициентом корреляции</strong> <span class="math inline">\(r_{xy}\)</span></p>
+</div>
+<div id="коэффициент-детерминации-и-доля-объясненной-изменчивости" class="section level3 hasAnchor">
+<h3><span class="header-section-number">11.2.2</span> Коэффициент детерминации и доля объясненной изменчивости<a href="stats_criteria_linear.html#коэффициент-детерминации-и-доля-объясненной-изменчивости" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>В линейной регрессии, так же, как и в ANOVA, коэффициент детерминации говорит о <strong>проценте объясненной изменчивости</strong>, то есть как хорошо наша регрессионная модель объясняет изменчивость зависимой переменной.</p>
+<p>Так же, как и в ANOVA, сумма квадратов SST складывается из <strong>межгрупповой</strong> суммы квадратов (SSE, Sum of Squares Explained или SSB, Sum of Squares Between groups) и <strong>внутригрупповой</strong> (SSR, Sum of Squares Random или SSW, Sum of Squares Within groups).</p>
+<p align="center">
+<span class="math inline">\(SST = SSE + SSR\)</span>
+</p>
+<p align="center">
+<img src="docs/images/lr_sum_squares.png" width="100%" style="display: block; margin: auto;" />
+</p>
+<p>Общая изменчивость считается от прямой со средним значением y.</p>
+<p align="center">
+<span class="math inline">\(SST = \sum_{i=1}^n (\bar y - y_i)^2\)</span>
+</p>
+<p>По картинке видно, что</p>
+<p align="center">
+<span class="math inline">\(SSE = \sum_{i=1}^n (\bar y - \hat y_i)^2\)</span>
+</p>
+<p>Остаточная изменчивость:</p>
+<p align="center">
+<p><span class="math inline">\(SSR = \sum_{i=1}^n (y_i - \hat y_i)^2\)</span></p>
+<p>Для того, чтобы оценить, насколько хороша модель, мы снова прибегаем к коэффициенту детерминации:</p>
+<p align="center">
+<span class="math inline">\(R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}\)</span>
+</p>
+<p>Коэффициент детерминации можно рассматривать как размер эффекта – и это ни что иное, как уже знакомая нам <span class="math inline">\(\eta^2\)</span>!</p>
+<p align="center">
+<span class="math inline">\(\eta^2 = \frac{SSE}{SST}\)</span>
+</p>
+<p>В линейном регрессионном анализе коэффициент детерминации рассматривается еще и как степень корреляции между исходными значениями переменной <span class="math inline">\(y\)</span> и предсказанными <span class="math inline">\(\hat y\)</span>. И как мы помним, он же равен квадрату корреляции между исходными значениями переменной <span class="math inline">\(y\)</span> и предсказанными <span class="math inline">\(\hat y\)</span>:</p>
+<p align="center">
+<span class="math inline">\(R^2 = r_{xy}^2 = \frac{\text{cov(x, y)}}{sd_x sd_y} = \frac{\sum_{i=1}^n (x_i - \bar x) (y_i - \bar y )}{(n-1)sd_x sd_y}\)</span>
+</p>
 </div>
 <div id="регрессионный-анализ-тестирование-коэффициентов-регрессии" class="section level3 hasAnchor">
-<h3><span class="header-section-number">11.2.2</span> Регрессионный анализ (тестирование коэффициентов регрессии)<a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Регрессионный анализ принадлежит семейству Т-распределения, так же, как и корреляционный анализ. Число степеней свободы рассчитывает по формуле:</p>
+<h3><span class="header-section-number">11.2.3</span> Регрессионный анализ (тестирование коэффициентов регрессии)<a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Регрессионный анализ – интересная штука, так как состоит из нескольких слоев, которые берут что-то от ANOVA, а что-то – от корреляционногоо анализа. Тестирование значимости коэффициентов проводится на основании критерия, принадлежащего семейству Т-распределений, так же, как и корреляционный анализ. А тестирование всей модели целиком проводится с использованием F-критерия, так же, как и ANOVA. Нас в регрессионном анализе больше интересует тестирование значимости коэффициентов – так как именно по коэффциентам, с которыми берутся факторы в модели, мы определяем, является влияние этих факторов значимым.</p>
+<p>Число степеней свободы рассчитывается по формуле:</p>
 <p align="center">
 <span class="math inline">\(df = n - 2\)</span>, n – число наблюдений
+</p>
+<p>Уравние модели:</p>
+<p align="center">
+<span class="math inline">\(\hat y = b_o + b_1x\)</span>
 </p>
 <p>Нулевая и альтернативная гипотезы:</p>
 <p align="center">
@@ -1899,93 +1953,885 @@ less
 <p align="center">
 <span class="math inline">\(H_1\)</span>: <span class="math inline">\(b_{1_{xy}} \neq 0\)</span>
 </p>
-<p>Ключевой статистикой является Т-значение, оно вычисляется по формуле:</p>
+<p>Ключевой статистикой для коэффициентов является Т-значение, оно вычисляется по формуле:</p>
 <p align="center">
 <span class="math inline">\(T = \frac{b_1}{se}\)</span>
 </p>
-Еще одно, если не самое важное значение для линейной регрессии – это коэффициент детерминации. Мы уже сталкивались с ним, когда говорили про ANOVA и корреляцию:
-<p align="center">
-<span class="math inline">\(R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}\)</span>
-</p>
-<p align="center">
-<span class="math inline">\(R^2 = r_{xy}^2 = \frac{\text{cov(x, y)}}{sd_x sd_y} = \frac{\sum_{i=1}^n (x_i - \bar x) (y_i - \bar y )}{(n-1)sd_x sd_y}\)</span>
-</p>
-<p>В линейной регрессии, так же, как и в ANOVA, коэффициент детерминации определяет уровень корреляции между исходными значениями переменной <span class="math inline">\(y\)</span> и предсказанными <span class="math inline">\(\hat y\)</span>. По сути, он говорит о <strong>проценте объясненной дисперсии</strong>, то есть как хорошо наша регрессионная модель объясняет изменчивость зависимой переменной.</p>
-<p>Из формулировки видно, что эту величину можно рассматривать как размер эффекта – и это ни что иное, как уже знакомая нам <span class="math inline">\(\eta^2\)</span></p>
-<p align="center">
-<span class="math inline">\(\eta^2 = \frac{SSE}{SST}\)</span>
-</p>
-<p>!</p>
-<p align="center">
-<span class="math inline">\(R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}\)</span>
-</p>
+</div>
+<div id="множественный-регрессионный-анализ" class="section level3 hasAnchor">
+<h3><span class="header-section-number">11.2.4</span> Множественный регрессионный анализ<a href="stats_criteria_linear.html#множественный-регрессионный-анализ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Множественный регрессионный анализ</strong> – подразумевает все то же самое, только появляются новые предикторы (независимые переменные, они же факторы)</p>
 <p align="center">
-<span class="math inline">\(y_i = b_o + b_1x_i\)</span>
+<span class="math inline">\(\hat y = b_o + b_1x_1 + b_2x_2 + ... + b_nx_n\)</span>
 </p>
 </div>
 <div id="допущения-для-регрессионного-анализа" class="section level3 hasAnchor">
-<h3><span class="header-section-number">11.2.3</span> Допущения для регрессионного анализа<a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">11.2.5</span> Допущения для регрессионного анализа<a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>(ЗП и НП измерены в количественной или порядковой шкале)</p>
 <ol style="list-style-type: decimal">
-<li>Распределение НП по ЗП линейно – то есть нет выборосов, нет картины нелинейной взаимосвязи или скоплений данных в разных местах.</li>
-<li>Остатки (residuals) распределены нормально – все то же самое, как <a href="stats_criteria.html#param_nonparam">здесь</a>, только для остатков (график плотности вероятности или QQ-plot)</li>
+<li>Распределение НП по ЗП линейно – нет картины нелинейной взаимосвязи или скоплений данных в разных местах.</li>
 <li>Остатки (residuals) варьируются примерно одинаково вдоль всей прямой – гомогенность (или гомоскедастичность, homoscedasticity) остатков. Проверяется тестом Левеня (Levene’s Test of Homogeneity of Variance)</li>
+<li>Остатки (residuals) распределены нормально – все то же самое, как <a href="stats_criteria.html#param_nonparam">здесь</a>, только для остатков (график плотности вероятности или QQ-plot)</li>
 <li>Для множественной линейной регрессии – отсутствие мультиколлинеарности (сильной корреляции между независимыми переменными)</li>
 </ol>
 <p><a href="https://gallery.shinyapps.io/slr_diag/" class="uri">https://gallery.shinyapps.io/slr_diag/</a></p>
 </div>
 <div id="расчет-регрессионного-анализа" class="section level3 hasAnchor">
-<h3><span class="header-section-number">11.2.4</span> Расчет регрессионного анализа<a href="stats_criteria_linear.html#расчет-регрессионного-анализа" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="stats_criteria_linear.html#cb3-1"></a>students <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb3-2"><a href="stats_criteria_linear.html#cb3-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>G_por, <span class="dt">y =</span> G_mat)) <span class="op">+</span></span>
-<span id="cb3-3"><a href="stats_criteria_linear.html#cb3-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> G_por)) <span class="op">+</span></span>
-<span id="cb3-4"><a href="stats_criteria_linear.html#cb3-4"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>) <span class="op">+</span></span>
-<span id="cb3-5"><a href="stats_criteria_linear.html#cb3-5"></a><span class="st">  </span><span class="kw">scale_color_viridis</span>() <span class="op">+</span></span>
-<span id="cb3-6"><a href="stats_criteria_linear.html#cb3-6"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="stats_criteria_linear.html#cb5-1"></a>model_Gmat &lt;-<span class="st"> </span><span class="kw">lm</span>(students<span class="op">$</span>G_mat <span class="op">~</span><span class="st"> </span>students<span class="op">$</span>G_por) </span>
-<span id="cb5-2"><a href="stats_criteria_linear.html#cb5-2"></a><span class="kw">summary</span>(model_Gmat)</span></code></pre></div>
+<h3><span class="header-section-number">11.2.6</span> Расчет регрессионного анализа<a href="stats_criteria_linear.html#расчет-регрессионного-анализа" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Когда мы проводим расчет регрессионного анализа, у нас в результате получается табличка вроде этой:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Обозначение</th>
+<th align="center">Коэффициент</th>
+<th align="center">Статистика</th>
+<th align="center">SE</th>
+<th align="center">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(b_0\)</span></td>
+<td align="center">Intercept</td>
+<td align="center"><span class="math inline">\(t_{b0}\)</span></td>
+<td align="center"><span class="math inline">\(SE_{b0}\)</span></td>
+<td align="center"><span class="math inline">\(p_{b0}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(b_1\)</span></td>
+<td align="center">Коэф для фактора1</td>
+<td align="center"><span class="math inline">\(t_{b1}\)</span></td>
+<td align="center"><span class="math inline">\(SE_{b1}\)</span></td>
+<td align="center"><span class="math inline">\(p_{b1}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">(если есть) <span class="math inline">\(b_2\)</span></td>
+<td align="center">(если есть) Коэф для фактора2</td>
+<td align="center"><span class="math inline">\(t_{b2}\)</span></td>
+<td align="center"><span class="math inline">\(SE_{b2}\)</span></td>
+<td align="center"><span class="math inline">\(p_{b2}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">(если есть) <span class="math inline">\(b_3\)</span></td>
+<td align="center">(если есть) Коэф для фактора3</td>
+<td align="center"><span class="math inline">\(t_{b3}\)</span></td>
+<td align="center"><span class="math inline">\(SE_{b3}\)</span></td>
+<td align="center"><span class="math inline">\(p_{b3}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Так же, как и везде, нас интересуют в первую очередь значение статистики (t-значение), уровень значимости (p-value) и здесь нас еще интересует само значение коэффициентов. В случае значимости (p-value &lt; alpha), то есть получения результата, что данный фактор значимо влияет на изменчивость данных, и мы можем построить регрессионную прямую – мы будем записывать уравнение регрессионной прямой на основании этих значений:</p>
+<p align="center">
+<span class="math inline">\(\hat y\)</span> = Intercept + Коэф для фактора1 * Фактор1 + Коэф для фактора2 * Фактор2 + Коэф для фактора3 * Фактор3
+</p>
+<p>Для примера возьмем другой датасет с данными об информации курсов Udemy</p>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+id
+</th>
+<th style="text-align:left;">
+title
+</th>
+<th style="text-align:left;">
+is_paid
+</th>
+<th style="text-align:right;">
+price
+</th>
+<th style="text-align:right;">
+num_subscribers
+</th>
+<th style="text-align:right;">
+avg_rating
+</th>
+<th style="text-align:right;">
+num_reviews
+</th>
+<th style="text-align:right;">
+num_comments
+</th>
+<th style="text-align:right;">
+num_lectures
+</th>
+<th style="text-align:right;">
+content_length_min
+</th>
+<th style="text-align:left;">
+published_time
+</th>
+<th style="text-align:left;">
+last_update_date
+</th>
+<th style="text-align:left;">
+category
+</th>
+<th style="text-align:left;">
+subcategory
+</th>
+<th style="text-align:left;">
+topic
+</th>
+<th style="text-align:left;">
+language
+</th>
+<th style="text-align:left;">
+course_url
+</th>
+<th style="text-align:left;">
+instructor_name
+</th>
+<th style="text-align:left;">
+instructor_url
+</th>
+<th style="text-align:right;">
+price_log
+</th>
+<th style="text-align:right;">
+num_subscribers_log
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+4886742
+</td>
+<td style="text-align:left;">
+How to build a profit and loss statement in Power BI Desktop
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+19.99
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+5.000000
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+99
+</td>
+<td style="text-align:left;">
+2022-09-19 18:44:18
+</td>
+<td style="text-align:left;">
+2022-09-20
+</td>
+<td style="text-align:left;">
+Business
+</td>
+<td style="text-align:left;">
+Business Analytics &amp; Intelligence
+</td>
+<td style="text-align:left;">
+Microsoft Power BI
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/how-to-build-a-profit-and-loss-statement-in-power-bi-desktop/
+</td>
+<td style="text-align:left;">
+Dan We
+</td>
+<td style="text-align:left;">
+/user/danielw3/
+</td>
+<td style="text-align:right;">
+2.995232
+</td>
+<td style="text-align:right;">
+2.8903718
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4726078
+</td>
+<td style="text-align:left;">
+The Secret of Earning Big in Professional Photography
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+7.00
+</td>
+<td style="text-align:right;">
+446
+</td>
+<td style="text-align:right;">
+5.000000
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:left;">
+2022-07-03 08:49:10
+</td>
+<td style="text-align:left;">
+2022-06-25
+</td>
+<td style="text-align:left;">
+Photography &amp; Video
+</td>
+<td style="text-align:left;">
+Commercial Photography
+</td>
+<td style="text-align:left;">
+Personality
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/masterclass-the-secret-formula-of-professional-photography-by-ms/
+</td>
+<td style="text-align:left;">
+Madhukar Soma
+</td>
+<td style="text-align:left;">
+/user/1ceb9d31-ddbf-4c2d-8594-bcbc8ba453d2/
+</td>
+<td style="text-align:right;">
+1.945910
+</td>
+<td style="text-align:right;">
+6.1003190
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3903154
+</td>
+<td style="text-align:left;">
+叱り方・褒め方セミナー
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+20.00
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+4.800000
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+126
+</td>
+<td style="text-align:left;">
+2021-03-22 13:49:49
+</td>
+<td style="text-align:left;">
+2021-03-16
+</td>
+<td style="text-align:left;">
+Teaching &amp; Academics
+</td>
+<td style="text-align:left;">
+Other Teaching &amp; Academics
+</td>
+<td style="text-align:left;">
+Early Childhood Education
+</td>
+<td style="text-align:left;">
+Japanese
+</td>
+<td style="text-align:left;">
+/course/shikarikata/
+</td>
+<td style="text-align:left;">
+美佳 伊藤
+</td>
+<td style="text-align:left;">
+/user/yi-teng-mei-jia-3/
+</td>
+<td style="text-align:right;">
+2.995732
+</td>
+<td style="text-align:right;">
+4.2484952
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1597538
+</td>
+<td style="text-align:left;">
+Digital Marketing and Social Media For A New Business
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+199.99
+</td>
+<td style="text-align:right;">
+705
+</td>
+<td style="text-align:right;">
+4.550000
+</td>
+<td style="text-align:right;">
+91
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+133
+</td>
+<td style="text-align:left;">
+2018-03-21 13:37:50
+</td>
+<td style="text-align:left;">
+2019-04-27
+</td>
+<td style="text-align:left;">
+Marketing
+</td>
+<td style="text-align:left;">
+Digital Marketing
+</td>
+<td style="text-align:left;">
+Digital Marketing
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/hands-on-digital-marketing-fundamentals/
+</td>
+<td style="text-align:left;">
+Greg Gottfried
+</td>
+<td style="text-align:left;">
+/user/greg-gottfried/
+</td>
+<td style="text-align:right;">
+5.298267
+</td>
+<td style="text-align:right;">
+6.5581978
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3071530
+</td>
+<td style="text-align:left;">
+HTML Design Webpages, Create Table, Registration Form
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+19.99
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:left;">
+2020-05-09 20:46:35
+</td>
+<td style="text-align:left;">
+2020-05-02
+</td>
+<td style="text-align:left;">
+IT &amp; Software
+</td>
+<td style="text-align:left;">
+Other IT &amp; Software
+</td>
+<td style="text-align:left;">
+HTML
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/html-design-webpages-create-table-registration-form/
+</td>
+<td style="text-align:left;">
+Dhiraj Gaikwad
+</td>
+<td style="text-align:left;">
+/user/dhiraj-pratap-gaikwad/
+</td>
+<td style="text-align:right;">
+2.995232
+</td>
+<td style="text-align:right;">
+0.6931472
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4835258
+</td>
+<td style="text-align:left;">
+Borsa Takas Analizi
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+279.99
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+4.000000
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+76
+</td>
+<td style="text-align:left;">
+2022-09-02 12:45:01
+</td>
+<td style="text-align:left;">
+2022-09-03
+</td>
+<td style="text-align:left;">
+Finance &amp; Accounting
+</td>
+<td style="text-align:left;">
+Investing &amp; Trading
+</td>
+<td style="text-align:left;">
+Stock Trading
+</td>
+<td style="text-align:left;">
+Turkish
+</td>
+<td style="text-align:left;">
+/course/borsa-takas-analizi/
+</td>
+<td style="text-align:left;">
+Garanti Yatırımcı
+</td>
+<td style="text-align:left;">
+/user/garanti-yatirimci/
+</td>
+<td style="text-align:right;">
+5.634754
+</td>
+<td style="text-align:right;">
+3.8712010
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4835280
+</td>
+<td style="text-align:left;">
+Getting started with Rhinocerous 3D (Rhino 3D) in an hour!
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+19.99
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:left;">
+2022-08-17 04:52:53
+</td>
+<td style="text-align:left;">
+2022-08-17
+</td>
+<td style="text-align:left;">
+Design
+</td>
+<td style="text-align:left;">
+3D &amp; Animation
+</td>
+<td style="text-align:left;">
+Rhino 3D
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/getting-started-with-rhinocerous-3d-rhino-3d-in-an-hour/
+</td>
+<td style="text-align:left;">
+Yousif Al-Daffaie
+</td>
+<td style="text-align:left;">
+/user/yousif-al-daffaie/
+</td>
+<td style="text-align:right;">
+2.995232
+</td>
+<td style="text-align:right;">
+0.6931472
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4603776
+</td>
+<td style="text-align:left;">
+【グラフィックデザインの教科書】デザインの基本と知識を学ぶ、デザイナー1年生のための初心者講座
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+<td style="text-align:right;">
+1131
+</td>
+<td style="text-align:right;">
+4.609827
+</td>
+<td style="text-align:right;">
+217
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+225
+</td>
+<td style="text-align:left;">
+2022-05-09 11:02:03
+</td>
+<td style="text-align:left;">
+2022-05-07
+</td>
+<td style="text-align:left;">
+Design
+</td>
+<td style="text-align:left;">
+Graphic Design &amp; Illustration
+</td>
+<td style="text-align:left;">
+Graphic Design
+</td>
+<td style="text-align:left;">
+Japanese
+</td>
+<td style="text-align:left;">
+/course/g-design/
+</td>
+<td style="text-align:left;">
+高橋 秀幸
+</td>
+<td style="text-align:left;">
+/user/gao-qiao-xiu-xing-9/
+</td>
+<td style="text-align:right;">
+1.386294
+</td>
+<td style="text-align:right;">
+7.0308575
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1801692
+</td>
+<td style="text-align:left;">
+Archicad - Roof Maker - Tworzenie więźby dachowej
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+349.99
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+3.333333
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:left;">
+2018-07-18 10:55:23
+</td>
+<td style="text-align:left;">
+2018-07-19
+</td>
+<td style="text-align:left;">
+Design
+</td>
+<td style="text-align:left;">
+Design Tools
+</td>
+<td style="text-align:left;">
+ARCHICAD
+</td>
+<td style="text-align:left;">
+Polish
+</td>
+<td style="text-align:left;">
+/course/kurs-archicad-roof-maker-tworzenie-wiezby-dachowej/
+</td>
+<td style="text-align:left;">
+cgwisdom - Kursy online online
+</td>
+<td style="text-align:left;">
+/user/cgwisdompl-kursy-online/
+</td>
+<td style="text-align:right;">
+5.857905
+</td>
+<td style="text-align:right;">
+2.5649494
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4696320
+</td>
+<td style="text-align:left;">
+Psyberfairy Ableton Music Production Basics
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+19.99
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:left;">
+2022-05-22 03:53:15
+</td>
+<td style="text-align:left;">
+2022-05-20
+</td>
+<td style="text-align:left;">
+Music
+</td>
+<td style="text-align:left;">
+Music Production
+</td>
+<td style="text-align:left;">
+Music Production
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/psyberfairy-ableton-music-production-basics/
+</td>
+<td style="text-align:left;">
+Christina Martine
+</td>
+<td style="text-align:left;">
+/user/christina-martine-2/
+</td>
+<td style="text-align:right;">
+2.995232
+</td>
+<td style="text-align:right;">
+1.3862944
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>И попробуем построить модель стоимости курса по количеству студентов (<em>вы могли не заметить, но вот мы приблизились вплотную к реальным задачам, которые решают аналитики данных</em>)</p>
+<p>Спойлер: так как это реальные данные, то пришлось повозиться с их предобработкой, и даже после этого лучший вариант построения модели выглядит на них так:
+<img src="StatsForDA_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+Здесь очевидно, что модель будет плохо работать. Возьмем еще один неудачный пример для построения регрессионных моделей:</p>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Поэтому идею предсказать цену и рейтинг мы пока отбросим и перейдем к более прозаичной – построим модель длительности курса от количества лекций.</p>
+<ol style="list-style-type: decimal">
+<li>Гипотеза: длительность <code>content_length_min</code> определяется количество лекций <code>num_lectures</code></li>
+</ol>
+<p align="center">
+<code>content_length_min</code> ~ <code>num_lectures</code>
+</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Формулируем нулевую гипотезу:</li>
+</ol>
+<p>Коэффициент <span class="math inline">\(b_1\)</span> для <code>num_lectures</code> не должен быть равен нулю (то есть <code>num_lectures</code> влияет на вариативность данных)</p>
+<p align="center">
+<span class="math inline">\(H_0\)</span>: <span class="math inline">\(b_{1_{xy}} = 0\)</span>
+</p>
+<p align="center">
+<span class="math inline">\(H_1\)</span>: <span class="math inline">\(b_{1_{xy}} \neq 0\)</span>
+</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Зафиксируем, что будем проверять гипотезу на уровне <span class="math inline">\(\alpha = 0.05\)</span></p></li>
+<li><p>Выберем статистический критерий для проверки. Посмотрим, насколько линейно распредены переменные и остатки:</p></li>
+</ol>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+Не самый лучший вариант, но с этим уже можно работть <em>(почему? в чем отличие от предыдущей кртинки?)</em></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Строим регрессионную модель и проводим регрессионный анлиз, смотрим на значимость коэффициентов</li>
+</ol>
 <pre><code>## 
 ## Call:
-## lm(formula = students$G_mat ~ students$G_por)
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -10.6067  -1.7271  -0.0795   1.8674   8.3760 
-## 
-## Coefficients:
-##                Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)     0.60914    0.82824   0.735    0.463    
-## students$G_por  0.83704    0.06439  12.999   &lt;2e-16 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 2.881 on 318 degrees of freedom
-## Multiple R-squared:  0.347,  Adjusted R-squared:  0.3449 
-## F-statistic:   169 on 1 and 318 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="stats_criteria_linear.html#cb7-1"></a>model_Gmat2 &lt;-<span class="st"> </span><span class="kw">lm</span>(students<span class="op">$</span>G_mat <span class="op">~</span><span class="st"> </span>students<span class="op">$</span>G_por <span class="op">+</span><span class="st"> </span>students<span class="op">$</span>G1_mat)</span>
-<span id="cb7-2"><a href="stats_criteria_linear.html#cb7-2"></a><span class="kw">summary</span>(model_Gmat2)</span></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = students$G_mat ~ students$G_por + students$G1_mat)
+## lm(formula = udemy_model$content_length_min ~ udemy_model$num_lectures)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -7.3048 -0.5550  0.0934  0.6501  2.9390 
+## -180.52  -47.29  -10.08   35.90  199.40 
 ## 
 ## Coefficients:
-##                 Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)     -0.94794    0.38461  -2.465   0.0142 *  
-## students$G_por   0.06650    0.03722   1.787   0.0750 .  
-## students$G1_mat  0.99894    0.02910  34.330   &lt;2e-16 ***
+##                          Estimate Std. Error t value            Pr(&gt;|t|)    
+## (Intercept)                71.751      5.083   14.12 &lt;0.0000000000000002 ***
+## udemy_model$num_lectures    2.531      0.195   12.98 &lt;0.0000000000000002 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 1.329 on 317 degrees of freedom
-## Multiple R-squared:  0.8616, Adjusted R-squared:  0.8607 
-## F-statistic: 986.6 on 2 and 317 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Residual standard error: 62.03 on 493 degrees of freedom
+## Multiple R-squared:  0.2547, Adjusted R-squared:  0.2532 
+## F-statistic: 168.5 on 1 and 493 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Интерпретируем результаты: чему равно p-value для коэффициента <code>num_lectures</code>? Видим, что оно очень маленькое и явно меньше зявленного уровня alpha – то есть коэффициент значим, наша гипотеза о том, что количество уроков определяет длительность курса, подтвердилось, ура! Чему равно само значение коэффиента? Примерно 2.16. То есть с увеличением количества уроков на 1 длина курса будет увеличиваться на 2.16 минуты! Чему равен <span class="math inline">\(R^2\)</span>? Он равен 0.19, что в целом вообще-то не очень много, но уже результат. То есть, 19% изменчивости наших данных по длительности курса определяются количеством уроков!</li>
+</ol>
+<p>Уравнение регрессионной прямой я теперь могу записать так:</p>
+<p align="center">
+<span class="math inline">\(\hat content\_length\_min = 81.94 + 2.16 \times num\_lectures\)</span>
+</p>
+<p>Проведем тот же анализ, но с учетом нескольких факторов (предикторов). Предположим, что длительность курса также объясняется числом подписчиков <code>num_subscribers</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="stats_criteria_linear.html#cb4-1"></a>model_length2 &lt;-<span class="st"> </span><span class="kw">lm</span>(udemy_model<span class="op">$</span>content_length_min <span class="op">~</span><span class="st"> </span>udemy_model<span class="op">$</span>num_lectures <span class="op">+</span><span class="st"> </span>udemy_model<span class="op">$</span>num_subscribers_log) </span>
+<span id="cb4-2"><a href="stats_criteria_linear.html#cb4-2"></a><span class="kw">summary</span>(model_length2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = udemy_model$content_length_min ~ udemy_model$num_lectures + 
+##     udemy_model$num_subscribers_log)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -179.364  -45.725   -9.952   35.448  201.590 
+## 
+## Coefficients:
+##                                 Estimate Std. Error t value            Pr(&gt;|t|)
+## (Intercept)                      75.0776     7.2202  10.398 &lt;0.0000000000000002
+## udemy_model$num_lectures          2.5732     0.2054  12.526 &lt;0.0000000000000002
+## udemy_model$num_subscribers_log  -0.9240     1.4234  -0.649               0.517
+##                                    
+## (Intercept)                     ***
+## udemy_model$num_lectures        ***
+## udemy_model$num_subscribers_log    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 62.07 on 492 degrees of freedom
+## Multiple R-squared:  0.2554, Adjusted R-squared:  0.2523 
+## F-statistic: 84.36 on 2 and 492 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<p>Что можно сказать про эти результата? Оба ли коэффициента значимы?</p>
 
 </div>
 </div>
@@ -1995,8 +2841,8 @@ less
           </div>
         </div>
       </div>
-<a href="stats_criteria_ttest_anova.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="stats_criteria_ttest_anova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="stats_criteria_categ.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

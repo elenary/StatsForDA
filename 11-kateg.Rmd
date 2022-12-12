@@ -1,0 +1,31 @@
+#  Анализ категориальных данных {#stats_criteria_categ} 
+
+## Логистическая регрессия
+
+```{r, eval=TRUE, echo = FALSE, message = FALSE}
+library(tidyverse)
+library(kableExtra)
+library(viridis)
+udemy <- read_csv("Course_info.csv")
+udemy %>% 
+  select(!headline) -> udemy
+udemy_sample <- sample_n(udemy, 1000, replace = T)
+udemy_sample %>% 
+  filter(num_subscribers > 1 & price > 0 & content_length_min>0 & num_lectures>0) %>% 
+  mutate(price_log = log(price), num_subscribers_log = log(num_subscribers)) -> udemy_sample
+```
+
+<p align="center"> 
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="80%"}
+knitr::include_graphics("docs/images/Logistic-curve.svg.png")
+```
+</p>
+
+```{r, eval=TRUE}
+udemy_sample %>% 
+  filter(content_length_min<300 & num_lectures<80 & num_subscribers < 5000 & avg_rating >=3 & price > 1 & price<200) -> udemy_model 
+model_paid <- glm(udemy_model$is_paid ~ udemy_model$price_log, udemy_model, family = binomial) 
+summary(model_paid)
+```
+
+## Хи-квадрат
