@@ -399,7 +399,7 @@ udemy_sample %>%
 
 4) Выберем статистический критерий для проверки. Посмотрим, насколько линейно распредены переменные и остатки:
 
-```{r, eval=TRUE, echo = FALSE, message = FALSE, warning= FALSE}
+```{r linreg final model, eval=TRUE, echo = FALSE, message = FALSE, warning= FALSE}
 udemy_sample %>% 
   filter(content_length_min<300 & num_lectures<80) %>%  
   ggplot(aes(x=num_lectures, y = content_length_min)) +
