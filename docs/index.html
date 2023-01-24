@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Статистика для анализа данных</title>
   <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Статистика для анализа данных" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2022-12-06" />
+<meta name="date" content="2023-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -129,14 +129,14 @@
 <li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a><ul>
 <li class="chapter" data-level="8.3.1" data-path="inference.html"><a href="inference.html#variables"><i class="fa fa-check"></i><b>8.3.1</b> Зависимые и независимые переменные</a></li>
 <li class="chapter" data-level="8.3.2" data-path="inference.html"><a href="inference.html#уровни-нп-в-категориальных-переменных"><i class="fa fa-check"></i><b>8.3.2</b> Уровни НП в категориальных переменных</a></li>
-<li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#связь-между-зп-и-нп"><i class="fa fa-check"></i><b>8.3.3</b> Связь между ЗП и НП</a></li>
+<li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#relationship"><i class="fa fa-check"></i><b>8.3.3</b> Связь между ЗП и НП</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="inference.html"><a href="inference.html#нулевая-и-альтернативные-статистические-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные статистические гипотезы</a><ul>
 <li class="chapter" data-level="8.4.1" data-path="inference.html"><a href="inference.html#направленные-и-ненаправленные-гипотезы"><i class="fa fa-check"></i><b>8.4.1</b> Направленные и ненаправленные гипотезы</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="inference.html"><a href="inference.html#уровень-значимости-и-статистическая-мощность"><i class="fa fa-check"></i><b>8.5</b> Уровень значимости и статистическая мощность</a></li>
 <li class="chapter" data-level="8.6" data-path="inference.html"><a href="inference.html#выбор-статистического-критерия"><i class="fa fa-check"></i><b>8.6</b> Выбор статистического критерия</a></li>
-<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки</a></li>
+<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки и размер эффекта</a></li>
 <li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#stat_test_example"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a><ul>
@@ -178,10 +178,23 @@
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#линейный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициенты-регрессии"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
-<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии"><i class="fa fa-check"></i><b>11.2.2</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
-<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.3</b> Допущения для регрессионного анализа</a></li>
-<li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.4</b> Расчет регрессионного анализа</a></li>
+<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициент-детерминации-и-доля-объясненной-изменчивости"><i class="fa fa-check"></i><b>11.2.2</b> Коэффициент детерминации и доля объясненной изменчивости</a></li>
+<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии"><i class="fa fa-check"></i><b>11.2.3</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
+<li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#множественный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2.4</b> Множественный регрессионный анализ</a></li>
+<li class="chapter" data-level="11.2.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.5</b> Допущения для регрессионного анализа</a></li>
+<li class="chapter" data-level="11.2.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.6</b> Расчет регрессионного анализа</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html"><i class="fa fa-check"></i><b>12</b> Анализ категориальных данных</a><ul>
+<li class="chapter" data-level="12.1" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#логистическая-регрессия"><i class="fa fa-check"></i><b>12.1</b> Логистическая регрессия</a></li>
+<li class="chapter" data-level="12.2" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#хи-квадрат"><i class="fa fa-check"></i><b>12.2</b> Хи-квадрат</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="R_analysis.html"><a href="R_analysis.html"><i class="fa fa-check"></i><b>13</b> Введение в анализ данных в R</a><ul>
+<li class="chapter" data-level="13.1" data-path="R_analysis.html"><a href="R_analysis.html#данные-и-переменные"><i class="fa fa-check"></i><b>13.1</b> Данные и переменные</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="R_analysis.html"><a href="R_analysis.html#основные-типы-данных"><i class="fa fa-check"></i><b>13.1.1</b> Основные типы данных</a></li>
+<li class="chapter" data-level="13.1.2" data-path="R_analysis.html"><a href="R_analysis.html#основные-структуры-данных"><i class="fa fa-check"></i><b>13.1.2</b> Основные структуры данных</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="R_analysis.html"><a href="R_analysis.html#операции-с-переменными"><i class="fa fa-check"></i><b>13.2</b> Операции с переменными</a></li>
 </ul></li>
 </ul>
 
@@ -203,7 +216,7 @@
 <div id="header">
 <h1 class="title">Статистика для анализа данных</h1>
 <p class="author"><em>Елена Рыбина</em></p>
-<p class="date"><em>2022-12-06</em></p>
+<p class="date"><em>2023-01-24</em></p>
 </div>
 <div id="intro" class="section level1 hasAnchor">
 <h1><span class="header-section-number">1</span> Статистика и ее место в жизни<a href="index.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -213,7 +226,7 @@
 <blockquote>
 <p>В январе 1692 года у дочери пастора Сэмюэла Пэрриса — 9-летней Элизабет Пэррис (род. 28 ноября 1682 года) и его племянницы 11-летней Эбигейл Уильямс (род. 12 июля 1680 года) появились симптомы неизвестной болезни: девочки кричали, издавали странные звуки, прятались под мебелью, а их тела принимали необычные позы. Когда Пэррис пытался читать проповедь, они затыкали уши. Местные жители начали выдвигать логичные, на их взгляд, предположения, все из которых сводились к тому, что девочки были прокляты ведьмой. Эти догадки вскоре подтвердил доктор Уильям Григгс, заявивший, что уже сталкивался с подобными случаями в Бостоне. Девочки указали на предполагаемую ведьму — девушку по имени Титуба, бывшую служанкой-рабыней в доме Пэррисов. Вскоре число заболевших девочек и девушек увеличилось. 1 марта 1692 года по их показаниям были арестованы 3 женщины: Титуба, Сара Гуд и Сара Осборн. Подозреваемые были допрошены и подвергнуты осмотру в поисках признаков, которые бы указывали на то, что они являются ведьмами. Главной «уликой» по делу женщин были показания девочек, к которым якобы являлись духи обвиняемых. Все три женщины были удобными целями для обвинений: Титуба имела нетитульную национальность, Сара Гуд была нищенкой, а Сара Осборн — одинокой тяжелобольной вдовой, вовлечённой к тому же в судебный спор с пуританами. Против них говорил тот факт, что женщины длительное время не посещали церковь. Эти показания суд счел адекватными и вынес сразу нескольким жительницам Салема смертный приговор.</p>
 </blockquote>
-<img src="docs/images/salem.jpg" width="364" style="display: block; margin: auto;" />
+<img src="docs/images/salem.jpg" style="display: block; margin: auto;" />
 <p align="center">
 <em>Гравюра с просторов интернета, изображающая процесс на салемской ведьмой</em>
 </p>
