@@ -194,7 +194,8 @@
 <li class="chapter" data-level="13.1.1" data-path="R_analysis.html"><a href="R_analysis.html#основные-типы-данных"><i class="fa fa-check"></i><b>13.1.1</b> Основные типы данных</a></li>
 <li class="chapter" data-level="13.1.2" data-path="R_analysis.html"><a href="R_analysis.html#основные-структуры-данных"><i class="fa fa-check"></i><b>13.1.2</b> Основные структуры данных</a></li>
 </ul></li>
-<li class="chapter" data-level="13.2" data-path="R_analysis.html"><a href="R_analysis.html#операции-с-переменными"><i class="fa fa-check"></i><b>13.2</b> Операции с переменными</a></li>
+<li class="chapter" data-level="13.2" data-path="R_analysis.html"><a href="R_analysis.html#операции-с-переменными-и-функции"><i class="fa fa-check"></i><b>13.2</b> Операции с переменными и функции</a></li>
+<li class="chapter" data-level="13.3" data-path="R_analysis.html"><a href="R_analysis.html#начало-рабты-с-данными"><i class="fa fa-check"></i><b>13.3</b> Начало рабты с данными</a></li>
 </ul></li>
 </ul>
 
@@ -228,7 +229,7 @@
 </p>
 <div id="основные-типы-данных" class="section level3 hasAnchor">
 <h3><span class="header-section-number">13.1.1</span> Основные типы данных<a href="R_analysis.html#основные-типы-данных" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>Числовой</strong> (целые числа – <strong>integer</strong>, вещественные числа – <strong>real</strong>, числа с плавающей точкой (дробные) – <strong>float</strong>)
+<p><strong>Числовой</strong> (целые числа – <strong>integer</strong> или <strong>numeric</strong>, вещественные числа – <strong>real</strong>, числа с плавающей точкой (дробные) – <strong>float</strong>)
 <strong>Текстовый</strong> (<strong>character</strong>, если один символ, или <strong>string</strong> – много символов)
 <strong>Логический</strong> (logical – принимает только значения True / False)
 <strong>NA</strong> – пропущенные значения (not available)
@@ -247,32 +248,37 @@
 </p>
 </div>
 </div>
-<div id="операции-с-переменными" class="section level2 hasAnchor">
-<h2><span class="header-section-number">13.2</span> Операции с переменными<a href="R_analysis.html#операции-с-переменными" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="операции-с-переменными-и-функции" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.2</span> Операции с переменными и функции<a href="R_analysis.html#операции-с-переменными-и-функции" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>В зависимости от того, с переменными какого типа мы работаем, мы можем выполнять с ними разные операции.</p>
-<p>Операция – это выполнение каких-либо действий над данными. То, что выполняет это действие, называется оператором. Оператором может знак сложения, деления, больше или меньше и тд.</p>
+<p><strong>Операция</strong> – это выполнение каких-либо действий над данными. То, что выполняет это действие, называется <strong>оператором</strong> или <strong>функцией</strong>. Разница между ними в том, что оператор выполняет атомарные (единичные и простые действия), например, оператором может быть знак сложения, деления, больше или меньше и тд. Функция делает более сложные действия: например, создать вектор с помощью функции <code>c()</code>, прочитать данные с помощью функции <code>read_csv()</code>, отфильтровать данные с помощью функции <code>select()</code>. Обратите внимание, что при вызове функции после ее названия всегда ставятся круглые скобки.</p>
 <table>
 <thead>
 <tr class="header">
 <th align="center"><strong>Тип данных</strong></th>
-<th align="center"><strong>Возможные операции</strong></th>
+<th align="center"><strong>Возможные атомарные операции</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="center">Числовой</td>
-<td align="center">+, -, /, *, %</td>
+<td align="center">= (присвоение), +, -, /, *, %</td>
 </tr>
 <tr class="even">
 <td align="center">Текстовый</td>
-<td align="center">+ (конкатенация), поиск по определенному символу</td>
+<td align="center">= (присвоение),+ (конкатенация), поиск по определенному символу</td>
 </tr>
 <tr class="odd">
 <td align="center">Логический</td>
-<td align="center">&gt;, &lt;, == (равно), != (не равно)</td>
+<td align="center">= (присвоение),&gt;, &lt;, == (равно), != (не равно)</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="начало-рабты-с-данными" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.3</span> Начало рабты с данными<a href="R_analysis.html#начало-рабты-с-данными" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Мы будем работать с данным World Happiness Report за 2016 год <a href="https://www.kaggle.com/datasets/unsdsn/world-happiness" class="uri">https://www.kaggle.com/datasets/unsdsn/world-happiness</a></p>
+<p><a href="https://en.wikipedia.org/wiki/World_Happiness_Report" class="uri">https://en.wikipedia.org/wiki/World_Happiness_Report</a></p>
 
 </div>
 </div>
