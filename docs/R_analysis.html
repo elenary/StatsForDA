@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Выборка | Статистика для анализа данных</title>
+  <title>13 Введение в анализ данных в R | Статистика для анализа данных</title>
   <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Выборка | Статистика для анализа данных" />
+  <meta property="og:title" content="13 Введение в анализ данных в R | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Семинарские занятия по статистике для анализа данных" />
   <meta name="github-repo" content="elenary/StatsForDA" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Выборка | Статистика для анализа данных" />
+  <meta name="twitter:title" content="13 Введение в анализ данных в R | Статистика для анализа данных" />
   
   <meta name="twitter:description" content="Семинарские занятия по статистике для анализа данных" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="scales.html"/>
+<link rel="prev" href="stats_criteria_categ.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -213,56 +213,66 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sample" class="section level1 hasAnchor">
-<h1><span class="header-section-number">2</span> Выборка<a href="sample.html#sample" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<!-- Допустим, нас есть какое-то предположение о связи неких психологических конструктов относительно того, как работает психика у людей. Например, о том, что кофеин как-то влияет на такой конструкт, как внимание -- это наша **теоретическая гипотеза**. Чтобы ее проверить, нам нужно провести исследование и уточнить гипотезу на языке этого исследования, сделать ее более конкретной. Например, мы решили провести эксперимент, в котором экспериментальная группа пила 3 кружки кофе в первой половине дня, а контрольная группа пила декофеинизированный кофе. Далее мы делали несколько замеров решения какого-нибудь когнитивного теста на внимание во второй половине дня и смотрели, сколько ошибок допускают экспериментальной и контрольной выборок. десь мы уточнили. И когда мы делаем выводы, мы говорим не о нашей небольшой группе людей, которых мы исследовали – а о всей популяции людей, она называется **генеральной совокупностью**. Почему так можно? -->
-<p>Мы рассмотрели два примера – о влиянии кофеина на внимание и коммуникационного рабочего инструмента на продуктивность. В этих примерах мы предположили, что провели исследование – то есть набрали какое-то количество человек и сделали вывод, как в целом это работает не только у этих человек, а вообще у людей. Почему так происходит? Почему мы можем распространить эти выводы на всех людей, которые теоретически могут пить кофе и воспользоваться этим коммуникационным инструментом? И зачем нам вообще это нужно?</p>
-<img src="docs/images/sample.png" width="80%" style="display: block; margin: auto;" />
+<div id="R_analysis" class="section level1 hasAnchor">
+<h1><span class="header-section-number">13</span> Введение в анализ данных в R<a href="R_analysis.html#R_analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Эта книжка написана с помощью языка программирования и обработки данных R и пакета Bookdown в среде работы с данными RStudio.</p>
+<p>Чтобы начать в ней работать, нужно скачать и установить сам язык R <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> и скачать и установить RStudio, среду для работы <a href="https://posit.co/downloads/" class="uri">https://posit.co/downloads/</a>.</p>
+<div id="данные-и-переменные" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.1</span> Данные и переменные<a href="R_analysis.html#данные-и-переменные" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Данные</strong> – это информация, представленная в форме, пригодной для хранения и обработки человеком или информационными системами (ISO/IEC/IEEE 24765-2010).
+Если данные представлены в форме для обработки информационными системами, они формализованы.</p>
+<p><strong>Переменная</strong> – это оболочка, которую мы задаем, чтобы хранить в ней данные и выполнять операции с ними.
+У переменной есть <em>название</em> и те <em>данные</em>, которая она хранит.</p>
 <p align="center">
-<em>Изображение с <a href="https://towardsdatascience.com/" class="uri">https://towardsdatascience.com/</a></em>
+<img src="docs/images/variable.png" width="80%" style="display: block; margin: auto;" />
 </p>
-<div id="выборочные-оценки" class="section level2 hasAnchor">
-<h2><span class="header-section-number">2.1</span> Выборочные оценки<a href="sample.html#выборочные-оценки" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Как мы можем сделать вывод о всех людях в целом? Что мы будем делать, если хотим узнать средний рост людей на всей планете? Будем ли мы измерять каждого человека из почти 8 миллиардов на планете и брать среднее арифметическое?</p>
-<img src="docs/images/height_distribution.png" width="100%" style="display: block; margin: auto;" />
-<p align="center">
-<a href="https://ourworldindata.org/human-height" class="uri">https://ourworldindata.org/human-height</a>
-</p>
-<p><strong>Генеральная совокупность</strong> – множество (или совокупность) всех изучаемых объектов в рамках определенного исследовательского вопроса.</p>
-<p><strong>Выборка</strong> или <strong>выборочная совокупность</strong> – часть генеральной совокупности, отобранная для изучения определенного исследовательского вопроса.</p>
-<p>Когда мы говорим о генеральной совокупности, мы говорим о ее <strong>параметрах</strong>, например, средний рост людей, обозначим его <strong>X</strong>. Мы не можем посчитать его напрямую, поэтому нам приходится прибегать к <strong>выборочным оценкам</strong>, которые часто обозначются той же буквой, что и параметр генеральной совокупности, только “с крышечкой” или “с чертой” <strong>X̅</strong> – выборочное среднее, средний рост людей на конкретной выборке.</p>
-<p>Итак, когда мы хотим сделать вывод о всех людях из генеральной совокупности – мы проводим исследование на небольшой выборке (в зависимости от метоода исследования необходимый размер выборки может быть от 10 до 1000 чловек) и оцениваем исследуемый параметр генеральной совокупности по выборочным оценкам.</p>
+<div id="основные-типы-данных" class="section level3 hasAnchor">
+<h3><span class="header-section-number">13.1.1</span> Основные типы данных<a href="R_analysis.html#основные-типы-данных" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Числовой</strong> (целые числа – <strong>integer</strong>, вещественные числа – <strong>real</strong>, числа с плавающей точкой (дробные) – <strong>float</strong>)
+<strong>Текстовый</strong> (<strong>character</strong>, если один символ, или <strong>string</strong> – много символов)
+<strong>Логический</strong> (logical – принимает только значения True / False)
+<strong>NA</strong> – пропущенные значения (not available)
+<strong>NaN</strong> – not a number, результат выполнения невозможной числовой операции (например, деление на 0)</p>
 </div>
-<div id="репрезентативность-выборки" class="section level2 hasAnchor">
-<h2><span class="header-section-number">2.2</span> Репрезентативность выборки<a href="sample.html#репрезентативность-выборки" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Важным понятием является <strong>репрезентативность выборки</strong> – способность выборки отражать исследуемый параметр генеральной совокупности.</p>
-<p><em>Одна и та же выборка может быть репрезентативной для одного исследовательского вопроса и не репрезентативной для другого!</em></p>
-<p>Репрезентативность достигается:</p>
-<ul>
-<li><strong>Случайным выбором людей</strong> (берем не каких-то конкретных, которые нам больше нравятся, а случайным образом)</li>
-<li><strong>Объемом выборки</strong> (доказано, что при большом объеме выборки она достаточно представляет генеральную совокупность, чтобы дать ответ об исследуемом параметре)</li>
-</ul>
-<p><strong>Способы формирования репрезентативных выборок</strong></p>
-<ul>
-<li>Простая случайная выборка (simple random sample)</li>
-<li>Систематическая выборка (systematic sample)</li>
-<li>Кластерная выборка (cluster sample)</li>
-<li>Стратифицированная выборка (stratified sample)</li>
-</ul>
-</div>
-<div id="dependent_samples" class="section level2 hasAnchor">
-<h2><span class="header-section-number">2.3</span> Зависимые и независимые выборки<a href="sample.html#dependent_samples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Еще одно важное понятие относительно выборок: они могут быть зависимые и независимые.</p>
-<p><strong>Независимые выборки</strong> используются, когда мы сравнениваем между собой группы наблюдений, относящиеся к разным людям (школам / институтам / и тд). Например, в нашем примере с влияением кофеина на внимание мы можем набрать группу людей, которые будут пить по 3 кружки кофе в день, и другую группу – кто будет пить декофеинизированный напиток. Это разные люди, никак не связанные между собой.</p>
-<p>Но если мы бы взяли одно и ту же группу людей, и на одной неделе измеряли их внимание после 3 кружек кофе, а потом <em>на этих же самых людях</em> проверяли, как действует декофеинизированный напиток – это будут уже <strong>зависимые выборки</strong>, так как это все еще те же самые люди.</p>
-<img src="docs/images/samples.png" width="100%" style="display: block; margin: auto;" />
+<div id="основные-структуры-данных" class="section level3 hasAnchor">
+<h3><span class="header-section-number">13.1.2</span> Основные структуры данных<a href="R_analysis.html#основные-структуры-данных" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Вектор (vector)</strong> – одномерный массив одного типа данных
+<strong>Массив (array)</strong> – многомерный массив одного типа данных, состоящий из векторов одной длины
+<strong>Матрица (matrix)</strong> – двумерный массив только числовых данных
+<strong>Список (list)</strong> – по сути, многомерный массив, но может состоять из векторов разной длины и иметь данные разных типв
+<strong>Данные, датафрейм (dataframe)</strong> – по сути, cписок, но все вектора одной длины</p>
 <p align="center">
+<img src="docs/images/arrays.png" width="80%" style="display: block; margin: auto;" />
+<a href="https://practicum.yandex.ru/blog/10-osnovnyh-struktur-dannyh/" class="uri">https://practicum.yandex.ru/blog/10-osnovnyh-struktur-dannyh/</a>
 </p>
-<p><strong>Кейс</strong></p>
-<blockquote>
-<p>Некий Никита провел исследование, где они изучал взаимосвязь возраста, преподавательского стажа и профессионального выгорания преподавателей в университетах. Для этого он выбрал несколько университетвов: МГУ, Высшая школа экономики и РАНХиГС. Никита нашел по 10 преподавателей департаметов психологии из каждого вуза в социальной сети ВКонтакте и предлагал им заполнить опросник выгорания Маслач (Maslach Burnout Inventory, MBI). На основании обработанных данных Никита сделал следующие выводы: 1) в России чаще выгорают преподаватели более молодого возраста; 2) чаще выгорают преподаватели с меньшим преподавательским стажем; 3) преподаватели МГУ в целом выгорают меньше, чем преподаватели в ВШЭ. Какие методы набора выборки использовал Никита? Верны ли выводы?</p>
-</blockquote>
-<p><img src="docs/images/2022-09-13%2009.30.13.jpg" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="операции-с-переменными" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.2</span> Операции с переменными<a href="R_analysis.html#операции-с-переменными" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>В зависимости от того, с переменными какого типа мы работаем, мы можем выполнять с ними разные операции.</p>
+<p>Операция – это выполнение каких-либо действий над данными. То, что выполняет это действие, называется оператором. Оператором может знак сложения, деления, больше или меньше и тд.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><strong>Тип данных</strong></th>
+<th align="center"><strong>Возможные операции</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Числовой</td>
+<td align="center">+, -, /, *, %</td>
+</tr>
+<tr class="even">
+<td align="center">Текстовый</td>
+<td align="center">+ (конкатенация), поиск по определенному символу</td>
+</tr>
+<tr class="odd">
+<td align="center">Логический</td>
+<td align="center">&gt;, &lt;, == (равно), != (не равно)</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
@@ -271,8 +281,8 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="scales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="stats_criteria_categ.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
