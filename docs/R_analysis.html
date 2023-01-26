@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2023-01-24" />
+<meta name="date" content="2023-01-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -192,10 +256,12 @@
 <li class="chapter" data-level="13" data-path="R_analysis.html"><a href="R_analysis.html"><i class="fa fa-check"></i><b>13</b> Введение в анализ данных в R</a><ul>
 <li class="chapter" data-level="13.1" data-path="R_analysis.html"><a href="R_analysis.html#данные-и-переменные"><i class="fa fa-check"></i><b>13.1</b> Данные и переменные</a><ul>
 <li class="chapter" data-level="13.1.1" data-path="R_analysis.html"><a href="R_analysis.html#основные-типы-данных"><i class="fa fa-check"></i><b>13.1.1</b> Основные типы данных</a></li>
-<li class="chapter" data-level="13.1.2" data-path="R_analysis.html"><a href="R_analysis.html#основные-структуры-данных"><i class="fa fa-check"></i><b>13.1.2</b> Основные структуры данных</a></li>
+<li class="chapter" data-level="13.1.2" data-path="R_analysis.html"><a href="R_analysis.html#data_structures"><i class="fa fa-check"></i><b>13.1.2</b> Основные структуры данных</a></li>
 </ul></li>
 <li class="chapter" data-level="13.2" data-path="R_analysis.html"><a href="R_analysis.html#операции-с-переменными-и-функции"><i class="fa fa-check"></i><b>13.2</b> Операции с переменными и функции</a></li>
-<li class="chapter" data-level="13.3" data-path="R_analysis.html"><a href="R_analysis.html#начало-рабты-с-данными"><i class="fa fa-check"></i><b>13.3</b> Начало рабты с данными</a></li>
+<li class="chapter" data-level="13.3" data-path="R_analysis.html"><a href="R_analysis.html#начало-рабты-в-среде"><i class="fa fa-check"></i><b>13.3</b> Начало рабты в среде</a></li>
+<li class="chapter" data-level="13.4" data-path="R_analysis.html"><a href="R_analysis.html#начало-рабты-с-данными"><i class="fa fa-check"></i><b>13.4</b> Начало рабты с данными</a></li>
+<li class="chapter" data-level="13.5" data-path="R_analysis.html"><a href="R_analysis.html#задания-после-семинара-2"><i class="fa fa-check"></i><b>13.5</b> Задания после семинара 2</a></li>
 </ul></li>
 </ul>
 
@@ -235,8 +301,8 @@
 <strong>NA</strong> – пропущенные значения (not available)
 <strong>NaN</strong> – not a number, результат выполнения невозможной числовой операции (например, деление на 0)</p>
 </div>
-<div id="основные-структуры-данных" class="section level3 hasAnchor">
-<h3><span class="header-section-number">13.1.2</span> Основные структуры данных<a href="R_analysis.html#основные-структуры-данных" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="data_structures" class="section level3 hasAnchor">
+<h3><span class="header-section-number">13.1.2</span> Основные структуры данных<a href="R_analysis.html#data_structures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Вектор (vector)</strong> – одномерный массив одного типа данных
 <strong>Массив (array)</strong> – многомерный массив одного типа данных, состоящий из векторов одной длины
 <strong>Матрица (matrix)</strong> – двумерный массив только числовых данных
@@ -275,10 +341,87 @@
 </tbody>
 </table>
 </div>
+<div id="начало-рабты-в-среде" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.3</span> Начало рабты в среде<a href="R_analysis.html#начало-рабты-в-среде" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>В этом учебнике я буду приводить задания для тренировки в любой среде работы с данными и код работы с данными в R.</p>
+<p>Для большинства интересных операций в R нам понадобятся дополнительные пакеты – набор функций, которые уже кто-то написал за нас (то же самое, как, например, <code>import numpy as np</code> в питоне). Нам в основном понадобится пакет <code>tidyverse</code>, дословно – "вселенная чистых данных`. Сразу скажу, что все помеченной символом # – это комментарии, наши подсказки, которые не будут исполняться. Их важно всего оставлять для себя, чтобы не забыть, что вообще здесь происходит.</p>
+<p>Чтобы пакет заработал, его нужно 1. установить и 2. подключить</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="R_analysis.html#cb1-1"></a><span class="co"># устанавливаем пакет</span></span>
+<span id="cb1-2"><a href="R_analysis.html#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="R_analysis.html#cb2-1"></a><span class="co"># подключаем пакет</span></span>
+<span id="cb2-2"><a href="R_analysis.html#cb2-2"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<p>Установить пакет достаточно всего один раз после установки R, подключать через <code>library</code> нужно всегда, когда открываем RStudio. Ошибка вида “could not find function” в 99% случаев говорит о том, что пакет, из которого она используется, не подключен.</p>
+</div>
 <div id="начало-рабты-с-данными" class="section level2 hasAnchor">
-<h2><span class="header-section-number">13.3</span> Начало рабты с данными<a href="R_analysis.html#начало-рабты-с-данными" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Мы будем работать с данным World Happiness Report за 2016 год <a href="https://www.kaggle.com/datasets/unsdsn/world-happiness" class="uri">https://www.kaggle.com/datasets/unsdsn/world-happiness</a></p>
-<p><a href="https://en.wikipedia.org/wiki/World_Happiness_Report" class="uri">https://en.wikipedia.org/wiki/World_Happiness_Report</a></p>
+<h2><span class="header-section-number">13.4</span> Начало рабты с данными<a href="R_analysis.html#начало-рабты-с-данными" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Мы будем работать с данными World Happiness Report за 2016 год <a href="https://www.kaggle.com/datasets/unsdsn/world-happiness" class="uri">https://www.kaggle.com/datasets/unsdsn/world-happiness</a>. Это Всемирный доклад о счастье <a href="https://en.wikipedia.org/wiki/World_Happiness_Report" class="uri">https://en.wikipedia.org/wiki/World_Happiness_Report</a> , которой показывает, как жители разных стран оценивают свой уровень счастья. В данных за 2016 год, с которыми мы будем работать, участвую 157 стран. <em>Кстати, вы можете скачать данные за разные года и посмотреть, как менялось количество стран-участниц? Чуть позже мы научимся делать это с помощью кода</em>. Здесь есть следующие переменные:</p>
+<ul>
+<li>Happiness Rank - позиция в рейтинге</li>
+<li>Happiness Score - абсолютное значение, набранное по уровню счастья</li>
+<li>SE - стандартная ошибка</li>
+<li>Economy - ВВП на душу населения</li>
+<li>Family - Социальная поддержка, ощущение семье</li>
+<li>Health - Продолжительность жизни</li>
+<li>Freedom - Свободы</li>
+<li>Trust (Goverment Corruption) - воспринимаемый уровень коррупции</li>
+<li>Generosity - сколько жертвуют на благотворительность</li>
+<li>Distopia - страна-антиутопия, где самые низкие показатели по всем парметрам из существующих</li>
+</ul>
+<p>Economy, Family, Health, Freedom, Trust, Generosity – 6 показателей, по которым считается уровень счастья.</p>
+<p>Чтобы совершать операции с данными, их сначала нужно <em>прочитать</em>, загрузить в среду работы с данными. В современных традициях R это проще всего сделать с помощью функции <code>read_csv()</code> из пакета <code>tidyverse</code>. Не забывайте, что любой вызов функции сопровождается круглыми скобками, в которые передаются аргументы. В функции <code>read_csv()</code>в скобках нужно передать путь к файлу, который мы хотим прочитать.Его можно скопировать через свойства файла. Но чтобы не заморачиваться с путем, проще всего положить файл с данными в ту же папку, где и лежит наш сам файл с кодом (для этого его нужно сохранить). А самое элегентное и используемое решение – создать проект File - New Project, и хранить все файл в папке проекта, это уберагает от большого числа ошибок. Про импорт файлов очень подробно расписано у Ивана Позднякова <a href="https://pozdniakov.github.io/tidy_stats/030-import_data.html" class="uri">https://pozdniakov.github.io/tidy_stats/030-import_data.html</a></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="R_analysis.html#cb3-1"></a>whr &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;2016.csv&quot;</span>) <span class="co"># читаем данные </span></span>
+<span id="cb3-2"><a href="R_analysis.html#cb3-2"></a></span>
+<span id="cb3-3"><a href="R_analysis.html#cb3-3"></a><span class="kw">View</span>(whr) <span class="co"># просматриваем, что получилось передать в объект с названием whr </span></span></code></pre></div>
+<p>Теперь я хочу поизучать эти данные. Помните, с чего мы начинаем изучение данных? С <a href="descriptives">описательных статистик</a></p>
+<p>Я могу отобрать все переменные по одной и посчитать для них среднее и стандартное отклонение – это то, что в Jamovi находится во вкладке Descriptives. Так как колонка существует не в вакууме, а внутри датасета, то нам необходимо как-то указать, что нас интересует конкретная колонка внутри конкретного датасета. Пока что проще всего это сделать – с помощью значка <code>$</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="R_analysis.html#cb4-1"></a>whr<span class="op">$</span>Family <span class="co"># отбираем всю колонку </span></span></code></pre></div>
+<pre><code>##   [1] 1.16374 1.14524 1.18326 1.12690 1.13464 1.09610 1.02912 1.17278 1.10476
+##  [10] 1.08764 0.99537 1.08383 1.04782 1.02152 1.08113 1.09774 1.03938 1.05249
+##  [19] 1.16157 1.03999 0.71460 0.86758 1.08672 0.90587 0.98912 1.06612 1.00793
+##  [28] 0.87114 1.03143 1.09879 1.02169 1.00508 1.04477 0.84829 0.92624 0.87964
+##  [37] 1.12945 0.83309 0.87119 0.77866 0.87758 0.94397 0.98569 1.03302 1.08268
+##  [46] 0.80975 0.88025 0.89521 1.16810 1.04167 0.85974 0.68655 1.06054 0.95544
+##  [55] 0.83132 1.05261 1.04685 0.72194 0.83779 1.06411 1.04993 0.81826 1.05613
+##  [64] 0.81255 1.03817 0.75695 0.95076 0.95025 0.70697 1.11111 0.72803 1.05163
+##  [73] 0.96372 0.60809 0.87021 0.33613 0.66062 0.87717 0.87625 0.86216 0.76042
+##  [82] 0.87877 0.79381 0.90836 0.95434 0.81329 0.64367 0.74173 0.99496 0.38595
+##  [91] 0.93164 0.26135 0.64184 0.94367 0.78236 0.79117 0.75862 0.43165 0.75473
+## [100] 0.75602 1.08983 0.54970 0.64498 0.75596 0.38857 0.63760 0.69699 0.71629
+## [109] 0.50163 0.24749 0.62800 0.59205 0.70362 0.62542 0.37932 0.96053 0.84783
+## [118] 0.29247 0.69981 0.49813 0.62477 0.76240 1.01413 0.49353 0.80676 0.19249
+## [127] 0.47799 0.77416 0.92542 0.84142 0.71478 0.14700 0.81928 0.72368 0.86333
+## [136] 0.29561 0.89186 0.60323 0.57576 0.53750 0.66366 0.60530 0.18519 0.63178
+## [145] 0.63054 0.90981 0.47493 0.46115 0.77623 0.50353 0.31090 0.61586 0.10419
+## [154] 0.11037 0.00000 0.14866 0.23442</code></pre>
+<p>Или можем вспомнить, что датафрейм имеет два измерения, как и <a href="data_structures">двумерный массив</a>, и можем обратиться по индексу: номер колонки и номер строки. Если нас интересует не конкретная строка, а все строки, то на месте этого индекс ничего не ставится, как бы пропускаем его.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="R_analysis.html#cb6-1"></a>whr[,<span class="dv">8</span>] <span class="co"># отбираем всю колонку другим способом</span></span></code></pre></div>
+<pre><code>## # A tibble: 157 × 1
+##    Family
+##     &lt;dbl&gt;
+##  1   1.16
+##  2   1.15
+##  3   1.18
+##  4   1.13
+##  5   1.13
+##  6   1.10
+##  7   1.03
+##  8   1.17
+##  9   1.10
+## 10   1.09
+## # … with 147 more rows</code></pre>
+<p>Обратите внимание на выдачу: как вы думаете, какым структурам данных принадлежат результаты первого и второго способа?</p>
+<p>Посчитаем среднее и стандартное отклонение для этой колонки</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="R_analysis.html#cb8-1"></a><span class="kw">mean</span>(whr<span class="op">$</span>Family) <span class="co"># среднее</span></span></code></pre></div>
+<pre><code>## [1] 0.7936211</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="R_analysis.html#cb10-1"></a><span class="kw">sd</span>(whr<span class="op">$</span>Family) <span class="co"># стандартное отклонение</span></span></code></pre></div>
+<pre><code>## [1] 0.2667057</code></pre>
+</div>
+<div id="задания-после-семинара-2" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.5</span> Задания после семинара 2<a href="R_analysis.html#задания-после-семинара-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Прочитайте в среде, в которой вы работаете, данные WHR за 2016 год.</li>
+<li>Посчитайте среднее, стандартное отклонение, медиану и размах (разброс от максимального до минимального значения) по всем 6 показателям, составляющим уровень счастья. Что можно сказать про них? Где самый большой размах? Где среднее и медиана оказались близко друг к другу, а где не очень? <em>(для подсчета медианы и размаха в R нужно будет немножко поучиться гуглить или использовать другие материалы)</em></li>
+</ol>
 
 </div>
 </div>
