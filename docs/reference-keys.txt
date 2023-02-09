@@ -104,3 +104,7 @@ preprocessing
 columns
 filter
 mutate
+operarions
+tasks_sem3
+начало-работы-в-среде
+начало-работы-с-данными
