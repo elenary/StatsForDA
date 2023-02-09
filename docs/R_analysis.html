@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2023-01-26" />
+<meta name="date" content="2023-02-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,25 +49,24 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,13 +86,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -137,25 +136,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Статистика для анализа данных</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#вероятности-формулировки-и-выводы"><i class="fa fa-check"></i><b>1.1</b> Вероятности, формулировки и выводы</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a><ul>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#применение-статистики"><i class="fa fa-check"></i><b>1.2.1</b> Применение статистики</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#виды-статистики"><i class="fa fa-check"></i><b>1.3</b> Виды статистики</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="sample.html"><a href="sample.html"><i class="fa fa-check"></i><b>2</b> Выборка</a><ul>
+<li class="chapter" data-level="2" data-path="sample.html"><a href="sample.html"><i class="fa fa-check"></i><b>2</b> Выборка</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="sample.html"><a href="sample.html#выборочные-оценки"><i class="fa fa-check"></i><b>2.1</b> Выборочные оценки</a></li>
 <li class="chapter" data-level="2.2" data-path="sample.html"><a href="sample.html#репрезентативность-выборки"><i class="fa fa-check"></i><b>2.2</b> Репрезентативность выборки</a></li>
 <li class="chapter" data-level="2.3" data-path="sample.html"><a href="sample.html#dependent_samples"><i class="fa fa-check"></i><b>2.3</b> Зависимые и независимые выборки</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a><ul>
+<li class="chapter" data-level="3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="scales.html"><a href="scales.html#измерение-и-переменная"><i class="fa fa-check"></i><b>3.1</b> Измерение и переменная</a></li>
 <li class="chapter" data-level="3.2" data-path="scales.html"><a href="scales.html#количественные-и-неколичественные-данные"><i class="fa fa-check"></i><b>3.2</b> Количественные и неколичественные данные</a></li>
 <li class="chapter" data-level="3.3" data-path="scales.html"><a href="scales.html#типы-шкал"><i class="fa fa-check"></i><b>3.3</b> Типы шкал</a></li>
 <li class="chapter" data-level="3.4" data-path="scales.html"><a href="scales.html#непрерывные-и-дискретные-данные"><i class="fa fa-check"></i><b>3.4</b> Непрерывные и дискретные данные</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>4</b> Вероятность и случайные величины</a><ul>
+<li class="chapter" data-level="4" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>4</b> Вероятность и случайные величины</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="probability.html"><a href="probability.html#random-variable"><i class="fa fa-check"></i><b>4.1</b> Случайная величина</a></li>
 <li class="chapter" data-level="4.2" data-path="probability.html"><a href="probability.html#вероятность"><i class="fa fa-check"></i><b>4.2</b> Вероятность</a></li>
 <li class="chapter" data-level="4.3" data-path="probability.html"><a href="probability.html#дискретные-св-и-статистическое-определение-вероятности"><i class="fa fa-check"></i><b>4.3</b> Дискретные СВ и статистическое определение вероятности</a></li>
@@ -163,23 +167,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="probability.html"><a href="probability.html#непрерывные-св-и-геометрическое-определение-вероятности"><i class="fa fa-check"></i><b>4.5</b> Непрерывные СВ и геометрическое определение вероятности</a></li>
 <li class="chapter" data-level="4.6" data-path="probability.html"><a href="probability.html#график-плотности-вероятности-и-гистограмма"><i class="fa fa-check"></i><b>4.6</b> График плотности вероятности и гистограмма</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Распределения</a><ul>
+<li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Распределения</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="distributions.html"><a href="distributions.html#виды-распределений"><i class="fa fa-check"></i><b>5.1</b> Виды распределений</a></li>
 <li class="chapter" data-level="5.2" data-path="distributions.html"><a href="distributions.html#функции-распределения"><i class="fa fa-check"></i><b>5.2</b> Функции распределения</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a><ul>
+<li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#descriptive_vis"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a></li>
-<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a><ul>
+<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="descriptives.html"><a href="descriptives.html#среднее-медиана-мода"><i class="fa fa-check"></i><b>6.2.1</b> Среднее, медиана, мода</a></li>
 <li class="chapter" data-level="6.2.2" data-path="descriptives.html"><a href="descriptives.html#особенности-использования"><i class="fa fa-check"></i><b>6.2.2</b> Особенности использования</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="descriptives.html"><a href="descriptives.html#квантили-квартили-и-перцентили"><i class="fa fa-check"></i><b>6.3</b> Квантили, квартили и перцентили</a></li>
-<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.4</b> Меры вариативности</a><ul>
+<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.4</b> Меры вариативности</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="descriptives.html"><a href="descriptives.html#размах-стандартное-отклонение-и-дисперсия"><i class="fa fa-check"></i><b>6.4.1</b> Размах, стандартное отклонение и дисперсия</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="descriptives.html"><a href="descriptives.html#боксплот-и-вайолинплот"><i class="fa fa-check"></i><b>6.5</b> Боксплот и вайолинплот</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение и оценки</a><ul>
+<li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение и оценки</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="normdist.html"><a href="normdist.html#ctt"><i class="fa fa-check"></i><b>7.1</b> Центральная предельная теорема</a></li>
 <li class="chapter" data-level="7.2" data-path="normdist.html"><a href="normdist.html#standart_error"><i class="fa fa-check"></i><b>7.2</b> Стандартная ошибка среднего</a></li>
 <li class="chapter" data-level="7.3" data-path="normdist.html"><a href="normdist.html#нормальное-распределение-и-его-свойства"><i class="fa fa-check"></i><b>7.3</b> Нормальное распределение и его свойства</a></li>
@@ -187,15 +196,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="normdist.html"><a href="normdist.html#z-преобразование-и-стандартизация"><i class="fa fa-check"></i><b>7.5</b> Z-преобразование и стандартизация</a></li>
 <li class="chapter" data-level="7.6" data-path="normdist.html"><a href="normdist.html#доверительный-интервал"><i class="fa fa-check"></i><b>7.6</b> Доверительный интервал</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>8</b> Статистический вывод</a><ul>
+<li class="chapter" data-level="8" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>8</b> Статистический вывод</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="inference.html"><a href="inference.html#идея-статистического-вывода"><i class="fa fa-check"></i><b>8.1</b> Идея статистического вывода</a></li>
 <li class="chapter" data-level="8.2" data-path="inference.html"><a href="inference.html#nhst"><i class="fa fa-check"></i><b>8.2</b> NHST: алгоритм проверки гипотезы и анализа данных</a></li>
-<li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a><ul>
+<li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="inference.html"><a href="inference.html#variables"><i class="fa fa-check"></i><b>8.3.1</b> Зависимые и независимые переменные</a></li>
 <li class="chapter" data-level="8.3.2" data-path="inference.html"><a href="inference.html#уровни-нп-в-категориальных-переменных"><i class="fa fa-check"></i><b>8.3.2</b> Уровни НП в категориальных переменных</a></li>
 <li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#relationship"><i class="fa fa-check"></i><b>8.3.3</b> Связь между ЗП и НП</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="inference.html"><a href="inference.html#нулевая-и-альтернативные-статистические-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные статистические гипотезы</a><ul>
+<li class="chapter" data-level="8.4" data-path="inference.html"><a href="inference.html#нулевая-и-альтернативные-статистические-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные статистические гипотезы</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="inference.html"><a href="inference.html#направленные-и-ненаправленные-гипотезы"><i class="fa fa-check"></i><b>8.4.1</b> Направленные и ненаправленные гипотезы</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="inference.html"><a href="inference.html#уровень-значимости-и-статистическая-мощность"><i class="fa fa-check"></i><b>8.5</b> Уровень значимости и статистическая мощность</a></li>
@@ -203,22 +215,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки и размер эффекта</a></li>
 <li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#stat_test_example"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a><ul>
+<li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="stats_criteria.html"><a href="stats_criteria.html#степени-свободы"><i class="fa fa-check"></i><b>9.1</b> Степени свободы</a></li>
 <li class="chapter" data-level="9.2" data-path="stats_criteria.html"><a href="stats_criteria.html#ключевые-распределения-и-статистики-критериев-z-t-f"><i class="fa fa-check"></i><b>9.2</b> Ключевые распределения и статистики критериев (Z, T, F)</a></li>
-<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.3</b> Выбор статистического критерия</a><ul>
+<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.3</b> Выбор статистического критерия</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="stats_criteria.html"><a href="stats_criteria.html#param_nonparam"><i class="fa fa-check"></i><b>9.3.1</b> Параметрические и непараметрические критерии</a></li>
 <li class="chapter" data-level="9.3.2" data-path="stats_criteria.html"><a href="stats_criteria.html#зависимые-и-независимые-выборки"><i class="fa fa-check"></i><b>9.3.2</b> Зависимые и независимые выборки</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html"><i class="fa fa-check"></i><b>10</b> Сравнение средних по группам</a><ul>
-<li class="chapter" data-level="10.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#ttest"><i class="fa fa-check"></i><b>10.1</b> T-тест</a><ul>
+<li class="chapter" data-level="10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html"><i class="fa fa-check"></i><b>10</b> Сравнение средних по группам</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#ttest"><i class="fa fa-check"></i><b>10.1</b> T-тест</a>
+<ul>
 <li class="chapter" data-level="10.1.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#допущения-для-т-теста"><i class="fa fa-check"></i><b>10.1.1</b> Допущения для т-теста</a></li>
 <li class="chapter" data-level="10.1.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#непараметрические-аналоги"><i class="fa fa-check"></i><b>10.1.2</b> Непараметрические аналоги</a></li>
 <li class="chapter" data-level="10.1.3" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#независимые-и-парные-тесты"><i class="fa fa-check"></i><b>10.1.3</b> Независимые и парные тесты</a></li>
 <li class="chapter" data-level="10.1.4" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#вычисление-т-теста-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>10.1.4</b> Вычисление т-теста и непараметрических аналогов</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>10.2</b> ANOVA (дисперсионный анализ)</a><ul>
+<li class="chapter" data-level="10.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>10.2</b> ANOVA (дисперсионный анализ)</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#levels"><i class="fa fa-check"></i><b>10.2.1</b> Факторы и уровни</a></li>
 <li class="chapter" data-level="10.2.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#почему-он-дисперсионный"><i class="fa fa-check"></i><b>10.2.2</b> Почему он дисперсионный</a></li>
 <li class="chapter" data-level="10.2.3" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#f-распределение-фишера"><i class="fa fa-check"></i><b>10.2.3</b> F-распределение (Фишера)</a></li>
@@ -231,8 +248,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#вычисление-anova-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>10.2.10</b> Вычисление ANOVA и непараметрических аналогов</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html"><i class="fa fa-check"></i><b>11</b> Проверка линейной свзяи</a><ul>
-<li class="chapter" data-level="11.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#corr_test"><i class="fa fa-check"></i><b>11.1</b> Корреляционный анализ</a><ul>
+<li class="chapter" data-level="11" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html"><i class="fa fa-check"></i><b>11</b> Проверка линейной свзяи</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#corr_test"><i class="fa fa-check"></i><b>11.1</b> Корреляционный анализ</a>
+<ul>
 <li class="chapter" data-level="11.1.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционный-тест"><i class="fa fa-check"></i><b>11.1.1</b> Корреляционный тест</a></li>
 <li class="chapter" data-level="11.1.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-корреляционного-теста"><i class="fa fa-check"></i><b>11.1.2</b> Допущения для корреляционного теста</a></li>
 <li class="chapter" data-level="11.1.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#непараметрические-аналоги-2"><i class="fa fa-check"></i><b>11.1.3</b> Непараметрические аналоги</a></li>
@@ -240,7 +259,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#интерпретация-результатов"><i class="fa fa-check"></i><b>11.1.5</b> Интерпретация результатов</a></li>
 <li class="chapter" data-level="11.1.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционные-матрицы"><i class="fa fa-check"></i><b>11.1.6</b> Корреляционные матрицы</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#линейный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a><ul>
+<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#линейный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a>
+<ul>
 <li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициенты-регрессии"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
 <li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициент-детерминации-и-доля-объясненной-изменчивости"><i class="fa fa-check"></i><b>11.2.2</b> Коэффициент детерминации и доля объясненной изменчивости</a></li>
 <li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии"><i class="fa fa-check"></i><b>11.2.3</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
@@ -249,19 +269,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.2.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.6</b> Расчет регрессионного анализа</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html"><i class="fa fa-check"></i><b>12</b> Анализ категориальных данных</a><ul>
+<li class="chapter" data-level="12" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html"><i class="fa fa-check"></i><b>12</b> Анализ категориальных данных</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#логистическая-регрессия"><i class="fa fa-check"></i><b>12.1</b> Логистическая регрессия</a></li>
 <li class="chapter" data-level="12.2" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#хи-квадрат"><i class="fa fa-check"></i><b>12.2</b> Хи-квадрат</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="R_analysis.html"><a href="R_analysis.html"><i class="fa fa-check"></i><b>13</b> Введение в анализ данных в R</a><ul>
-<li class="chapter" data-level="13.1" data-path="R_analysis.html"><a href="R_analysis.html#данные-и-переменные"><i class="fa fa-check"></i><b>13.1</b> Данные и переменные</a><ul>
+<li class="chapter" data-level="13" data-path="R_analysis.html"><a href="R_analysis.html"><i class="fa fa-check"></i><b>13</b> Введение в анализ данных в R</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="R_analysis.html"><a href="R_analysis.html#данные-и-переменные"><i class="fa fa-check"></i><b>13.1</b> Данные и переменные</a>
+<ul>
 <li class="chapter" data-level="13.1.1" data-path="R_analysis.html"><a href="R_analysis.html#основные-типы-данных"><i class="fa fa-check"></i><b>13.1.1</b> Основные типы данных</a></li>
 <li class="chapter" data-level="13.1.2" data-path="R_analysis.html"><a href="R_analysis.html#data_structures"><i class="fa fa-check"></i><b>13.1.2</b> Основные структуры данных</a></li>
 </ul></li>
 <li class="chapter" data-level="13.2" data-path="R_analysis.html"><a href="R_analysis.html#операции-с-переменными-и-функции"><i class="fa fa-check"></i><b>13.2</b> Операции с переменными и функции</a></li>
 <li class="chapter" data-level="13.3" data-path="R_analysis.html"><a href="R_analysis.html#начало-рабты-в-среде"><i class="fa fa-check"></i><b>13.3</b> Начало рабты в среде</a></li>
 <li class="chapter" data-level="13.4" data-path="R_analysis.html"><a href="R_analysis.html#начало-рабты-с-данными"><i class="fa fa-check"></i><b>13.4</b> Начало рабты с данными</a></li>
-<li class="chapter" data-level="13.5" data-path="R_analysis.html"><a href="R_analysis.html#задания-после-семинара-2"><i class="fa fa-check"></i><b>13.5</b> Задания после семинара 2</a></li>
+<li class="chapter" data-level="13.5" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem2"><i class="fa fa-check"></i><b>13.5</b> Задания после семинара 2</a></li>
+<li class="chapter" data-level="13.6" data-path="R_analysis.html"><a href="R_analysis.html#preprocessing"><i class="fa fa-check"></i><b>13.6</b> Предобработка данных</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="R_analysis.html"><a href="R_analysis.html#columns"><i class="fa fa-check"></i><b>13.6.1</b> Отбор колонок</a></li>
+<li class="chapter" data-level="13.6.2" data-path="R_analysis.html"><a href="R_analysis.html#filter"><i class="fa fa-check"></i><b>13.6.2</b> Фильтрация (отбор строк)</a></li>
+<li class="chapter" data-level="13.6.3" data-path="R_analysis.html"><a href="R_analysis.html#mutate"><i class="fa fa-check"></i><b>13.6.3</b> Создание колонок</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -280,11 +309,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="R_analysis" class="section level1 hasAnchor">
+<div id="R_analysis" class="section level1 hasAnchor" number="13">
 <h1><span class="header-section-number">13</span> Введение в анализ данных в R<a href="R_analysis.html#R_analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Эта книжка написана с помощью языка программирования и обработки данных R и пакета Bookdown в среде работы с данными RStudio.</p>
 <p>Чтобы начать в ней работать, нужно скачать и установить сам язык R <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> и скачать и установить RStudio, среду для работы <a href="https://posit.co/downloads/" class="uri">https://posit.co/downloads/</a>.</p>
-<div id="данные-и-переменные" class="section level2 hasAnchor">
+<div id="данные-и-переменные" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">13.1</span> Данные и переменные<a href="R_analysis.html#данные-и-переменные" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Данные</strong> – это информация, представленная в форме, пригодной для хранения и обработки человеком или информационными системами (ISO/IEC/IEEE 24765-2010).
 Если данные представлены в форме для обработки информационными системами, они формализованы.</p>
@@ -293,7 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p align="center">
 <img src="docs/images/variable.png" width="80%" style="display: block; margin: auto;" />
 </p>
-<div id="основные-типы-данных" class="section level3 hasAnchor">
+<div id="основные-типы-данных" class="section level3 hasAnchor" number="13.1.1">
 <h3><span class="header-section-number">13.1.1</span> Основные типы данных<a href="R_analysis.html#основные-типы-данных" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>Числовой</strong> (целые числа – <strong>integer</strong> или <strong>numeric</strong>, вещественные числа – <strong>real</strong>, числа с плавающей точкой (дробные) – <strong>float</strong>)</li>
@@ -303,7 +332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>NaN</strong> – not a number, результат выполнения невозможной числовой операции (например, деление на 0)</li>
 </ul>
 </div>
-<div id="data_structures" class="section level3 hasAnchor">
+<div id="data_structures" class="section level3 hasAnchor" number="13.1.2">
 <h3><span class="header-section-number">13.1.2</span> Основные структуры данных<a href="R_analysis.html#data_structures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>Вектор (vector)</strong> – одномерный массив одного типа данных</li>
@@ -318,11 +347,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </p>
 </div>
 </div>
-<div id="операции-с-переменными-и-функции" class="section level2 hasAnchor">
+<div id="операции-с-переменными-и-функции" class="section level2 hasAnchor" number="13.2">
 <h2><span class="header-section-number">13.2</span> Операции с переменными и функции<a href="R_analysis.html#операции-с-переменными-и-функции" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>В зависимости от того, с переменными какого типа мы работаем, мы можем выполнять с ними разные операции.</p>
 <p><strong>Операция</strong> – это выполнение каких-либо действий над данными. То, что выполняет это действие, называется <strong>оператором</strong> или <strong>функцией</strong>. Разница между ними в том, что оператор выполняет атомарные (единичные и простые действия), например, оператором может быть знак сложения, деления, больше или меньше и тд. Функция делает более сложные действия: например, создать вектор с помощью функции <code>c()</code>, прочитать данные с помощью функции <code>read_csv()</code>, отфильтровать данные с помощью функции <code>select()</code>. Обратите внимание, что при вызове функции после ее названия всегда ставятся круглые скобки.</p>
 <table>
+<colgroup>
+<col width="19%" />
+<col width="80%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="center"><strong>Тип данных</strong></th>
@@ -345,18 +378,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="начало-рабты-в-среде" class="section level2 hasAnchor">
+<div id="начало-рабты-в-среде" class="section level2 hasAnchor" number="13.3">
 <h2><span class="header-section-number">13.3</span> Начало рабты в среде<a href="R_analysis.html#начало-рабты-в-среде" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>В этом учебнике я буду приводить задания для тренировки в любой среде работы с данными и код работы с данными в R.</p>
-<p>Для большинства интересных операций в R нам понадобятся дополнительные пакеты – набор функций, которые уже кто-то написал за нас (то же самое, как, например, <code>import numpy as np</code> в питоне). Нам в основном понадобится пакет <code>tidyverse</code>, дословно – "вселенная чистых данных`. Сразу скажу, что все помеченной символом # – это комментарии, наши подсказки, которые не будут исполняться. Их важно всего оставлять для себя, чтобы не забыть, что вообще здесь происходит.</p>
+<p>Для большинства интересных операций в R нам понадобятся дополнительные пакеты – набор функций, которые уже кто-то написал за нас (то же самое, как, например, <code>import numpy as np</code> в питоне). Нам в основном понадобится пакет <code>tidyverse</code>, дословно – “вселенная чистых данных`. Сразу скажу, что все помеченной символом # – это комментарии, наши подсказки, которые не будут исполняться. Их важно всего оставлять для себя, чтобы не забыть, что вообще здесь происходит.</p>
 <p>Чтобы пакет заработал, его нужно 1. установить и 2. подключить</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="R_analysis.html#cb1-1"></a><span class="co"># устанавливаем пакет</span></span>
-<span id="cb1-2"><a href="R_analysis.html#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="R_analysis.html#cb2-1"></a><span class="co"># подключаем пакет</span></span>
-<span id="cb2-2"><a href="R_analysis.html#cb2-2"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="R_analysis.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># устанавливаем пакет</span></span>
+<span id="cb1-2"><a href="R_analysis.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="R_analysis.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># подключаем пакет</span></span>
+<span id="cb2-2"><a href="R_analysis.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>Установить пакет достаточно всего один раз после установки R, подключать через <code>library</code> нужно всегда, когда открываем RStudio. Ошибка вида “could not find function” в 99% случаев говорит о том, что пакет, из которого она используется, не подключен.</p>
 </div>
-<div id="начало-рабты-с-данными" class="section level2 hasAnchor">
+<div id="начало-рабты-с-данными" class="section level2 hasAnchor" number="13.4">
 <h2><span class="header-section-number">13.4</span> Начало рабты с данными<a href="R_analysis.html#начало-рабты-с-данными" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Мы будем работать с данными World Happiness Report за 2016 год <a href="https://www.kaggle.com/datasets/unsdsn/world-happiness" class="uri">https://www.kaggle.com/datasets/unsdsn/world-happiness</a>. Это Всемирный доклад о счастье <a href="https://en.wikipedia.org/wiki/World_Happiness_Report" class="uri">https://en.wikipedia.org/wiki/World_Happiness_Report</a> , которой показывает, как жители разных стран оценивают свой уровень счастья. В данных за 2016 год, с которыми мы будем работать, участвую 157 стран. <em>Кстати, вы можете скачать данные за разные года и посмотреть, как менялось количество стран-участниц? Чуть позже мы научимся делать это с помощью кода</em>. Здесь есть следующие переменные:</p>
 <ul>
@@ -373,12 +406,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Economy, Family, Health, Freedom, Trust, Generosity – 6 показателей, по которым считается уровень счастья.</p>
 <p>Чтобы совершать операции с данными, их сначала нужно <em>прочитать</em>, загрузить в среду работы с данными. В современных традициях R это проще всего сделать с помощью функции <code>read_csv()</code> из пакета <code>tidyverse</code>. Не забывайте, что любой вызов функции сопровождается круглыми скобками, в которые передаются аргументы. В функции <code>read_csv()</code>в скобках нужно передать путь к файлу, который мы хотим прочитать.Его можно скопировать через свойства файла. Но чтобы не заморачиваться с путем, проще всего положить файл с данными в ту же папку, где и лежит наш сам файл с кодом (для этого его нужно сохранить). А самое элегентное и используемое решение – создать проект File - New Project, и хранить все файл в папке проекта, это уберагает от большого числа ошибок. Про импорт файлов очень подробно расписано у Ивана Позднякова <a href="https://pozdniakov.github.io/tidy_stats/030-import_data.html" class="uri">https://pozdniakov.github.io/tidy_stats/030-import_data.html</a></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="R_analysis.html#cb3-1"></a>whr &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;2016.csv&quot;</span>) <span class="co"># читаем данные </span></span>
-<span id="cb3-2"><a href="R_analysis.html#cb3-2"></a></span>
-<span id="cb3-3"><a href="R_analysis.html#cb3-3"></a><span class="kw">View</span>(whr) <span class="co"># просматриваем, что получилось передать в объект с названием whr </span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="R_analysis.html#cb3-1" aria-hidden="true" tabindex="-1"></a>whr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;2016.csv&quot;</span>) <span class="co"># читаем данные </span></span>
+<span id="cb3-2"><a href="R_analysis.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="R_analysis.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(whr) <span class="co"># просматриваем, что получилось передать в объект с названием whr </span></span></code></pre></div>
 <p>Теперь я хочу поизучать эти данные. Помните, с чего мы начинаем изучение данных? С <a href="descriptives">описательных статистик</a></p>
 <p>Я могу отобрать все переменные по одной и посчитать для них среднее и стандартное отклонение – это то, что в Jamovi находится во вкладке Descriptives. Так как колонка существует не в вакууме, а внутри датасета, то нам необходимо как-то указать, что нас интересует конкретная колонка внутри конкретного датасета. Пока что проще всего это сделать – с помощью значка <code>$</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="R_analysis.html#cb4-1"></a>whr<span class="op">$</span>Family <span class="co"># отбираем всю колонку </span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="R_analysis.html#cb4-1" aria-hidden="true" tabindex="-1"></a>whr<span class="sc">$</span>Family <span class="co"># отбираем всю колонку </span></span></code></pre></div>
 <pre><code>##   [1] 1.16374 1.14524 1.18326 1.12690 1.13464 1.09610 1.02912 1.17278 1.10476
 ##  [10] 1.08764 0.99537 1.08383 1.04782 1.02152 1.08113 1.09774 1.03938 1.05249
 ##  [19] 1.16157 1.03999 0.71460 0.86758 1.08672 0.90587 0.98912 1.06612 1.00793
@@ -398,7 +431,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [145] 0.63054 0.90981 0.47493 0.46115 0.77623 0.50353 0.31090 0.61586 0.10419
 ## [154] 0.11037 0.00000 0.14866 0.23442</code></pre>
 <p>Или можем вспомнить, что датафрейм имеет два измерения, как и <a href="data_structures">двумерный массив</a>, и можем обратиться по индексу (в квадртных скобках): номер строки (первое число) и номер колонки (второе число). Если нас интересует не конкретная строка, а все строки, то на месте этого индекс ничего не ставится, как бы пропускаем его.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="R_analysis.html#cb6-1"></a>whr[,<span class="dv">8</span>] <span class="co"># отбираем всю колонку другим способом</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="R_analysis.html#cb6-1" aria-hidden="true" tabindex="-1"></a>whr[,<span class="dv">8</span>] <span class="co"># отбираем всю колонку другим способом</span></span></code></pre></div>
 <pre><code>## # A tibble: 157 × 1
 ##    Family
 ##     &lt;dbl&gt;
@@ -415,18 +448,267 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 147 more rows</code></pre>
 <p>Обратите внимание на выдачу: как вы думаете, какым структурам данных принадлежат результаты первого и второго способа?</p>
 <p>Посчитаем среднее и стандартное отклонение для этой колонки</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="R_analysis.html#cb8-1"></a><span class="kw">mean</span>(whr<span class="op">$</span>Family) <span class="co"># среднее</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="R_analysis.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(whr<span class="sc">$</span>Family) <span class="co"># среднее</span></span></code></pre></div>
 <pre><code>## [1] 0.7936211</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="R_analysis.html#cb10-1"></a><span class="kw">sd</span>(whr<span class="op">$</span>Family) <span class="co"># стандартное отклонение</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="R_analysis.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(whr<span class="sc">$</span>Family) <span class="co"># стандартное отклонение</span></span></code></pre></div>
 <pre><code>## [1] 0.2667057</code></pre>
 </div>
-<div id="задания-после-семинара-2" class="section level2 hasAnchor">
-<h2><span class="header-section-number">13.5</span> Задания после семинара 2<a href="R_analysis.html#задания-после-семинара-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tasks_sem2" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> Задания после семинара 2<a href="R_analysis.html#tasks_sem2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Прочитайте в среде, в которой вы работаете, данные WHR за 2016 год.</li>
 <li>Посчитайте среднее, стандартное отклонение, медиану и размах (разброс от максимального до минимального значения) по всем 6 показателям, составляющим уровень счастья. Что можно сказать про них? Где самый большой размах? Где среднее и медиана оказались близко друг к другу, а где не очень? <em>(для подсчета медианы и размаха в R нужно будет немножко поучиться гуглить или использовать другие материалы)</em></li>
 </ol>
+</div>
+<div id="preprocessing" class="section level2 hasAnchor" number="13.6">
+<h2><span class="header-section-number">13.6</span> Предобработка данных<a href="R_analysis.html#preprocessing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>После того, как мы считали данные данные в переменную (мы использовали функцию <code>read_csv()</code> для этого), часто нужно эти данные сначала <strong>предобработать</strong>. Во-первых, данные сами по себе могут быть не очень хорошего качества, и их нужно почистить. Во-вторых, мы никогда не работаем со всей табличкй сразу – мы отбираем данные, например, определенную колонку, и часто нам нужны не все данные, а только соответствующие определенным условиям (например, нам нужно отобрать время реакции в группе, где испытуемые употребляли кофеин, а не плацебо).</p>
+<p>В предобработку данных чаще всего входит:</p>
+<ul>
+<li>Отбор определенных колонок</li>
+<li>Фильтрация – отбор определенных строк, удовлетворяющих определенным условиям</li>
+<li>Создание новых колонок и заполнение их в соответствии с определенными услвиями</li>
+<li>Работа с пропущенными значениями – удаление или замена на какое-либо (например, среднее) значение</li>
+</ul>
+<p>Пойдем по порядку.</p>
+<div id="columns" class="section level3 hasAnchor" number="13.6.1">
+<h3><span class="header-section-number">13.6.1</span> Отбор колонок<a href="R_analysis.html#columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Любое почти всегда можно сделать разными способами. Чаще всего не существует правильного, если работает – значит, правильно. Но некоторые решения бывает более оптимальными в разных контекстах. Рассмотрим разные способы отбора колонок. Обратите внимание, чем они различаются?</p>
+<p><em>Сразу комментарий – когда мы делаем операцию присвоения &lt;-, у нас ничего не выводится в консоль. Чтобы посмотреть, что мы присвоили переменной, можно вывести ее по названию или, если речь про данные – посмотреть с помощью функции View(). Если вы только пробуете написать операцию – не спешите присваивать ее в переменную! Так мы сразу будем видеть результат в консоли, и если он ошибочный, это будет понятно.</em></p>
+<p><strong>Отбор в базовом R по названию колонки</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="R_analysis.html#cb12-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">&lt;-</span> whr<span class="sc">$</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span></span>
+<span id="cb12-2"><a href="R_analysis.html#cb12-2" aria-hidden="true" tabindex="-1"></a>var1</span></code></pre></div>
+<pre><code>##   [1] 7.526 7.509 7.501 7.498 7.413 7.404 7.339 7.334 7.313 7.291 7.267 7.119
+##  [13] 7.104 7.087 7.039 6.994 6.952 6.929 6.907 6.871 6.778 6.739 6.725 6.705
+##  [25] 6.701 6.650 6.596 6.573 6.545 6.488 6.481 6.478 6.474 6.379 6.379 6.375
+##  [37] 6.361 6.355 6.324 6.269 6.239 6.218 6.168 6.084 6.078 6.068 6.005 5.992
+##  [49] 5.987 5.977 5.976 5.956 5.921 5.919 5.897 5.856 5.835 5.835 5.822 5.813
+##  [61] 5.802 5.771 5.768 5.743 5.658 5.648 5.615 5.560 5.546 5.538 5.528 5.517
+##  [73] 5.510 5.488 5.458 5.440 5.401 5.389 5.314 5.303 5.291 5.279 5.245 5.196
+##  [85] 5.185 5.177 5.163 5.161 5.155 5.151 5.145 5.132 5.129 5.123 5.121 5.061
+##  [97] 5.057 5.045 5.033 4.996 4.907 4.876 4.875 4.871 4.813 4.795 4.793 4.754
+## [109] 4.655 4.643 4.635 4.575 4.574 4.513 4.508 4.459 4.415 4.404 4.395 4.362
+## [121] 4.360 4.356 4.324 4.276 4.272 4.252 4.236 4.219 4.217 4.201 4.193 4.156
+## [133] 4.139 4.121 4.073 4.028 3.974 3.956 3.916 3.907 3.866 3.856 3.832 3.763
+## [145] 3.739 3.739 3.724 3.695 3.666 3.622 3.607 3.515 3.484 3.360 3.303 3.069
+## [157] 2.905</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="R_analysis.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(var1)</span></code></pre></div>
+<pre><code>##  num [1:157] 7.53 7.51 7.5 7.5 7.41 ...</code></pre>
+<p><strong>Отбор в базовом R по индексу</strong></p>
+<p>Индекс – это номер элемента в структуре данных. Мы говорили про них, когда обсуждали многомерные массивы: в одномерной структуре, например, векторе, индекс будет состоять из одного числа, в двумернй (например, матрице или датафрейме) – индекс состоит из двух чисел, разделенных запятой, в трехмерной – из трех, и так далее. Индекс в R всегда пишется в квадратных скобках, например, чтобы узнать, что находится во второй строчке третьего столбца, индекс элемента будет <code>[2,3]</code></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="R_analysis.html#cb16-1" aria-hidden="true" tabindex="-1"></a>var2 <span class="ot">&lt;-</span> whr[,<span class="dv">4</span>]</span>
+<span id="cb16-2"><a href="R_analysis.html#cb16-2" aria-hidden="true" tabindex="-1"></a>var2</span></code></pre></div>
+<pre><code>## # A tibble: 157 × 1
+##    `Happiness Score`
+##                &lt;dbl&gt;
+##  1              7.53
+##  2              7.51
+##  3              7.50
+##  4              7.50
+##  5              7.41
+##  6              7.40
+##  7              7.34
+##  8              7.33
+##  9              7.31
+## 10              7.29
+## # … with 147 more rows</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="R_analysis.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(var2)</span></code></pre></div>
+<pre><code>## tibble [157 × 1] (S3: tbl_df/tbl/data.frame)
+##  $ Happiness Score: num [1:157] 7.53 7.51 7.5 7.5 7.41 ...</code></pre>
+<p><strong>Отбор с помощью пакета tidyverse по названию</strong></p>
+<p>Вывод в датафрейм (тиббл):</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="R_analysis.html#cb20-1" aria-hidden="true" tabindex="-1"></a>var3 <span class="ot">&lt;-</span> whr <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="R_analysis.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)</span>
+<span id="cb20-3"><a href="R_analysis.html#cb20-3" aria-hidden="true" tabindex="-1"></a>var3</span></code></pre></div>
+<pre><code>## # A tibble: 157 × 1
+##    `Happiness Score`
+##                &lt;dbl&gt;
+##  1              7.53
+##  2              7.51
+##  3              7.50
+##  4              7.50
+##  5              7.41
+##  6              7.40
+##  7              7.34
+##  8              7.33
+##  9              7.31
+## 10              7.29
+## # … with 147 more rows</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="R_analysis.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(var3)</span></code></pre></div>
+<pre><code>## tibble [157 × 1] (S3: tbl_df/tbl/data.frame)
+##  $ Happiness Score: num [1:157] 7.53 7.51 7.5 7.5 7.41 ...</code></pre>
+<p><strong>Отбор с помощью пакета tidyverse по названию</strong></p>
+<p>Вывод в вектор:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="R_analysis.html#cb24-1" aria-hidden="true" tabindex="-1"></a>var4 <span class="ot">&lt;-</span> whr <span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="R_analysis.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="R_analysis.html#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span>
+<span id="cb24-4"><a href="R_analysis.html#cb24-4" aria-hidden="true" tabindex="-1"></a>var4</span></code></pre></div>
+<pre><code>##   [1] 7.526 7.509 7.501 7.498 7.413 7.404 7.339 7.334 7.313 7.291 7.267 7.119
+##  [13] 7.104 7.087 7.039 6.994 6.952 6.929 6.907 6.871 6.778 6.739 6.725 6.705
+##  [25] 6.701 6.650 6.596 6.573 6.545 6.488 6.481 6.478 6.474 6.379 6.379 6.375
+##  [37] 6.361 6.355 6.324 6.269 6.239 6.218 6.168 6.084 6.078 6.068 6.005 5.992
+##  [49] 5.987 5.977 5.976 5.956 5.921 5.919 5.897 5.856 5.835 5.835 5.822 5.813
+##  [61] 5.802 5.771 5.768 5.743 5.658 5.648 5.615 5.560 5.546 5.538 5.528 5.517
+##  [73] 5.510 5.488 5.458 5.440 5.401 5.389 5.314 5.303 5.291 5.279 5.245 5.196
+##  [85] 5.185 5.177 5.163 5.161 5.155 5.151 5.145 5.132 5.129 5.123 5.121 5.061
+##  [97] 5.057 5.045 5.033 4.996 4.907 4.876 4.875 4.871 4.813 4.795 4.793 4.754
+## [109] 4.655 4.643 4.635 4.575 4.574 4.513 4.508 4.459 4.415 4.404 4.395 4.362
+## [121] 4.360 4.356 4.324 4.276 4.272 4.252 4.236 4.219 4.217 4.201 4.193 4.156
+## [133] 4.139 4.121 4.073 4.028 3.974 3.956 3.916 3.907 3.866 3.856 3.832 3.763
+## [145] 3.739 3.739 3.724 3.695 3.666 3.622 3.607 3.515 3.484 3.360 3.303 3.069
+## [157] 2.905</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="R_analysis.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(var4)</span></code></pre></div>
+<pre><code>##  num [1:157] 7.53 7.51 7.5 7.5 7.41 ...</code></pre>
+</div>
+<div id="filter" class="section level3 hasAnchor" number="13.6.2">
+<h3><span class="header-section-number">13.6.2</span> Фильтрация (отбор строк)<a href="R_analysis.html#filter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="R_analysis.html#cb28-1" aria-hidden="true" tabindex="-1"></a>whr[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 13
+##    Country Region Happi…¹ Happi…² Lower…³ Upper…⁴ Econo…⁵ Family Healt…⁶ Freedom
+##    &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Denmark Weste…       1    7.53    7.46    7.59    1.44   1.16   0.795   0.579
+##  2 Switze… Weste…       2    7.51    7.43    7.59    1.53   1.15   0.863   0.586
+##  3 Iceland Weste…       3    7.50    7.33    7.67    1.43   1.18   0.867   0.566
+##  4 Norway  Weste…       4    7.50    7.42    7.58    1.58   1.13   0.796   0.596
+##  5 Finland Weste…       5    7.41    7.35    7.48    1.41   1.13   0.811   0.571
+##  6 Canada  North…       6    7.40    7.34    7.47    1.44   1.10   0.828   0.574
+##  7 Nether… Weste…       7    7.34    7.28    7.39    1.46   1.03   0.812   0.552
+##  8 New Ze… Austr…       8    7.33    7.26    7.40    1.36   1.17   0.831   0.581
+##  9 Austra… Austr…       9    7.31    7.24    7.38    1.44   1.10   0.851   0.568
+## 10 Sweden  Weste…      10    7.29    7.23    7.36    1.45   1.09   0.831   0.582
+## # … with 3 more variables: `Trust (Government Corruption)` &lt;dbl&gt;,
+## #   Generosity &lt;dbl&gt;, `Dystopia Residual` &lt;dbl&gt;, and abbreviated variable names
+## #   ¹​`Happiness Rank`, ²​`Happiness Score`, ³​`Lower Confidence Interval`,
+## #   ⁴​`Upper Confidence Interval`, ⁵​`Economy (GDP per Capita)`,
+## #   ⁶​`Health (Life Expectancy)`</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="R_analysis.html#cb30-1" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span> </span>
+<span id="cb30-2"><a href="R_analysis.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 13
+##    Country Region Happi…¹ Happi…² Lower…³ Upper…⁴ Econo…⁵ Family Healt…⁶ Freedom
+##    &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Denmark Weste…       1    7.53    7.46    7.59    1.44   1.16   0.795   0.579
+##  2 Switze… Weste…       2    7.51    7.43    7.59    1.53   1.15   0.863   0.586
+##  3 Iceland Weste…       3    7.50    7.33    7.67    1.43   1.18   0.867   0.566
+##  4 Norway  Weste…       4    7.50    7.42    7.58    1.58   1.13   0.796   0.596
+##  5 Finland Weste…       5    7.41    7.35    7.48    1.41   1.13   0.811   0.571
+##  6 Canada  North…       6    7.40    7.34    7.47    1.44   1.10   0.828   0.574
+##  7 Nether… Weste…       7    7.34    7.28    7.39    1.46   1.03   0.812   0.552
+##  8 New Ze… Austr…       8    7.33    7.26    7.40    1.36   1.17   0.831   0.581
+##  9 Austra… Austr…       9    7.31    7.24    7.38    1.44   1.10   0.851   0.568
+## 10 Sweden  Weste…      10    7.29    7.23    7.36    1.45   1.09   0.831   0.582
+## # … with 3 more variables: `Trust (Government Corruption)` &lt;dbl&gt;,
+## #   Generosity &lt;dbl&gt;, `Dystopia Residual` &lt;dbl&gt;, and abbreviated variable names
+## #   ¹​`Happiness Rank`, ²​`Happiness Score`, ³​`Lower Confidence Interval`,
+## #   ⁴​`Upper Confidence Interval`, ⁵​`Economy (GDP per Capita)`,
+## #   ⁶​`Health (Life Expectancy)`</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="R_analysis.html#cb32-1" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="R_analysis.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 21 × 13
+##    Country Region Happi…¹ Happi…² Lower…³ Upper…⁴ Econo…⁵ Family Healt…⁶ Freedom
+##    &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Denmark Weste…       1    7.53    7.46    7.59    1.44   1.16   0.795   0.579
+##  2 Switze… Weste…       2    7.51    7.43    7.59    1.53   1.15   0.863   0.586
+##  3 Iceland Weste…       3    7.50    7.33    7.67    1.43   1.18   0.867   0.566
+##  4 Norway  Weste…       4    7.50    7.42    7.58    1.58   1.13   0.796   0.596
+##  5 Finland Weste…       5    7.41    7.35    7.48    1.41   1.13   0.811   0.571
+##  6 Nether… Weste…       7    7.34    7.28    7.39    1.46   1.03   0.812   0.552
+##  7 Sweden  Weste…      10    7.29    7.23    7.36    1.45   1.09   0.831   0.582
+##  8 Austria Weste…      12    7.12    7.04    7.19    1.45   1.08   0.806   0.544
+##  9 Germany Weste…      16    6.99    6.93    7.06    1.45   1.10   0.815   0.535
+## 10 Belgium Weste…      18    6.93    6.86    7.00    1.43   1.05   0.820   0.514
+## # … with 11 more rows, 3 more variables: `Trust (Government Corruption)` &lt;dbl&gt;,
+## #   Generosity &lt;dbl&gt;, `Dystopia Residual` &lt;dbl&gt;, and abbreviated variable names
+## #   ¹​`Happiness Rank`, ²​`Happiness Score`, ³​`Lower Confidence Interval`,
+## #   ⁴​`Upper Confidence Interval`, ⁵​`Economy (GDP per Capita)`,
+## #   ⁶​`Health (Life Expectancy)`</code></pre>
+<p>А теперь отфильтруем эти значения и возьмем только те значения <code>Happiness Score</code>, которые соответствуют Западной Европе:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="R_analysis.html#cb34-1" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="R_analysis.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href="R_analysis.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 21 × 1
+##    `Happiness Score`
+##                &lt;dbl&gt;
+##  1              7.53
+##  2              7.51
+##  3              7.50
+##  4              7.50
+##  5              7.41
+##  6              7.34
+##  7              7.29
+##  8              7.12
+##  9              6.99
+## 10              6.93
+## # … with 11 more rows</code></pre>
+<p>.. и “вытащим” эти значения в числовой вектор, чтобы с ними было проще всего работать</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="R_analysis.html#cb36-1" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="R_analysis.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="R_analysis.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb36-4"><a href="R_analysis.html#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() </span></code></pre></div>
+<pre><code>##  [1] 7.526 7.509 7.501 7.498 7.413 7.339 7.291 7.119 6.994 6.929 6.907 6.871
+## [13] 6.725 6.488 6.478 6.361 5.977 5.771 5.546 5.123 5.033</code></pre>
+<p>Можем даже посчитать среднее в этом пайпе!</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="R_analysis.html#cb38-1" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="R_analysis.html#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="R_analysis.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-4"><a href="R_analysis.html#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb38-5"><a href="R_analysis.html#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>()</span></code></pre></div>
+<pre><code>## [1] 6.685667</code></pre>
+<p>Или посмотрим, какие страны находятся в топе-10 по <code>Happiness Rank</code></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="R_analysis.html#cb40-1" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="R_analysis.html#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Happiness Rank</span><span class="st">`</span> <span class="sc">&lt;</span> <span class="dv">10</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 9 × 13
+##   Country  Region Happi…¹ Happi…² Lower…³ Upper…⁴ Econo…⁵ Family Healt…⁶ Freedom
+##   &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Denmark  Weste…       1    7.53    7.46    7.59    1.44   1.16   0.795   0.579
+## 2 Switzer… Weste…       2    7.51    7.43    7.59    1.53   1.15   0.863   0.586
+## 3 Iceland  Weste…       3    7.50    7.33    7.67    1.43   1.18   0.867   0.566
+## 4 Norway   Weste…       4    7.50    7.42    7.58    1.58   1.13   0.796   0.596
+## 5 Finland  Weste…       5    7.41    7.35    7.48    1.41   1.13   0.811   0.571
+## 6 Canada   North…       6    7.40    7.34    7.47    1.44   1.10   0.828   0.574
+## 7 Netherl… Weste…       7    7.34    7.28    7.39    1.46   1.03   0.812   0.552
+## 8 New Zea… Austr…       8    7.33    7.26    7.40    1.36   1.17   0.831   0.581
+## 9 Austral… Austr…       9    7.31    7.24    7.38    1.44   1.10   0.851   0.568
+## # … with 3 more variables: `Trust (Government Corruption)` &lt;dbl&gt;,
+## #   Generosity &lt;dbl&gt;, `Dystopia Residual` &lt;dbl&gt;, and abbreviated variable names
+## #   ¹​`Happiness Rank`, ²​`Happiness Score`, ³​`Lower Confidence Interval`,
+## #   ⁴​`Upper Confidence Interval`, ⁵​`Economy (GDP per Capita)`,
+## #   ⁶​`Health (Life Expectancy)`</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="R_analysis.html#cb42-1" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
+<span id="cb42-2"><a href="R_analysis.html#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Happiness Rank</span><span class="st">`</span> <span class="sc">&lt;</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="R_analysis.html#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Country) <span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="R_analysis.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() </span></code></pre></div>
+<pre><code>## [1] &quot;Denmark&quot;     &quot;Switzerland&quot; &quot;Iceland&quot;     &quot;Norway&quot;      &quot;Finland&quot;    
+## [6] &quot;Canada&quot;      &quot;Netherlands&quot; &quot;New Zealand&quot; &quot;Australia&quot;</code></pre>
+<p>Страны, которые находятся в середине, с 50 по 100 места, и их рейтинг:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="R_analysis.html#cb44-1" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="R_analysis.html#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Happiness Rank</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">50</span> <span class="sc">&amp;</span> <span class="st">`</span><span class="at">Happiness Rank</span><span class="st">`</span> <span class="sc">&lt;</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb44-3"><a href="R_analysis.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Country, <span class="st">`</span><span class="at">Happiness Rank</span><span class="st">`</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 49 × 2
+##    Country     `Happiness Rank`
+##    &lt;chr&gt;                  &lt;dbl&gt;
+##  1 Ecuador                   51
+##  2 Belize                    52
+##  3 Japan                     53
+##  4 Kazakhstan                54
+##  5 Moldova                   55
+##  6 Russia                    56
+##  7 Poland                    57
+##  8 South Korea               57
+##  9 Bolivia                   59
+## 10 Lithuania                 60
+## # … with 39 more rows</code></pre>
+</div>
+<div id="mutate" class="section level3 hasAnchor" number="13.6.3">
+<h3><span class="header-section-number">13.6.3</span> Создание колонок<a href="R_analysis.html#mutate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Часто возникает задача перекодировать переменную – например, разбить непрерывные значения на группы, чтобы посмотреть различия между ними</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="R_analysis.html#cb46-1" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span> </span>
+<span id="cb46-2"><a href="R_analysis.html#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">&quot;Rank Category&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Rank</span><span class="st">`</span> <span class="sc">&lt;=</span><span class="dv">10</span>, <span class="st">&quot;top&quot;</span>, <span class="st">&quot;not&quot;</span>)) <span class="ot">-&gt;</span> whr_top</span></code></pre></div>
+<p>Задания:</p>
+<ol style="list-style-type: decimal">
+<li>Сравните средний Happiness Score и Happiness Rank в странах Восточной и Западной Европы. И в странах Западной Европы и Южной Азии.</li>
+</ol>
 
+</div>
 </div>
 </div>
             </section>
