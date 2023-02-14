@@ -1262,18 +1262,25 @@ summary(whr_new$<code>Happiness Score</code>)</p>
 <span id="cb171-6"><a href="R_analysis.html#cb171-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 5 rows containing non-finite values (`stat_density()`).</code></pre>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-45-3.png" width="672" /></p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="R_analysis.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="co">#добавили заливку и прозрачность</span></span>
+<span id="cb173-2"><a href="R_analysis.html#cb173-2" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
+<span id="cb173-3"><a href="R_analysis.html#cb173-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb173-4"><a href="R_analysis.html#cb173-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;violet&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;pink&quot;</span>, <span class="at">linetype =</span> <span class="dv">5</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb173-5"><a href="R_analysis.html#cb173-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 5 rows containing non-finite values (`stat_density()`).</code></pre>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-45-4.png" width="672" /></p>
 <p>Все эти графики были описательными – для исследования одной переменной. А теперь выведем диаграмму рассеяния, в которой показано распределение одной переменной в заивисимости от значений другой.</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="R_analysis.html#cb173-1" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
-<span id="cb173-2"><a href="R_analysis.html#cb173-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">y =</span> Freedom)) <span class="sc">+</span></span>
-<span id="cb173-3"><a href="R_analysis.html#cb173-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb173-4"><a href="R_analysis.html#cb173-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="R_analysis.html#cb175-1" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
+<span id="cb175-2"><a href="R_analysis.html#cb175-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">y =</span> Freedom)) <span class="sc">+</span></span>
+<span id="cb175-3"><a href="R_analysis.html#cb175-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb175-4"><a href="R_analysis.html#cb175-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <p>И можем даже раскрасить точки на этом графике в зависимости от третьей переменной! Например, региона. Все ровно так же, как и с цветами до этого: если хотим залить фигуру в зависимости от значений третьей переменной, то для раскраски используется аругмент fill, если покрасить контур – то color (как контур и заливка в ворде или паверпоинт). Но с той разницей, что теперь fill color задаются <strong>внутри аестетик</strong>, так как это все еще про “натягивание совы на глобус”, то есть наших данных на график.</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="R_analysis.html#cb175-1" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
-<span id="cb175-2"><a href="R_analysis.html#cb175-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">y =</span> Freedom, <span class="at">color =</span> Region)) <span class="sc">+</span></span>
-<span id="cb175-3"><a href="R_analysis.html#cb175-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb175-4"><a href="R_analysis.html#cb175-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="R_analysis.html#cb177-1" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
+<span id="cb177-2"><a href="R_analysis.html#cb177-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">y =</span> Freedom, <span class="at">color =</span> Region)) <span class="sc">+</span></span>
+<span id="cb177-3"><a href="R_analysis.html#cb177-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb177-4"><a href="R_analysis.html#cb177-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
 </div>

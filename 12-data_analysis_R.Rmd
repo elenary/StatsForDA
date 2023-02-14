@@ -623,6 +623,12 @@ whr_new %>%
   ggplot(aes(x =`Happiness Score`)) +
   geom_density(color = "violet", linetype = 5) +
   theme_minimal()
+
+#добавили заливку и прозрачность
+whr_new %>%
+  ggplot(aes(x =`Happiness Score`)) +
+  geom_density(color = "violet", fill = "pink", linetype = 5, alpha = 0.5) +
+  theme_minimal()
 ```
 
 Все эти графики были описательными -- для исследования одной переменной. А теперь выведем диаграмму рассеяния, в которой показано распределение одной переменной в заивисимости от значений другой.
