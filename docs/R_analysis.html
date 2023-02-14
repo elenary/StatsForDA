@@ -300,6 +300,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.8.2" data-path="R_analysis.html"><a href="R_analysis.html#aggregate"><i class="fa fa-check"></i><b>13.8.2</b> Агрегация данных</a></li>
 </ul></li>
 <li class="chapter" data-level="13.9" data-path="R_analysis.html"><a href="R_analysis.html#visualization"><i class="fa fa-check"></i><b>13.9</b> Визуализации</a></li>
+<li class="chapter" data-level="13.10" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem4"><i class="fa fa-check"></i><b>13.10</b> Задания после семинара 4</a></li>
 </ul></li>
 </ul>
 
@@ -1222,27 +1223,68 @@ summary(whr_new$<code>Happiness Score</code>)</p>
 <span id="cb161-4"><a href="R_analysis.html#cb161-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 5 rows containing non-finite values (`stat_bin()`).</code></pre>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="R_analysis.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># раскрасим заливку (fill) в розовый, а линии (color) в фиолетовый</span></span>
+<span id="cb163-2"><a href="R_analysis.html#cb163-2" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
+<span id="cb163-3"><a href="R_analysis.html#cb163-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb163-4"><a href="R_analysis.html#cb163-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&quot;pink&quot;</span>, <span class="at">color =</span> <span class="st">&quot;violet&quot;</span>, <span class="at">binwidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb163-5"><a href="R_analysis.html#cb163-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 5 rows containing non-finite values (`stat_bin()`).</code></pre>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-44-2.png" width="672" /></p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="R_analysis.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># добавим 50% прозрачности</span></span>
+<span id="cb165-2"><a href="R_analysis.html#cb165-2" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
+<span id="cb165-3"><a href="R_analysis.html#cb165-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb165-4"><a href="R_analysis.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&quot;pink&quot;</span>, <span class="at">color =</span> <span class="st">&quot;violet&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb165-5"><a href="R_analysis.html#cb165-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 5 rows containing non-finite values (`stat_bin()`).</code></pre>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-44-3.png" width="672" /></p>
 <p>Построим аналогичный график плотности вероятности</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="R_analysis.html#cb163-1" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span> </span>
-<span id="cb163-2"><a href="R_analysis.html#cb163-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb163-3"><a href="R_analysis.html#cb163-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
-<span id="cb163-4"><a href="R_analysis.html#cb163-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="R_analysis.html#cb167-1" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span> </span>
+<span id="cb167-2"><a href="R_analysis.html#cb167-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb167-3"><a href="R_analysis.html#cb167-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb167-4"><a href="R_analysis.html#cb167-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 5 rows containing non-finite values (`stat_density()`).</code></pre>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="R_analysis.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co"># раскрасим линию в фиолетовый</span></span>
+<span id="cb169-2"><a href="R_analysis.html#cb169-2" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
+<span id="cb169-3"><a href="R_analysis.html#cb169-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb169-4"><a href="R_analysis.html#cb169-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;violet&quot;</span>) <span class="sc">+</span></span>
+<span id="cb169-5"><a href="R_analysis.html#cb169-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 5 rows containing non-finite values (`stat_density()`).</code></pre>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-45-2.png" width="672" /></p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="R_analysis.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># поменяем тип линии на пунктир (соответствие типов линий и кодов</span></span>
+<span id="cb171-2"><a href="R_analysis.html#cb171-2" aria-hidden="true" tabindex="-1"></a><span class="co"># можно погуглить или посмотреть в читшите)</span></span>
+<span id="cb171-3"><a href="R_analysis.html#cb171-3" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
+<span id="cb171-4"><a href="R_analysis.html#cb171-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb171-5"><a href="R_analysis.html#cb171-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;violet&quot;</span>, <span class="at">linetype =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb171-6"><a href="R_analysis.html#cb171-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 5 rows containing non-finite values (`stat_density()`).</code></pre>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-45-3.png" width="672" /></p>
 <p>Все эти графики были описательными – для исследования одной переменной. А теперь выведем диаграмму рассеяния, в которой показано распределение одной переменной в заивисимости от значений другой.</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="R_analysis.html#cb165-1" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
-<span id="cb165-2"><a href="R_analysis.html#cb165-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">y =</span> Freedom)) <span class="sc">+</span></span>
-<span id="cb165-3"><a href="R_analysis.html#cb165-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb165-4"><a href="R_analysis.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="R_analysis.html#cb173-1" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
+<span id="cb173-2"><a href="R_analysis.html#cb173-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">y =</span> Freedom)) <span class="sc">+</span></span>
+<span id="cb173-3"><a href="R_analysis.html#cb173-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb173-4"><a href="R_analysis.html#cb173-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <p>И можем даже раскрасить точки на этом графике в зависимости от третьей переменной! Например, региона. Тут следующее правило: если хотим залить фигуру, то для раскраски используется аругмент fill. Если покрасить контур, то используется аргумент color (как контур и заливка в ворде или паверпоинт). У некоторых геомов есть только контур – как, например, диаграмма рассеяния.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="R_analysis.html#cb167-1" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
-<span id="cb167-2"><a href="R_analysis.html#cb167-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">y =</span> Freedom, <span class="at">color =</span> Region)) <span class="sc">+</span></span>
-<span id="cb167-3"><a href="R_analysis.html#cb167-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb167-4"><a href="R_analysis.html#cb167-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="R_analysis.html#cb175-1" aria-hidden="true" tabindex="-1"></a>whr_new <span class="sc">%&gt;%</span></span>
+<span id="cb175-2"><a href="R_analysis.html#cb175-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">y =</span> Freedom, <span class="at">color =</span> Region)) <span class="sc">+</span></span>
+<span id="cb175-3"><a href="R_analysis.html#cb175-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb175-4"><a href="R_analysis.html#cb175-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+</div>
+<div id="tasks_sem4" class="section level2 hasAnchor" number="13.10">
+<h2><span class="header-section-number">13.10</span> Задания после семинара 4<a href="R_analysis.html#tasks_sem4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Для заданий используется датасет <a href="https://raw.githubusercontent.com/elenary/StatsForDA/main/2016-2.csv"><code>2016-2</code></a></p>
+<ol style="list-style-type: decimal">
+<li>Посчитайте, сколько всего суммарно NA в колонках <code>Economy (GDP per Capita)</code>, <code>Family</code>, <code>Health (Life Expectancy)</code>, <code>Freedom</code>, <code>Trust (Government Corruption)</code>, <code>Generosity</code> <em>(задание можно сделать разными способами, подойдет любой, дающий верный овтет)</em></li>
+<li>Посчитайте описательные статистики для колонок <code>Economy (GDP per Capita)</code>, <code>Family</code>, <code>Freedom</code>: среднее, медиану, моду, стандартное отклонение, дисперсию и межквартильный размах, а также <em>(только для тех, кто работает в R)</em> вычислите значения для 1 и 3 квартилей. Ответы должны быть отличны от <code>NA</code> <em>(один из способов узнать значения по квартилям – например, с помощью отдельных общих функций для описательных статистик)</em>.</li>
+<li>Используя созданную в <a href="R_analysis.html#tasks_sem3">прошлой домашке</a> колонку co значениями <code>upper</code> и <code>lower</code> в зависимости от значений <code>Happiness Score</code>, посчитайте среднее и стандартное отклонения внутри этих групп (<code>upper</code> и <code>lower</code>) для колонок <code>Economy (GDP per Capita)</code>, <code>Family</code>, <code>Freedom</code>. <em>(Только для тех, кто работает в R)</em> Сравните полученные средние значения со значениями для 1 и 3 квартилей из предыдущего задания. Что можно сказать про них?</li>
+<li>Постройте графики плотности вероятности для переменных <code>Family</code> и <code>Freedom</code>, используя как минимум 2 отличиные от дефолтных настройки (тему, цвет, тип линии, прозрачность и тд.) Примеры можно погуглить или посмотреть в <a href="https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf">читшите</a></li>
+<li>Постройте диаграмму рассеяния для переменной <code>Family</code> по переменной <code>Freedom</code> и раскрасьте точки в зависимости от значений переменной с upper и lower, созданной в прошлой домашке.</li>
+<li>Посчитайте коэффициент корреляции между переменными <code>Family</code> и <code>Freedom</code>.</li>
+</ol>
 
 </div>
 </div>
