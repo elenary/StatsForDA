@@ -18,7 +18,7 @@ knitr::include_graphics("docs/images/variable.png")
 ```
 </p>
 
-### Основные типы данных
+### Основные типы данных {#data_types}
 
 * **Числовой** (целые числа – **integer** или **numeric**, вещественные числа – **real**, числа с плавающей точкой (дробные) – **float**)
 * **Текстовый** (**character**, если один символ, или **string** – много символов)
@@ -317,14 +317,140 @@ whr %>%
 
 На паре топовые и не топовые страны превратились в `hehe` и `not hehe`, так и оставим.
 
-```{r eval=TRUE, echo = TRUE, message = FALSE}
+```{r eval=FALSE, echo = TRUE, message = FALSE}
 whr_top <- whr %>% 
   mutate("Rank Category" = ifelse(`Happiness Rank` <=10, "hehe", "not hehe"))
 
-whr_top
+View(whr_top)
 ```
 
-Видим, что на последнем месте появилась новая колонка `Rank Category`.
+Если выведем датафрейм, увидим, что на последнем месте появилась новая колонка `Rank Category`.
+
+Новые значения могут соответствовать и какой-либо математической операции, например, создадим новую колонку, показывающую, во сколько раз уровень счастья в стране превышает значения страны-дистопии:
+
+```{r eval=FALSE, echo = TRUE, message = FALSE}
+whr %>% 
+  mutate("Times" = `Happiness Score` / `Dystopia Residual`) %>% 
+  View()
+```
+
+### Работа с пропущенными значениями (NA) {#NA}
+
+Как уже говорилось в разделе про [типы данных](#data_types), есть отдельный тип данных, который кодирует пропущенные значения -- NA, Not Available. Это особенный тип, потому что из-за пропущенных значений мы не можем оценить данные целиком. Такие ситуации встречаются крайне часто, поэтому придуманы специальные способы обращения с NA.
+
+Для изучения этого раздела нам понадобятся данные `2016-2` по ссылке https://raw.githubusercontent.com/elenary/StatsForDA/main/2016-2.csv (правая кнопка мыши -- сохранить как)
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_new <-read_csv("2016-2.csv")
+# View(whr_new)
+```
+
+Первая важная функция работы с промущенными значениями -- это `is.na()`, проверка того, является ли каждый элемент вектора или датафрейма NA, и механизмы подсчета количества таких значений.
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+is.na(whr_new$`Happiness Score`)
+
+#помним, что TRUE -- это 1, а FALSE -- 0. Поэтому можем перевести результаты в числовой вектор
+as.numeric(is.na(whr_new$`Happiness Score`))
+
+#подсчет количества NA
+sum(as.numeric(is.na(whr_new$`Happiness Score`)))
+sum(is.na(whr_new$`Happiness Score`))
+```
+
+Одна из больших проблем с этими значениями -- они мешают производить вычисления. Когда часть данных отсутствует, невозможно сказать, каково среднее выборки.
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_new %>% 
+  select(`Happiness Score`) %>% 
+  pull() %>% 
+  mean()
+
+mean(whr_new$`Happiness Score`)
+```
+
+Так происходит, потому что невозможно прибавить, вычесть или даже сравнить с чем-то значение, которое недоступно
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+1 == NA
+"NA" == NA
+NA == NA
+```
+
+Для этого пропущенные значения обычно удаляют из рассмотрения. Например, с помощью функции `na.omit()` в базовом R или с помощью `drop_na()` в нотации `tifdyverse`. **Важно!** В зависимости от того, к чему мы применяем эту функции, мы либо удаляем NA из отобранной нами колонки, либо, если применяем ко всему датафрейму -- удалятся **все строки**, в которых есть NA хотя бы в одной из колонок.
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+
+whr_new$`Happiness Score` 
+mean(whr_new$`Happiness Score`) # выдает NA
+mean(na.omit(whr_new$`Happiness Score`)) # выдает среднее
+
+# выдает NA
+whr_new %>% 
+  select(`Happiness Score`) %>% 
+  pull() %>% 
+  mean()
+
+# выдает среднее
+whr_new %>% 
+  select(`Happiness Score`) %>% 
+  drop_na() %>% 
+  pull() %>% 
+  mean()
+
+# обратите внимание -- так тоже работает, но среднее другое! Почему?
+whr_new %>% 
+  drop_na() %>% 
+  select(`Happiness Score`) %>% 
+  pull() %>% 
+  mean()
+```
+
+Для работы конкретно с описательным статистиками и аггрегирующими функциями вроде суммы еще есть один лайфхак работы с пропущенными значениями -- аргумент `na.rm = TRUE` внутри функций `mean()`, `median()`, `sum()`. `na.rm = TRUE` буквально значит "na remove = true"
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+#  через базовый R
+mean(whr_new$`Happiness Score`, na.rm = TRUE)
+
+#  или с помощью тайдиверс
+whr_new %>% 
+  select(`Happiness Score`) %>% 
+  pull() %>% 
+  mean(na.rm = TRUE)
+```
+
+### Сортировка {#sorting}
+
+Еще одна часто встречающая задача -- отсортировать датафрейм по возрастанию или убыванию одной переменной.
+
+В базовом R когда у нас есть только один вектор, мы можем сделать это так
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+sort(whr_new$`Happiness Score`)
+sort(whr_new$`Happiness Score`, decreasing = TRUE)
+```
+
+В тайдиверс -- с помощью функции `arrange()`, где в качестве аргумента передается название колонки, по которой будем делать сортировку. А если нам нужно указать, что сортировка должна быть по убыванию, от большого к меньшего -- необходимо вставить аргумент `desc()`
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_new %>% 
+  drop_na() %>% 
+  select(`Happiness Score`) %>% 
+  arrange(`Happiness Score`) # сортировка по возрастанию
+
+whr_new %>% 
+  drop_na() %>% 
+  select(`Happiness Score`) %>% 
+  arrange(desc(`Happiness Score`)) # сортировка по убыванию
+```
+
+Самое интересное здесь -- что мы можем сортировать весь датафрейм по значениям одной переменной
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_new %>% 
+  drop_na() %>% 
+  arrange(Freedom) # сорируем по значениям переменной Freedom
+
+whr_new %>% 
+  drop_na() %>% 
+  arrange(`Trust (Government Corruption)`) # сорируем по значениям переменной Trust
+```
 
 ## Задания после семинара 3 {#tasks_sem3}
 
@@ -335,6 +461,156 @@ whr_top
 5. Посчитайте средний `Happiness Score` по всем странам и выведете страны, которые лежат в границах ± 1 от среднего `Happiness Score` (в выводе должно быть по две колонки: `Region` и `Happiness Score`) *Подсказка: возможно, будет проще посчитать среднее отдельно и сначала сохранить его в переменную*
 6. Создайте колонку, в которой будет содержаться информация, в текущей стране `Happiness Score` выше или ниже среднего значения (колонка может быть заполнена, например, значениями upper и lower или любыми другими обозначениями)
 
+## Описательные статистики и агрегация {#descriptives_r}
+
+### Описательные статистики
+
+Мы уже немножко считали описательные статистики в самом начале работы с данными, чтобы было пободрее продвигаться. Теперь давайте остановимся на них поподробнее.
+
+Самые частые описательные статистики из мер центральной тенденции -- среднее, медиана и мода. Среднее и медиану мы уже строили, а как построить моду?
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+mean(whr_new$`Happiness Score`, na.rm = TRUE)
+median(whr_new$`Happiness Score`, na.rm = TRUE)
+
+summary(whr_new$`Happiness Score`)
+
+# mode(whr_new$`Happiness Score`, na.rm = TRUE) #выдаст ошибку
+# mode(whr_new$`Happiness Score`)
+```
+
+Так получилось, что в R нет специальной функции для моды. У этого есть и логическая причина -- жанные, с которыми мы в основном работаем -- количественные непрерывные, и мы обсуждали, что для такого рода данных понятие моды немного искуственно. Но нам все равно бывает нужно посчитать моду. Поэтому можно либо написать функцию для ее расчета самостоятельно, либо воспользоваться готовой функцией из пакета. Я погуглила, что можно сделать, и вам рекомендую всегда так делать в таких ситуациях -- и выбрала функцию  `mlv()` (most likely value)  из пакета `modeest` 
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+# install.packages("modeest")
+library(modeest)
+mlv(whr_new$`Happiness Score`, na.rm = TRUE)
+mlv(whr_new$Region, na.rm = TRUE)
+```
+
+Либо, можно воспользоваться простой функцией `table()`, которая считает количество значений указанной переменной.
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+table(whr_new$Region)
+```
+
+Помимо мер центральной тенденции можем посчитать меры изменчивости -- минимальное и максимальное, размах, стандартное отклонение, дисперсию, межквартильный размах.
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+min(whr_new$`Happiness Score`, na.rm = TRUE)
+max(whr_new$`Happiness Score`, na.rm = TRUE) 
+range(whr$`Happiness Score`) #размах
+sd(whr_new$`Happiness Score`, na.rm = TRUE) #стандартное отклонение
+var(whr_new$`Happiness Score`, na.rm = TRUE) #дисперсия
+IQR(whr_new$`Happiness Score`, na.rm = TRUE) #межквартильный размах
+```
+
+Мы так же рассчитывали  описательные статистики с помощью функции `summary()`. Есть более продвинутые функции, которые считают большое количество описательных статистик сразу. Например, часто используется функция skim() из пакета skimr -- помимо мер центральной тенденции и всех четырех квартителей, она считает стандартное отклонение и даже строит маленькую гистограммку.
+summary(whr_new$`Happiness Score`)
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+summary(whr_new$`Happiness Score`)
+# install.packages("skimr")
+library(skimr)
+skim(whr_new$`Happiness Score`)
+```
+
+### Агрегация данных {#aggregate}
+
+Что произошло, когда мы смотрели частоту выпадения значений с помощью `table()`? Данные сгруппировались по значениям переменной `Region`, которую мы указали, и было посчитано количество значений в каждой группе. Когда мы группируем данные по значениям переменной и производим какой-либо расчет для группы, это называется **агрегацией** данных.
+
+Это полезно, чтобы посчитать те же описательные статистики по группам, например, посчитаем среднее для переменных Freedom и Trust в зависимости от региона:
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_new %>%
+  drop_na() %>%
+  group_by(Region) %>%
+  summarise(mean_score = mean(`Happiness Score`))
 
 
+whr_new %>%
+  drop_na() %>%
+  group_by(Region) %>%
+  summarise(mean_score = mean(`Happiness Score`), mean_freedom = mean(Freedom),
+            mean_trust = mean(`Trust (Government Corruption)`)) %>%
+  arrange(desc(mean_score))
+```
 
+## Визуализации {#visualization}
+
+Мы уже строили простенькие визуализации -- простую гистограмму и простой график плотноти веростности средствами базового R.
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+plot(density(whr_new$`Happiness Score`, na.rm = TRUE))
+hist(whr_new$`Happiness Score`)
+```
+
+
+Эти визуализации верны, но они стандартные и выглядят не очень красиво. А меж тем визуализации очень важны -- от их качества зависит понятность представления данных, с помощью визуилизаций можно даже манипулировать данными. В скриптовых языках огромное количество инструментов для работы с визуализациями. В питоне это matplotlib. А теперь добро пожаловать в ggplot2 -- вселенную графиков в R https://ggplot2.tidyverse.org/
+
+Например, можно нарисовать такой [график](https://www.google.com/url?sa=i&url=https%3A%2F%2Fadrienne-marshall.github.io%2Fggplot2_workshop%2F&psig=AOvVaw1y2l2bObt_HK2KcP7m_73h&ust=1676402334991000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNihzL-bk_0CFQAAAAAdAAAAABAJ), или [такой](https://edaoud.com/assets/img/articles/maps-ggplot2/map_1.png). Все это достигается средствами пакета `ggplot2`, который уже интегрирован в `tidyverse`.
+
+"gg" в названии пакета означает Grammar of graphics. Подробно можно почитать, например, у Ивана Позднякова https://pozdniakov.github.io/tidy_stats/230-ggplot2.html
+
+Принцип состоит из рисовки графиком по слоям. 
+Обязательные слои:
+
+* данные (data) 
+* эстетики (aes) или mapping -- то, как наши данные "натягиваются" на график
+* геомы (geom) -- геометрические объекты, которые будем рисовать (например, гистограмма или барплот)
+
+Вспомогательные слои:
+
+* статистики (stats) -- нужно ли посчитать какие-то агрегированные статистики прямо на графике
+* система координат (coord) -- можно повернуть систему координат на 90 градусов или вообще заменить ее на полярную
+* темы (theme) -- системы оформления, одно из самых приятных
+
+<p align="center"> 
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.align = 'center', out.width="80%"}
+knitr::include_graphics("docs/images/gglayers.png")
+```
+Изображение из [The Grammar of Graphics](https://link.springer.com/book/10.1007/0-387-28695-0) </p>
+
+ggplot отлично интегрируется с тайдиверс, но он появился, оформился и распространился раньше, поэтому вместо значка пайпа `%>%` там `+`.
+Нарисуем ту же гистограмму, но уже покрасивее:
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_new %>% 
+  ggplot(aes(x = `Happiness Score`)) +
+  geom_histogram() +
+  theme_minimal()
+```
+
+Можем регулировать ширину "кирпичика"
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_new %>% 
+  ggplot(aes(x = `Happiness Score`)) +
+  geom_histogram(binwidth = 0.5) +
+  theme_minimal()
+```
+
+Построим аналогичный график плотности вероятности
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_new %>% 
+  ggplot(aes(x = `Happiness Score`)) +
+  geom_density() +
+  theme_minimal()
+```
+
+Все эти графики были описательными -- для исследования одной переменной. А теперь выведем диаграмму рассеяния, в которой показано распределение одной переменной в заивисимости от значений другой.
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_new %>%
+  ggplot(aes(x = `Happiness Score`, y = Freedom)) +
+  geom_point() +
+  theme_minimal()
+```
+
+И можем даже раскрасить точки на этом графике в зависимости от третьей переменной! Например, региона. Тут следующее правило: если хотим залить фигуру, то для раскраски используется аругмент fill. Если покрасить контур, то используется аргумент color (как контур и заливка в ворде или паверпоинт). У некоторых геомов есть только контур -- как, например, диаграмма рассеяния.
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_new %>%
+  ggplot(aes(x = `Happiness Score`, y = Freedom, color = Region)) +
+  geom_point() +
+  theme_minimal()
+```

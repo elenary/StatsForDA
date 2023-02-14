@@ -108,3 +108,11 @@ operarions
 tasks_sem3
 начало-работы-в-среде
 начало-работы-с-данными
+data_types
+NA
+tab:unnamed-chunk-39
+sorting
+descriptives_r
+описательные-статистики
+aggregate
+visualization
