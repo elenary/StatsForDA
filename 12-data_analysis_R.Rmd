@@ -665,7 +665,106 @@ whr_new %>%
 
 Пришло время перейти к тому, ради чего мы изучали статистику весь прошлый семестр -- проверке гипотез. Перед этим стоит повторить раздел про [статистический вывод целиком](#inference) и [алгоритм тестирования гипотез в частности](#nhst).
 
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr %>%
+  mutate("top20" = ifelse(`Happiness Rank`<=20, "hehe", "not hehe"),
+         "mean_position" = ifelse(`Happiness Score`>= mean(`Happiness Score`, na.rm = TRUE), "upper", "lower")) -> whr_tests
+```
+
+Всопминаем алгоритм работы.
+
+Первое, с чем потренируемся -- [корреляционный тест](#corr_test)
+
+Сначала проверяем допущения к применимости корреляционного теста
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+#Смотрим наличие линейной зависимости
+whr_tests %>%
+  ggplot(aes(x = Family, y = `Happiness Score`)) +
+  geom_point(color = "#355C7D") +
+  theme_minimal()
+
+# смотрим, как распределены переменные, которые хотим прокоррелировать
+
+whr_tests %>%
+  ggplot(aes(x = Family, y = `Happiness Score`)) +
+  geom_point(color = "#355C7D") +
+  theme_minimal()
+
+whr_tests %>%
+  ggplot(aes(x =`Happiness Score`)) +
+  geom_density(color = "#355C7D") +
+  theme_minimal()
+
+whr_tests %>%
+  ggplot(aes(x =Family)) +
+  geom_density(color = "#355C7D") +
+  theme_minimal()
+
+
+whr_tests %>%
+  ggplot(aes(sample = Family)) +
+  stat_qq(color = "#355C7D") +
+  geom_qq_line() +
+  theme_minimal()
+
+# Видим, что переменная Family распрееделена доволньо сильно отлично от нормального, на всякий случай делаем корреляцию Спирмена вместо Пирсона
+
+cor.test(whr_tests$`Happiness Score`, whr_tests$Family, method = "spearman")
+
+whr_tests %>%
+  ggplot(aes(x = Freedom, y = `Happiness Score`)) +
+  geom_point(color = "#355C7D") +
+  theme_minimal()
+
+whr_tests %>%
+  ggplot(aes(x = Freedom)) +
+  geom_density(color = "#355C7D") +
+  theme_minimal()
+
+
+whr_tests %>%
+  ggplot(aes(sample = Freedom)) +
+  stat_qq(color = "#355C7D") +
+  geom_qq_line() +
+  theme_minimal()
+
+# А здесь можно корреляцию Пирсона
+cor.test(whr_tests$`Happiness Score`, whr_tests$Family, method = "pearson")
+```
+
+Корреляционные матрицы
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+
+# корреляция по простому
+whr_tests %>%
+  select(c(`Happiness Score`:Generosity, -`Upper Confidence Interval`, -`Lower Confidence Interval`)) %>%
+  cor(method = "spearman") %>%
+  round(2) 
+
+library("Hmisc")
+
+whr_tests %>%
+  select(c(`Happiness Score`:Generosity, -`Upper Confidence Interval`, -`Lower Confidence Interval`)) %>%
+  as.matrix() %>%
+  rcorr() -> whr_cor
+
+whr_cor$r
+
+library(corrplot)
+
+corrplot(whr_cor$r, method="circle")
+# corrplot(whr_cor$r, p.mat = whr_cor$P, sig.level = 0.05, insig = "blank")
+heatmap(whr_cor$r)
+```
+
+
 Мы уже освоили предобработку данных и теперь совсем взрослые -- можем взять менее чистенький, расширенный датасет того же World Happiness Report за 2019 https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true, а здесь можно почитать пододробнее про данные https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf (кстати, этот док, судя по всему, тоже сверстан в R) 
+
+
+
+
 
 
 

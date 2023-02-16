@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2023-02-16" />
+<meta name="date" content="2023-02-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -234,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1.3" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#независимые-и-парные-тесты"><i class="fa fa-check"></i><b>10.1.3</b> Независимые и парные тесты</a></li>
 <li class="chapter" data-level="10.1.4" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#вычисление-т-теста-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>10.1.4</b> Вычисление т-теста и непараметрических аналогов</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>10.2</b> ANOVA (дисперсионный анализ)</a>
+<li class="chapter" data-level="10.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#anova"><i class="fa fa-check"></i><b>10.2</b> ANOVA (дисперсионный анализ)</a>
 <ul>
 <li class="chapter" data-level="10.2.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#levels"><i class="fa fa-check"></i><b>10.2.1</b> Факторы и уровни</a></li>
 <li class="chapter" data-level="10.2.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#почему-он-дисперсионный"><i class="fa fa-check"></i><b>10.2.2</b> Почему он дисперсионный</a></li>
@@ -1300,6 +1300,153 @@ summary(whr_new$<code>Happiness Score</code>)</p>
 <div id="проверка-гипотез" class="section level2 hasAnchor" number="13.11">
 <h2><span class="header-section-number">13.11</span> Проверка гипотез<a href="R_analysis.html#проверка-гипотез" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Пришло время перейти к тому, ради чего мы изучали статистику весь прошлый семестр – проверке гипотез. Перед этим стоит повторить раздел про <a href="inference.html#inference">статистический вывод целиком</a> и <a href="inference.html#nhst">алгоритм тестирования гипотез в частности</a>.</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="R_analysis.html#cb179-1" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
+<span id="cb179-2"><a href="R_analysis.html#cb179-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">&quot;top20&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Rank</span><span class="st">`</span><span class="sc">&lt;=</span><span class="dv">20</span>, <span class="st">&quot;hehe&quot;</span>, <span class="st">&quot;not hehe&quot;</span>),</span>
+<span id="cb179-3"><a href="R_analysis.html#cb179-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;mean_position&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span><span class="sc">&gt;=</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;upper&quot;</span>, <span class="st">&quot;lower&quot;</span>)) <span class="ot">-&gt;</span> whr_tests</span></code></pre></div>
+<p>Всопминаем алгоритм работы.</p>
+<p>Первое, с чем потренируемся – <a href="stats_criteria_linear.html#corr_test">корреляционный тест</a></p>
+<p>Сначала проверяем допущения к применимости корреляционного теста</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="R_analysis.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Смотрим наличие линейной зависимости</span></span>
+<span id="cb180-2"><a href="R_analysis.html#cb180-2" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb180-3"><a href="R_analysis.html#cb180-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Family, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb180-4"><a href="R_analysis.html#cb180-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb180-5"><a href="R_analysis.html#cb180-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="R_analysis.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="co"># смотрим, как распределены переменные, которые хотим прокоррелировать</span></span>
+<span id="cb181-2"><a href="R_analysis.html#cb181-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-3"><a href="R_analysis.html#cb181-3" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb181-4"><a href="R_analysis.html#cb181-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Family, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb181-5"><a href="R_analysis.html#cb181-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb181-6"><a href="R_analysis.html#cb181-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-49-2.png" width="672" /></p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="R_analysis.html#cb182-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb182-2"><a href="R_analysis.html#cb182-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb182-3"><a href="R_analysis.html#cb182-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb182-4"><a href="R_analysis.html#cb182-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-49-3.png" width="672" /></p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="R_analysis.html#cb183-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb183-2"><a href="R_analysis.html#cb183-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span>Family)) <span class="sc">+</span></span>
+<span id="cb183-3"><a href="R_analysis.html#cb183-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb183-4"><a href="R_analysis.html#cb183-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-49-4.png" width="672" /></p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="R_analysis.html#cb184-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb184-2"><a href="R_analysis.html#cb184-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> Family)) <span class="sc">+</span></span>
+<span id="cb184-3"><a href="R_analysis.html#cb184-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb184-4"><a href="R_analysis.html#cb184-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb184-5"><a href="R_analysis.html#cb184-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-49-5.png" width="672" /></p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="R_analysis.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Видим, что переменная Family распрееделена доволньо сильно отлично от нормального, на всякий случай делаем корреляцию Спирмена вместо Пирсона</span></span>
+<span id="cb185-2"><a href="R_analysis.html#cb185-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb185-3"><a href="R_analysis.html#cb185-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(whr_tests<span class="sc">$</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, whr_tests<span class="sc">$</span>Family, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning in cor.test.default(whr_tests$`Happiness Score`, whr_tests$Family, :
+## Cannot compute exact p-value with ties</code></pre>
+<pre><code>## 
+##  Spearman&#39;s rank correlation rho
+## 
+## data:  whr_tests$`Happiness Score` and whr_tests$Family
+## S = 153450, p-value &lt; 2.2e-16
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##      rho 
+## 0.762077</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="R_analysis.html#cb188-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb188-2"><a href="R_analysis.html#cb188-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Freedom, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb188-3"><a href="R_analysis.html#cb188-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb188-4"><a href="R_analysis.html#cb188-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-49-6.png" width="672" /></p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="R_analysis.html#cb189-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb189-2"><a href="R_analysis.html#cb189-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Freedom)) <span class="sc">+</span></span>
+<span id="cb189-3"><a href="R_analysis.html#cb189-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb189-4"><a href="R_analysis.html#cb189-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-49-7.png" width="672" /></p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="R_analysis.html#cb190-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb190-2"><a href="R_analysis.html#cb190-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> Freedom)) <span class="sc">+</span></span>
+<span id="cb190-3"><a href="R_analysis.html#cb190-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb190-4"><a href="R_analysis.html#cb190-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb190-5"><a href="R_analysis.html#cb190-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-49-8.png" width="672" /></p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="R_analysis.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="co"># А здесь можно корреляцию Пирсона</span></span>
+<span id="cb191-2"><a href="R_analysis.html#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(whr_tests<span class="sc">$</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, whr_tests<span class="sc">$</span>Family, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  whr_tests$`Happiness Score` and whr_tests$Family
+## t = 13.667, df = 155, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.6589122 0.8029161
+## sample estimates:
+##       cor 
+## 0.7392516</code></pre>
+<p>Корреляционные матрицы</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="R_analysis.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="co"># корреляция по простому</span></span>
+<span id="cb193-2"><a href="R_analysis.html#cb193-2" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb193-3"><a href="R_analysis.html#cb193-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span><span class="sc">:</span>Generosity, <span class="sc">-</span><span class="st">`</span><span class="at">Upper Confidence Interval</span><span class="st">`</span>, <span class="sc">-</span><span class="st">`</span><span class="at">Lower Confidence Interval</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb193-4"><a href="R_analysis.html#cb193-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>(<span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb193-5"><a href="R_analysis.html#cb193-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>) </span></code></pre></div>
+<pre><code>##                               Happiness Score Economy (GDP per Capita) Family
+## Happiness Score                          1.00                     0.81   0.76
+## Economy (GDP per Capita)                 0.81                     1.00   0.70
+## Family                                   0.76                     0.70   1.00
+## Health (Life Expectancy)                 0.77                     0.86   0.62
+## Freedom                                  0.56                     0.40   0.51
+## Trust (Government Corruption)            0.31                     0.22   0.18
+## Generosity                               0.15                     0.00   0.12
+##                               Health (Life Expectancy) Freedom
+## Happiness Score                                   0.77    0.56
+## Economy (GDP per Capita)                          0.86    0.40
+## Family                                            0.62    0.51
+## Health (Life Expectancy)                          1.00    0.35
+## Freedom                                           0.35    1.00
+## Trust (Government Corruption)                     0.17    0.47
+## Generosity                                        0.08    0.40
+##                               Trust (Government Corruption) Generosity
+## Happiness Score                                        0.31       0.15
+## Economy (GDP per Capita)                               0.22       0.00
+## Family                                                 0.18       0.12
+## Health (Life Expectancy)                               0.17       0.08
+## Freedom                                                0.47       0.40
+## Trust (Government Corruption)                          1.00       0.25
+## Generosity                                             0.25       1.00</code></pre>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="R_analysis.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;Hmisc&quot;</span>)</span>
+<span id="cb195-2"><a href="R_analysis.html#cb195-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-3"><a href="R_analysis.html#cb195-3" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb195-4"><a href="R_analysis.html#cb195-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span><span class="sc">:</span>Generosity, <span class="sc">-</span><span class="st">`</span><span class="at">Upper Confidence Interval</span><span class="st">`</span>, <span class="sc">-</span><span class="st">`</span><span class="at">Lower Confidence Interval</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb195-5"><a href="R_analysis.html#cb195-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.matrix</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb195-6"><a href="R_analysis.html#cb195-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rcorr</span>() <span class="ot">-&gt;</span> whr_cor</span>
+<span id="cb195-7"><a href="R_analysis.html#cb195-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-8"><a href="R_analysis.html#cb195-8" aria-hidden="true" tabindex="-1"></a>whr_cor<span class="sc">$</span>r</span></code></pre></div>
+<pre><code>##                               Happiness Score Economy (GDP per Capita)
+## Happiness Score                     1.0000000               0.79032202
+## Economy (GDP per Capita)            0.7903220               1.00000000
+## Family                              0.7392516               0.66953969
+## Health (Life Expectancy)            0.7653843               0.83706723
+## Freedom                             0.5668267               0.36228285
+## Trust (Government Corruption)       0.4020322               0.29418478
+## Generosity                          0.1568478              -0.02553066
+##                                   Family Health (Life Expectancy)   Freedom
+## Happiness Score               0.73925158               0.76538433 0.5668267
+## Economy (GDP per Capita)      0.66953969               0.83706723 0.3622828
+## Family                        1.00000000               0.58837678 0.4502082
+## Health (Life Expectancy)      0.58837678               1.00000000 0.3411993
+## Freedom                       0.45020820               0.34119929 1.0000000
+## Trust (Government Corruption) 0.21356094               0.24958329 0.5020540
+## Generosity                    0.08962885               0.07598731 0.3617513
+##                               Trust (Government Corruption)  Generosity
+## Happiness Score                                   0.4020322  0.15684780
+## Economy (GDP per Capita)                          0.2941848 -0.02553066
+## Family                                            0.2135609  0.08962885
+## Health (Life Expectancy)                          0.2495833  0.07598731
+## Freedom                                           0.5020540  0.36175133
+## Trust (Government Corruption)                     1.0000000  0.30592986
+## Generosity                                        0.3059299  1.00000000</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="R_analysis.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb197-2"><a href="R_analysis.html#cb197-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb197-3"><a href="R_analysis.html#cb197-3" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(whr_cor<span class="sc">$</span>r, <span class="at">method=</span><span class="st">&quot;circle&quot;</span>)</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="R_analysis.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># corrplot(whr_cor$r, p.mat = whr_cor$P, sig.level = 0.05, insig = &quot;blank&quot;)</span></span>
+<span id="cb198-2"><a href="R_analysis.html#cb198-2" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(whr_cor<span class="sc">$</span>r)</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-50-2.png" width="672" /></p>
 <p>Мы уже освоили предобработку данных и теперь совсем взрослые – можем взять менее чистенький, расширенный датасет того же World Happiness Report за 2019 <a href="https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true" class="uri">https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true</a>, а здесь можно почитать пододробнее про данные <a href="https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf" class="uri">https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf</a> (кстати, этот док, судя по всему, тоже сверстан в R)</p>
 
 </div>
