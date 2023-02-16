@@ -117,3 +117,5 @@ descriptives_r
 aggregate
 visualization
 tasks_sem4
+проверка-гипотез
+anova

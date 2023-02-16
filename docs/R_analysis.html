@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2023-02-14" />
+<meta name="date" content="2023-02-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -301,6 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13.9" data-path="R_analysis.html"><a href="R_analysis.html#visualization"><i class="fa fa-check"></i><b>13.9</b> Визуализации</a></li>
 <li class="chapter" data-level="13.10" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem4"><i class="fa fa-check"></i><b>13.10</b> Задания после семинара 4</a></li>
+<li class="chapter" data-level="13.11" data-path="R_analysis.html"><a href="R_analysis.html#проверка-гипотез"><i class="fa fa-check"></i><b>13.11</b> Проверка гипотез</a></li>
 </ul></li>
 </ul>
 
@@ -997,7 +998,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Посмотрите, какие страны находятся на местах с 1 по 10 и с 147 по 157 (в выводе должно быть по две колонки: <code>Region</code> и <code>Happiness Rank</code>)</li>
 <li>Сравните средний показатель экономики <code>Economy (GDP per Capita)</code> и уровень счастья <code>Happiness Score</code> в странах Восточной и центральной (Central and Eastern Europe) и Западной Европы (Western Europe). Что можно сказать про них? Где показатель экономики выше? Где люди чувствуют себя счастливее?</li>
 <li>Сравните средний показатель экономики<code>Economy (GDP per Capita)</code> и уровень счастья <code>Happiness Score</code> в странах Западной Европы (Western Europe) и Южной Азии (Southern Asia). Что можно сказать про них? Где показатель экономики выше? Где люди чувствуют себя счастливее?</li>
-<li>Посчитайте средний <code>Happiness Score</code> по всем странам и выведете страны, которые лежат в границах ± 1 от среднего <code>Happiness Score</code> (в выводе должно быть по две колонки: <code>Region</code> и <code>Happiness Score</code>) <em>Подсказка: возможно, будет проще посчитать среднее отдельно и сначала сохранить его в переменную</em></li>
+<li><em>(Только для тех, кто работает в R)</em> Посчитайте средний <code>Happiness Score</code> по всем странам и выведете страны, которые лежат в границах ± 1 от среднего <code>Happiness Score</code> (в выводе должно быть по две колонки: <code>Region</code> и <code>Happiness Score</code>) <em>Подсказка: возможно, будет проще посчитать среднее отдельно и сначала сохранить его в переменную</em></li>
 <li>Создайте колонку, в которой будет содержаться информация, в текущей стране <code>Happiness Score</code> выше или ниже среднего значения (колонка может быть заполнена, например, значениями upper и lower или любыми другими обозначениями)</li>
 </ol>
 </div>
@@ -1295,6 +1296,11 @@ summary(whr_new$<code>Happiness Score</code>)</p>
 <li>Постройте диаграмму рассеяния для переменной <code>Family</code> по переменной <code>Freedom</code> и <em>(только для тех, кто работает в R)</em> раскрасьте точки в зависимости от значений переменной с upper и lower, созданной в прошлой домашке.</li>
 <li>Посчитайте коэффициент корреляции между переменными <code>Family</code> и <code>Freedom</code>.</li>
 </ol>
+</div>
+<div id="проверка-гипотез" class="section level2 hasAnchor" number="13.11">
+<h2><span class="header-section-number">13.11</span> Проверка гипотез<a href="R_analysis.html#проверка-гипотез" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Пришло время перейти к тому, ради чего мы изучали статистику весь прошлый семестр – проверке гипотез. Перед этим стоит повторить раздел про <a href="inference.html#inference">статистический вывод целиком</a> и <a href="inference.html#nhst">алгоритм тестирования гипотез в частности</a>.</p>
+<p>Мы уже освоили предобработку данных и теперь совсем взрослые – можем взять менее чистенький, расширенный датасет того же World Happiness Report за 2019 <a href="https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true" class="uri">https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true</a>, а здесь можно почитать пододробнее про данные <a href="https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf" class="uri">https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf</a> (кстати, этот док, судя по всему, тоже сверстан в R)</p>
 
 </div>
 </div>
