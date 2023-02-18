@@ -663,7 +663,9 @@ whr_new %>%
 
 ## Проверка гипотез
 
-Пришло время перейти к тому, ради чего мы изучали статистику весь прошлый семестр -- проверке гипотез. Перед этим стоит повторить раздел про [статистический вывод целиком](#inference) и [алгоритм тестирования гипотез в частности](#nhst).
+Пришло время перейти к тому, ради чего мы изучали статистику весь прошлый семестр -- проверке гипотез. 
+
+Я собрала в один датасет все новые колонки, которые мы создавали, чтобы использовать их, если понадобятся.
 
 ```{r eval=TRUE, echo = TRUE, message = FALSE}
 whr %>%
@@ -671,7 +673,9 @@ whr %>%
          "mean_position" = ifelse(`Happiness Score`>= mean(`Happiness Score`, na.rm = TRUE), "upper", "lower")) -> whr_tests
 ```
 
-Всопминаем алгоритм работы.
+Перед применением статистических тестов стоит повторить раздел про [статистический вывод целиком](#inference) и [алгоритм тестирования гипотез в частности](#nhst). Мы не применяем тесты сразу! Сначала у нас должна быть осмысленная гипотеза, понимание о том, каковы $H_0$ и $H_1$, выбранный уровень значимости $\alpha$ и рассчитанное на основании статистической мощности $power$  необходимое количество данных. Здесь мы работаем уже с готовыми данными, поэтому не можем влиять на количество данных, но все остальные пункты мы должны учитывать.
+
+### Корреляционный тест
 
 Первое, с чем потренируемся -- [корреляционный тест](#corr_test)
 
@@ -759,10 +763,147 @@ corrplot(whr_cor$r, method="circle")
 heatmap(whr_cor$r)
 ```
 
+### Т-тест
 
-Мы уже освоили предобработку данных и теперь совсем взрослые -- можем взять менее чистенький, расширенный датасет того же World Happiness Report за 2019 https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true, а здесь можно почитать пододробнее про данные https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf (кстати, этот док, судя по всему, тоже сверстан в R) 
+Теперь проверим гипотезу о том, что уровень счастья `Happiness Score` отличается в Восточной и Западной Европе. Для этого сначала нам нужно отфильтровать только те данные, которые соответствуют регионам `Central and Eastern Europe` и `Western Europe`. Это тот самый этап предобработки данных, когда прежде чем применять статистчиеские тесты, нам нужно подготовить данные.
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_tests %>%
+  filter(Region == "Central and Eastern Europe" | Region == "Western Europe") -> whr_ttest
+```
 
 
+Идем по [алгоритму NHST](#nhst): фомулируем нулевую и альтернативную гипотезы, выбираем уровень значимости, доходим до выбора статистического теста, и выбираем т-тест. Теперь [проверяем допущения для т-теста](#ttest)
+
+Для т-теста нам важно допущение, что ЗП распределена нормально или близко к нормальному (распределение в целом симметрично, нет особых выбросов). Проверим это.
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+# skimr::skim(whr_tests$`Happiness Score`)
+
+whr_ttest %>%
+  ggplot(aes(x =`Happiness Score`)) +
+  geom_density(color = "#355C7D") +
+  theme_minimal()
+
+whr_ttest %>%
+  ggplot(aes(sample = `Happiness Score`)) +
+  stat_qq(color = "#355C7D") +
+  geom_qq_line() +
+  theme_minimal()
+```
+
+По этой картине в целом можем считать, что ЗП `Happiness Score` распределена близко к нормальному распределению. Значит, мы можем не использовать непараметрические аналоги т-теста и проводить самый обычный т-тест!
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+t.test(`Happiness Score` ~ Region, data = whr_ttest, alternative = "less", paired = FALSE, conf.level = 0.95)
+
+t.test(`Happiness Score` ~ Region, data = whr_ttest, alternative = "two.sided", paired = FALSE, conf.level = 0.95)
+```
+Аргумент `alternative` обозначает, какова наша нулевая гипотеза: что средние в группых *не равны* или что среднее в одной из групп *меньше или больше,* чем в другой. Аргумент `paired` указывает, нужно ли проводить зависимый т-тест. В данном случае, у нас независимые выборки, и зависимый т-тест не нужен.
+
+Нам может пригодиться знать и другой вариант записи т-теста и его непараметрических аналогов -- не через указание переменных из данных (обратите внимание -- мы эксплицитно задавали аргумент `data`), а без указания данных, просто передав ему два вектора:
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+# Фильтруем только те регионы, которые будем проверять
+
+whr_tests %>%
+  filter(Region == "Central and Eastern Europe") %>%
+  select(`Happiness Score`) %>%
+  pull() -> whr_tests_CEE
+
+whr_tests %>%
+  filter(Region == "Western Europe") %>%
+  select(`Happiness Score`) %>%
+  pull() -> whr_tests_WE
+
+var(whr_tests_CEE)
+var(whr_tests_WE)
+
+t.test(whr_tests_CEE, whr_tests_WE, alternative = "less", paired = FALSE, conf.level = 0.95)
+
+t.test(whr_tests_CEE, whr_tests_WE, alternative = "less", paired = FALSE, var.equal = FALSE)
+
+t.test(whr_tests_CEE, whr_tests_WE, alternative = "two.sided", paired = FALSE)
+```
+
+Построим визуализации
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_ttest %>%
+  ggplot(aes(x=Region, y = `Happiness Score`)) +
+  geom_boxplot() +
+  theme_minimal()
+
+# install.packages("viridis")
+# install.packages("wesanderson")
+library(viridis)
+library(wesanderson)
+
+whr_ttest %>%
+  ggplot(aes(x=Region, y = `Happiness Score`, fill = Region)) +
+  geom_boxplot() +
+  theme_minimal() +
+  scale_fill_viridis_d()
+
+whr_ttest %>%
+  ggplot(aes(x=Region, y = `Happiness Score`, fill = Region)) +
+  geom_boxplot() +
+  theme_minimal() +
+  scale_fill_manual(values = wes_palette("Moonrise3"))
+
+whr_ttest %>%
+  ggplot(aes(x=Region, y = `Happiness Score`, fill = Region)) +
+  geom_violin() +
+  geom_boxplot() +
+  theme_minimal() +
+  scale_fill_manual(values = wes_palette("Moonrise3"))
+```
+
+**Непараметрические аналоги т-теста**
+
+Что делать, если бы наши допущения о предположении нормальности ЗП не оправдались? Если бы в распределении были бы явные выбросы, они было бы сильно не симметричным и скошенным? Тогда нам нужно было бы проводить непараметрические аналоги т-теста -- тест Уилкоксона или Манна-Уитни. Разберем их на примере проверки, что показатель социальной поддержки `Family` отличается в этих регионах *(на самом деле, в реальности тут скорее всего вполне можно было бы провести обычный т-тест -- но более кривых переменных в этих данных не нашлось, поэтому смотреть использование непараметрических аналогов будем на них.*
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_tests %>%
+  ggplot(aes(x =Family)) +
+  geom_density(color = "#355C7D") +
+  theme_minimal()
+
+whr_tests %>%
+  ggplot(aes(sample = Family)) +
+  stat_qq(color = "#355C7D") +
+  geom_qq_line() +
+  theme_minimal()
+
+# Все то же самое -- но функция называется не t.test(), a wilcox.test()
+
+wilcox.test(whr_ttest$Family ~ whr_ttest$Region, alternative = "less", paired = FALSE, conf.level = 0.95)
+```
+
+## Задания после семинара 5 {#tasks_sem5}
+
+Мы уже освоили предобработку данных, и теперь совсем взрослые -- можем взять менее чистенький, расширенный датасет того же World Happiness Report за 2019 https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true, а здесь можно почитать пододробнее про данные https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf (кстати, этот док, судя по всему, тоже сверстан в R).
+
+Чтобы было удобнее с ним работать для проверки гипотез, я сделала его предобработку -- при повторении попробуйте ее разобрать, что делает каждая строчка? Показалось ли что-то новым? 
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+whr_2019 <- readxl::read_xls("Chapter2OnlineData2019.xls")
+
+whr_2019 %>%
+  select(`Country name`:`Standard deviation/Mean of ladder by country-year`) -> whr_2019
+
+whr %>%
+  select(Country:`Happiness Score`) %>%
+  right_join(whr_2019, by = c("Country" = "Country name"), multiple = "last") %>% 
+  mutate("top20" = ifelse(`Happiness Rank`<=20, "hehe", "not hehe"),
+         "mean_position" = ifelse(`Happiness Score`>= mean(`Happiness Score`, na.rm = TRUE), "upper", "lower")) -> whr_tests_hw
+
+# View(whr_tests)
+```
+
+1. На полученном датасете `whr_tests_hw` проведите полностью по всему алгоритму NHST хотя бы один корреляционные тест: выберете подходящие переменные, сформулируйте гипотезу, сформулируйте $H_0$ и $H_1$, выберете уровень $\alpha$, предобработайте данные, если нужно, и проведите корреляционный тест на выбранном уровне значимости. Проинтерпретируйте результаты: подтвердилась ли гипотеза?
+
+2. На полученном датасете `whr_tests_hw` проведите полностью по всему алгоритму NHST хотя бы один т-тест или его непараметрический аналог: выберете подходящие переменные, сформулируйте гипотезу, сформулируйте $H_0$ и $H_1$, выберете уровень $\alpha$, определите, зависимые или независимые выборки, предобработайте данные, если нужно, и проведите тест сравнения средних на выбранном уровне значимости. Проинтерпретируйте результаты: подтвердилась ли гипотеза?
 
 
 

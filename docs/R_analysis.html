@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2023-02-17" />
+<meta name="date" content="2023-02-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -301,7 +301,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13.9" data-path="R_analysis.html"><a href="R_analysis.html#visualization"><i class="fa fa-check"></i><b>13.9</b> Визуализации</a></li>
 <li class="chapter" data-level="13.10" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem4"><i class="fa fa-check"></i><b>13.10</b> Задания после семинара 4</a></li>
-<li class="chapter" data-level="13.11" data-path="R_analysis.html"><a href="R_analysis.html#проверка-гипотез"><i class="fa fa-check"></i><b>13.11</b> Проверка гипотез</a></li>
+<li class="chapter" data-level="13.11" data-path="R_analysis.html"><a href="R_analysis.html#проверка-гипотез"><i class="fa fa-check"></i><b>13.11</b> Проверка гипотез</a>
+<ul>
+<li class="chapter" data-level="13.11.1" data-path="R_analysis.html"><a href="R_analysis.html#корреляционный-тест-1"><i class="fa fa-check"></i><b>13.11.1</b> Корреляционный тест</a></li>
+<li class="chapter" data-level="13.11.2" data-path="R_analysis.html"><a href="R_analysis.html#т-тест"><i class="fa fa-check"></i><b>13.11.2</b> Т-тест</a></li>
+</ul></li>
+<li class="chapter" data-level="13.12" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem5"><i class="fa fa-check"></i><b>13.12</b> Задания после семинара 5</a></li>
 </ul></li>
 </ul>
 
@@ -1299,11 +1304,14 @@ summary(whr_new$<code>Happiness Score</code>)</p>
 </div>
 <div id="проверка-гипотез" class="section level2 hasAnchor" number="13.11">
 <h2><span class="header-section-number">13.11</span> Проверка гипотез<a href="R_analysis.html#проверка-гипотез" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Пришло время перейти к тому, ради чего мы изучали статистику весь прошлый семестр – проверке гипотез. Перед этим стоит повторить раздел про <a href="inference.html#inference">статистический вывод целиком</a> и <a href="inference.html#nhst">алгоритм тестирования гипотез в частности</a>.</p>
+<p>Пришло время перейти к тому, ради чего мы изучали статистику весь прошлый семестр – проверке гипотез.</p>
+<p>Я собрала в один датасет все новые колонки, которые мы создавали, чтобы использовать их, если понадобятся.</p>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="R_analysis.html#cb179-1" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
 <span id="cb179-2"><a href="R_analysis.html#cb179-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">&quot;top20&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Rank</span><span class="st">`</span><span class="sc">&lt;=</span><span class="dv">20</span>, <span class="st">&quot;hehe&quot;</span>, <span class="st">&quot;not hehe&quot;</span>),</span>
 <span id="cb179-3"><a href="R_analysis.html#cb179-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;mean_position&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span><span class="sc">&gt;=</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;upper&quot;</span>, <span class="st">&quot;lower&quot;</span>)) <span class="ot">-&gt;</span> whr_tests</span></code></pre></div>
-<p>Всопминаем алгоритм работы.</p>
+<p>Перед применением статистических тестов стоит повторить раздел про <a href="inference.html#inference">статистический вывод целиком</a> и <a href="inference.html#nhst">алгоритм тестирования гипотез в частности</a>. Мы не применяем тесты сразу! Сначала у нас должна быть осмысленная гипотеза, понимание о том, каковы <span class="math inline">\(H_0\)</span> и <span class="math inline">\(H_1\)</span>, выбранный уровень значимости <span class="math inline">\(\alpha\)</span> и рассчитанное на основании статистической мощности <span class="math inline">\(power\)</span> необходимое количество данных. Здесь мы работаем уже с готовыми данными, поэтому не можем влиять на количество данных, но все остальные пункты мы должны учитывать.</p>
+<div id="корреляционный-тест-1" class="section level3 hasAnchor" number="13.11.1">
+<h3><span class="header-section-number">13.11.1</span> Корреляционный тест<a href="R_analysis.html#корреляционный-тест-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Первое, с чем потренируемся – <a href="stats_criteria_linear.html#corr_test">корреляционный тест</a></p>
 <p>Сначала проверяем допущения к применимости корреляционного теста</p>
 <div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="R_analysis.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Смотрим наличие линейной зависимости</span></span>
@@ -1447,7 +1455,184 @@ summary(whr_new$<code>Happiness Score</code>)</p>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="R_analysis.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># corrplot(whr_cor$r, p.mat = whr_cor$P, sig.level = 0.05, insig = &quot;blank&quot;)</span></span>
 <span id="cb198-2"><a href="R_analysis.html#cb198-2" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(whr_cor<span class="sc">$</span>r)</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-50-2.png" width="672" /></p>
-<p>Мы уже освоили предобработку данных и теперь совсем взрослые – можем взять менее чистенький, расширенный датасет того же World Happiness Report за 2019 <a href="https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true" class="uri">https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true</a>, а здесь можно почитать пододробнее про данные <a href="https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf" class="uri">https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf</a> (кстати, этот док, судя по всему, тоже сверстан в R)</p>
+</div>
+<div id="т-тест" class="section level3 hasAnchor" number="13.11.2">
+<h3><span class="header-section-number">13.11.2</span> Т-тест<a href="R_analysis.html#т-тест" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Теперь проверим гипотезу о том, что уровень счастья <code>Happiness Score</code> отличается в Восточной и Западной Европе. Для этого сначала нам нужно отфильтровать только те данные, которые соответствуют регионам <code>Central and Eastern Europe</code> и <code>Western Europe</code>. Это тот самый этап предобработки данных, когда прежде чем применять статистчиеские тесты, нам нужно подготовить данные.</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="R_analysis.html#cb199-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb199-2"><a href="R_analysis.html#cb199-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Central and Eastern Europe&quot;</span> <span class="sc">|</span> Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span>) <span class="ot">-&gt;</span> whr_ttest</span></code></pre></div>
+<p>Идем по <a href="inference.html#nhst">алгоритму NHST</a>: фомулируем нулевую и альтернативную гипотезы, выбираем уровень значимости, доходим до выбора статистического теста, и выбираем т-тест. Теперь <a href="stats_criteria_ttest_anova.html#ttest">проверяем допущения для т-теста</a></p>
+<p>Для т-теста нам важно допущение, что ЗП распределена нормально или близко к нормальному (распределение в целом симметрично, нет особых выбросов). Проверим это.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="R_analysis.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="co"># skimr::skim(whr_tests$`Happiness Score`)</span></span>
+<span id="cb200-2"><a href="R_analysis.html#cb200-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-3"><a href="R_analysis.html#cb200-3" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
+<span id="cb200-4"><a href="R_analysis.html#cb200-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb200-5"><a href="R_analysis.html#cb200-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb200-6"><a href="R_analysis.html#cb200-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="R_analysis.html#cb201-1" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
+<span id="cb201-2"><a href="R_analysis.html#cb201-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb201-3"><a href="R_analysis.html#cb201-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb201-4"><a href="R_analysis.html#cb201-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb201-5"><a href="R_analysis.html#cb201-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-52-2.png" width="672" /></p>
+<p>По этой картине в целом можем считать, что ЗП <code>Happiness Score</code> распределена близко к нормальному распределению. Значит, мы можем не использовать непараметрические аналоги т-теста и проводить самый обычный т-тест!</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="R_analysis.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span> <span class="sc">~</span> Region, <span class="at">data =</span> whr_ttest, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Happiness Score by Region
+## t = -6.4412, df = 35.349, p-value = 9.733e-08
+## alternative hypothesis: true difference in means between group Central and Eastern Europe and group Western Europe is less than 0
+## 95 percent confidence interval:
+##        -Inf -0.9701413
+## sample estimates:
+## mean in group Central and Eastern Europe 
+##                                 5.370690 
+##             mean in group Western Europe 
+##                                 6.685667</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="R_analysis.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span> <span class="sc">~</span> Region, <span class="at">data =</span> whr_ttest, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Happiness Score by Region
+## t = -6.4412, df = 35.349, p-value = 1.947e-07
+## alternative hypothesis: true difference in means between group Central and Eastern Europe and group Western Europe is not equal to 0
+## 95 percent confidence interval:
+##  -1.7292798 -0.9006742
+## sample estimates:
+## mean in group Central and Eastern Europe 
+##                                 5.370690 
+##             mean in group Western Europe 
+##                                 6.685667</code></pre>
+<p>Аргумент <code>alternative</code> обозначает, какова наша нулевая гипотеза: что средние в группых <em>не равны</em> или что среднее в одной из групп <em>меньше или больше,</em> чем в другой. Аргумент <code>paired</code> указывает, нужно ли проводить зависимый т-тест. В данном случае, у нас независимые выборки, и зависимый т-тест не нужен.</p>
+<p>Нам может пригодиться знать и другой вариант записи т-теста и его непараметрических аналогов – не через указание переменных из данных (обратите внимание – мы эксплицитно задавали аргумент <code>data</code>), а без указания данных, просто передав ему два вектора:</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="R_analysis.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Фильтруем только те регионы, которые будем проверять</span></span>
+<span id="cb206-2"><a href="R_analysis.html#cb206-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-3"><a href="R_analysis.html#cb206-3" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb206-4"><a href="R_analysis.html#cb206-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Central and Eastern Europe&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb206-5"><a href="R_analysis.html#cb206-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb206-6"><a href="R_analysis.html#cb206-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="ot">-&gt;</span> whr_tests_CEE</span>
+<span id="cb206-7"><a href="R_analysis.html#cb206-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-8"><a href="R_analysis.html#cb206-8" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb206-9"><a href="R_analysis.html#cb206-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb206-10"><a href="R_analysis.html#cb206-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb206-11"><a href="R_analysis.html#cb206-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="ot">-&gt;</span> whr_tests_WE</span>
+<span id="cb206-12"><a href="R_analysis.html#cb206-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-13"><a href="R_analysis.html#cb206-13" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(whr_tests_CEE)</span></code></pre></div>
+<pre><code>## [1] 0.3485667</code></pre>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="R_analysis.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(whr_tests_WE)</span></code></pre></div>
+<pre><code>## [1] 0.6228212</code></pre>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="R_analysis.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(whr_tests_CEE, whr_tests_WE, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  whr_tests_CEE and whr_tests_WE
+## t = -6.4412, df = 35.349, p-value = 9.733e-08
+## alternative hypothesis: true difference in means is less than 0
+## 95 percent confidence interval:
+##        -Inf -0.9701413
+## sample estimates:
+## mean of x mean of y 
+##  5.370690  6.685667</code></pre>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="R_analysis.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(whr_tests_CEE, whr_tests_WE, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  whr_tests_CEE and whr_tests_WE
+## t = -6.4412, df = 35.349, p-value = 9.733e-08
+## alternative hypothesis: true difference in means is less than 0
+## 95 percent confidence interval:
+##        -Inf -0.9701413
+## sample estimates:
+## mean of x mean of y 
+##  5.370690  6.685667</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="R_analysis.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(whr_tests_CEE, whr_tests_WE, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  whr_tests_CEE and whr_tests_WE
+## t = -6.4412, df = 35.349, p-value = 1.947e-07
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -1.7292798 -0.9006742
+## sample estimates:
+## mean of x mean of y 
+##  5.370690  6.685667</code></pre>
+<p>Построим визуализации</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="R_analysis.html#cb216-1" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
+<span id="cb216-2"><a href="R_analysis.html#cb216-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb216-3"><a href="R_analysis.html#cb216-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb216-4"><a href="R_analysis.html#cb216-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="R_analysis.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;viridis&quot;)</span></span>
+<span id="cb217-2"><a href="R_analysis.html#cb217-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;wesanderson&quot;)</span></span>
+<span id="cb217-3"><a href="R_analysis.html#cb217-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb217-4"><a href="R_analysis.html#cb217-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb217-5"><a href="R_analysis.html#cb217-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb217-6"><a href="R_analysis.html#cb217-6" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
+<span id="cb217-7"><a href="R_analysis.html#cb217-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">fill =</span> Region)) <span class="sc">+</span></span>
+<span id="cb217-8"><a href="R_analysis.html#cb217-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb217-9"><a href="R_analysis.html#cb217-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb217-10"><a href="R_analysis.html#cb217-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-55-2.png" width="672" /></p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="R_analysis.html#cb218-1" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
+<span id="cb218-2"><a href="R_analysis.html#cb218-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">fill =</span> Region)) <span class="sc">+</span></span>
+<span id="cb218-3"><a href="R_analysis.html#cb218-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb218-4"><a href="R_analysis.html#cb218-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb218-5"><a href="R_analysis.html#cb218-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise3&quot;</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-55-3.png" width="672" /></p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="R_analysis.html#cb219-1" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
+<span id="cb219-2"><a href="R_analysis.html#cb219-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">fill =</span> Region)) <span class="sc">+</span></span>
+<span id="cb219-3"><a href="R_analysis.html#cb219-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb219-4"><a href="R_analysis.html#cb219-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb219-5"><a href="R_analysis.html#cb219-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb219-6"><a href="R_analysis.html#cb219-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise3&quot;</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-55-4.png" width="672" /></p>
+<p><strong>Непараметрические аналоги т-теста</strong></p>
+<p>Что делать, если бы наши допущения о предположении нормальности ЗП не оправдались? Если бы в распределении были бы явные выбросы, они было бы сильно не симметричным и скошенным? Тогда нам нужно было бы проводить непараметрические аналоги т-теста – тест Уилкоксона или Манна-Уитни. Разберем их на примере проверки, что показатель социальной поддержки <code>Family</code> отличается в этих регионах <em>(на самом деле, в реальности тут скорее всего вполне можно было бы провести обычный т-тест – но более кривых переменных в этих данных не нашлось, поэтому смотреть использование непараметрических аналогов будем на них.</em></p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="R_analysis.html#cb220-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb220-2"><a href="R_analysis.html#cb220-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span>Family)) <span class="sc">+</span></span>
+<span id="cb220-3"><a href="R_analysis.html#cb220-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb220-4"><a href="R_analysis.html#cb220-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="R_analysis.html#cb221-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb221-2"><a href="R_analysis.html#cb221-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> Family)) <span class="sc">+</span></span>
+<span id="cb221-3"><a href="R_analysis.html#cb221-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb221-4"><a href="R_analysis.html#cb221-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb221-5"><a href="R_analysis.html#cb221-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-56-2.png" width="672" /></p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="R_analysis.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Все то же самое -- но функция называется не t.test(), a wilcox.test()</span></span>
+<span id="cb222-2"><a href="R_analysis.html#cb222-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-3"><a href="R_analysis.html#cb222-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(whr_ttest<span class="sc">$</span>Family <span class="sc">~</span> whr_ttest<span class="sc">$</span>Region, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon rank sum exact test
+## 
+## data:  whr_ttest$Family by whr_ttest$Region
+## W = 127, p-value = 0.0001618
+## alternative hypothesis: true location shift is less than 0</code></pre>
+</div>
+</div>
+<div id="tasks_sem5" class="section level2 hasAnchor" number="13.12">
+<h2><span class="header-section-number">13.12</span> Задания после семинара 5<a href="R_analysis.html#tasks_sem5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Мы уже освоили предобработку данных, и теперь совсем взрослые – можем взять менее чистенький, расширенный датасет того же World Happiness Report за 2019 <a href="https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true" class="uri">https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true</a>, а здесь можно почитать пододробнее про данные <a href="https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf" class="uri">https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf</a> (кстати, этот док, судя по всему, тоже сверстан в R).</p>
+<p>Чтобы было удобнее с ним работать для проверки гипотез, я сделала его предобработку – при повторении попробуйте ее разобрать, что делает каждая строчка? Показалось ли что-то новым?</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="R_analysis.html#cb224-1" aria-hidden="true" tabindex="-1"></a>whr_2019 <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">&quot;Chapter2OnlineData2019.xls&quot;</span>)</span>
+<span id="cb224-2"><a href="R_analysis.html#cb224-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-3"><a href="R_analysis.html#cb224-3" aria-hidden="true" tabindex="-1"></a>whr_2019 <span class="sc">%&gt;%</span></span>
+<span id="cb224-4"><a href="R_analysis.html#cb224-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Country name</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">Standard deviation/Mean of ladder by country-year</span><span class="st">`</span>) <span class="ot">-&gt;</span> whr_2019</span>
+<span id="cb224-5"><a href="R_analysis.html#cb224-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-6"><a href="R_analysis.html#cb224-6" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
+<span id="cb224-7"><a href="R_analysis.html#cb224-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Country<span class="sc">:</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb224-8"><a href="R_analysis.html#cb224-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(whr_2019, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Country&quot;</span> <span class="ot">=</span> <span class="st">&quot;Country name&quot;</span>), <span class="at">multiple =</span> <span class="st">&quot;last&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb224-9"><a href="R_analysis.html#cb224-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">&quot;top20&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Rank</span><span class="st">`</span><span class="sc">&lt;=</span><span class="dv">20</span>, <span class="st">&quot;hehe&quot;</span>, <span class="st">&quot;not hehe&quot;</span>),</span>
+<span id="cb224-10"><a href="R_analysis.html#cb224-10" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;mean_position&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span><span class="sc">&gt;=</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;upper&quot;</span>, <span class="st">&quot;lower&quot;</span>)) <span class="ot">-&gt;</span> whr_tests_hw</span>
+<span id="cb224-11"><a href="R_analysis.html#cb224-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-12"><a href="R_analysis.html#cb224-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View(whr_tests)</span></span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li><p>На полученном датасете <code>whr_tests_hw</code> проведите полностью по всему алгоритму NHST хотя бы один корреляционные тест: выберете подходящие переменные, сформулируйте гипотезу, сформулируйте <span class="math inline">\(H_0\)</span> и <span class="math inline">\(H_1\)</span>, выберете уровень <span class="math inline">\(\alpha\)</span>, предобработайте данные, если нужно, и проведите корреляционный тест на выбранном уровне значимости. Проинтерпретируйте результаты: подтвердилась ли гипотеза?</p></li>
+<li><p>На полученном датасете <code>whr_tests_hw</code> проведите полностью по всему алгоритму NHST хотя бы один т-тест или его непараметрический аналог: выберете подходящие переменные, сформулируйте гипотезу, сформулируйте <span class="math inline">\(H_0\)</span> и <span class="math inline">\(H_1\)</span>, выберете уровень <span class="math inline">\(\alpha\)</span>, определите, зависимые или независимые выборки, предобработайте данные, если нужно, и проведите тест сравнения средних на выбранном уровне значимости. Проинтерпретируйте результаты: подтвердилась ли гипотеза?</p></li>
+</ol>
 
 </div>
 </div>
@@ -1511,6 +1696,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
