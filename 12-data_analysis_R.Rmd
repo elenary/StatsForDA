@@ -736,6 +736,13 @@ whr_tests %>%
 # А здесь можно корреляцию Пирсона
 cor.test(whr_tests$`Happiness Score`, whr_tests$Family, method = "pearson")
 ```
+Как это проинтепретировать? Вспоминаем все, что мы изучали про статистические критерии в прошлом семестре.
+
+Кстати, в языках программирования числа часто записываются через экспоненциальную нотацию виде $e^-10$ -- это удобно для математического вида, какая цифра идет первой после множества нулей, но неудобно для интерпретации. Чтобы ее убрать, можно в любом месте в Р выполнить операцию
+
+```{r eval=TRUE, echo = TRUE, message = FALSE}
+options(scipen = 999)
+```
 
 Корреляционные матрицы
 
@@ -854,7 +861,6 @@ whr_ttest %>%
 whr_ttest %>%
   ggplot(aes(x=Region, y = `Happiness Score`, fill = Region)) +
   geom_violin() +
-  geom_boxplot() +
   theme_minimal() +
   scale_fill_manual(values = wes_palette("Moonrise3"))
 ```
