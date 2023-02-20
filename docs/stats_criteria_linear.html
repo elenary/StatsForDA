@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>11 Проверка линейной свзяи | Статистика для анализа данных</title>
   <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="11 Проверка линейной свзяи | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2022-12-12" />
+<meta name="date" content="2023-02-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,7 +49,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -58,18 +57,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -89,13 +88,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +107,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -139,25 +138,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Статистика для анализа данных</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#вероятности-формулировки-и-выводы"><i class="fa fa-check"></i><b>1.1</b> Вероятности, формулировки и выводы</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a><ul>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#применение-статистики"><i class="fa fa-check"></i><b>1.2.1</b> Применение статистики</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#виды-статистики"><i class="fa fa-check"></i><b>1.3</b> Виды статистики</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="sample.html"><a href="sample.html"><i class="fa fa-check"></i><b>2</b> Выборка</a><ul>
+<li class="chapter" data-level="2" data-path="sample.html"><a href="sample.html"><i class="fa fa-check"></i><b>2</b> Выборка</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="sample.html"><a href="sample.html#выборочные-оценки"><i class="fa fa-check"></i><b>2.1</b> Выборочные оценки</a></li>
 <li class="chapter" data-level="2.2" data-path="sample.html"><a href="sample.html#репрезентативность-выборки"><i class="fa fa-check"></i><b>2.2</b> Репрезентативность выборки</a></li>
 <li class="chapter" data-level="2.3" data-path="sample.html"><a href="sample.html#dependent_samples"><i class="fa fa-check"></i><b>2.3</b> Зависимые и независимые выборки</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a><ul>
+<li class="chapter" data-level="3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="scales.html"><a href="scales.html#измерение-и-переменная"><i class="fa fa-check"></i><b>3.1</b> Измерение и переменная</a></li>
 <li class="chapter" data-level="3.2" data-path="scales.html"><a href="scales.html#количественные-и-неколичественные-данные"><i class="fa fa-check"></i><b>3.2</b> Количественные и неколичественные данные</a></li>
 <li class="chapter" data-level="3.3" data-path="scales.html"><a href="scales.html#типы-шкал"><i class="fa fa-check"></i><b>3.3</b> Типы шкал</a></li>
 <li class="chapter" data-level="3.4" data-path="scales.html"><a href="scales.html#непрерывные-и-дискретные-данные"><i class="fa fa-check"></i><b>3.4</b> Непрерывные и дискретные данные</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>4</b> Вероятность и случайные величины</a><ul>
+<li class="chapter" data-level="4" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>4</b> Вероятность и случайные величины</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="probability.html"><a href="probability.html#random-variable"><i class="fa fa-check"></i><b>4.1</b> Случайная величина</a></li>
 <li class="chapter" data-level="4.2" data-path="probability.html"><a href="probability.html#вероятность"><i class="fa fa-check"></i><b>4.2</b> Вероятность</a></li>
 <li class="chapter" data-level="4.3" data-path="probability.html"><a href="probability.html#дискретные-св-и-статистическое-определение-вероятности"><i class="fa fa-check"></i><b>4.3</b> Дискретные СВ и статистическое определение вероятности</a></li>
@@ -165,23 +169,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="probability.html"><a href="probability.html#непрерывные-св-и-геометрическое-определение-вероятности"><i class="fa fa-check"></i><b>4.5</b> Непрерывные СВ и геометрическое определение вероятности</a></li>
 <li class="chapter" data-level="4.6" data-path="probability.html"><a href="probability.html#график-плотности-вероятности-и-гистограмма"><i class="fa fa-check"></i><b>4.6</b> График плотности вероятности и гистограмма</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Распределения</a><ul>
+<li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Распределения</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="distributions.html"><a href="distributions.html#виды-распределений"><i class="fa fa-check"></i><b>5.1</b> Виды распределений</a></li>
 <li class="chapter" data-level="5.2" data-path="distributions.html"><a href="distributions.html#функции-распределения"><i class="fa fa-check"></i><b>5.2</b> Функции распределения</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a><ul>
+<li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#descriptive_vis"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a></li>
-<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a><ul>
+<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="descriptives.html"><a href="descriptives.html#среднее-медиана-мода"><i class="fa fa-check"></i><b>6.2.1</b> Среднее, медиана, мода</a></li>
 <li class="chapter" data-level="6.2.2" data-path="descriptives.html"><a href="descriptives.html#особенности-использования"><i class="fa fa-check"></i><b>6.2.2</b> Особенности использования</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="descriptives.html"><a href="descriptives.html#квантили-квартили-и-перцентили"><i class="fa fa-check"></i><b>6.3</b> Квантили, квартили и перцентили</a></li>
-<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.4</b> Меры вариативности</a><ul>
+<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.4</b> Меры вариативности</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="descriptives.html"><a href="descriptives.html#размах-стандартное-отклонение-и-дисперсия"><i class="fa fa-check"></i><b>6.4.1</b> Размах, стандартное отклонение и дисперсия</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="descriptives.html"><a href="descriptives.html#боксплот-и-вайолинплот"><i class="fa fa-check"></i><b>6.5</b> Боксплот и вайолинплот</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение и оценки</a><ul>
+<li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение и оценки</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="normdist.html"><a href="normdist.html#ctt"><i class="fa fa-check"></i><b>7.1</b> Центральная предельная теорема</a></li>
 <li class="chapter" data-level="7.2" data-path="normdist.html"><a href="normdist.html#standart_error"><i class="fa fa-check"></i><b>7.2</b> Стандартная ошибка среднего</a></li>
 <li class="chapter" data-level="7.3" data-path="normdist.html"><a href="normdist.html#нормальное-распределение-и-его-свойства"><i class="fa fa-check"></i><b>7.3</b> Нормальное распределение и его свойства</a></li>
@@ -189,15 +198,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="normdist.html"><a href="normdist.html#z-преобразование-и-стандартизация"><i class="fa fa-check"></i><b>7.5</b> Z-преобразование и стандартизация</a></li>
 <li class="chapter" data-level="7.6" data-path="normdist.html"><a href="normdist.html#доверительный-интервал"><i class="fa fa-check"></i><b>7.6</b> Доверительный интервал</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>8</b> Статистический вывод</a><ul>
+<li class="chapter" data-level="8" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>8</b> Статистический вывод</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="inference.html"><a href="inference.html#идея-статистического-вывода"><i class="fa fa-check"></i><b>8.1</b> Идея статистического вывода</a></li>
 <li class="chapter" data-level="8.2" data-path="inference.html"><a href="inference.html#nhst"><i class="fa fa-check"></i><b>8.2</b> NHST: алгоритм проверки гипотезы и анализа данных</a></li>
-<li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a><ul>
+<li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="inference.html"><a href="inference.html#variables"><i class="fa fa-check"></i><b>8.3.1</b> Зависимые и независимые переменные</a></li>
 <li class="chapter" data-level="8.3.2" data-path="inference.html"><a href="inference.html#уровни-нп-в-категориальных-переменных"><i class="fa fa-check"></i><b>8.3.2</b> Уровни НП в категориальных переменных</a></li>
 <li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#relationship"><i class="fa fa-check"></i><b>8.3.3</b> Связь между ЗП и НП</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="inference.html"><a href="inference.html#нулевая-и-альтернативные-статистические-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные статистические гипотезы</a><ul>
+<li class="chapter" data-level="8.4" data-path="inference.html"><a href="inference.html#нулевая-и-альтернативные-статистические-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные статистические гипотезы</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="inference.html"><a href="inference.html#направленные-и-ненаправленные-гипотезы"><i class="fa fa-check"></i><b>8.4.1</b> Направленные и ненаправленные гипотезы</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="inference.html"><a href="inference.html#уровень-значимости-и-статистическая-мощность"><i class="fa fa-check"></i><b>8.5</b> Уровень значимости и статистическая мощность</a></li>
@@ -205,22 +217,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки и размер эффекта</a></li>
 <li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#stat_test_example"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a><ul>
+<li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="stats_criteria.html"><a href="stats_criteria.html#степени-свободы"><i class="fa fa-check"></i><b>9.1</b> Степени свободы</a></li>
 <li class="chapter" data-level="9.2" data-path="stats_criteria.html"><a href="stats_criteria.html#ключевые-распределения-и-статистики-критериев-z-t-f"><i class="fa fa-check"></i><b>9.2</b> Ключевые распределения и статистики критериев (Z, T, F)</a></li>
-<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.3</b> Выбор статистического критерия</a><ul>
+<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.3</b> Выбор статистического критерия</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="stats_criteria.html"><a href="stats_criteria.html#param_nonparam"><i class="fa fa-check"></i><b>9.3.1</b> Параметрические и непараметрические критерии</a></li>
 <li class="chapter" data-level="9.3.2" data-path="stats_criteria.html"><a href="stats_criteria.html#зависимые-и-независимые-выборки"><i class="fa fa-check"></i><b>9.3.2</b> Зависимые и независимые выборки</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html"><i class="fa fa-check"></i><b>10</b> Сравнение средних по группам</a><ul>
-<li class="chapter" data-level="10.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#ttest"><i class="fa fa-check"></i><b>10.1</b> T-тест</a><ul>
+<li class="chapter" data-level="10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html"><i class="fa fa-check"></i><b>10</b> Сравнение средних по группам</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#ttest"><i class="fa fa-check"></i><b>10.1</b> T-тест</a>
+<ul>
 <li class="chapter" data-level="10.1.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#допущения-для-т-теста"><i class="fa fa-check"></i><b>10.1.1</b> Допущения для т-теста</a></li>
 <li class="chapter" data-level="10.1.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#непараметрические-аналоги"><i class="fa fa-check"></i><b>10.1.2</b> Непараметрические аналоги</a></li>
 <li class="chapter" data-level="10.1.3" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#независимые-и-парные-тесты"><i class="fa fa-check"></i><b>10.1.3</b> Независимые и парные тесты</a></li>
 <li class="chapter" data-level="10.1.4" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#вычисление-т-теста-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>10.1.4</b> Вычисление т-теста и непараметрических аналогов</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>10.2</b> ANOVA (дисперсионный анализ)</a><ul>
+<li class="chapter" data-level="10.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#anova"><i class="fa fa-check"></i><b>10.2</b> ANOVA (дисперсионный анализ)</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#levels"><i class="fa fa-check"></i><b>10.2.1</b> Факторы и уровни</a></li>
 <li class="chapter" data-level="10.2.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#почему-он-дисперсионный"><i class="fa fa-check"></i><b>10.2.2</b> Почему он дисперсионный</a></li>
 <li class="chapter" data-level="10.2.3" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#f-распределение-фишера"><i class="fa fa-check"></i><b>10.2.3</b> F-распределение (Фишера)</a></li>
@@ -233,8 +250,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#вычисление-anova-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>10.2.10</b> Вычисление ANOVA и непараметрических аналогов</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html"><i class="fa fa-check"></i><b>11</b> Проверка линейной свзяи</a><ul>
-<li class="chapter" data-level="11.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#corr_test"><i class="fa fa-check"></i><b>11.1</b> Корреляционный анализ</a><ul>
+<li class="chapter" data-level="11" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html"><i class="fa fa-check"></i><b>11</b> Проверка линейной свзяи</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#corr_test"><i class="fa fa-check"></i><b>11.1</b> Корреляционный анализ</a>
+<ul>
 <li class="chapter" data-level="11.1.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционный-тест"><i class="fa fa-check"></i><b>11.1.1</b> Корреляционный тест</a></li>
 <li class="chapter" data-level="11.1.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-корреляционного-теста"><i class="fa fa-check"></i><b>11.1.2</b> Допущения для корреляционного теста</a></li>
 <li class="chapter" data-level="11.1.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#непараметрические-аналоги-2"><i class="fa fa-check"></i><b>11.1.3</b> Непараметрические аналоги</a></li>
@@ -242,7 +261,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#интерпретация-результатов"><i class="fa fa-check"></i><b>11.1.5</b> Интерпретация результатов</a></li>
 <li class="chapter" data-level="11.1.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционные-матрицы"><i class="fa fa-check"></i><b>11.1.6</b> Корреляционные матрицы</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#линейный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a><ul>
+<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a>
+<ul>
 <li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициенты-регрессии"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
 <li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициент-детерминации-и-доля-объясненной-изменчивости"><i class="fa fa-check"></i><b>11.2.2</b> Коэффициент детерминации и доля объясненной изменчивости</a></li>
 <li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии"><i class="fa fa-check"></i><b>11.2.3</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
@@ -251,9 +271,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.2.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.6</b> Расчет регрессионного анализа</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html"><i class="fa fa-check"></i><b>12</b> Анализ категориальных данных</a><ul>
+<li class="chapter" data-level="12" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html"><i class="fa fa-check"></i><b>12</b> Анализ категориальных данных</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#логистическая-регрессия"><i class="fa fa-check"></i><b>12.1</b> Логистическая регрессия</a></li>
 <li class="chapter" data-level="12.2" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#хи-квадрат"><i class="fa fa-check"></i><b>12.2</b> Хи-квадрат</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="R_analysis.html"><a href="R_analysis.html"><i class="fa fa-check"></i><b>13</b> Введение в анализ данных в R</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="R_analysis.html"><a href="R_analysis.html#данные-и-переменные"><i class="fa fa-check"></i><b>13.1</b> Данные и переменные</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="R_analysis.html"><a href="R_analysis.html#data_types"><i class="fa fa-check"></i><b>13.1.1</b> Основные типы данных</a></li>
+<li class="chapter" data-level="13.1.2" data-path="R_analysis.html"><a href="R_analysis.html#data_structures"><i class="fa fa-check"></i><b>13.1.2</b> Основные структуры данных</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="R_analysis.html"><a href="R_analysis.html#operarions"><i class="fa fa-check"></i><b>13.2</b> Операции с переменными и функции</a></li>
+<li class="chapter" data-level="13.3" data-path="R_analysis.html"><a href="R_analysis.html#начало-работы-в-среде"><i class="fa fa-check"></i><b>13.3</b> Начало работы в среде</a></li>
+<li class="chapter" data-level="13.4" data-path="R_analysis.html"><a href="R_analysis.html#начало-работы-с-данными"><i class="fa fa-check"></i><b>13.4</b> Начало работы с данными</a></li>
+<li class="chapter" data-level="13.5" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem2"><i class="fa fa-check"></i><b>13.5</b> Задания после семинара 2</a></li>
+<li class="chapter" data-level="13.6" data-path="R_analysis.html"><a href="R_analysis.html#preprocessing"><i class="fa fa-check"></i><b>13.6</b> Предобработка данных</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="R_analysis.html"><a href="R_analysis.html#columns"><i class="fa fa-check"></i><b>13.6.1</b> Отбор колонок</a></li>
+<li class="chapter" data-level="13.6.2" data-path="R_analysis.html"><a href="R_analysis.html#filter"><i class="fa fa-check"></i><b>13.6.2</b> Фильтрация (отбор строк)</a></li>
+<li class="chapter" data-level="13.6.3" data-path="R_analysis.html"><a href="R_analysis.html#mutate"><i class="fa fa-check"></i><b>13.6.3</b> Создание колонок</a></li>
+<li class="chapter" data-level="13.6.4" data-path="R_analysis.html"><a href="R_analysis.html#NA"><i class="fa fa-check"></i><b>13.6.4</b> Работа с пропущенными значениями (NA)</a></li>
+<li class="chapter" data-level="13.6.5" data-path="R_analysis.html"><a href="R_analysis.html#sorting"><i class="fa fa-check"></i><b>13.6.5</b> Сортировка</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem3"><i class="fa fa-check"></i><b>13.7</b> Задания после семинара 3</a></li>
+<li class="chapter" data-level="13.8" data-path="R_analysis.html"><a href="R_analysis.html#descriptives_r"><i class="fa fa-check"></i><b>13.8</b> Описательные статистики и агрегация</a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="R_analysis.html"><a href="R_analysis.html#описательные-статистики"><i class="fa fa-check"></i><b>13.8.1</b> Описательные статистики</a></li>
+<li class="chapter" data-level="13.8.2" data-path="R_analysis.html"><a href="R_analysis.html#aggregate"><i class="fa fa-check"></i><b>13.8.2</b> Агрегация данных</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="R_analysis.html"><a href="R_analysis.html#visualization"><i class="fa fa-check"></i><b>13.9</b> Визуализации</a></li>
+<li class="chapter" data-level="13.10" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem4"><i class="fa fa-check"></i><b>13.10</b> Задания после семинара 4</a></li>
+<li class="chapter" data-level="13.11" data-path="R_analysis.html"><a href="R_analysis.html#проверка-гипотез"><i class="fa fa-check"></i><b>13.11</b> Проверка гипотез</a>
+<ul>
+<li class="chapter" data-level="13.11.1" data-path="R_analysis.html"><a href="R_analysis.html#корреляционный-тест-1"><i class="fa fa-check"></i><b>13.11.1</b> Корреляционный тест</a></li>
+<li class="chapter" data-level="13.11.2" data-path="R_analysis.html"><a href="R_analysis.html#т-тест"><i class="fa fa-check"></i><b>13.11.2</b> Т-тест</a></li>
+<li class="chapter" data-level="13.11.3" data-path="R_analysis.html"><a href="R_analysis.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>13.11.3</b> ANOVA (дисперсионный анализ)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.12" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem5"><i class="fa fa-check"></i><b>13.12</b> Задания после семинара 5</a></li>
 </ul></li>
 </ul>
 
@@ -272,11 +328,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stats_criteria_linear" class="section level1 hasAnchor">
+<div id="stats_criteria_linear" class="section level1 hasAnchor" number="11">
 <h1><span class="header-section-number">11</span> Проверка линейной свзяи<a href="stats_criteria_linear.html#stats_criteria_linear" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>До этого мы рассматривали виды статистического анализа, когда нужно было сравнить средние значения в нескольких группах. Зависимая переменная всегда была количественная (ее среднее значение по группам мы и сравнивали), а независимая – категориальная, принимала конечное число значений, и каждое ее значение – отдельный уровень НП, отдельная группа.</p>
 <p>Теперь мы переходим к статистическим критериям, которые используются, когда обе переменные, и ЗП, и НП – количественные.</p>
-<div id="corr_test" class="section level2 hasAnchor">
+<div id="corr_test" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">11.1</span> Корреляционный анализ<a href="stats_criteria_linear.html#corr_test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Корреляция</strong> – это связь между переменными. Несмотря на то, что она называется так же, как и один из двух видов связи между переменными, корреляционную связь можно выявить с помощью в целом любых видов анализа – ведь когда мы получаем результаты статистических критериев, мы понимем только, что две переменные связаны (или нет), но не можем сделать вывод о том, причинно-следственная это связь или корреляционная.</p>
 <p>Здесь речь пойдет именно про <strong>корреляционный анализ</strong> – специальный вид анализа для определения значимости линейной связи только между двумя количественными или порядковыми переменными.</p>
@@ -292,7 +348,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>Шок-контент: попробуйте посчитать ковариацию переменной самой с собой и посмотрите на получившуюся формулу: ничего не напоминает?</em></p>
 <div>
 <details>
-<summary><em>Ковариация самой с собой</em></summary>
+<summary>
+<em>Ковариация самой с собой</em>
+</summary>
 <p align="center">
 <span class="math inline">\(\text{cov}(x,x)=\frac{\sum_{i=1}^n (x_i - \bar x) (x_i - \bar x )}{n-1} = \frac{\sum_{i=1}^n (x_i - \bar x )^2}{n-1}\)</span>
 </p>
@@ -313,7 +371,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </p>
 <p>Игра по угадывание корреляции:
 <a href="http://guessthecorrelation.com/" class="uri">http://guessthecorrelation.com/</a></p>
-<div id="корреляционный-тест" class="section level3 hasAnchor">
+<div id="корреляционный-тест" class="section level3 hasAnchor" number="11.1.1">
 <h3><span class="header-section-number">11.1.1</span> Корреляционный тест<a href="stats_criteria_linear.html#корреляционный-тест" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Гипотезы о наличии линейной связи между переменными проверяются при помощи корреляционного теста. Это точно такой же статистический критерий, как и те, что мы уже разобрали. По сути – ровно то же самое, что линейная регрессия с одной переменной. Корреляционный тест применяется, когда и ЗП, и НП являются количественными переменными либо выраженными в порядковкой шкале (но не номинативной). Для количественной шкалы обычно используется коэффициент корреляции Пирсона, для порядковой или для количественной переменной с малым числом наблюдений – коэффициент корреляции Спирмена.</p>
 <p>Корреляционный тест использует – вы не поверите – уже знакомое нам T-распределение Стьюдента!
@@ -331,7 +389,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </p>
 <p>Как и остальные критерии, он имеет допущения.</p>
 </div>
-<div id="допущения-для-корреляционного-теста" class="section level3 hasAnchor">
+<div id="допущения-для-корреляционного-теста" class="section level3 hasAnchor" number="11.1.2">
 <h3><span class="header-section-number">11.1.2</span> Допущения для корреляционного теста<a href="stats_criteria_linear.html#допущения-для-корреляционного-теста" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>(ЗП и НП измерены в количественной или порядковой шкале)</p>
 <ol style="list-style-type: decimal">
@@ -344,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Картинка из <a href="https://en.wikipedia.org/wiki/Correlation">википедии про корреляцию</a>
 </p>
 </div>
-<div id="непараметрические-аналоги-2" class="section level3 hasAnchor">
+<div id="непараметрические-аналоги-2" class="section level3 hasAnchor" number="11.1.3">
 <h3><span class="header-section-number">11.1.3</span> Непараметрические аналоги<a href="stats_criteria_linear.html#непараметрические-аналоги-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Если ЗП сильно отличается от нормального распределения, или выборка мала, или ЗП закодирована в порядковой шкале – в корреляционном тесте используется коэффициент корреляции Спирмена вместо Пирсона, и это единственное различие.</p>
 <p>Есть еще тау-Кендалла, это почти то же самое, что и корреляция Спирмена, но мы не будем ее рассматривать, так как она применяется крайне редко.</p>
@@ -352,7 +410,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="docs/images/scheme-corr.png" width="70%" style="display: block; margin: auto;" />
 </p>
 </div>
-<div id="расчет-корреляционного-теста" class="section level3 hasAnchor">
+<div id="расчет-корреляционного-теста" class="section level3 hasAnchor" number="11.1.4">
 <h3><span class="header-section-number">11.1.4</span> Расчет корреляционного теста<a href="stats_criteria_linear.html#расчет-корреляционного-теста" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Проведем тест для следующей гипотезы.</p>
 <blockquote>
@@ -1810,7 +1868,7 @@ less
 <p>Пойдем также по алгоритму.</p>
 <p>ЗП – порядковая, НП – порядковая. Наша гипотеза не о сравнении групп между собой, а то, что эти переменные коррелируют, между ними есть линейная связь.</p>
 <p>Так как ЗП и НП порядковые, мне нужно использовать непараметрический аналог корреляциии Пирсона – ранговую корреляцию Спирмена (либо порядковую логистическую регрессию (если я хочу, чтобы связь имела предсказательную силу), но об этом не в этот раз).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="stats_criteria_linear.html#cb1-1"></a><span class="kw">cor.test</span>(students<span class="op">$</span>famrel, students<span class="op">$</span>Walc, <span class="dt">method =</span> <span class="st">&#39;spearman&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="stats_criteria_linear.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(students<span class="sc">$</span>famrel, students<span class="sc">$</span>Walc, <span class="at">method =</span> <span class="st">&#39;spearman&#39;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Spearman&#39;s rank correlation rho
 ## 
@@ -1831,7 +1889,7 @@ less
 <p>Другой вариант – хитмеп, тут размеры фиксированные, а за частоту совпадений отвечает цвет.
 <img src="StatsForDA_files/figure-html/corr%20heatmap-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="интерпретация-результатов" class="section level3 hasAnchor">
+<div id="интерпретация-результатов" class="section level3 hasAnchor" number="11.1.5">
 <h3><span class="header-section-number">11.1.5</span> Интерпретация результатов<a href="stats_criteria_linear.html#интерпретация-результатов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Когда мы интерпретируем результаты корреляционного теста, нас, как обычно, интересует значение статистики (t-значение или F-значение), p-value и размер эффекта. Для корреляционного теста значением статистики будет t-значение, но обычно фигурирует не оно, а коэффциент корреляции между переменными x и y <span class="math inline">\(r_xy\)</span> – он же является и размер эффекта, показателем величины различий. Корреляционный тест – это единственный тест, где нам не нужна дополнительная метрика о размере эффекта (например Cohen’s d), а мы уже по самому коэффициенту судим о силе различий.</p>
 <p>В примере выше мы получили r = -0.13. В коэффициенте корреляции мы смотрим на два параметра: это знак и модуль числа. Здесь у нас отрицательная корреляция, то есть связь будет обратной: с увеличением одной переменной (например, оценки качества семейных отношений <code>famrel</code>) будет уменьшаться вторая переменная (частота употребления алкоголя <code>Walc</code>). 0.13 по модулю – небольшое число, это довольно слабая корреляция (свериться с разбиением по размерам можно в разделе про <a href="inference.html#sample_size">размеры эффекта</a>).</p>
@@ -1842,7 +1900,7 @@ less
 <img src="docs/images/corr_causation.png" width="80%" style="display: block; margin: auto;" />
 </p>
 </div>
-<div id="корреляционные-матрицы" class="section level3 hasAnchor">
+<div id="корреляционные-матрицы" class="section level3 hasAnchor" number="11.1.6">
 <h3><span class="header-section-number">11.1.6</span> Корреляционные матрицы<a href="stats_criteria_linear.html#корреляционные-матрицы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Часто встречется анализ корреляционных матриц – когда корреляции вычисляются попарно для каждой матрицы переменных. Это можно встретить, например, при корреляции опросников: допустим, есть опросник О1 и О2. В опроснике О1 есть субшкалы С11, С12, С13, С14, С15, а в О2 соответственно – С21, С22, С23, С24, С25. Тогда мы можем построить корреляционную матрицу для субшкал этих опросников.</p>
 <p align="center">
@@ -1850,8 +1908,8 @@ less
 </p>
 </div>
 </div>
-<div id="линейный-регрессионный-анализ" class="section level2 hasAnchor">
-<h2><span class="header-section-number">11.2</span> Линейный регрессионный анализ<a href="stats_criteria_linear.html#линейный-регрессионный-анализ" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="linreg" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Линейный регрессионный анализ<a href="stats_criteria_linear.html#linreg" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Линейный регрессионный анализ</strong> – это ровно тот же известный нам ANOVA (дисперсионный анализ), только если заменить категориальные НП на количественные!</p>
 <p>Сама линейная регрессия – это прямая, которую мы пытаемся провести через все наши точки таким образом, чтобы она захватывала наибольшее их количество. По сути это то же самое, что и корреляция, только более мощный инструмент – сюда мы можем вводить несколько НП.</p>
 <p align="center">
@@ -1864,7 +1922,7 @@ less
 </ul>
 <p>Пока что нас интересует первая из этих функций, хотя очень часто линейный регрессионный анализ интересен именно с точки зрения второй.</p>
 <p>Регрессионный анализ строится на построении регрессионной прямой: любая прямая имеет вид <span class="math inline">\(y = kx + b\)</span>, в регрессионном анализе это уравнение часто записывается как <span class="math inline">\(y = b_0 + b_1x\)</span>. И задача регрессионного анализа – это определение и тестирование коэффициентов <span class="math inline">\(b_0\)</span> и <span class="math inline">\(b_1\)</span> линейной регрессии.</p>
-<div id="коэффициенты-регрессии" class="section level3 hasAnchor">
+<div id="коэффициенты-регрессии" class="section level3 hasAnchor" number="11.2.1">
 <h3><span class="header-section-number">11.2.1</span> Коэффициенты регрессии<a href="stats_criteria_linear.html#коэффициенты-регрессии" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 Уравнение проведенной нами регрессионной прямой:
 <p align="center">
@@ -1901,7 +1959,7 @@ less
 </p>
 <p>При подсчете коэффициентов первым высчитывается <span class="math inline">\(b_1\)</span>, и он, как видно из формулы, зависит от величины вариативности данных по переменным x и y (стандартных отклонений или дисперсий). <strong>В случае равной вариативности</strong> <span class="math inline">\(b_1\)</span> <strong>является коэффициентом корреляции</strong> <span class="math inline">\(r_{xy}\)</span></p>
 </div>
-<div id="коэффициент-детерминации-и-доля-объясненной-изменчивости" class="section level3 hasAnchor">
+<div id="коэффициент-детерминации-и-доля-объясненной-изменчивости" class="section level3 hasAnchor" number="11.2.2">
 <h3><span class="header-section-number">11.2.2</span> Коэффициент детерминации и доля объясненной изменчивости<a href="stats_criteria_linear.html#коэффициент-детерминации-и-доля-объясненной-изменчивости" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>В линейной регрессии, так же, как и в ANOVA, коэффициент детерминации говорит о <strong>проценте объясненной изменчивости</strong>, то есть как хорошо наша регрессионная модель объясняет изменчивость зависимой переменной.</p>
 <p>Так же, как и в ANOVA, сумма квадратов SST складывается из <strong>межгрупповой</strong> суммы квадратов (SSE, Sum of Squares Explained или SSB, Sum of Squares Between groups) и <strong>внутригрупповой</strong> (SSR, Sum of Squares Random или SSW, Sum of Squares Within groups).</p>
@@ -1935,7 +1993,7 @@ less
 <span class="math inline">\(R^2 = r_{xy}^2 = \frac{\text{cov(x, y)}}{sd_x sd_y} = \frac{\sum_{i=1}^n (x_i - \bar x) (y_i - \bar y )}{(n-1)sd_x sd_y}\)</span>
 </p>
 </div>
-<div id="регрессионный-анализ-тестирование-коэффициентов-регрессии" class="section level3 hasAnchor">
+<div id="регрессионный-анализ-тестирование-коэффициентов-регрессии" class="section level3 hasAnchor" number="11.2.3">
 <h3><span class="header-section-number">11.2.3</span> Регрессионный анализ (тестирование коэффициентов регрессии)<a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Регрессионный анализ – интересная штука, так как состоит из нескольких слоев, которые берут что-то от ANOVA, а что-то – от корреляционногоо анализа. Тестирование значимости коэффициентов проводится на основании критерия, принадлежащего семейству Т-распределений, так же, как и корреляционный анализ. А тестирование всей модели целиком проводится с использованием F-критерия, так же, как и ANOVA. Нас в регрессионном анализе больше интересует тестирование значимости коэффициентов – так как именно по коэффциентам, с которыми берутся факторы в модели, мы определяем, является влияние этих факторов значимым.</p>
 <p>Число степеней свободы рассчитывается по формуле:</p>
@@ -1958,14 +2016,14 @@ less
 <span class="math inline">\(T = \frac{b_1}{se}\)</span>
 </p>
 </div>
-<div id="множественный-регрессионный-анализ" class="section level3 hasAnchor">
+<div id="множественный-регрессионный-анализ" class="section level3 hasAnchor" number="11.2.4">
 <h3><span class="header-section-number">11.2.4</span> Множественный регрессионный анализ<a href="stats_criteria_linear.html#множественный-регрессионный-анализ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Множественный регрессионный анализ</strong> – подразумевает все то же самое, только появляются новые предикторы (независимые переменные, они же факторы)</p>
 <p align="center">
 <span class="math inline">\(\hat y = b_o + b_1x_1 + b_2x_2 + ... + b_nx_n\)</span>
 </p>
 </div>
-<div id="допущения-для-регрессионного-анализа" class="section level3 hasAnchor">
+<div id="допущения-для-регрессионного-анализа" class="section level3 hasAnchor" number="11.2.5">
 <h3><span class="header-section-number">11.2.5</span> Допущения для регрессионного анализа<a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>(ЗП и НП измерены в количественной или порядковой шкале)</p>
 <ol style="list-style-type: decimal">
@@ -1976,10 +2034,17 @@ less
 </ol>
 <p><a href="https://gallery.shinyapps.io/slr_diag/" class="uri">https://gallery.shinyapps.io/slr_diag/</a></p>
 </div>
-<div id="расчет-регрессионного-анализа" class="section level3 hasAnchor">
+<div id="расчет-регрессионного-анализа" class="section level3 hasAnchor" number="11.2.6">
 <h3><span class="header-section-number">11.2.6</span> Расчет регрессионного анализа<a href="stats_criteria_linear.html#расчет-регрессионного-анализа" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Когда мы проводим расчет регрессионного анализа, у нас в результате получается табличка вроде этой:</p>
 <table>
+<colgroup>
+<col width="22%" />
+<col width="38%" />
+<col width="14%" />
+<col width="13%" />
+<col width="11%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="center">Обозначение</th>
@@ -2097,205 +2162,10 @@ num_subscribers_log
 <tbody>
 <tr>
 <td style="text-align:right;">
-1853720
+1783138
 </td>
 <td style="text-align:left;">
-Doublez votre productivité: gestion du temps &amp; concentration
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-34.99
-</td>
-<td style="text-align:right;">
-3276
-</td>
-<td style="text-align:right;">
-4.325000
-</td>
-<td style="text-align:right;">
-931
-</td>
-<td style="text-align:right;">
-197
-</td>
-<td style="text-align:right;">
-43
-</td>
-<td style="text-align:right;">
-142
-</td>
-<td style="text-align:left;">
-2018-08-20 15:17:55
-</td>
-<td style="text-align:left;">
-2022-08-25
-</td>
-<td style="text-align:left;">
-Personal Development
-</td>
-<td style="text-align:left;">
-Personal Productivity
-</td>
-<td style="text-align:left;">
-Personal Productivity
-</td>
-<td style="text-align:left;">
-French
-</td>
-<td style="text-align:left;">
-/course/doublez-votre-productivite/
-</td>
-<td style="text-align:left;">
-Jamal Lazaar
-</td>
-<td style="text-align:left;">
-/user/jamal-lazaar/
-</td>
-<td style="text-align:right;">
-3.555062
-</td>
-<td style="text-align:right;">
-8.094378
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1301818
-</td>
-<td style="text-align:left;">
-The Complete Short Course on Dash Cryptocurrency
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-199.99
-</td>
-<td style="text-align:right;">
-9537
-</td>
-<td style="text-align:right;">
-4.750000
-</td>
-<td style="text-align:right;">
-29
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-53
-</td>
-<td style="text-align:right;">
-204
-</td>
-<td style="text-align:left;">
-2017-08-01 19:15:15
-</td>
-<td style="text-align:left;">
-2022-10-04
-</td>
-<td style="text-align:left;">
-Finance &amp; Accounting
-</td>
-<td style="text-align:left;">
-Cryptocurrency &amp; Blockchain
-</td>
-<td style="text-align:left;">
-Cryptocurrency
-</td>
-<td style="text-align:left;">
-English
-</td>
-<td style="text-align:left;">
-/course/dash-altcoin/
-</td>
-<td style="text-align:left;">
-Saad T. Hameed (STH) • 0.33+ Million Enrollments Worldwide
-</td>
-<td style="text-align:left;">
-/user/saad-tariq-9/
-</td>
-<td style="text-align:right;">
-5.298267
-</td>
-<td style="text-align:right;">
-9.162934
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4026708
-</td>
-<td style="text-align:left;">
-So bekommst du deinen Traumjob - Premium Bewerbungstraining
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-199.99
-</td>
-<td style="text-align:right;">
-39
-</td>
-<td style="text-align:right;">
-5.000000
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-22
-</td>
-<td style="text-align:right;">
-129
-</td>
-<td style="text-align:left;">
-2021-12-23 00:04:40
-</td>
-<td style="text-align:left;">
-2021-12-21
-</td>
-<td style="text-align:left;">
-Business
-</td>
-<td style="text-align:left;">
-Communication
-</td>
-<td style="text-align:left;">
-Job Search
-</td>
-<td style="text-align:left;">
-German
-</td>
-<td style="text-align:left;">
-/course/so-bekommst-du-deinen-traumjob-premium-bewerbungstraining/
-</td>
-<td style="text-align:left;">
-Carsanbali Akademie
-</td>
-<td style="text-align:left;">
-/user/hulusi-carsanbali/
-</td>
-<td style="text-align:right;">
-5.298267
-</td>
-<td style="text-align:right;">
-3.663562
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2956480
-</td>
-<td style="text-align:left;">
-Première Pro : Kit de démarrage en 10 étapes
+Accounting-Debits &amp; Credits-Practice Test Questions-Bookkeep
 </td>
 <td style="text-align:left;">
 TRUE
@@ -2304,193 +2174,193 @@ TRUE
 19.99
 </td>
 <td style="text-align:right;">
-45
+1452
 </td>
 <td style="text-align:right;">
-4.800000
+4.200000
 </td>
 <td style="text-align:right;">
-19
+16
 </td>
 <td style="text-align:right;">
-8
+4
 </td>
 <td style="text-align:right;">
-15
+25
 </td>
 <td style="text-align:right;">
-39
+278
 </td>
 <td style="text-align:left;">
-2020-04-15 15:00:27
+2018-07-07 17:20:42
 </td>
 <td style="text-align:left;">
-2020-06-09
-</td>
-<td style="text-align:left;">
-Photography &amp; Video
-</td>
-<td style="text-align:left;">
-Video Design
-</td>
-<td style="text-align:left;">
-Adobe Premiere
-</td>
-<td style="text-align:left;">
-French
-</td>
-<td style="text-align:left;">
-/course/premiere-pro-en-10-etapes/
-</td>
-<td style="text-align:left;">
-Sébastien Lardon
-</td>
-<td style="text-align:left;">
-/user/sebastien-lardon/
-</td>
-<td style="text-align:right;">
-2.995232
-</td>
-<td style="text-align:right;">
-3.806662
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3998342
-</td>
-<td style="text-align:left;">
-How To Not Blow Up Your Trading Account!
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-99.99
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-27
-</td>
-<td style="text-align:right;">
-368
-</td>
-<td style="text-align:left;">
-2021-05-15 20:00:04
-</td>
-<td style="text-align:left;">
-2021-05-12
+2018-07-06
 </td>
 <td style="text-align:left;">
 Finance &amp; Accounting
 </td>
 <td style="text-align:left;">
-Investing &amp; Trading
+Accounting &amp; Bookkeeping
 </td>
 <td style="text-align:left;">
-Stock Trading
+Test Taking Skills
 </td>
 <td style="text-align:left;">
 English
 </td>
 <td style="text-align:left;">
-/course/how-to-not-blow-up-your-trading-account/
+/course/accounting-debits-credits-practice-test-questions/
 </td>
 <td style="text-align:left;">
-Russell Barbour
+Robert (Bob) Steele
 </td>
 <td style="text-align:left;">
-/user/russell-barbour-2/
+/user/c91d6786-95f3-48d8-ab94-cc92431d2aa4/
 </td>
 <td style="text-align:right;">
-4.605070
+2.995232
 </td>
 <td style="text-align:right;">
-1.609438
+7.280697
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-1513188
+993160
 </td>
 <td style="text-align:left;">
-Purpose Driven Business Analyst Career - Advance
+Get Credit for Your EIN That’s Not Linked to Your SSN
 </td>
 <td style="text-align:left;">
 TRUE
 </td>
 <td style="text-align:right;">
-189.99
+19.99
 </td>
 <td style="text-align:right;">
-88
+1591
 </td>
 <td style="text-align:right;">
-4.300000
+4.416666
 </td>
 <td style="text-align:right;">
-17
+294
 </td>
 <td style="text-align:right;">
-8
+91
 </td>
 <td style="text-align:right;">
-17
+15
 </td>
 <td style="text-align:right;">
-244
+87
 </td>
 <td style="text-align:left;">
-2018-01-25 14:02:03
+2016-12-14 17:29:34
 </td>
 <td style="text-align:left;">
-2018-01-31
+2016-12-08
 </td>
 <td style="text-align:left;">
-IT &amp; Software
+Finance &amp; Accounting
 </td>
 <td style="text-align:left;">
-Other IT &amp; Software
+Finance
 </td>
 <td style="text-align:left;">
-Business Analysis
+Business Fundamentals
 </td>
 <td style="text-align:left;">
 English
 </td>
 <td style="text-align:left;">
-/course/gurusodyssey_smartba2/
+/course/business-credit/
 </td>
 <td style="text-align:left;">
-Amit Gupta
+Ty Crandall
 </td>
 <td style="text-align:left;">
-/user/f5adf30f-a020-4440-aae7-aac6265f0fa1/
+/user/ty-crandall/
 </td>
 <td style="text-align:right;">
-5.246971
+2.995232
 </td>
 <td style="text-align:right;">
-4.477337
+7.372118
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-4038274
+1198414
 </td>
 <td style="text-align:left;">
-Unarmed Combat Techniques of The Samurai
+Como administrar um pequeno grande negócio
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+179.90
+</td>
+<td style="text-align:right;">
+6354
+</td>
+<td style="text-align:right;">
+4.050000
+</td>
+<td style="text-align:right;">
+274
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+293
+</td>
+<td style="text-align:left;">
+2017-05-01 02:04:07
+</td>
+<td style="text-align:left;">
+2021-09-08
+</td>
+<td style="text-align:left;">
+Finance &amp; Accounting
+</td>
+<td style="text-align:left;">
+Finance
+</td>
+<td style="text-align:left;">
+Entrepreneurship Fundamentals
+</td>
+<td style="text-align:left;">
+Portuguese
+</td>
+<td style="text-align:left;">
+/course/como-administrar-um-pequeno-negocio/
+</td>
+<td style="text-align:left;">
+Tiago Bacciotti Moreira
+</td>
+<td style="text-align:left;">
+/user/tiagobaciottimoreira/
+</td>
+<td style="text-align:right;">
+5.192401
+</td>
+<td style="text-align:right;">
+8.756840
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+979686
+</td>
+<td style="text-align:left;">
+Painting Wild Places with Watercolors: Placid Lake
 </td>
 <td style="text-align:left;">
 TRUE
@@ -2499,72 +2369,7 @@ TRUE
 29.99
 </td>
 <td style="text-align:right;">
-29
-</td>
-<td style="text-align:right;">
-4.666666
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-75
-</td>
-<td style="text-align:left;">
-2021-05-13 07:13:50
-</td>
-<td style="text-align:left;">
-2021-05-10
-</td>
-<td style="text-align:left;">
-Health &amp; Fitness
-</td>
-<td style="text-align:left;">
-Martial Arts &amp; Self Defense
-</td>
-<td style="text-align:left;">
-Martial Arts
-</td>
-<td style="text-align:left;">
-English
-</td>
-<td style="text-align:left;">
-/course/gyokko-ryu-kosshi-jutsu/
-</td>
-<td style="text-align:left;">
-Edward Aponte
-</td>
-<td style="text-align:left;">
-/user/edward-aponte/
-</td>
-<td style="text-align:right;">
-3.400864
-</td>
-<td style="text-align:right;">
-3.367296
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3249892
-</td>
-<td style="text-align:left;">
-2 in 1 Arcore &amp; Vuforia in Unity 3D : Make Stack Game AR
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-199.99
-</td>
-<td style="text-align:right;">
-10
+65
 </td>
 <td style="text-align:right;">
 0.000000
@@ -2579,170 +2384,430 @@ TRUE
 7
 </td>
 <td style="text-align:right;">
-95
+34
 </td>
 <td style="text-align:left;">
-2020-06-23 02:37:15
+2016-10-14 15:34:30
 </td>
 <td style="text-align:left;">
-2020-06-19
-</td>
-<td style="text-align:left;">
-Development
-</td>
-<td style="text-align:left;">
-Game Development
-</td>
-<td style="text-align:left;">
-Game Mechanics
-</td>
-<td style="text-align:left;">
-English
-</td>
-<td style="text-align:left;">
-/course/arcore-augmented-reality-mapbox-ar-foundation-vuforia-unity-android/
-</td>
-<td style="text-align:left;">
-Abderrahmen Brinis
-</td>
-<td style="text-align:left;">
-/user/brinis-abderahmen/
-</td>
-<td style="text-align:right;">
-5.298267
-</td>
-<td style="text-align:right;">
-2.302585
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4076116
-</td>
-<td style="text-align:left;">
-Etkili Ebeveyn
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-1.00
-</td>
-<td style="text-align:right;">
-35
-</td>
-<td style="text-align:right;">
-4.375000
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-89
-</td>
-<td style="text-align:right;">
-506
-</td>
-<td style="text-align:left;">
-2021-09-12 15:51:32
-</td>
-<td style="text-align:left;">
-2021-09-13
-</td>
-<td style="text-align:left;">
-Personal Development
-</td>
-<td style="text-align:left;">
-Parenting &amp; Relationships
-</td>
-<td style="text-align:left;">
-Parenting
-</td>
-<td style="text-align:left;">
-Turkish
-</td>
-<td style="text-align:left;">
-/course/etkili-ebeveyn/
-</td>
-<td style="text-align:left;">
-Kariyer Yöntem
-</td>
-<td style="text-align:left;">
-/user/kariyer-yontem/
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-3.555348
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1200308
-</td>
-<td style="text-align:left;">
-Energy Balancing For Body, Mind &amp; Spirit
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-39.99
-</td>
-<td style="text-align:right;">
-455
-</td>
-<td style="text-align:right;">
-4.750000
-</td>
-<td style="text-align:right;">
-78
-</td>
-<td style="text-align:right;">
-43
-</td>
-<td style="text-align:right;">
-20
-</td>
-<td style="text-align:right;">
-74
-</td>
-<td style="text-align:left;">
-2017-05-04 21:02:24
-</td>
-<td style="text-align:left;">
-2021-07-28
+2016-10-23
 </td>
 <td style="text-align:left;">
 Lifestyle
 </td>
 <td style="text-align:left;">
-Esoteric Practices
+Arts &amp; Crafts
 </td>
 <td style="text-align:left;">
-Energy Healing
+Watercolor Painting
 </td>
 <td style="text-align:left;">
 English
 </td>
 <td style="text-align:left;">
-/course/energy-balancing-for-body-mind-spirit/
+/course/paint-placidlake/
 </td>
 <td style="text-align:left;">
-Daniela Hills
+Gary Spetz
 </td>
 <td style="text-align:left;">
-/user/daniela-hills/
+/user/gary-spetz/
 </td>
 <td style="text-align:right;">
-3.688629
+3.400864
 </td>
 <td style="text-align:right;">
-6.120297
+4.174387
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+317278
+</td>
+<td style="text-align:left;">
+Typographic Logos: Typography and Lettering for Logo Design
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+24.99
+</td>
+<td style="text-align:right;">
+11059
+</td>
+<td style="text-align:right;">
+4.452381
+</td>
+<td style="text-align:right;">
+2052
+</td>
+<td style="text-align:right;">
+547
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+91
+</td>
+<td style="text-align:left;">
+2014-10-16 19:30:01
+</td>
+<td style="text-align:left;">
+2016-04-26
+</td>
+<td style="text-align:left;">
+Design
+</td>
+<td style="text-align:left;">
+Graphic Design &amp; Illustration
+</td>
+<td style="text-align:left;">
+Logo Design
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/typographic-logos-typography-and-lettering-for-logo-design/
+</td>
+<td style="text-align:left;">
+Ray Dombroski
+</td>
+<td style="text-align:left;">
+/user/raydombroski/
+</td>
+<td style="text-align:right;">
+3.218476
+</td>
+<td style="text-align:right;">
+9.311000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2658982
+</td>
+<td style="text-align:left;">
+Advanced CGI / VFX Compositing
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+179.99
+</td>
+<td style="text-align:right;">
+254
+</td>
+<td style="text-align:right;">
+4.150000
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+120
+</td>
+<td style="text-align:left;">
+2019-11-19 14:24:57
+</td>
+<td style="text-align:left;">
+2019-11-18
+</td>
+<td style="text-align:left;">
+Design
+</td>
+<td style="text-align:left;">
+3D &amp; Animation
+</td>
+<td style="text-align:left;">
+After Effects
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/advanced-cgi-compositing/
+</td>
+<td style="text-align:left;">
+Digital Learning Solutions
+</td>
+<td style="text-align:left;">
+/user/digital-learning-solutions/
+</td>
+<td style="text-align:right;">
+5.192901
+</td>
+<td style="text-align:right;">
+5.537334
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4473302
+</td>
+<td style="text-align:left;">
+2022 Complete Data Structures: Data Structures With Python
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+19.99
+</td>
+<td style="text-align:right;">
+9861
+</td>
+<td style="text-align:right;">
+4.300000
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+122
+</td>
+<td style="text-align:left;">
+2022-02-01 09:00:08
+</td>
+<td style="text-align:left;">
+2022-03-12
+</td>
+<td style="text-align:left;">
+Development
+</td>
+<td style="text-align:left;">
+Programming Languages
+</td>
+<td style="text-align:left;">
+Data Structures
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/data-structures-with-python3/
+</td>
+<td style="text-align:left;">
+Shantanu Jumde
+</td>
+<td style="text-align:left;">
+/user/shantanu-jumde/
+</td>
+<td style="text-align:right;">
+2.995232
+</td>
+<td style="text-align:right;">
+9.196343
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4904506
+</td>
+<td style="text-align:left;">
+How To Be Successful: Mindset &amp; How Mindsets Are Formed
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+59.99
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.000000
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:left;">
+2022-09-30 04:29:12
+</td>
+<td style="text-align:left;">
+2022-10-01
+</td>
+<td style="text-align:left;">
+Personal Development
+</td>
+<td style="text-align:left;">
+Personal Transformation
+</td>
+<td style="text-align:left;">
+Growth Mindset
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/how-to-be-successful-mindset-how-mindsets-are-formed/
+</td>
+<td style="text-align:left;">
+RANSFORD AKUFFO
+</td>
+<td style="text-align:left;">
+/user/ransford-akuffo/
+</td>
+<td style="text-align:right;">
+4.094178
+</td>
+<td style="text-align:right;">
+1.386294
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4788742
+</td>
+<td style="text-align:left;">
+IT Essentials - PC Hardware &amp; Software v7 - Português - PT
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+24.99
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4.000000
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+1093
+</td>
+<td style="text-align:left;">
+2022-08-12 17:48:22
+</td>
+<td style="text-align:left;">
+2022-08-12
+</td>
+<td style="text-align:left;">
+IT &amp; Software
+</td>
+<td style="text-align:left;">
+IT Certifications
+</td>
+<td style="text-align:left;">
+CompTIA A+
+</td>
+<td style="text-align:left;">
+Portuguese
+</td>
+<td style="text-align:left;">
+/course/cisco-ite-v7-pt-pt/
+</td>
+<td style="text-align:left;">
+João Pedro Esteves Antunes Inácio
+</td>
+<td style="text-align:left;">
+/user/joao-pedro-esteves-antunes-inacio/
+</td>
+<td style="text-align:right;">
+3.218476
+</td>
+<td style="text-align:right;">
+1.386294
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+500402
+</td>
+<td style="text-align:left;">
+How to Create &amp; Sell Information Products Fast!
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+159.99
+</td>
+<td style="text-align:right;">
+1294
+</td>
+<td style="text-align:right;">
+3.600000
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+81
+</td>
+<td style="text-align:left;">
+2015-06-11 18:12:58
+</td>
+<td style="text-align:left;">
+2015-06-28
+</td>
+<td style="text-align:left;">
+Business
+</td>
+<td style="text-align:left;">
+Media
+</td>
+<td style="text-align:left;">
+Sales Skills
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/make-money-online-how-to-create-your-own-product/
+</td>
+<td style="text-align:left;">
+Jim Shirley
+</td>
+<td style="text-align:left;">
+/user/550613ee5dcdb/
+</td>
+<td style="text-align:right;">
+5.075111
+</td>
+<td style="text-align:right;">
+7.165494
 </td>
 </tr>
 </tbody>
@@ -2785,18 +2850,18 @@ Daniela Hills
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -150.89  -42.81  -11.77   34.45  202.65 
+## -172.00  -42.43  -11.62   41.14  185.95 
 ## 
 ## Coefficients:
 ##                          Estimate Std. Error t value            Pr(&gt;|t|)    
-## (Intercept)               63.7248     5.1037   12.49 &lt;0.0000000000000002 ***
-## udemy_model$num_lectures   2.7248     0.1953   13.95 &lt;0.0000000000000002 ***
+## (Intercept)               69.4697     4.9977   13.90 &lt;0.0000000000000002 ***
+## udemy_model$num_lectures   2.5986     0.1765   14.72 &lt;0.0000000000000002 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 60.69 on 465 degrees of freedom
-## Multiple R-squared:  0.295,  Adjusted R-squared:  0.2935 
-## F-statistic: 194.6 on 1 and 465 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+## Residual standard error: 60.18 on 523 degrees of freedom
+## Multiple R-squared:  0.2929, Adjusted R-squared:  0.2916 
+## F-statistic: 216.7 on 1 and 523 DF,  p-value: &lt; 0.00000000000000022</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>Интерпретируем результаты: чему равно p-value для коэффициента <code>num_lectures</code>? Видим, что оно очень маленькое и явно меньше зявленного уровня alpha – то есть коэффициент значим, наша гипотеза о том, что количество уроков определяет длительность курса, подтвердилось, ура! Чему равно само значение коэффиента? Примерно 2.16. То есть с увеличением количества уроков на 1 длина курса будет увеличиваться на 2.16 минуты! Чему равен <span class="math inline">\(R^2\)</span>? Он равен 0.19, что в целом вообще-то не очень много, но уже результат. То есть, 19% изменчивости наших данных по длительности курса определяются количеством уроков!</li>
 </ol>
@@ -2805,8 +2870,8 @@ Daniela Hills
 <span class="math inline">\(\hat content\_length\_min = 81.94 + 2.16 \times num\_lectures\)</span>
 </p>
 <p>Проведем тот же анализ, но с учетом нескольких факторов (предикторов). Предположим, что длительность курса также объясняется числом подписчиков <code>num_subscribers</code></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="stats_criteria_linear.html#cb4-1"></a>model_length2 &lt;-<span class="st"> </span><span class="kw">lm</span>(udemy_model<span class="op">$</span>content_length_min <span class="op">~</span><span class="st"> </span>udemy_model<span class="op">$</span>num_lectures <span class="op">+</span><span class="st"> </span>udemy_model<span class="op">$</span>num_subscribers_log) </span>
-<span id="cb4-2"><a href="stats_criteria_linear.html#cb4-2"></a><span class="kw">summary</span>(model_length2)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="stats_criteria_linear.html#cb4-1" aria-hidden="true" tabindex="-1"></a>model_length2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(udemy_model<span class="sc">$</span>content_length_min <span class="sc">~</span> udemy_model<span class="sc">$</span>num_lectures <span class="sc">+</span> udemy_model<span class="sc">$</span>num_subscribers_log) </span>
+<span id="cb4-2"><a href="stats_criteria_linear.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_length2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = udemy_model$content_length_min ~ udemy_model$num_lectures + 
@@ -2814,13 +2879,13 @@ Daniela Hills
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -151.09  -43.12  -12.36   33.65  201.50 
+## -174.76  -42.81  -12.02   40.97  186.54 
 ## 
 ## Coefficients:
 ##                                 Estimate Std. Error t value            Pr(&gt;|t|)
-## (Intercept)                      65.0515     7.6129   8.545 &lt;0.0000000000000002
-## udemy_model$num_lectures          2.7361     0.2014  13.587 &lt;0.0000000000000002
-## udemy_model$num_subscribers_log  -0.3378     1.4372  -0.235               0.814
+## (Intercept)                      73.3920     7.3801   9.945 &lt;0.0000000000000002
+## udemy_model$num_lectures          2.6309     0.1822  14.439 &lt;0.0000000000000002
+## udemy_model$num_subscribers_log  -0.9901     1.3702  -0.723                0.47
 ##                                    
 ## (Intercept)                     ***
 ## udemy_model$num_lectures        ***
@@ -2828,9 +2893,9 @@ Daniela Hills
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 60.75 on 464 degrees of freedom
-## Multiple R-squared:  0.2951, Adjusted R-squared:  0.2921 
-## F-statistic: 97.13 on 2 and 464 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+## Residual standard error: 60.21 on 522 degrees of freedom
+## Multiple R-squared:  0.2936, Adjusted R-squared:  0.2909 
+## F-statistic: 108.5 on 2 and 522 DF,  p-value: &lt; 0.00000000000000022</code></pre>
 <p>Что можно сказать про эти результата? Оба ли коэффициента значимы?</p>
 
 </div>
@@ -2902,7 +2967,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
