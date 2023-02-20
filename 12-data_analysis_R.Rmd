@@ -893,6 +893,8 @@ wilcox.test(whr_ttest$Family ~ whr_ttest$Region, alternative = "less", paired = 
 Чтобы было удобнее с ним работать для проверки гипотез, я сделала его предобработку -- при повторении попробуйте ее разобрать, что делает каждая строчка? Показалось ли что-то новым? 
 
 ```{r eval=TRUE, echo = TRUE, message = FALSE}
+
+whr <- read_csv("2016.csv")
 whr_2019 <- readxl::read_xls("Chapter2OnlineData2019.xls")
 
 whr_2019 %>%
