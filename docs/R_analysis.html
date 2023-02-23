@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2023-02-20" />
+<meta name="date" content="2023-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -259,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#интерпретация-результатов"><i class="fa fa-check"></i><b>11.1.5</b> Интерпретация результатов</a></li>
 <li class="chapter" data-level="11.1.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционные-матрицы"><i class="fa fa-check"></i><b>11.1.6</b> Корреляционные матрицы</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#линейный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a>
+<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a>
 <ul>
 <li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициенты-регрессии"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
 <li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициент-детерминации-и-доля-объясненной-изменчивости"><i class="fa fa-check"></i><b>11.2.2</b> Коэффициент детерминации и доля объясненной изменчивости</a></li>
@@ -305,9 +305,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="13.11.1" data-path="R_analysis.html"><a href="R_analysis.html#корреляционный-тест-1"><i class="fa fa-check"></i><b>13.11.1</b> Корреляционный тест</a></li>
 <li class="chapter" data-level="13.11.2" data-path="R_analysis.html"><a href="R_analysis.html#т-тест"><i class="fa fa-check"></i><b>13.11.2</b> Т-тест</a></li>
-<li class="chapter" data-level="13.11.3" data-path="R_analysis.html"><a href="R_analysis.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>13.11.3</b> ANOVA (дисперсионный анализ)</a></li>
 </ul></li>
 <li class="chapter" data-level="13.12" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem5"><i class="fa fa-check"></i><b>13.12</b> Задания после семинара 5</a></li>
+<li class="chapter" data-level="13.13" data-path="R_analysis.html"><a href="R_analysis.html#проверка-гипоте-2-anova-и-линейная-регрессия"><i class="fa fa-check"></i><b>13.13</b> Проверка гипоте-2: ANOVA и линейная регрессия</a>
+<ul>
+<li class="chapter" data-level="13.13.1" data-path="R_analysis.html"><a href="R_analysis.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>13.13.1</b> ANOVA (дисперсионный анализ)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.14" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem6"><i class="fa fa-check"></i><b>13.14</b> Задания после семинара 6</a></li>
 </ul></li>
 </ul>
 
@@ -1509,25 +1513,44 @@ summary(whr_new$<code>Happiness Score</code>)</p>
 ##                                 5.370690 
 ##             mean in group Western Europe 
 ##                                 6.685667</code></pre>
-<p>Аргумент <code>alternative</code> обозначает, какова наша альтернативная гипотеза (противоположная нулевой): что средние в группых <em>не равны</em> или что среднее в одной из групп <em>меньше или больше,</em> чем в другой. Аргумент <code>paired</code> указывает, нужно ли проводить зависимый т-тест. В данном случае, у нас независимые выборки, и зависимый т-тест не нужен.</p>
-<p>Нам может пригодиться знать и другой вариант записи т-теста и его непараметрических аналогов – не через указание переменных из данных (обратите внимание – мы эксплицитно задавали аргумент <code>data</code>), а без указания данных, просто передав ему два вектора:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="R_analysis.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Фильтруем только те регионы, которые будем проверять</span></span>
-<span id="cb207-2"><a href="R_analysis.html#cb207-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-3"><a href="R_analysis.html#cb207-3" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
-<span id="cb207-4"><a href="R_analysis.html#cb207-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Central and Eastern Europe&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb207-5"><a href="R_analysis.html#cb207-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb207-6"><a href="R_analysis.html#cb207-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="ot">-&gt;</span> whr_tests_CEE</span>
-<span id="cb207-7"><a href="R_analysis.html#cb207-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-8"><a href="R_analysis.html#cb207-8" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
-<span id="cb207-9"><a href="R_analysis.html#cb207-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb207-10"><a href="R_analysis.html#cb207-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb207-11"><a href="R_analysis.html#cb207-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="ot">-&gt;</span> whr_tests_WE</span>
-<span id="cb207-12"><a href="R_analysis.html#cb207-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-13"><a href="R_analysis.html#cb207-13" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(whr_tests_CEE)</span></code></pre></div>
+<p>Аргумент <code>alternative</code> обозначает, какова наша альтернативная гипотеза (противоположная нулевой): что средние в группых просто <em>не равны</em> или что среднее в одной из групп <em>меньше или больше,</em> чем в другой. Аргумент <code>paired</code> указывает, нужно ли проводить зависимый т-тест (когда мы используем одну и ту же выборку и делаем на ней несколько измерений). В данном случае, у нас независимые выборки, и зависимый т-тест не нужен.</p>
+<p>Как проинтерпретировать эти результаты? Первое, на что мы смотрим – это p-value (колонка Pr(F)). Если оно меньше установленного уровня <span class="math inline">\(\alpha\)</span>, то мы говорим, что <em>отвергаем нулевую гипотезу, и мы получили статистически значимые резличия</em>. Если p-value больше или равно <span class="math inline">\(\alpha\)</span> – <em>у нас недостаточно свидетельств в пользу альтернативной гипотезы, и мы говорим, что не отвергаем нулевую гипотезу</em>.</p>
+<p>Чем хороша форма записи через %&gt;% – мы можем сразу внутри одного пайпа и отфильтровать данные, и сделать т-тест! На том же самом примере, только теперь сразу отфильтруем данные и сделаем т-тест на отфильтрованных данных, без создания отдельного датасета <code>whr_ttest</code>:</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="R_analysis.html#cb207-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span> </span>
+<span id="cb207-2"><a href="R_analysis.html#cb207-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Central and Eastern Europe&quot;</span> <span class="sc">|</span> Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb207-3"><a href="R_analysis.html#cb207-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span> <span class="sc">~</span> Region, <span class="at">data =</span> ., <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)  <span class="co"># ставим точку вместо названия датасета</span></span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Happiness Score by Region
+## t = -6.4412, df = 35.349, p-value = 0.00000009733
+## alternative hypothesis: true difference in means between group Central and Eastern Europe and group Western Europe is less than 0
+## 95 percent confidence interval:
+##        -Inf -0.9701413
+## sample estimates:
+## mean in group Central and Eastern Europe 
+##                                 5.370690 
+##             mean in group Western Europe 
+##                                 6.685667</code></pre>
+<p>Обратите внимание – в функции t.test данные стоят не на первом месте, как нам нужно для того, чтобы использовать нотацию пайпа. Но это довольно просто решается: в любой функции, чтобы использовать ее внутри пайпа, нужно поставить точку в том месте, куда мы хотим передать результат выполнения предыдущей строки пайпа.</p>
+<p>Иногда бывает проще все-таки сделать больше действий, но последовательно, поэтому может пригодиться знать и другой вариант записи т-теста и его непараметрических аналогов – не через указание переменных из данных (обратите внимание – мы эксплицитно задавали аргумент <code>data</code>), а без указания данных, просто передав ему два вектора (я редко использую такой формат записи, но не потому, что он хуже – я это делаю для экономии времени, и чтобы не запутаться в созданных мной во время работы над учебником переменных):</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="R_analysis.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Фильтруем только те регионы, которые будем проверять</span></span>
+<span id="cb209-2"><a href="R_analysis.html#cb209-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb209-3"><a href="R_analysis.html#cb209-3" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb209-4"><a href="R_analysis.html#cb209-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Central and Eastern Europe&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb209-5"><a href="R_analysis.html#cb209-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb209-6"><a href="R_analysis.html#cb209-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="ot">-&gt;</span> whr_tests_CEE</span>
+<span id="cb209-7"><a href="R_analysis.html#cb209-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb209-8"><a href="R_analysis.html#cb209-8" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb209-9"><a href="R_analysis.html#cb209-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb209-10"><a href="R_analysis.html#cb209-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb209-11"><a href="R_analysis.html#cb209-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="ot">-&gt;</span> whr_tests_WE</span>
+<span id="cb209-12"><a href="R_analysis.html#cb209-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb209-13"><a href="R_analysis.html#cb209-13" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(whr_tests_CEE)</span></code></pre></div>
 <pre><code>## [1] 0.3485667</code></pre>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="R_analysis.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(whr_tests_WE)</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="R_analysis.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(whr_tests_WE)</span></code></pre></div>
 <pre><code>## [1] 0.6228212</code></pre>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="R_analysis.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(whr_tests_CEE, whr_tests_WE, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="R_analysis.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(whr_tests_CEE, whr_tests_WE, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -1539,7 +1562,7 @@ summary(whr_new$<code>Happiness Score</code>)</p>
 ## sample estimates:
 ## mean of x mean of y 
 ##  5.370690  6.685667</code></pre>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="R_analysis.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(whr_tests_CEE, whr_tests_WE, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="R_analysis.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(whr_tests_CEE, whr_tests_WE, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -1551,7 +1574,7 @@ summary(whr_new$<code>Happiness Score</code>)</p>
 ## sample estimates:
 ## mean of x mean of y 
 ##  5.370690  6.685667</code></pre>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="R_analysis.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(whr_tests_CEE, whr_tests_WE, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="R_analysis.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(whr_tests_CEE, whr_tests_WE, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -1564,96 +1587,350 @@ summary(whr_new$<code>Happiness Score</code>)</p>
 ## mean of x mean of y 
 ##  5.370690  6.685667</code></pre>
 <p>Построим визуализации</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="R_analysis.html#cb217-1" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
-<span id="cb217-2"><a href="R_analysis.html#cb217-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb217-3"><a href="R_analysis.html#cb217-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb217-4"><a href="R_analysis.html#cb217-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="R_analysis.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;viridis&quot;)</span></span>
-<span id="cb218-2"><a href="R_analysis.html#cb218-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;wesanderson&quot;)</span></span>
-<span id="cb218-3"><a href="R_analysis.html#cb218-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
-<span id="cb218-4"><a href="R_analysis.html#cb218-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
-<span id="cb218-5"><a href="R_analysis.html#cb218-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb218-6"><a href="R_analysis.html#cb218-6" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
-<span id="cb218-7"><a href="R_analysis.html#cb218-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">fill =</span> Region)) <span class="sc">+</span></span>
-<span id="cb218-8"><a href="R_analysis.html#cb218-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb218-9"><a href="R_analysis.html#cb218-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb218-10"><a href="R_analysis.html#cb218-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-56-2.png" width="672" /></p>
 <div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="R_analysis.html#cb219-1" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
-<span id="cb219-2"><a href="R_analysis.html#cb219-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">fill =</span> Region)) <span class="sc">+</span></span>
+<span id="cb219-2"><a href="R_analysis.html#cb219-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>)) <span class="sc">+</span></span>
 <span id="cb219-3"><a href="R_analysis.html#cb219-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb219-4"><a href="R_analysis.html#cb219-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb219-5"><a href="R_analysis.html#cb219-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise3&quot;</span>))</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-56-3.png" width="672" /></p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="R_analysis.html#cb220-1" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
-<span id="cb220-2"><a href="R_analysis.html#cb220-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">fill =</span> Region)) <span class="sc">+</span></span>
-<span id="cb220-3"><a href="R_analysis.html#cb220-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb220-4"><a href="R_analysis.html#cb220-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb220-5"><a href="R_analysis.html#cb220-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise3&quot;</span>))</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-56-4.png" width="672" /></p>
+<span id="cb219-4"><a href="R_analysis.html#cb219-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="R_analysis.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;viridis&quot;)</span></span>
+<span id="cb220-2"><a href="R_analysis.html#cb220-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;wesanderson&quot;)</span></span>
+<span id="cb220-3"><a href="R_analysis.html#cb220-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb220-4"><a href="R_analysis.html#cb220-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb220-5"><a href="R_analysis.html#cb220-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb220-6"><a href="R_analysis.html#cb220-6" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
+<span id="cb220-7"><a href="R_analysis.html#cb220-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">fill =</span> Region)) <span class="sc">+</span></span>
+<span id="cb220-8"><a href="R_analysis.html#cb220-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb220-9"><a href="R_analysis.html#cb220-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb220-10"><a href="R_analysis.html#cb220-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-57-2.png" width="672" /></p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="R_analysis.html#cb221-1" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
+<span id="cb221-2"><a href="R_analysis.html#cb221-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">fill =</span> Region)) <span class="sc">+</span></span>
+<span id="cb221-3"><a href="R_analysis.html#cb221-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb221-4"><a href="R_analysis.html#cb221-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb221-5"><a href="R_analysis.html#cb221-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise3&quot;</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-57-3.png" width="672" /></p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="R_analysis.html#cb222-1" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
+<span id="cb222-2"><a href="R_analysis.html#cb222-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> <span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">fill =</span> Region)) <span class="sc">+</span></span>
+<span id="cb222-3"><a href="R_analysis.html#cb222-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb222-4"><a href="R_analysis.html#cb222-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb222-5"><a href="R_analysis.html#cb222-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise3&quot;</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-57-4.png" width="672" /></p>
 <p><strong>Непараметрические аналоги т-теста</strong></p>
 <p>Что делать, если бы наши допущения о предположении нормальности ЗП не оправдались? Если бы в распределении были бы явные выбросы, они было бы сильно не симметричным и скошенным? Тогда нам нужно было бы проводить непараметрические аналоги т-теста – тест Уилкоксона или Манна-Уитни. Разберем их на примере проверки, что показатель социальной поддержки <code>Family</code> отличается в этих регионах <em>(на самом деле, в реальности тут скорее всего вполне можно было бы провести обычный т-тест – но более кривых переменных в этих данных не нашлось, поэтому смотреть использование непараметрических аналогов будем на них.</em></p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="R_analysis.html#cb221-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
-<span id="cb221-2"><a href="R_analysis.html#cb221-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span>Family)) <span class="sc">+</span></span>
-<span id="cb221-3"><a href="R_analysis.html#cb221-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
-<span id="cb221-4"><a href="R_analysis.html#cb221-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="R_analysis.html#cb222-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
-<span id="cb222-2"><a href="R_analysis.html#cb222-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> Family)) <span class="sc">+</span></span>
-<span id="cb222-3"><a href="R_analysis.html#cb222-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
-<span id="cb222-4"><a href="R_analysis.html#cb222-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb222-5"><a href="R_analysis.html#cb222-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-57-2.png" width="672" /></p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="R_analysis.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Все то же самое -- но функция называется не t.test(), a wilcox.test()</span></span>
-<span id="cb223-2"><a href="R_analysis.html#cb223-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb223-3"><a href="R_analysis.html#cb223-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(whr_ttest<span class="sc">$</span>Family <span class="sc">~</span> whr_ttest<span class="sc">$</span>Region, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="R_analysis.html#cb223-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb223-2"><a href="R_analysis.html#cb223-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span>Family)) <span class="sc">+</span></span>
+<span id="cb223-3"><a href="R_analysis.html#cb223-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb223-4"><a href="R_analysis.html#cb223-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="R_analysis.html#cb224-1" aria-hidden="true" tabindex="-1"></a>whr_tests <span class="sc">%&gt;%</span></span>
+<span id="cb224-2"><a href="R_analysis.html#cb224-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> Family)) <span class="sc">+</span></span>
+<span id="cb224-3"><a href="R_analysis.html#cb224-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb224-4"><a href="R_analysis.html#cb224-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb224-5"><a href="R_analysis.html#cb224-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-58-2.png" width="672" /></p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="R_analysis.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Все то же самое -- но функция называется не t.test(), a wilcox.test()</span></span>
+<span id="cb225-2"><a href="R_analysis.html#cb225-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb225-3"><a href="R_analysis.html#cb225-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(whr_ttest<span class="sc">$</span>Family <span class="sc">~</span> whr_ttest<span class="sc">$</span>Region, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon rank sum exact test
 ## 
 ## data:  whr_ttest$Family by whr_ttest$Region
 ## W = 127, p-value = 0.0001618
 ## alternative hypothesis: true location shift is less than 0</code></pre>
-</div>
-<div id="anova-дисперсионный-анализ" class="section level3 hasAnchor" number="13.11.3">
-<h3><span class="header-section-number">13.11.3</span> ANOVA (дисперсионный анализ)<a href="R_analysis.html#anova-дисперсионный-анализ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Предобратаем данные: создадим новые переменные, которые уже создавали ранее в домашках, и присоединим табличку за 2016 год к новой табличке за 2019 год. Новые данные сохраним в датасет <code>whr_tests_hw</code></p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="R_analysis.html#cb225-1" aria-hidden="true" tabindex="-1"></a>whr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;2016.csv&quot;</span>)</span>
-<span id="cb225-2"><a href="R_analysis.html#cb225-2" aria-hidden="true" tabindex="-1"></a>whr_2019 <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">&quot;Chapter2OnlineData2019.xls&quot;</span>)</span>
-<span id="cb225-3"><a href="R_analysis.html#cb225-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-4"><a href="R_analysis.html#cb225-4" aria-hidden="true" tabindex="-1"></a>whr_2019 <span class="sc">%&gt;%</span></span>
-<span id="cb225-5"><a href="R_analysis.html#cb225-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Country name</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">Standard deviation/Mean of ladder by country-year</span><span class="st">`</span>) <span class="ot">-&gt;</span> whr_2019</span>
-<span id="cb225-6"><a href="R_analysis.html#cb225-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-7"><a href="R_analysis.html#cb225-7" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
-<span id="cb225-8"><a href="R_analysis.html#cb225-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Country<span class="sc">:</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb225-9"><a href="R_analysis.html#cb225-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(whr_2019, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Country&quot;</span> <span class="ot">=</span> <span class="st">&quot;Country name&quot;</span>), <span class="at">multiple =</span> <span class="st">&quot;last&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb225-10"><a href="R_analysis.html#cb225-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">&quot;top20&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Rank</span><span class="st">`</span><span class="sc">&lt;=</span><span class="dv">20</span>, <span class="st">&quot;hehe&quot;</span>, <span class="st">&quot;not hehe&quot;</span>),</span>
-<span id="cb225-11"><a href="R_analysis.html#cb225-11" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;mean_position&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span><span class="sc">&gt;=</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;upper&quot;</span>, <span class="st">&quot;lower&quot;</span>)) <span class="ot">-&gt;</span> whr_tests_hw</span>
-<span id="cb225-12"><a href="R_analysis.html#cb225-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb225-13"><a href="R_analysis.html#cb225-13" aria-hidden="true" tabindex="-1"></a><span class="co"># View(whr_tests)</span></span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="R_analysis.html#cb227-1" aria-hidden="true" tabindex="-1"></a>whr_ttest <span class="sc">%&gt;%</span></span>
+<span id="cb227-2"><a href="R_analysis.html#cb227-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> Family, <span class="at">fill =</span> Region)) <span class="sc">+</span></span>
+<span id="cb227-3"><a href="R_analysis.html#cb227-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb227-4"><a href="R_analysis.html#cb227-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb227-5"><a href="R_analysis.html#cb227-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;Moonrise3&quot;</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-58-3.png" width="672" /></p>
 </div>
 </div>
 <div id="tasks_sem5" class="section level2 hasAnchor" number="13.12">
 <h2><span class="header-section-number">13.12</span> Задания после семинара 5<a href="R_analysis.html#tasks_sem5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Мы уже освоили предобработку данных, и теперь совсем взрослые – можем взять менее чистенький, расширенный датасет того же World Happiness Report за 2019 <a href="https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true" class="uri">https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true</a>, а здесь можно почитать пододробнее про данные <a href="https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf" class="uri">https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf</a> (кстати, этот док, судя по всему, тоже сверстан в R).</p>
-<p>Чтобы было удобнее с ним работать для проверки гипотез, я сделала его предобработку – при повторении попробуйте ее разобрать, что делает каждая строчка? Показалось ли что-то новым?</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="R_analysis.html#cb226-1" aria-hidden="true" tabindex="-1"></a>whr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;2016.csv&quot;</span>)</span>
-<span id="cb226-2"><a href="R_analysis.html#cb226-2" aria-hidden="true" tabindex="-1"></a>whr_2019 <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">&quot;Chapter2OnlineData2019.xls&quot;</span>)</span>
-<span id="cb226-3"><a href="R_analysis.html#cb226-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb226-4"><a href="R_analysis.html#cb226-4" aria-hidden="true" tabindex="-1"></a>whr_2019 <span class="sc">%&gt;%</span></span>
-<span id="cb226-5"><a href="R_analysis.html#cb226-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Country name</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">Standard deviation/Mean of ladder by country-year</span><span class="st">`</span>) <span class="ot">-&gt;</span> whr_2019</span>
-<span id="cb226-6"><a href="R_analysis.html#cb226-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb226-7"><a href="R_analysis.html#cb226-7" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
-<span id="cb226-8"><a href="R_analysis.html#cb226-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Country<span class="sc">:</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb226-9"><a href="R_analysis.html#cb226-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(whr_2019, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Country&quot;</span> <span class="ot">=</span> <span class="st">&quot;Country name&quot;</span>), <span class="at">multiple =</span> <span class="st">&quot;last&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb226-10"><a href="R_analysis.html#cb226-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">&quot;top20&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Rank</span><span class="st">`</span><span class="sc">&lt;=</span><span class="dv">20</span>, <span class="st">&quot;hehe&quot;</span>, <span class="st">&quot;not hehe&quot;</span>),</span>
-<span id="cb226-11"><a href="R_analysis.html#cb226-11" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;mean_position&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span><span class="sc">&gt;=</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;upper&quot;</span>, <span class="st">&quot;lower&quot;</span>)) <span class="ot">-&gt;</span> whr_tests_hw</span>
-<span id="cb226-12"><a href="R_analysis.html#cb226-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb226-13"><a href="R_analysis.html#cb226-13" aria-hidden="true" tabindex="-1"></a><span class="co"># View(whr_tests)</span></span></code></pre></div>
-<p><em>(Если вы работаете в Jamovi, ипользуйте старую табличку данных, с которой мы работали)</em></p>
+<p><em>(Если вы работаете в R)</em> Чтобы было удобнее с ним работать для проверки гипотез, я сделала его предобработку – при повторении попробуйте ее разобрать, что делает каждая строчка? Показалось ли что-то новым?</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="R_analysis.html#cb228-1" aria-hidden="true" tabindex="-1"></a>whr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;2016.csv&quot;</span>)</span>
+<span id="cb228-2"><a href="R_analysis.html#cb228-2" aria-hidden="true" tabindex="-1"></a>whr_2019 <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">&quot;Chapter2OnlineData2019.xls&quot;</span>)</span>
+<span id="cb228-3"><a href="R_analysis.html#cb228-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb228-4"><a href="R_analysis.html#cb228-4" aria-hidden="true" tabindex="-1"></a>whr_2019 <span class="sc">%&gt;%</span></span>
+<span id="cb228-5"><a href="R_analysis.html#cb228-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Country name</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">Negative affect</span><span class="st">`</span>) <span class="ot">-&gt;</span> whr_2019</span>
+<span id="cb228-6"><a href="R_analysis.html#cb228-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb228-7"><a href="R_analysis.html#cb228-7" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
+<span id="cb228-8"><a href="R_analysis.html#cb228-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Country<span class="sc">:</span><span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb228-9"><a href="R_analysis.html#cb228-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(whr_2019, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;Country&quot;</span> <span class="ot">=</span> <span class="st">&quot;Country name&quot;</span>), <span class="at">multiple =</span> <span class="st">&quot;last&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb228-10"><a href="R_analysis.html#cb228-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">&quot;top20&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Rank</span><span class="st">`</span><span class="sc">&lt;=</span><span class="dv">20</span>, <span class="st">&quot;hehe&quot;</span>, <span class="st">&quot;not hehe&quot;</span>),</span>
+<span id="cb228-11"><a href="R_analysis.html#cb228-11" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;mean_position&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span><span class="sc">&gt;=</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Happiness Score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;upper&quot;</span>, <span class="st">&quot;lower&quot;</span>)) <span class="ot">-&gt;</span> whr_tests_hw</span>
+<span id="cb228-12"><a href="R_analysis.html#cb228-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb228-13"><a href="R_analysis.html#cb228-13" aria-hidden="true" tabindex="-1"></a><span class="co"># View(whr_tests)</span></span></code></pre></div>
+<p><em>(Если вы работаете в Jamovi, ипользуйте любые данные – старые за 2016 год или новые за 2019)</em></p>
 <ol style="list-style-type: decimal">
 <li><p>На полученном датасете <code>whr_tests_hw</code> проведите полностью по всему алгоритму NHST хотя бы один корреляционные тест: выберете подходящие переменные, сформулируйте гипотезу, сформулируйте <span class="math inline">\(H_0\)</span> и <span class="math inline">\(H_1\)</span>, выберете уровень <span class="math inline">\(\alpha\)</span>, предобработайте данные, если нужно, и проведите корреляционный тест на выбранном уровне значимости. Проинтерпретируйте результаты: подтвердилась ли гипотеза?</p></li>
 <li><p>На полученном датасете <code>whr_tests_hw</code> проведите полностью по всему алгоритму NHST хотя бы один т-тест или его непараметрический аналог: выберете подходящие переменные, сформулируйте гипотезу, сформулируйте <span class="math inline">\(H_0\)</span> и <span class="math inline">\(H_1\)</span>, выберете уровень <span class="math inline">\(\alpha\)</span>, определите, зависимые или независимые выборки, предобработайте данные, если нужно, и проведите тест сравнения средних на выбранном уровне значимости. Проинтерпретируйте результаты: подтвердилась ли гипотеза?</p></li>
+</ol>
+</div>
+<div id="проверка-гипоте-2-anova-и-линейная-регрессия" class="section level2 hasAnchor" number="13.13">
+<h2><span class="header-section-number">13.13</span> Проверка гипоте-2: ANOVA и линейная регрессия<a href="R_analysis.html#проверка-гипоте-2-anova-и-линейная-регрессия" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="anova-дисперсионный-анализ" class="section level3 hasAnchor" number="13.13.1">
+<h3><span class="header-section-number">13.13.1</span> ANOVA (дисперсионный анализ)<a href="R_analysis.html#anova-дисперсионный-анализ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Я хочу внести чуть разнообразия в наши данные, поэтому нашла еще одну <a href="#https://github.com/elenary/StatsForDA/blob/main/Chapter2OnlineData2019.xls?raw=true">табличку</a>, касающуюся World Happiness Report, можно почитать пододробнее <a href="#https://s3.amazonaws.com/happiness-report/2019/WHR19_Ch2A_Appendix1.pdf">здесь</a> (кстати, этот док, судя по всему, тоже сверстан в R).</p>
+<p>Примерно так может выглядеть предобработка реальных (не самых чистых и кривых) данных: я объединяю две таблички (табличка за 2016 год и новая табличка за 2019 год) с помощью функции <code>right_join</code> (это значит, что я к правой табличке присоединяю левую, а все то, что осталось в левой не подошедшее к правой – не берется) из семейства <code>join</code>, переименовые колонки и заменяю пробелы на них на нижнее подчеркивание с помощью функции <code>rename_with</code>, отбираю только интересующие меня колонки с помощью функции <code>select</code>, создаю новые переменные, которые мы уже создавали ранее в домашках, с помощью функции mutate и сохраняю результат в новую табличку в датасет <code>whr_tests_hw</code></p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="R_analysis.html#cb229-1" aria-hidden="true" tabindex="-1"></a>whr_2019 <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">&quot;Chapter2OnlineData2019.xls&quot;</span>)</span>
+<span id="cb229-2"><a href="R_analysis.html#cb229-2" aria-hidden="true" tabindex="-1"></a>whr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;2016.csv&quot;</span>)</span>
+<span id="cb229-3"><a href="R_analysis.html#cb229-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-4"><a href="R_analysis.html#cb229-4" aria-hidden="true" tabindex="-1"></a>whr_2019 <span class="sc">%&gt;%</span></span>
+<span id="cb229-5"><a href="R_analysis.html#cb229-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(<span class="sc">~</span> <span class="fu">gsub</span>(<span class="st">&quot; &quot;</span>, <span class="st">&quot;_&quot;</span>, .), <span class="at">.cols =</span> <span class="fu">everything</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb229-6"><a href="R_analysis.html#cb229-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Country_name<span class="sc">:</span>Negative_affect) <span class="sc">%&gt;%</span></span>
+<span id="cb229-7"><a href="R_analysis.html#cb229-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&lt;=</span> <span class="dv">2016</span>) <span class="ot">-&gt;</span> whr_2019</span>
+<span id="cb229-8"><a href="R_analysis.html#cb229-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-9"><a href="R_analysis.html#cb229-9" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
+<span id="cb229-10"><a href="R_analysis.html#cb229-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(<span class="sc">~</span> <span class="fu">gsub</span>(<span class="st">&quot; &quot;</span>, <span class="st">&quot;_&quot;</span>, .), <span class="at">.cols =</span> <span class="fu">everything</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb229-11"><a href="R_analysis.html#cb229-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Country, Happiness_Rank, Happiness_Score) <span class="sc">%&gt;%</span></span>
+<span id="cb229-12"><a href="R_analysis.html#cb229-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(whr_2019, <span class="at">by =</span> <span class="fu">join_by</span>(Country <span class="sc">==</span> Country_name), <span class="at">multiple =</span> <span class="st">&quot;last&quot;</span>) <span class="ot">-&gt;</span> tmp</span>
+<span id="cb229-13"><a href="R_analysis.html#cb229-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb229-14"><a href="R_analysis.html#cb229-14" aria-hidden="true" tabindex="-1"></a>whr <span class="sc">%&gt;%</span></span>
+<span id="cb229-15"><a href="R_analysis.html#cb229-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Country<span class="sc">:</span>Region) <span class="sc">%&gt;%</span></span>
+<span id="cb229-16"><a href="R_analysis.html#cb229-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(tmp, <span class="at">by =</span> <span class="fu">join_by</span>(Country <span class="sc">==</span> Country), <span class="at">multiple =</span> <span class="st">&quot;all&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb229-17"><a href="R_analysis.html#cb229-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">&quot;top20&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(Happiness_Rank<span class="sc">&lt;=</span><span class="dv">20</span>, <span class="st">&quot;hehe&quot;</span>, <span class="st">&quot;not hehe&quot;</span>),</span>
+<span id="cb229-18"><a href="R_analysis.html#cb229-18" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;mean_position&quot;</span> <span class="ot">=</span> <span class="fu">ifelse</span>(Happiness_Score<span class="sc">&gt;=</span> <span class="fu">mean</span>(Happiness_Score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="st">&quot;upper&quot;</span>, <span class="st">&quot;lower&quot;</span>)) <span class="ot">-&gt;</span> whr_tests_hw</span></code></pre></div>
+<p>До этого мы проверяли гипотезу о том, что Happiness Score различаеся в двух регионах: Западаной и Восточной и Центральной Европе. А если я хочу проверить, различаются ли статистически значимо уровень счастья в трех регионах – Западаной и Восточной и Центральной Европе и в Латинском Америке? Снова обращаемся к изученным нами в прошлом семестре <a href="stats_criteria.html#stats_criteria">статистическим критериям</a>, всопминаем каринку с деревом выбора статистических тестов <a href="https://miro.com/app/board/uXjVOxmKhr8=/" class="uri">https://miro.com/app/board/uXjVOxmKhr8=/</a>. Если у нас ЗП количественная, НП категориальная / категориальные, и нужно провести 3 сравнения и больше – то мы переходим от т-теста к <a href="stats_criteria_ttest_anova.html#anova">ANOVA (дисперсионному анализу)</a>.</p>
+<p>Я буду периодически придерживаться формы записи кода, когда я внутри одного пайпа делаю сразу все – и фильрацию, и построение графиков или расчет теста, но не забывае, что прежде чем писать все вместе, нужно убедиться, что каждая строчка – работает. И может быть удобнее на первых порах создавать побольше переменных и записывать туда результаты фильтрации, а потом уже использовать эту переменную – так будет проще дебажить код. Например, можно сначала отфильтровать данные и записать их в новый датасет (иногда бывает, что без этой формы записи не обойтись)</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="R_analysis.html#cb230-1" aria-hidden="true" tabindex="-1"></a>whr_tests_hw <span class="sc">%&gt;%</span></span>
+<span id="cb230-2"><a href="R_analysis.html#cb230-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Central and Eastern Europe&quot;</span> <span class="sc">|</span> Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span> <span class="sc">|</span> Region <span class="sc">==</span> <span class="st">&quot;Latin America and Caribbean&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb230-3"><a href="R_analysis.html#cb230-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="st">&quot;2016&quot;</span>) <span class="ot">-&gt;</span> whr_anova</span></code></pre></div>
+<p>Вспоминаем допущения для <a href="stats_criteria_ttest_anova.html#anova">АНОВЫ</a></p>
+<p>Первое – ЗП должна быть распределена близко к нормальному распределению.</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="R_analysis.html#cb231-1" aria-hidden="true" tabindex="-1"></a>whr_anova <span class="sc">%&gt;%</span></span>
+<span id="cb231-2"><a href="R_analysis.html#cb231-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Happiness_Score)) <span class="sc">+</span></span>
+<span id="cb231-3"><a href="R_analysis.html#cb231-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb231-4"><a href="R_analysis.html#cb231-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="R_analysis.html#cb232-1" aria-hidden="true" tabindex="-1"></a>whr_anova <span class="sc">%&gt;%</span></span>
+<span id="cb232-2"><a href="R_analysis.html#cb232-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> Happiness_Score)) <span class="sc">+</span></span>
+<span id="cb232-3"><a href="R_analysis.html#cb232-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb232-4"><a href="R_analysis.html#cb232-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb232-5"><a href="R_analysis.html#cb232-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-62-2.png" width="672" /></p>
+<p>Допустим, это похоже на нормальное распредедление.</p>
+<p>Второе допущение – гомогенность (гомоскедастичность) дисперсий. Дисперсии должны быть одинаковы в наших группах. Если они будут разными – это плохо, и нам придется использовать непараметрические аналоги ANOVA. Гомогенность дисперсий проверяется с помощью Levene’s Test. Обратите внимание: здесь мы заинтересованы в получении НЕзначимого результата – потому что если проверка дала значимый результат, то диперсии в группах различаются, а это не ок. Нам понадобится фунция <code>leveneTest</code> из пакета <code>car</code></p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="R_analysis.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>) <span class="co"># сначала отключим форму записи чисел с большим количество нулей через экспоненту</span></span>
+<span id="cb233-2"><a href="R_analysis.html#cb233-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb233-3"><a href="R_analysis.html#cb233-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;car&quot;)</span></span>
+<span id="cb233-4"><a href="R_analysis.html#cb233-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb233-5"><a href="R_analysis.html#cb233-5" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(Happiness_Score <span class="sc">~</span> Region, <span class="at">data =</span> whr_anova)</span></code></pre></div>
+<pre><code>## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
+## factor.</code></pre>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&gt;F)
+## group  2  0.7143 0.4933
+##       66</code></pre>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="R_analysis.html#cb236-1" aria-hidden="true" tabindex="-1"></a>aov_model1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(Happiness_Score <span class="sc">~</span> Region, <span class="at">data =</span> whr_anova)</span>
+<span id="cb236-2"><a href="R_analysis.html#cb236-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov_model1)</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value       Pr(&gt;F)    
+## Region       2  21.40  10.698   21.37 0.0000000697 ***
+## Residuals   66  33.04   0.501                         
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Смотрми на p-value: оно не значимо, ура! Значит, мы соблюли все допущения, и можем спокойно использовать анову. Мы попробуем построить ее двумя способами: с помощью стандартной функции <code>aov</code> и с помощью более функции <code>ezANOVA</code> из пакета <code>ez</code> с более понятным синтаксисом, но более придирчивой и менее стабильной.</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="R_analysis.html#cb238-1" aria-hidden="true" tabindex="-1"></a>aov_model1 <span class="ot">&lt;-</span> <span class="fu">aov</span>(Happiness_Score <span class="sc">~</span> Region, <span class="at">data =</span> whr_anova) <span class="co">#выполняем АНОВУ</span></span>
+<span id="cb238-2"><a href="R_analysis.html#cb238-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov_model1) <span class="co">#выводим табличку АНОВЫ</span></span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value       Pr(&gt;F)    
+## Region       2  21.40  10.698   21.37 0.0000000697 ***
+## Residuals   66  33.04   0.501                         
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Как проинтерпретировать эти результаты? Первое, на что мы смотрим – это p-value (колонка Pr(F)). Если оно меньше установленного уровня <span class="math inline">\(\alpha\)</span>, то мы говорим, что <em>отвергаем нулевую гипотезу, и мы получили статистически значимые резличия</em>. Если p-value больше или равно <span class="math inline">\(\alpha\)</span> – <em>у нас недостаточно свидетельств в пользу альтернативной гипотезы, и мы говорим, что не отвергаем нулевую гипотезу</em>.</p>
+<p>Второй вариант построения этого же анализа с помощью функции <code>ezANOVA.</code> Она, кстати, сразу делает Levene’s test, поэтому у нас две выдачи.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="R_analysis.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;ez&quot;)</span></span>
+<span id="cb240-2"><a href="R_analysis.html#cb240-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ez)</span>
+<span id="cb240-3"><a href="R_analysis.html#cb240-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb240-4"><a href="R_analysis.html#cb240-4" aria-hidden="true" tabindex="-1"></a>whr_anova <span class="sc">%&gt;%</span> </span>
+<span id="cb240-5"><a href="R_analysis.html#cb240-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ezANOVA</span>(., Happiness_Score, <span class="at">wid =</span> Country, <span class="at">between =</span> Region)</span></code></pre></div>
+<pre><code>## Warning: Converting &quot;Country&quot; to factor for ANOVA.</code></pre>
+<pre><code>## Warning: Converting &quot;Region&quot; to factor for ANOVA.</code></pre>
+<pre><code>## Warning: Data is unbalanced (unequal N per group). Make sure you specified a
+## well-considered value for the type argument to ezANOVA().</code></pre>
+<pre><code>## $ANOVA
+##   Effect DFn DFd        F              p p&lt;.05       ges
+## 1 Region   2  66 21.37266 0.000000069727     * 0.3930773
+## 
+## $`Levene&#39;s Test for Homogeneity of Variance`
+##   DFn DFd       SSn      SSd         F         p p&lt;.05
+## 1   2  66 0.3066018 14.16483 0.7142945 0.4932823</code></pre>
+<p>Если мы сравним результаты – они будут точно такими же, только вторая функция в колонке ges выдает еще размер эффекта! Это eta squared <span class="math inline">\(\eta^2\)</span>, <a href="inference.html#sample_size">метрика размера размера эффекта для ANOVA</a>, которую вы так или иначе использовали в домашнем задании в прошлом курсе. Мы видим, что эффект, который мы получили, довольно большой!</p>
+<p>Можем посчитать его и отдельно для предыдущей таблички с помощью функции пакета effectsize</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="R_analysis.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;effectsize&quot;)</span></span>
+<span id="cb245-2"><a href="R_analysis.html#cb245-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb245-3"><a href="R_analysis.html#cb245-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-4"><a href="R_analysis.html#cb245-4" aria-hidden="true" tabindex="-1"></a><span class="fu">eta_squared</span>(aov_model1)</span></code></pre></div>
+<pre><code>## # Effect Size for ANOVA
+## 
+## Parameter | Eta2 |       95% CI
+## -------------------------------
+## Region    | 0.39 | [0.24, 1.00]
+## 
+## - One-sided CIs: upper bound fixed at [1.00].</code></pre>
+<p>Значение будет тем же самым, что и в колонке ges вывода ezANOVA.</p>
+<p>Визуализируем результаты. Чаще всего для визуализации ANOVA используются боксплоты или вайолин плоты</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="R_analysis.html#cb247-1" aria-hidden="true" tabindex="-1"></a>whr_anova <span class="sc">%&gt;%</span></span>
+<span id="cb247-2"><a href="R_analysis.html#cb247-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> Happiness_Score, <span class="at">fill =</span> Region)) <span class="sc">+</span></span>
+<span id="cb247-3"><a href="R_analysis.html#cb247-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb247-4"><a href="R_analysis.html#cb247-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb247-5"><a href="R_analysis.html#cb247-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;FantasticFox1&quot;</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-68-1.png" width="672" />
+Или же часто можно встретить графики, на которых отображены только средние</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="R_analysis.html#cb248-1" aria-hidden="true" tabindex="-1"></a>whr_anova <span class="sc">%&gt;%</span></span>
+<span id="cb248-2"><a href="R_analysis.html#cb248-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Region, <span class="at">y =</span> Happiness_Score, <span class="at">color =</span> Region, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb248-3"><a href="R_analysis.html#cb248-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;point&#39;</span>) <span class="sc">+</span></span>
+<span id="cb248-4"><a href="R_analysis.html#cb248-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&#39;line&#39;</span>) <span class="sc">+</span></span>
+<span id="cb248-5"><a href="R_analysis.html#cb248-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot, <span class="at">geom =</span> <span class="st">&#39;errorbar&#39;</span>) <span class="sc">+</span></span>
+<span id="cb248-6"><a href="R_analysis.html#cb248-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb248-7"><a href="R_analysis.html#cb248-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">wes_palette</span>(<span class="st">&quot;FantasticFox1&quot;</span>))</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
+<p>Мы узнали, что ANOVA значима, то есть статистически значимые различия между этими тремя регионами. А как узнать, какие именно регионы вносят значимость? Может ли такое быть, чтоо значимость обеспечивается одним сильно отличающимся от других регионом, в то время как два других не отличаются? Может. Чтобы узнать это, нужно провести <a href="#id_%D0%BF%D0%BE%D1%81%D1%82-%D1%85%D0%BE%D0%BA%D0%B8-%D0%B8-%D0%BC%D0%BD%D0%BE%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F">пост-хок тесты</a>.</p>
+<div id="пост-хоки" class="section level4 hasAnchor" number="13.13.1.1">
+<h4><span class="header-section-number">13.13.1.1</span> Пост-хоки<a href="R_analysis.html#пост-хоки" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Пост-хоки представляют собой попарное множественное сравнение всего со всем. Вспоминаем, что когда мы так делаем – мы рикуем получить статистчиески значимый результат чисто по случайности, потому что очень растет вероятность ошибки первого рода, и нужны поправи на множественные сравнения. Сделать пост=хок анализ можно например помощью встроенных функций <code>TukeyHSD</code> или <code>pairwise.t.test</code></p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="R_analysis.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(aov_model1, <span class="at">conf.level=</span>.<span class="dv">95</span>)</span></code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = Happiness_Score ~ Region, data = whr_anova)
+## 
+## $Region
+##                                                             diff        lwr
+## Latin America and Caribbean-Central and Eastern Europe 0.7082577 0.20757381
+## Western Europe-Central and Eastern Europe              1.3149770 0.82891110
+## Western Europe-Latin America and Caribbean             0.6067193 0.06961039
+##                                                             upr     p adj
+## Latin America and Caribbean-Central and Eastern Europe 1.208942 0.0033334
+## Western Europe-Central and Eastern Europe              1.801043 0.0000000
+## Western Europe-Latin America and Caribbean             1.143828 0.0230915</code></pre>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="R_analysis.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(whr_anova<span class="sc">$</span>Happiness_Score, whr_anova<span class="sc">$</span>Region, <span class="at">p.adj =</span> <span class="st">&quot;bonf&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  whr_anova$Happiness_Score and whr_anova$Region 
+## 
+##                             Central and Eastern Europe
+## Latin America and Caribbean 0.0035                    
+## Western Europe              0.000000039               
+##                             Latin America and Caribbean
+## Latin America and Caribbean -                          
+## Western Europe              0.0258                     
+## 
+## P value adjustment method: bonferroni</code></pre>
+</div>
+<div id="непераметрические-аналоги-anova" class="section level4 hasAnchor" number="13.13.1.2">
+<h4><span class="header-section-number">13.13.1.2</span> Непераметрические аналоги ANOVA<a href="R_analysis.html#непераметрические-аналоги-anova" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Если наша переменная имеет значительные выбросы, не прошла проверку на нормальность, и дисперсии в группах оказались статистически значимо разные – значит, мы не можем применять ANOVA. Что делаеть? Проводить аналог ANOVA, тест Краскелла-Уоллиса. Покажу его на тех же данных, которые мы брали для ANOVA, где смотрели разный уровень счастья по регионам.</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="R_analysis.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(Happiness_Score <span class="sc">~</span> Region, <span class="at">data =</span> whr_anova)</span></code></pre></div>
+<pre><code>## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  Happiness_Score by Region
+## Kruskal-Wallis chi-squared = 26.36, df = 2, p-value = 0.000001888</code></pre>
+</div>
+<div id="многофакторная-anova" class="section level4 hasAnchor" number="13.13.1.3">
+<h4><span class="header-section-number">13.13.1.3</span> Многофакторная ANOVA<a href="R_analysis.html#многофакторная-anova" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Мы проверили гипотезу с только одной НП – регион. А если моя гипотеза касается нескольких факторов? Например, хочу проверить гипотезу, что на переменную <code>Life_Ladder</code> (аналог <code>Happiness Score</code>, показывает результаты опроса, где находятся респонденты по уровню счастья в виде лестницы, у которой 10 ступенек) влияет и регион, и год.</p>
+<p>Я вернусь к изначальному датасету и уберу фильтрацию по году.</p>
+<p>Все то же самое – сначала проверим допущения.</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="R_analysis.html#cb255-1" aria-hidden="true" tabindex="-1"></a>whr_tests_hw <span class="sc">%&gt;%</span></span>
+<span id="cb255-2"><a href="R_analysis.html#cb255-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Central and Eastern Europe&quot;</span> <span class="sc">|</span> </span>
+<span id="cb255-3"><a href="R_analysis.html#cb255-3" aria-hidden="true" tabindex="-1"></a>           Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span> <span class="sc">|</span> </span>
+<span id="cb255-4"><a href="R_analysis.html#cb255-4" aria-hidden="true" tabindex="-1"></a>           Region <span class="sc">==</span> <span class="st">&quot;Latin America and Caribbean&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb255-5"><a href="R_analysis.html#cb255-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Life_Ladder)) <span class="sc">+</span></span>
+<span id="cb255-6"><a href="R_analysis.html#cb255-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb255-7"><a href="R_analysis.html#cb255-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="R_analysis.html#cb256-1" aria-hidden="true" tabindex="-1"></a>whr_tests_hw <span class="sc">%&gt;%</span></span>
+<span id="cb256-2"><a href="R_analysis.html#cb256-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Central and Eastern Europe&quot;</span> <span class="sc">|</span> </span>
+<span id="cb256-3"><a href="R_analysis.html#cb256-3" aria-hidden="true" tabindex="-1"></a>           Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span> <span class="sc">|</span> </span>
+<span id="cb256-4"><a href="R_analysis.html#cb256-4" aria-hidden="true" tabindex="-1"></a>           Region <span class="sc">==</span> <span class="st">&quot;Latin America and Caribbean&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb256-5"><a href="R_analysis.html#cb256-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> Life_Ladder)) <span class="sc">+</span></span>
+<span id="cb256-6"><a href="R_analysis.html#cb256-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">color =</span> <span class="st">&quot;#355C7D&quot;</span>) <span class="sc">+</span></span>
+<span id="cb256-7"><a href="R_analysis.html#cb256-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb256-8"><a href="R_analysis.html#cb256-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-72-2.png" width="672" /></p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="R_analysis.html#cb257-1" aria-hidden="true" tabindex="-1"></a>whr_tests_hw <span class="sc">%&gt;%</span></span>
+<span id="cb257-2"><a href="R_analysis.html#cb257-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Central and Eastern Europe&quot;</span> <span class="sc">|</span> </span>
+<span id="cb257-3"><a href="R_analysis.html#cb257-3" aria-hidden="true" tabindex="-1"></a>           Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span> <span class="sc">|</span> </span>
+<span id="cb257-4"><a href="R_analysis.html#cb257-4" aria-hidden="true" tabindex="-1"></a>           Region <span class="sc">==</span> <span class="st">&quot;Latin America and Caribbean&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb257-5"><a href="R_analysis.html#cb257-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aov</span>(Life_Ladder <span class="sc">~</span> Region <span class="sc">+</span> <span class="fu">as.factor</span>(Year), <span class="at">data =</span> .) <span class="ot">-&gt;</span> aov_model3</span>
+<span id="cb257-6"><a href="R_analysis.html#cb257-6" aria-hidden="true" tabindex="-1"></a><span class="co">#на всякий случай сделала as.factor(), он просто превращает число в строку. функции бывают не очень умными и думают, что нужнобрать числовую переменную </span></span>
+<span id="cb257-7"><a href="R_analysis.html#cb257-7" aria-hidden="true" tabindex="-1"></a><span class="co"># как число, даже если задаем ее как группирующую переменную (фактор)</span></span>
+<span id="cb257-8"><a href="R_analysis.html#cb257-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov_model3)</span></code></pre></div>
+<pre><code>##                  Df Sum Sq Mean Sq F value              Pr(&gt;F)    
+## Region            2  273.0  136.51 271.048 &lt;0.0000000000000002 ***
+## as.factor(Year)  11    6.8    0.62   1.229               0.263    
+## Residuals       681  343.0    0.50                                
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Формула записи
+<code>independent var ~ dependen var 1 + dependent var 2</code>
+означает, что я учитывая два фактора независимо друг от друга. Но бывает, что меня интересует взаимодействие факторов: может, в некоторых регионах за эти годы особо ничего не менялось, уровень счастья измеренный как <code>Life_Ladder</code> был постоянным, а в каких-то регионах произошел огромный рост (или огромный отрицательный рост) уровня счастья? Тогда мне нужно будет проверить взаимодействие факторов, и формула будет такая:
+<code>independent var ~ dependen var 1 * dependent var 2</code>
+Везде, где меня интересует взаимодействие, вместо плюсика ставлю звездочку.</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="R_analysis.html#cb259-1" aria-hidden="true" tabindex="-1"></a>whr_tests_hw <span class="sc">%&gt;%</span></span>
+<span id="cb259-2"><a href="R_analysis.html#cb259-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Central and Eastern Europe&quot;</span> <span class="sc">|</span> </span>
+<span id="cb259-3"><a href="R_analysis.html#cb259-3" aria-hidden="true" tabindex="-1"></a>           Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span> <span class="sc">|</span> </span>
+<span id="cb259-4"><a href="R_analysis.html#cb259-4" aria-hidden="true" tabindex="-1"></a>           Region <span class="sc">==</span> <span class="st">&quot;Latin America and Caribbean&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb259-5"><a href="R_analysis.html#cb259-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aov</span>(Life_Ladder <span class="sc">~</span> Region <span class="sc">*</span> <span class="fu">as.factor</span>(Year), <span class="at">data =</span> .) <span class="ot">-&gt;</span> aov_model4</span>
+<span id="cb259-6"><a href="R_analysis.html#cb259-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aov_model4)</span></code></pre></div>
+<pre><code>##                         Df Sum Sq Mean Sq F value              Pr(&gt;F)    
+## Region                   2  273.0  136.51 274.254 &lt;0.0000000000000002 ***
+## as.factor(Year)         11    6.8    0.62   1.244               0.254    
+## Region:as.factor(Year)  22   15.0    0.68   1.366               0.123    
+## Residuals              659  328.0    0.50                                
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Видим, что во втором случае у нас появилась еще одна строчка – Region:Year. Это как раз взаимодействие двух факторов. И оно, между прочим, значимо! То есть предположение о том, что в разных регионах разная динамика изменения уровня счастья по годам – верное.</p>
+<p>Далее, чтобы определить, что именно было значимо, делаем пост-хоки.</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="R_analysis.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(aov_model3, <span class="at">conf.level=</span>.<span class="dv">95</span>)</span>
+<span id="cb261-2"><a href="R_analysis.html#cb261-2" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(aov_model4, <span class="at">conf.level=</span>.<span class="dv">95</span>)</span></code></pre></div>
+<p>Я не буду выводить табличку – она получается монструозной из-за того, что мы взяли года, а они начинаются с 2005 года: представьте, сколько там попарных сравнений…</p>
+</div>
+<div id="anova-с-повторными-измерениями" class="section level4 hasAnchor" number="13.13.1.4">
+<h4><span class="header-section-number">13.13.1.4</span> ANOVA с повторными измерениями<a href="R_analysis.html#anova-с-повторными-измерениями" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Вообще-то переменная год – внутригрупповой фактор. И если быть честными, ее не очень хорошо учитывать так же, как и фактор Регион, иначе мы потеряем много информации. В R ANOVA с повторными измерениями можно сделать, задав дополнительные параметры в функции aov(), либо с уже знакомой нам функцией ezANOVA(), либо с помощью очень похожей функции anova_test()</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="R_analysis.html#cb262-1" aria-hidden="true" tabindex="-1"></a>whr_tests_hw <span class="sc">%&gt;%</span></span>
+<span id="cb262-2"><a href="R_analysis.html#cb262-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Region <span class="sc">==</span> <span class="st">&quot;Central and Eastern Europe&quot;</span> <span class="sc">|</span> </span>
+<span id="cb262-3"><a href="R_analysis.html#cb262-3" aria-hidden="true" tabindex="-1"></a>           Region <span class="sc">==</span> <span class="st">&quot;Western Europe&quot;</span> <span class="sc">|</span> </span>
+<span id="cb262-4"><a href="R_analysis.html#cb262-4" aria-hidden="true" tabindex="-1"></a>           Region <span class="sc">==</span> <span class="st">&quot;Latin America and Caribbean&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb262-5"><a href="R_analysis.html#cb262-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">&gt;</span> <span class="dv">2010</span>) <span class="sc">%&gt;%</span> <span class="co">#возьму года после 2010, чтобы было поменьше</span></span>
+<span id="cb262-6"><a href="R_analysis.html#cb262-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Life_Ladder, Year) <span class="sc">%&gt;%</span> <span class="co">#удаляю пропущенные значения в интересующих меня колонках</span></span>
+<span id="cb262-7"><a href="R_analysis.html#cb262-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aov</span>(Life_Ladder <span class="sc">~</span> Year <span class="sc">+</span> <span class="fu">Error</span>(Country<span class="sc">/</span>Year), .) <span class="sc">%&gt;%</span></span>
+<span id="cb262-8"><a href="R_analysis.html#cb262-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>## Warning in aov(Life_Ladder ~ Year + Error(Country/Year), .): Error() model is
+## singular</code></pre>
+<pre><code>## 
+## Error: Country
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Year       1   8.94   8.935   2.095  0.152
+## Residuals 71 302.81   4.265               
+## 
+## Error: Country:Year
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Year       1  0.003  0.0027    0.01  0.919
+## Residuals 70 18.106  0.2586               
+## 
+## Error: Within
+##            Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Residuals 270  12.92 0.04784</code></pre>
+<p>Как задать эту формулу: если фактор появляется несколько раз для одного и того же испытуемого или страны в данном случае, то формула записи будет такой
+<code>independent var ~ dependen var + Error(ID/dependen var)</code></p>
+<p>Более человеческий синтаксис у функции anova_test, но она очень чувствительна к данным, и на этих данных, например, не построилась. <em>Позже я поняла, почему: я забыла сделать проверку на идентичность дисперсий, вот модель и не сходится! Но мне уже лень переписывать..</em></p>
+</div>
+</div>
+</div>
+<div id="tasks_sem6" class="section level2 hasAnchor" number="13.14">
+<h2><span class="header-section-number">13.14</span> Задания после семинара 6<a href="R_analysis.html#tasks_sem6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Проверьте несколько гипотез на датасете <code>whr_tests_hw</code> с помощью ANOVA и линейного регресионного анализа: выберете подходящие для этих тестов переменные, сформулируйте гипотезу, сформулируйте <span class="math inline">\(H_0\)</span> и <span class="math inline">\(H_1\)</span>, выберете уровень <span class="math inline">\(\alpha\)</span>, (если нужно, предобработайте данные), проверьте допущения для тестов.</p>
+<ol style="list-style-type: decimal">
+<li>Выберете подходящие переменные, сформулируйте осмысленную гипотезу и проверьте ее с помощью однофакторной ANOVA</li>
+<li>Выберете подходящие переменные, сформулируйте осмысленную гипотезу и проверьте ее и проверьте ее с многофакторной ANOVA</li>
+<li>Выберете подходящие переменные, сформулируйте осмысленную гипотезу и проверьте ее с помощью ANOVA повторными измерениями</li>
+<li>Проведите те же самые проверки гипотез 1-3 с помощью линейного регрессионного анализа.</li>
 </ol>
 
 </div>
