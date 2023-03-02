@@ -132,3 +132,10 @@ tasks_sem6
 rsquared
 assumptions_linreg
 tasks_sem7
+linreg_coef
+linreg_null
+linreg_example
+reshaping
+lin_reg
+линейная-регрессия-с-одним-предиктором-фактором
+линейная-регрессия-с-несколькими-предикторами-факторами

@@ -263,12 +263,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициенты-регрессии"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
+<li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg_coef"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
 <li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#rsquared"><i class="fa fa-check"></i><b>11.2.2</b> Коэффициент детерминации и доля объясненной изменчивости</a></li>
-<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии"><i class="fa fa-check"></i><b>11.2.3</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
+<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg_null"><i class="fa fa-check"></i><b>11.2.3</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
 <li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#множественный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2.4</b> Множественный регрессионный анализ</a></li>
 <li class="chapter" data-level="11.2.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#assumptions_linreg"><i class="fa fa-check"></i><b>11.2.5</b> Допущения для регрессионного анализа</a></li>
-<li class="chapter" data-level="11.2.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.6</b> Расчет регрессионного анализа</a></li>
+<li class="chapter" data-level="11.2.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg_example"><i class="fa fa-check"></i><b>11.2.6</b> Расчет регрессионного анализа</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html"><i class="fa fa-check"></i><b>12</b> Анализ категориальных данных</a>
@@ -312,8 +312,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.13" data-path="R_analysis.html"><a href="R_analysis.html#проверка-гипоте-2-anova-и-линейная-регрессия"><i class="fa fa-check"></i><b>13.13</b> Проверка гипоте-2: ANOVA и линейная регрессия</a>
 <ul>
 <li class="chapter" data-level="13.13.1" data-path="R_analysis.html"><a href="R_analysis.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>13.13.1</b> ANOVA (дисперсионный анализ)</a></li>
+<li class="chapter" data-level="13.13.2" data-path="R_analysis.html"><a href="R_analysis.html#reshaping"><i class="fa fa-check"></i><b>13.13.2</b> Решейпинг</a></li>
 </ul></li>
 <li class="chapter" data-level="13.14" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem6"><i class="fa fa-check"></i><b>13.14</b> Задания после семинара 6</a></li>
+<li class="chapter" data-level="13.15" data-path="R_analysis.html"><a href="R_analysis.html#lin_reg"><i class="fa fa-check"></i><b>13.15</b> Линейный регрессионный анализ</a>
+<ul>
+<li class="chapter" data-level="13.15.1" data-path="R_analysis.html"><a href="R_analysis.html#линейная-регрессия-с-одним-предиктором-фактором"><i class="fa fa-check"></i><b>13.15.1</b> Линейная регрессия с одним предиктором (фактором)</a></li>
+<li class="chapter" data-level="13.15.2" data-path="R_analysis.html"><a href="R_analysis.html#линейная-регрессия-с-несколькими-предикторами-факторами"><i class="fa fa-check"></i><b>13.15.2</b> Линейная регрессия с несколькими предикторами (факторами)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.16" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem7"><i class="fa fa-check"></i><b>13.16</b> Задания после семинара 7</a></li>
 </ul></li>
 </ul>
 
@@ -1926,8 +1933,8 @@ less
 </ul>
 <p>Пока что нас интересует первая из этих функций, хотя очень часто линейный регрессионный анализ интересен именно с точки зрения второй.</p>
 <p>Регрессионный анализ строится на построении регрессионной прямой: любая прямая имеет вид <span class="math inline">\(y = kx + b\)</span>, в регрессионном анализе это уравнение часто записывается как <span class="math inline">\(y = b_0 + b_1x\)</span>. И задача регрессионного анализа – это определение и тестирование коэффициентов <span class="math inline">\(b_0\)</span> и <span class="math inline">\(b_1\)</span> линейной регрессии.</p>
-<div id="коэффициенты-регрессии" class="section level3 hasAnchor" number="11.2.1">
-<h3><span class="header-section-number">11.2.1</span> Коэффициенты регрессии<a href="stats_criteria_linear.html#коэффициенты-регрессии" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="linreg_coef" class="section level3 hasAnchor" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> Коэффициенты регрессии<a href="stats_criteria_linear.html#linreg_coef" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 Уравнение проведенной нами регрессионной прямой:
 <p align="center">
 <span class="math inline">\(\hat y = b_o + b_1x\)</span>
@@ -1997,8 +2004,8 @@ less
 <span class="math inline">\(R^2 = r_{xy}^2 = \frac{\text{cov(x, y)}}{sd_x sd_y} = \frac{\sum_{i=1}^n (x_i - \bar x) (y_i - \bar y )}{(n-1)sd_x sd_y}\)</span>
 </p>
 </div>
-<div id="регрессионный-анализ-тестирование-коэффициентов-регрессии" class="section level3 hasAnchor" number="11.2.3">
-<h3><span class="header-section-number">11.2.3</span> Регрессионный анализ (тестирование коэффициентов регрессии)<a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="linreg_null" class="section level3 hasAnchor" number="11.2.3">
+<h3><span class="header-section-number">11.2.3</span> Регрессионный анализ (тестирование коэффициентов регрессии)<a href="stats_criteria_linear.html#linreg_null" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Регрессионный анализ – интересная штука, так как состоит из нескольких слоев, которые берут что-то от ANOVA, а что-то – от корреляционногоо анализа. Тестирование значимости коэффициентов проводится на основании критерия, принадлежащего семейству Т-распределений, так же, как и корреляционный анализ. А тестирование всей модели целиком проводится с использованием F-критерия, так же, как и ANOVA. Нас в регрессионном анализе больше интересует тестирование значимости коэффициентов – так как именно по коэффциентам, с которыми берутся факторы в модели, мы определяем, является влияние этих факторов значимым.</p>
 <p>Число степеней свободы рассчитывается по формуле:</p>
 <p align="center">
@@ -2032,14 +2039,14 @@ less
 <p>(ЗП и НП измерены в количественной или порядковой шкале)</p>
 <ol style="list-style-type: decimal">
 <li>Распределение НП по ЗП линейно – нет картины нелинейной взаимосвязи или скоплений данных в разных местах.</li>
-<li>Остатки (residuals) варьируются примерно одинаково вдоль всей прямой – гомогенность (или гомоскедастичность, homoscedasticity) остатков. Проверяется тестом Левеня (Levene’s Test of Homogeneity of Variance)</li>
-<li>Остатки (residuals) распределены нормально – все то же самое, как <a href="stats_criteria.html#param_nonparam">здесь</a>, только для остатков (график плотности вероятности или QQ-plot)</li>
-<li>Для множественной линейной регрессии – отсутствие мультиколлинеарности (сильной корреляции между независимыми переменными)</li>
+<li>Остатки (residuals) варьируются примерно одинаково вдоль всей прямой – гомогенность (или гомоскедастичность, homoscedasticity) остатков. Проверяется тестом чаще всего по диагностичекой диаграмме рассеяния с распределением остатков (residuals) по предсказанным значениям (fitted values)</li>
+<li>Остатки (residuals) распределены нормально – все то же самое, как <a href="stats_criteria.html#param_nonparam">здесь</a>, только для остатков (график плотности вероятности для остатков или QQ-plot)</li>
+<li>Для множественной линейной регрессии – отсутствие мультиколлинеарности (сильной корреляции между независимыми переменными). Проверяется с помощью теста VIF (“показателя вздутия дисперсии”)</li>
 </ol>
-<p><a href="https://gallery.shinyapps.io/slr_diag/" class="uri">https://gallery.shinyapps.io/slr_diag/</a></p>
+<p>Примеры диагностических графиков для остатков: <a href="https://gallery.shinyapps.io/slr_diag/" class="uri">https://gallery.shinyapps.io/slr_diag/</a></p>
 </div>
-<div id="расчет-регрессионного-анализа" class="section level3 hasAnchor" number="11.2.6">
-<h3><span class="header-section-number">11.2.6</span> Расчет регрессионного анализа<a href="stats_criteria_linear.html#расчет-регрессионного-анализа" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="linreg_example" class="section level3 hasAnchor" number="11.2.6">
+<h3><span class="header-section-number">11.2.6</span> Расчет регрессионного анализа<a href="stats_criteria_linear.html#linreg_example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Когда мы проводим расчет регрессионного анализа, у нас в результате получается табличка вроде этой:</p>
 <table>
 <colgroup>
@@ -2166,400 +2173,75 @@ num_subscribers_log
 <tbody>
 <tr>
 <td style="text-align:right;">
-3579349
+3748356
 </td>
 <td style="text-align:left;">
-Python Automation Testing With Pytest
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-34.99
-</td>
-<td style="text-align:right;">
-3050
-</td>
-<td style="text-align:right;">
-4.239317
-</td>
-<td style="text-align:right;">
-398
-</td>
-<td style="text-align:right;">
-40
-</td>
-<td style="text-align:right;">
-70
-</td>
-<td style="text-align:right;">
-401
-</td>
-<td style="text-align:left;">
-2020-10-22 18:16:31
-</td>
-<td style="text-align:left;">
-2022-09-01
-</td>
-<td style="text-align:left;">
-Development
-</td>
-<td style="text-align:left;">
-Software Engineering
-</td>
-<td style="text-align:left;">
-Python
-</td>
-<td style="text-align:left;">
-English
-</td>
-<td style="text-align:left;">
-/course/python-automation-pytest/
-</td>
-<td style="text-align:left;">
-Kumar S
-</td>
-<td style="text-align:left;">
-/user/kumar-2653/
-</td>
-<td style="text-align:right;">
-3.555062
-</td>
-<td style="text-align:right;">
-8.022897
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2965214
-</td>
-<td style="text-align:left;">
-Scrum Master Kurs
+Fundamentals of French Pastry- Madeleine, Custards and Cakes
 </td>
 <td style="text-align:left;">
 TRUE
 </td>
 <td style="text-align:right;">
-19.99
+29.99
 </td>
 <td style="text-align:right;">
-13
+340
 </td>
 <td style="text-align:right;">
-3.200000
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-29
-</td>
-<td style="text-align:right;">
-85
-</td>
-<td style="text-align:left;">
-2020-04-10 16:35:40
-</td>
-<td style="text-align:left;">
-2021-05-18
-</td>
-<td style="text-align:left;">
-Business
-</td>
-<td style="text-align:left;">
-Project Management
-</td>
-<td style="text-align:left;">
-Professional Scrum Master (PSM)
-</td>
-<td style="text-align:left;">
-German
-</td>
-<td style="text-align:left;">
-/course/scrum-master-kurs/
-</td>
-<td style="text-align:left;">
-Patrick Wagner
-</td>
-<td style="text-align:left;">
-/user/patrick-wagner-10/
-</td>
-<td style="text-align:right;">
-2.995232
-</td>
-<td style="text-align:right;">
-2.564949
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4760646
-</td>
-<td style="text-align:left;">
-How to start a Notary Business
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-44.99
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4.750000
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-34
-</td>
-<td style="text-align:right;">
-149
-</td>
-<td style="text-align:left;">
-2022-07-06 07:03:01
-</td>
-<td style="text-align:left;">
-2022-07-06
-</td>
-<td style="text-align:left;">
-Business
-</td>
-<td style="text-align:left;">
-Real Estate
-</td>
-<td style="text-align:left;">
-Notary Business
-</td>
-<td style="text-align:left;">
-English
-</td>
-<td style="text-align:left;">
-/course/notarybusiness/
-</td>
-<td style="text-align:left;">
-Edgy Eliacin
-</td>
-<td style="text-align:left;">
-/user/edgy-eliacin/
-</td>
-<td style="text-align:right;">
-3.806440
-</td>
-<td style="text-align:right;">
-1.098612
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2607658
-</td>
-<td style="text-align:left;">
-Articulate 360 Grundlagen - Stroyline und Rise
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-19.99
-</td>
-<td style="text-align:right;">
-89
-</td>
-<td style="text-align:right;">
-4.400000
+4.700000
 </td>
 <td style="text-align:right;">
 31
 </td>
 <td style="text-align:right;">
-10
+11
 </td>
 <td style="text-align:right;">
-5
+30
 </td>
 <td style="text-align:right;">
-46
+89
 </td>
 <td style="text-align:left;">
-2019-10-17 19:58:03
+2021-01-30 01:29:38
 </td>
 <td style="text-align:left;">
-2020-06-29
+2022-02-22
 </td>
 <td style="text-align:left;">
-Teaching &amp; Academics
+Lifestyle
 </td>
 <td style="text-align:left;">
-Online Education
+Food &amp; Beverage
 </td>
 <td style="text-align:left;">
-Articulate Storyline
-</td>
-<td style="text-align:left;">
-German
-</td>
-<td style="text-align:left;">
-/course/articulate-360-grundlagen/
-</td>
-<td style="text-align:left;">
-Andreas Rinnhofer
-</td>
-<td style="text-align:left;">
-/user/inn-ovativ/
-</td>
-<td style="text-align:right;">
-2.995232
-</td>
-<td style="text-align:right;">
-4.488636
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1409440
-</td>
-<td style="text-align:left;">
-Master Salesforce Lightning Reports, Dashboards &amp; Listviews
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-49.99
-</td>
-<td style="text-align:right;">
-4801
-</td>
-<td style="text-align:right;">
-4.425000
-</td>
-<td style="text-align:right;">
-612
-</td>
-<td style="text-align:right;">
-76
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-150
-</td>
-<td style="text-align:left;">
-2017-10-31 23:23:16
-</td>
-<td style="text-align:left;">
-2019-06-23
-</td>
-<td style="text-align:left;">
-Office Productivity
-</td>
-<td style="text-align:left;">
-Other Office Productivity
-</td>
-<td style="text-align:left;">
-Salesforce Lightning
+Baking
 </td>
 <td style="text-align:left;">
 English
 </td>
 <td style="text-align:left;">
-/course/master-salesforce-lightning-reports-dashboards-listviews/
+/course/fundamentals-of-french-pastry-level-1/
 </td>
 <td style="text-align:left;">
-Warren Chalklen, PhD
+Shubranshu Bhandoh
 </td>
 <td style="text-align:left;">
-/user/leslie-chalklen/
+/user/shubranshubhandohgmailcom/
 </td>
 <td style="text-align:right;">
-3.911823
+3.400864
 </td>
 <td style="text-align:right;">
-8.476579
+5.828946
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-4442520
+4430390
 </td>
 <td style="text-align:left;">
-3.Sınıf Matematik
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-229.99
-</td>
-<td style="text-align:right;">
-18
-</td>
-<td style="text-align:right;">
-5.000000
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-76
-</td>
-<td style="text-align:right;">
-645
-</td>
-<td style="text-align:left;">
-2021-12-16 08:06:46
-</td>
-<td style="text-align:left;">
-2021-12-15
-</td>
-<td style="text-align:left;">
-Teaching &amp; Academics
-</td>
-<td style="text-align:left;">
-Test Prep
-</td>
-<td style="text-align:left;">
-Math
-</td>
-<td style="text-align:left;">
-Turkish
-</td>
-<td style="text-align:left;">
-/course/3snf-matematik/
-</td>
-<td style="text-align:left;">
-Edutopya Eğitim
-</td>
-<td style="text-align:left;">
-/user/edutopya/
-</td>
-<td style="text-align:right;">
-5.438036
-</td>
-<td style="text-align:right;">
-2.890372
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1921272
-</td>
-<td style="text-align:left;">
-AutoCAD Mini course [Arabic] مينى كورس اوتوكاد
+Automate Linux in Cloud with Ansible in 100+ examples
 </td>
 <td style="text-align:left;">
 TRUE
@@ -2568,7 +2250,7 @@ TRUE
 19.99
 </td>
 <td style="text-align:right;">
-5
+3
 </td>
 <td style="text-align:right;">
 0.000000
@@ -2580,211 +2262,81 @@ TRUE
 0
 </td>
 <td style="text-align:right;">
-16
+101
 </td>
 <td style="text-align:right;">
-66
+912
 </td>
 <td style="text-align:left;">
-2018-09-21 21:03:01
+2021-12-06 02:39:42
 </td>
 <td style="text-align:left;">
-2018-09-19
-</td>
-<td style="text-align:left;">
-Design
-</td>
-<td style="text-align:left;">
-Architectural Design
-</td>
-<td style="text-align:left;">
-AutoCAD
-</td>
-<td style="text-align:left;">
-Arabic
-</td>
-<td style="text-align:left;">
-/course/autocad-arabic/
-</td>
-<td style="text-align:left;">
-CAD era
-</td>
-<td style="text-align:left;">
-/user/peandrew/
-</td>
-<td style="text-align:right;">
-2.995232
-</td>
-<td style="text-align:right;">
-1.609438
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3444936
-</td>
-<td style="text-align:left;">
-MQTT Masterclass
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-99.99
-</td>
-<td style="text-align:right;">
-310
-</td>
-<td style="text-align:right;">
-3.750000
-</td>
-<td style="text-align:right;">
-26
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-51
-</td>
-<td style="text-align:right;">
-289
-</td>
-<td style="text-align:left;">
-2020-09-08 12:55:35
-</td>
-<td style="text-align:left;">
-2022-06-19
+2022-08-18
 </td>
 <td style="text-align:left;">
 IT &amp; Software
 </td>
 <td style="text-align:left;">
-Hardware
+Other IT &amp; Software
 </td>
 <td style="text-align:left;">
-MQTT
-</td>
-<td style="text-align:left;">
-English
-</td>
-<td style="text-align:left;">
-/course/mqtt-masterclass/
-</td>
-<td style="text-align:left;">
-Venkatesh Varadachari
-</td>
-<td style="text-align:left;">
-/user/venkateshvaradachari/
-</td>
-<td style="text-align:right;">
-4.605070
-</td>
-<td style="text-align:right;">
-5.736572
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4589486
-</td>
-<td style="text-align:left;">
-Marketing Analytics And Customer Foundation
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-119.99
-</td>
-<td style="text-align:right;">
-33
-</td>
-<td style="text-align:right;">
-4.600000
-</td>
-<td style="text-align:right;">
-13
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-56
-</td>
-<td style="text-align:right;">
-147
-</td>
-<td style="text-align:left;">
-2022-03-19 21:35:44
-</td>
-<td style="text-align:left;">
-2022-03-13
-</td>
-<td style="text-align:left;">
-Marketing
-</td>
-<td style="text-align:left;">
-Marketing Fundamentals
-</td>
-<td style="text-align:left;">
-Marketing Analytics
+Ansible
 </td>
 <td style="text-align:left;">
 English
 </td>
 <td style="text-align:left;">
-/course/marketing-analytics-and-customer-foundation/
+/course/automate-linux-in-cloud-with-ansible-by-examples/
 </td>
 <td style="text-align:left;">
-Eric Yeboah
+Luca Berton
 </td>
 <td style="text-align:left;">
-/user/eric-yeboah-2/
+/user/luca-berton-3/
 </td>
 <td style="text-align:right;">
-4.787408
+2.995232
 </td>
 <td style="text-align:right;">
-3.496508
+1.098612
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-3721456
+1751882
 </td>
 <td style="text-align:left;">
-Developing a Multithreaded Kernel From Scratch!
+Create custom Alexa skill using AWS Lambda function
 </td>
 <td style="text-align:left;">
 TRUE
 </td>
 <td style="text-align:right;">
-84.99
+24.99
 </td>
 <td style="text-align:right;">
-6796
+1675
 </td>
 <td style="text-align:right;">
-4.775510
+3.800000
 </td>
 <td style="text-align:right;">
-622
+26
 </td>
 <td style="text-align:right;">
-86
+11
 </td>
 <td style="text-align:right;">
-138
+38
 </td>
 <td style="text-align:right;">
-1690
+232
 </td>
 <td style="text-align:left;">
-2020-12-28 22:19:34
+2018-06-19 02:33:13
 </td>
 <td style="text-align:left;">
-2022-06-25
+2018-06-19
 </td>
 <td style="text-align:left;">
 Development
@@ -2793,25 +2345,480 @@ Development
 Software Engineering
 </td>
 <td style="text-align:left;">
-Linux Kernel
+Alexa Development
 </td>
 <td style="text-align:left;">
 English
 </td>
 <td style="text-align:left;">
-/course/developing-a-multithreaded-kernel-from-scratch/
+/course/create-custom-alexa-skill-using-aws-lambda-function/
 </td>
 <td style="text-align:left;">
-Daniel McCarthy
+Nilay Mehta
 </td>
 <td style="text-align:left;">
-/user/daniel-mccarthy-13/
+/user/nilay-mehta-3/
 </td>
 <td style="text-align:right;">
-4.442534
+3.218476
 </td>
 <td style="text-align:right;">
-8.824089
+7.423568
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1451180
+</td>
+<td style="text-align:left;">
+Rules of Composition
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+29.99
+</td>
+<td style="text-align:right;">
+166
+</td>
+<td style="text-align:right;">
+4.500000
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+137
+</td>
+<td style="text-align:left;">
+2017-12-05 19:16:43
+</td>
+<td style="text-align:left;">
+2017-11-29
+</td>
+<td style="text-align:left;">
+Photography &amp; Video
+</td>
+<td style="text-align:left;">
+Photography
+</td>
+<td style="text-align:left;">
+Photography Composition
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/rules-of-composition/
+</td>
+<td style="text-align:left;">
+David Wells
+</td>
+<td style="text-align:left;">
+/user/david-wells-12/
+</td>
+<td style="text-align:right;">
+3.400864
+</td>
+<td style="text-align:right;">
+5.111988
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3309100
+</td>
+<td style="text-align:left;">
+Fundamentos da Qualidade
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+79.90
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+4.642857
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+186
+</td>
+<td style="text-align:left;">
+2020-07-15 14:40:46
+</td>
+<td style="text-align:left;">
+2020-07-10
+</td>
+<td style="text-align:left;">
+Personal Development
+</td>
+<td style="text-align:left;">
+Career Development
+</td>
+<td style="text-align:left;">
+Quality Management
+</td>
+<td style="text-align:left;">
+Portuguese
+</td>
+<td style="text-align:left;">
+/course/fundamentos-da-qualidade/
+</td>
+<td style="text-align:left;">
+Carlos Barbosa - WGB
+</td>
+<td style="text-align:left;">
+/user/carlos-henrique-s-barbosa/
+</td>
+<td style="text-align:right;">
+4.380776
+</td>
+<td style="text-align:right;">
+2.397895
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2452090
+</td>
+<td style="text-align:left;">
+Enhance Your Communication Skills
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+19.99
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+4.500000
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:left;">
+2019-08-27 01:05:53
+</td>
+<td style="text-align:left;">
+2019-07-09
+</td>
+<td style="text-align:left;">
+Personal Development
+</td>
+<td style="text-align:left;">
+Personal Productivity
+</td>
+<td style="text-align:left;">
+Communication Skills
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/enhance-your-coummuncations/
+</td>
+<td style="text-align:left;">
+Kevin Charles
+</td>
+<td style="text-align:left;">
+/user/kevin-charles-16/
+</td>
+<td style="text-align:right;">
+2.995232
+</td>
+<td style="text-align:right;">
+2.197225
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3166284
+</td>
+<td style="text-align:left;">
+Sıfırdan Google Earth Pro Öğrenin
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+169.99
+</td>
+<td style="text-align:right;">
+515
+</td>
+<td style="text-align:right;">
+4.700000
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+213
+</td>
+<td style="text-align:left;">
+2020-05-27 07:43:45
+</td>
+<td style="text-align:left;">
+2021-02-20
+</td>
+<td style="text-align:left;">
+IT &amp; Software
+</td>
+<td style="text-align:left;">
+Other IT &amp; Software
+</td>
+<td style="text-align:left;">
+Google Earth
+</td>
+<td style="text-align:left;">
+Turkish
+</td>
+<td style="text-align:left;">
+/course/googleearthpro/
+</td>
+<td style="text-align:left;">
+Ahmet kargın
+</td>
+<td style="text-align:left;">
+/user/ahmet-kargin/
+</td>
+<td style="text-align:right;">
+5.135740
+</td>
+<td style="text-align:right;">
+6.244167
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1551526
+</td>
+<td style="text-align:left;">
+The Relationship Reconstruction Course
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+89.99
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+3.500000
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:left;">
+2018-02-19 21:39:51
+</td>
+<td style="text-align:left;">
+2018-02-18
+</td>
+<td style="text-align:left;">
+Personal Development
+</td>
+<td style="text-align:left;">
+Parenting &amp; Relationships
+</td>
+<td style="text-align:left;">
+Relationship Building
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/architecting-your-relationship/
+</td>
+<td style="text-align:left;">
+Lionel T. &amp; Kim R. Grimes
+</td>
+<td style="text-align:left;">
+/user/kim-r-grimes/
+</td>
+<td style="text-align:right;">
+4.499699
+</td>
+<td style="text-align:right;">
+3.465736
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2576084
+</td>
+<td style="text-align:left;">
+Cute and Kawaii Halloween Illustration Drawing
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+39.99
+</td>
+<td style="text-align:right;">
+154
+</td>
+<td style="text-align:right;">
+4.450000
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:left;">
+2019-09-26 23:55:58
+</td>
+<td style="text-align:left;">
+2022-09-16
+</td>
+<td style="text-align:left;">
+Design
+</td>
+<td style="text-align:left;">
+Graphic Design &amp; Illustration
+</td>
+<td style="text-align:left;">
+Cartoon Drawing
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/cute-and-kawaii-halloween-illustration-drawing/
+</td>
+<td style="text-align:left;">
+Ecky O
+</td>
+<td style="text-align:left;">
+/user/ecky-oesjady/
+</td>
+<td style="text-align:right;">
+3.688629
+</td>
+<td style="text-align:right;">
+5.036953
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1965910
+</td>
+<td style="text-align:left;">
+TIA Portal for S7-1200 PLC Analog Programming (PLC-SCADA-11)
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+74.99
+</td>
+<td style="text-align:right;">
+228
+</td>
+<td style="text-align:right;">
+4.450000
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+245
+</td>
+<td style="text-align:left;">
+2018-10-16 00:16:40
+</td>
+<td style="text-align:left;">
+2020-12-22
+</td>
+<td style="text-align:left;">
+IT &amp; Software
+</td>
+<td style="text-align:left;">
+Hardware
+</td>
+<td style="text-align:left;">
+Siemens TIA Portal
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/siemens-tia-portal-for-s7-1200-plc-analog-programming/
+</td>
+<td style="text-align:left;">
+Goeduhub Technologies
+</td>
+<td style="text-align:left;">
+/user/goeduhub-learning-solutions/
+</td>
+<td style="text-align:right;">
+4.317355
+</td>
+<td style="text-align:right;">
+5.429346
 </td>
 </tr>
 </tbody>
@@ -2824,7 +2831,7 @@ Daniel McCarthy
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Поэтому идею предсказать цену и рейтинг мы пока отбросим и перейдем к более прозаичной – построим модель длительности курса от количества лекций.</p>
 <ol style="list-style-type: decimal">
-<li>Гипотеза: длительность <code>content_length_min</code> определяется количество лекций <code>num_lectures</code></li>
+<li>Гипотеза: длительность <code>content_length_min</code> определяется количеством лекций <code>num_lectures</code></li>
 </ol>
 <p align="center">
 <code>content_length_min</code> ~ <code>num_lectures</code>
@@ -2853,19 +2860,19 @@ Daniel McCarthy
 ## lm(formula = udemy_model$content_length_min ~ udemy_model$num_lectures)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -155.098  -43.879   -9.676   36.167  175.535 
+##     Min      1Q  Median      3Q     Max 
+## -131.27  -45.95  -13.63   41.22  166.80 
 ## 
 ## Coefficients:
 ##                          Estimate Std. Error t value            Pr(&gt;|t|)    
-## (Intercept)               70.5435     4.9807   14.16 &lt;0.0000000000000002 ***
-## udemy_model$num_lectures   2.4474     0.1843   13.28 &lt;0.0000000000000002 ***
+## (Intercept)               82.2644     5.1237   16.06 &lt;0.0000000000000002 ***
+## udemy_model$num_lectures   2.1397     0.1897   11.28 &lt;0.0000000000000002 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 58.44 on 472 degrees of freedom
-## Multiple R-squared:  0.272,  Adjusted R-squared:  0.2704 
-## F-statistic: 176.3 on 1 and 472 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+## Residual standard error: 61.33 on 500 degrees of freedom
+## Multiple R-squared:  0.2029, Adjusted R-squared:  0.2013 
+## F-statistic: 127.3 on 1 and 500 DF,  p-value: &lt; 0.00000000000000022</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>Интерпретируем результаты: чему равно p-value для коэффициента <code>num_lectures</code>? Видим, что оно очень маленькое и явно меньше зявленного уровня alpha – то есть коэффициент значим, наша гипотеза о том, что количество уроков определяет длительность курса, подтвердилось, ура! Чему равно само значение коэффиента? Примерно 2.16. То есть с увеличением количества уроков на 1 длина курса будет увеличиваться на 2.16 минуты! Чему равен <span class="math inline">\(R^2\)</span>? Он равен 0.19, что в целом вообще-то не очень много, но уже результат. То есть, 19% изменчивости наших данных по длительности курса определяются количеством уроков!</li>
 </ol>
@@ -2882,14 +2889,14 @@ Daniel McCarthy
 ##     udemy_model$num_subscribers_log)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -159.472  -44.752   -9.364   38.971  173.067 
+##     Min      1Q  Median      3Q     Max 
+## -131.59  -46.49  -13.44   41.29  168.49 
 ## 
 ## Coefficients:
 ##                                 Estimate Std. Error t value            Pr(&gt;|t|)
-## (Intercept)                      76.2820     7.2170  10.570 &lt;0.0000000000000002
-## udemy_model$num_lectures          2.4966     0.1896  13.165 &lt;0.0000000000000002
-## udemy_model$num_subscribers_log  -1.4861     1.3528  -1.099               0.273
+## (Intercept)                      84.5443     7.9297  10.662 &lt;0.0000000000000002
+## udemy_model$num_lectures          2.1501     0.1918  11.208 &lt;0.0000000000000002
+## udemy_model$num_subscribers_log  -0.5213     1.3829  -0.377               0.706
 ##                                    
 ## (Intercept)                     ***
 ## udemy_model$num_lectures        ***
@@ -2897,9 +2904,9 @@ Daniel McCarthy
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 58.43 on 471 degrees of freedom
-## Multiple R-squared:  0.2738, Adjusted R-squared:  0.2707 
-## F-statistic:  88.8 on 2 and 471 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+## Residual standard error: 61.38 on 499 degrees of freedom
+## Multiple R-squared:  0.2031, Adjusted R-squared:  0.1999 
+## F-statistic:  63.6 on 2 and 499 DF,  p-value: &lt; 0.00000000000000022</code></pre>
 <p>Что можно сказать про эти результата? Оба ли коэффициента значимы?</p>
 
 </div>
