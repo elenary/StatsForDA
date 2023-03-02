@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2023-02-20" />
+<meta name="date" content="2023-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -264,10 +264,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a>
 <ul>
 <li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициенты-регрессии"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
-<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициент-детерминации-и-доля-объясненной-изменчивости"><i class="fa fa-check"></i><b>11.2.2</b> Коэффициент детерминации и доля объясненной изменчивости</a></li>
+<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#rsquared"><i class="fa fa-check"></i><b>11.2.2</b> Коэффициент детерминации и доля объясненной изменчивости</a></li>
 <li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии"><i class="fa fa-check"></i><b>11.2.3</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
 <li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#множественный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2.4</b> Множественный регрессионный анализ</a></li>
-<li class="chapter" data-level="11.2.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.5</b> Допущения для регрессионного анализа</a></li>
+<li class="chapter" data-level="11.2.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#assumptions_linreg"><i class="fa fa-check"></i><b>11.2.5</b> Допущения для регрессионного анализа</a></li>
 <li class="chapter" data-level="11.2.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.6</b> Расчет регрессионного анализа</a></li>
 </ul></li>
 </ul></li>
@@ -307,9 +307,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="13.11.1" data-path="R_analysis.html"><a href="R_analysis.html#корреляционный-тест-1"><i class="fa fa-check"></i><b>13.11.1</b> Корреляционный тест</a></li>
 <li class="chapter" data-level="13.11.2" data-path="R_analysis.html"><a href="R_analysis.html#т-тест"><i class="fa fa-check"></i><b>13.11.2</b> Т-тест</a></li>
-<li class="chapter" data-level="13.11.3" data-path="R_analysis.html"><a href="R_analysis.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>13.11.3</b> ANOVA (дисперсионный анализ)</a></li>
 </ul></li>
 <li class="chapter" data-level="13.12" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem5"><i class="fa fa-check"></i><b>13.12</b> Задания после семинара 5</a></li>
+<li class="chapter" data-level="13.13" data-path="R_analysis.html"><a href="R_analysis.html#проверка-гипоте-2-anova-и-линейная-регрессия"><i class="fa fa-check"></i><b>13.13</b> Проверка гипоте-2: ANOVA и линейная регрессия</a>
+<ul>
+<li class="chapter" data-level="13.13.1" data-path="R_analysis.html"><a href="R_analysis.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>13.13.1</b> ANOVA (дисперсионный анализ)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.14" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem6"><i class="fa fa-check"></i><b>13.14</b> Задания после семинара 6</a></li>
 </ul></li>
 </ul>
 
@@ -1959,8 +1963,8 @@ less
 </p>
 <p>При подсчете коэффициентов первым высчитывается <span class="math inline">\(b_1\)</span>, и он, как видно из формулы, зависит от величины вариативности данных по переменным x и y (стандартных отклонений или дисперсий). <strong>В случае равной вариативности</strong> <span class="math inline">\(b_1\)</span> <strong>является коэффициентом корреляции</strong> <span class="math inline">\(r_{xy}\)</span></p>
 </div>
-<div id="коэффициент-детерминации-и-доля-объясненной-изменчивости" class="section level3 hasAnchor" number="11.2.2">
-<h3><span class="header-section-number">11.2.2</span> Коэффициент детерминации и доля объясненной изменчивости<a href="stats_criteria_linear.html#коэффициент-детерминации-и-доля-объясненной-изменчивости" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="rsquared" class="section level3 hasAnchor" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> Коэффициент детерминации и доля объясненной изменчивости<a href="stats_criteria_linear.html#rsquared" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>В линейной регрессии, так же, как и в ANOVA, коэффициент детерминации говорит о <strong>проценте объясненной изменчивости</strong>, то есть как хорошо наша регрессионная модель объясняет изменчивость зависимой переменной.</p>
 <p>Так же, как и в ANOVA, сумма квадратов SST складывается из <strong>межгрупповой</strong> суммы квадратов (SSE, Sum of Squares Explained или SSB, Sum of Squares Between groups) и <strong>внутригрупповой</strong> (SSR, Sum of Squares Random или SSW, Sum of Squares Within groups).</p>
 <p align="center">
@@ -2023,8 +2027,8 @@ less
 <span class="math inline">\(\hat y = b_o + b_1x_1 + b_2x_2 + ... + b_nx_n\)</span>
 </p>
 </div>
-<div id="допущения-для-регрессионного-анализа" class="section level3 hasAnchor" number="11.2.5">
-<h3><span class="header-section-number">11.2.5</span> Допущения для регрессионного анализа<a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="assumptions_linreg" class="section level3 hasAnchor" number="11.2.5">
+<h3><span class="header-section-number">11.2.5</span> Допущения для регрессионного анализа<a href="stats_criteria_linear.html#assumptions_linreg" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>(ЗП и НП измерены в количественной или порядковой шкале)</p>
 <ol style="list-style-type: decimal">
 <li>Распределение НП по ЗП линейно – нет картины нелинейной взаимосвязи или скоплений данных в разных местах.</li>
@@ -2162,474 +2166,409 @@ num_subscribers_log
 <tbody>
 <tr>
 <td style="text-align:right;">
-1783138
+3579349
 </td>
 <td style="text-align:left;">
-Accounting-Debits &amp; Credits-Practice Test Questions-Bookkeep
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-19.99
-</td>
-<td style="text-align:right;">
-1452
-</td>
-<td style="text-align:right;">
-4.200000
-</td>
-<td style="text-align:right;">
-16
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-25
-</td>
-<td style="text-align:right;">
-278
-</td>
-<td style="text-align:left;">
-2018-07-07 17:20:42
-</td>
-<td style="text-align:left;">
-2018-07-06
-</td>
-<td style="text-align:left;">
-Finance &amp; Accounting
-</td>
-<td style="text-align:left;">
-Accounting &amp; Bookkeeping
-</td>
-<td style="text-align:left;">
-Test Taking Skills
-</td>
-<td style="text-align:left;">
-English
-</td>
-<td style="text-align:left;">
-/course/accounting-debits-credits-practice-test-questions/
-</td>
-<td style="text-align:left;">
-Robert (Bob) Steele
-</td>
-<td style="text-align:left;">
-/user/c91d6786-95f3-48d8-ab94-cc92431d2aa4/
-</td>
-<td style="text-align:right;">
-2.995232
-</td>
-<td style="text-align:right;">
-7.280697
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-993160
-</td>
-<td style="text-align:left;">
-Get Credit for Your EIN That’s Not Linked to Your SSN
+Python Automation Testing With Pytest
 </td>
 <td style="text-align:left;">
 TRUE
 </td>
 <td style="text-align:right;">
-19.99
+34.99
 </td>
 <td style="text-align:right;">
-1591
+3050
 </td>
 <td style="text-align:right;">
-4.416666
+4.239317
 </td>
 <td style="text-align:right;">
-294
+398
 </td>
 <td style="text-align:right;">
-91
+40
 </td>
 <td style="text-align:right;">
-15
+70
 </td>
 <td style="text-align:right;">
-87
+401
 </td>
 <td style="text-align:left;">
-2016-12-14 17:29:34
+2020-10-22 18:16:31
 </td>
 <td style="text-align:left;">
-2016-12-08
-</td>
-<td style="text-align:left;">
-Finance &amp; Accounting
-</td>
-<td style="text-align:left;">
-Finance
-</td>
-<td style="text-align:left;">
-Business Fundamentals
-</td>
-<td style="text-align:left;">
-English
-</td>
-<td style="text-align:left;">
-/course/business-credit/
-</td>
-<td style="text-align:left;">
-Ty Crandall
-</td>
-<td style="text-align:left;">
-/user/ty-crandall/
-</td>
-<td style="text-align:right;">
-2.995232
-</td>
-<td style="text-align:right;">
-7.372118
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1198414
-</td>
-<td style="text-align:left;">
-Como administrar um pequeno grande negócio
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-179.90
-</td>
-<td style="text-align:right;">
-6354
-</td>
-<td style="text-align:right;">
-4.050000
-</td>
-<td style="text-align:right;">
-274
-</td>
-<td style="text-align:right;">
-66
-</td>
-<td style="text-align:right;">
-54
-</td>
-<td style="text-align:right;">
-293
-</td>
-<td style="text-align:left;">
-2017-05-01 02:04:07
-</td>
-<td style="text-align:left;">
-2021-09-08
-</td>
-<td style="text-align:left;">
-Finance &amp; Accounting
-</td>
-<td style="text-align:left;">
-Finance
-</td>
-<td style="text-align:left;">
-Entrepreneurship Fundamentals
-</td>
-<td style="text-align:left;">
-Portuguese
-</td>
-<td style="text-align:left;">
-/course/como-administrar-um-pequeno-negocio/
-</td>
-<td style="text-align:left;">
-Tiago Bacciotti Moreira
-</td>
-<td style="text-align:left;">
-/user/tiagobaciottimoreira/
-</td>
-<td style="text-align:right;">
-5.192401
-</td>
-<td style="text-align:right;">
-8.756840
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-979686
-</td>
-<td style="text-align:left;">
-Painting Wild Places with Watercolors: Placid Lake
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-29.99
-</td>
-<td style="text-align:right;">
-65
-</td>
-<td style="text-align:right;">
-0.000000
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-34
-</td>
-<td style="text-align:left;">
-2016-10-14 15:34:30
-</td>
-<td style="text-align:left;">
-2016-10-23
-</td>
-<td style="text-align:left;">
-Lifestyle
-</td>
-<td style="text-align:left;">
-Arts &amp; Crafts
-</td>
-<td style="text-align:left;">
-Watercolor Painting
-</td>
-<td style="text-align:left;">
-English
-</td>
-<td style="text-align:left;">
-/course/paint-placidlake/
-</td>
-<td style="text-align:left;">
-Gary Spetz
-</td>
-<td style="text-align:left;">
-/user/gary-spetz/
-</td>
-<td style="text-align:right;">
-3.400864
-</td>
-<td style="text-align:right;">
-4.174387
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-317278
-</td>
-<td style="text-align:left;">
-Typographic Logos: Typography and Lettering for Logo Design
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-24.99
-</td>
-<td style="text-align:right;">
-11059
-</td>
-<td style="text-align:right;">
-4.452381
-</td>
-<td style="text-align:right;">
-2052
-</td>
-<td style="text-align:right;">
-547
-</td>
-<td style="text-align:right;">
-20
-</td>
-<td style="text-align:right;">
-91
-</td>
-<td style="text-align:left;">
-2014-10-16 19:30:01
-</td>
-<td style="text-align:left;">
-2016-04-26
-</td>
-<td style="text-align:left;">
-Design
-</td>
-<td style="text-align:left;">
-Graphic Design &amp; Illustration
-</td>
-<td style="text-align:left;">
-Logo Design
-</td>
-<td style="text-align:left;">
-English
-</td>
-<td style="text-align:left;">
-/course/typographic-logos-typography-and-lettering-for-logo-design/
-</td>
-<td style="text-align:left;">
-Ray Dombroski
-</td>
-<td style="text-align:left;">
-/user/raydombroski/
-</td>
-<td style="text-align:right;">
-3.218476
-</td>
-<td style="text-align:right;">
-9.311000
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2658982
-</td>
-<td style="text-align:left;">
-Advanced CGI / VFX Compositing
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-179.99
-</td>
-<td style="text-align:right;">
-254
-</td>
-<td style="text-align:right;">
-4.150000
-</td>
-<td style="text-align:right;">
-22
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-22
-</td>
-<td style="text-align:right;">
-120
-</td>
-<td style="text-align:left;">
-2019-11-19 14:24:57
-</td>
-<td style="text-align:left;">
-2019-11-18
-</td>
-<td style="text-align:left;">
-Design
-</td>
-<td style="text-align:left;">
-3D &amp; Animation
-</td>
-<td style="text-align:left;">
-After Effects
-</td>
-<td style="text-align:left;">
-English
-</td>
-<td style="text-align:left;">
-/course/advanced-cgi-compositing/
-</td>
-<td style="text-align:left;">
-Digital Learning Solutions
-</td>
-<td style="text-align:left;">
-/user/digital-learning-solutions/
-</td>
-<td style="text-align:right;">
-5.192901
-</td>
-<td style="text-align:right;">
-5.537334
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4473302
-</td>
-<td style="text-align:left;">
-2022 Complete Data Structures: Data Structures With Python
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-19.99
-</td>
-<td style="text-align:right;">
-9861
-</td>
-<td style="text-align:right;">
-4.300000
-</td>
-<td style="text-align:right;">
-51
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-18
-</td>
-<td style="text-align:right;">
-122
-</td>
-<td style="text-align:left;">
-2022-02-01 09:00:08
-</td>
-<td style="text-align:left;">
-2022-03-12
+2022-09-01
 </td>
 <td style="text-align:left;">
 Development
 </td>
 <td style="text-align:left;">
-Programming Languages
+Software Engineering
 </td>
 <td style="text-align:left;">
-Data Structures
+Python
 </td>
 <td style="text-align:left;">
 English
 </td>
 <td style="text-align:left;">
-/course/data-structures-with-python3/
+/course/python-automation-pytest/
 </td>
 <td style="text-align:left;">
-Shantanu Jumde
+Kumar S
 </td>
 <td style="text-align:left;">
-/user/shantanu-jumde/
+/user/kumar-2653/
 </td>
 <td style="text-align:right;">
-2.995232
+3.555062
 </td>
 <td style="text-align:right;">
-9.196343
+8.022897
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-4904506
+2965214
 </td>
 <td style="text-align:left;">
-How To Be Successful: Mindset &amp; How Mindsets Are Formed
+Scrum Master Kurs
 </td>
 <td style="text-align:left;">
 TRUE
 </td>
 <td style="text-align:right;">
-59.99
+19.99
 </td>
 <td style="text-align:right;">
-4
+13
+</td>
+<td style="text-align:right;">
+3.200000
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:left;">
+2020-04-10 16:35:40
+</td>
+<td style="text-align:left;">
+2021-05-18
+</td>
+<td style="text-align:left;">
+Business
+</td>
+<td style="text-align:left;">
+Project Management
+</td>
+<td style="text-align:left;">
+Professional Scrum Master (PSM)
+</td>
+<td style="text-align:left;">
+German
+</td>
+<td style="text-align:left;">
+/course/scrum-master-kurs/
+</td>
+<td style="text-align:left;">
+Patrick Wagner
+</td>
+<td style="text-align:left;">
+/user/patrick-wagner-10/
+</td>
+<td style="text-align:right;">
+2.995232
+</td>
+<td style="text-align:right;">
+2.564949
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4760646
+</td>
+<td style="text-align:left;">
+How to start a Notary Business
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+44.99
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4.750000
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+149
+</td>
+<td style="text-align:left;">
+2022-07-06 07:03:01
+</td>
+<td style="text-align:left;">
+2022-07-06
+</td>
+<td style="text-align:left;">
+Business
+</td>
+<td style="text-align:left;">
+Real Estate
+</td>
+<td style="text-align:left;">
+Notary Business
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/notarybusiness/
+</td>
+<td style="text-align:left;">
+Edgy Eliacin
+</td>
+<td style="text-align:left;">
+/user/edgy-eliacin/
+</td>
+<td style="text-align:right;">
+3.806440
+</td>
+<td style="text-align:right;">
+1.098612
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2607658
+</td>
+<td style="text-align:left;">
+Articulate 360 Grundlagen - Stroyline und Rise
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+19.99
+</td>
+<td style="text-align:right;">
+89
+</td>
+<td style="text-align:right;">
+4.400000
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:left;">
+2019-10-17 19:58:03
+</td>
+<td style="text-align:left;">
+2020-06-29
+</td>
+<td style="text-align:left;">
+Teaching &amp; Academics
+</td>
+<td style="text-align:left;">
+Online Education
+</td>
+<td style="text-align:left;">
+Articulate Storyline
+</td>
+<td style="text-align:left;">
+German
+</td>
+<td style="text-align:left;">
+/course/articulate-360-grundlagen/
+</td>
+<td style="text-align:left;">
+Andreas Rinnhofer
+</td>
+<td style="text-align:left;">
+/user/inn-ovativ/
+</td>
+<td style="text-align:right;">
+2.995232
+</td>
+<td style="text-align:right;">
+4.488636
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1409440
+</td>
+<td style="text-align:left;">
+Master Salesforce Lightning Reports, Dashboards &amp; Listviews
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+49.99
+</td>
+<td style="text-align:right;">
+4801
+</td>
+<td style="text-align:right;">
+4.425000
+</td>
+<td style="text-align:right;">
+612
+</td>
+<td style="text-align:right;">
+76
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:left;">
+2017-10-31 23:23:16
+</td>
+<td style="text-align:left;">
+2019-06-23
+</td>
+<td style="text-align:left;">
+Office Productivity
+</td>
+<td style="text-align:left;">
+Other Office Productivity
+</td>
+<td style="text-align:left;">
+Salesforce Lightning
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/master-salesforce-lightning-reports-dashboards-listviews/
+</td>
+<td style="text-align:left;">
+Warren Chalklen, PhD
+</td>
+<td style="text-align:left;">
+/user/leslie-chalklen/
+</td>
+<td style="text-align:right;">
+3.911823
+</td>
+<td style="text-align:right;">
+8.476579
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4442520
+</td>
+<td style="text-align:left;">
+3.Sınıf Matematik
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+229.99
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+5.000000
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+76
+</td>
+<td style="text-align:right;">
+645
+</td>
+<td style="text-align:left;">
+2021-12-16 08:06:46
+</td>
+<td style="text-align:left;">
+2021-12-15
+</td>
+<td style="text-align:left;">
+Teaching &amp; Academics
+</td>
+<td style="text-align:left;">
+Test Prep
+</td>
+<td style="text-align:left;">
+Math
+</td>
+<td style="text-align:left;">
+Turkish
+</td>
+<td style="text-align:left;">
+/course/3snf-matematik/
+</td>
+<td style="text-align:left;">
+Edutopya Eğitim
+</td>
+<td style="text-align:left;">
+/user/edutopya/
+</td>
+<td style="text-align:right;">
+5.438036
+</td>
+<td style="text-align:right;">
+2.890372
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1921272
+</td>
+<td style="text-align:left;">
+AutoCAD Mini course [Arabic] مينى كورس اوتوكاد
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+19.99
+</td>
+<td style="text-align:right;">
+5
 </td>
 <td style="text-align:right;">
 0.000000
@@ -2641,173 +2580,238 @@ TRUE
 0
 </td>
 <td style="text-align:right;">
-5
+16
 </td>
 <td style="text-align:right;">
-55
+66
 </td>
 <td style="text-align:left;">
-2022-09-30 04:29:12
+2018-09-21 21:03:01
 </td>
 <td style="text-align:left;">
-2022-10-01
+2018-09-19
 </td>
 <td style="text-align:left;">
-Personal Development
+Design
 </td>
 <td style="text-align:left;">
-Personal Transformation
+Architectural Design
 </td>
 <td style="text-align:left;">
-Growth Mindset
+AutoCAD
 </td>
 <td style="text-align:left;">
-English
+Arabic
 </td>
 <td style="text-align:left;">
-/course/how-to-be-successful-mindset-how-mindsets-are-formed/
+/course/autocad-arabic/
 </td>
 <td style="text-align:left;">
-RANSFORD AKUFFO
+CAD era
 </td>
 <td style="text-align:left;">
-/user/ransford-akuffo/
+/user/peandrew/
 </td>
 <td style="text-align:right;">
-4.094178
+2.995232
 </td>
 <td style="text-align:right;">
-1.386294
+1.609438
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-4788742
+3444936
 </td>
 <td style="text-align:left;">
-IT Essentials - PC Hardware &amp; Software v7 - Português - PT
+MQTT Masterclass
 </td>
 <td style="text-align:left;">
 TRUE
 </td>
 <td style="text-align:right;">
-24.99
+99.99
 </td>
 <td style="text-align:right;">
-4
+310
 </td>
 <td style="text-align:right;">
-4.000000
+3.750000
 </td>
 <td style="text-align:right;">
-2
+26
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-15
+51
 </td>
 <td style="text-align:right;">
-1093
+289
 </td>
 <td style="text-align:left;">
-2022-08-12 17:48:22
+2020-09-08 12:55:35
 </td>
 <td style="text-align:left;">
-2022-08-12
+2022-06-19
 </td>
 <td style="text-align:left;">
 IT &amp; Software
 </td>
 <td style="text-align:left;">
-IT Certifications
+Hardware
 </td>
 <td style="text-align:left;">
-CompTIA A+
-</td>
-<td style="text-align:left;">
-Portuguese
-</td>
-<td style="text-align:left;">
-/course/cisco-ite-v7-pt-pt/
-</td>
-<td style="text-align:left;">
-João Pedro Esteves Antunes Inácio
-</td>
-<td style="text-align:left;">
-/user/joao-pedro-esteves-antunes-inacio/
-</td>
-<td style="text-align:right;">
-3.218476
-</td>
-<td style="text-align:right;">
-1.386294
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-500402
-</td>
-<td style="text-align:left;">
-How to Create &amp; Sell Information Products Fast!
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-<td style="text-align:right;">
-159.99
-</td>
-<td style="text-align:right;">
-1294
-</td>
-<td style="text-align:right;">
-3.600000
-</td>
-<td style="text-align:right;">
-27
-</td>
-<td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-24
-</td>
-<td style="text-align:right;">
-81
-</td>
-<td style="text-align:left;">
-2015-06-11 18:12:58
-</td>
-<td style="text-align:left;">
-2015-06-28
-</td>
-<td style="text-align:left;">
-Business
-</td>
-<td style="text-align:left;">
-Media
-</td>
-<td style="text-align:left;">
-Sales Skills
+MQTT
 </td>
 <td style="text-align:left;">
 English
 </td>
 <td style="text-align:left;">
-/course/make-money-online-how-to-create-your-own-product/
+/course/mqtt-masterclass/
 </td>
 <td style="text-align:left;">
-Jim Shirley
+Venkatesh Varadachari
 </td>
 <td style="text-align:left;">
-/user/550613ee5dcdb/
+/user/venkateshvaradachari/
 </td>
 <td style="text-align:right;">
-5.075111
+4.605070
 </td>
 <td style="text-align:right;">
-7.165494
+5.736572
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4589486
+</td>
+<td style="text-align:left;">
+Marketing Analytics And Customer Foundation
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+119.99
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+4.600000
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+147
+</td>
+<td style="text-align:left;">
+2022-03-19 21:35:44
+</td>
+<td style="text-align:left;">
+2022-03-13
+</td>
+<td style="text-align:left;">
+Marketing
+</td>
+<td style="text-align:left;">
+Marketing Fundamentals
+</td>
+<td style="text-align:left;">
+Marketing Analytics
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/marketing-analytics-and-customer-foundation/
+</td>
+<td style="text-align:left;">
+Eric Yeboah
+</td>
+<td style="text-align:left;">
+/user/eric-yeboah-2/
+</td>
+<td style="text-align:right;">
+4.787408
+</td>
+<td style="text-align:right;">
+3.496508
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3721456
+</td>
+<td style="text-align:left;">
+Developing a Multithreaded Kernel From Scratch!
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+84.99
+</td>
+<td style="text-align:right;">
+6796
+</td>
+<td style="text-align:right;">
+4.775510
+</td>
+<td style="text-align:right;">
+622
+</td>
+<td style="text-align:right;">
+86
+</td>
+<td style="text-align:right;">
+138
+</td>
+<td style="text-align:right;">
+1690
+</td>
+<td style="text-align:left;">
+2020-12-28 22:19:34
+</td>
+<td style="text-align:left;">
+2022-06-25
+</td>
+<td style="text-align:left;">
+Development
+</td>
+<td style="text-align:left;">
+Software Engineering
+</td>
+<td style="text-align:left;">
+Linux Kernel
+</td>
+<td style="text-align:left;">
+English
+</td>
+<td style="text-align:left;">
+/course/developing-a-multithreaded-kernel-from-scratch/
+</td>
+<td style="text-align:left;">
+Daniel McCarthy
+</td>
+<td style="text-align:left;">
+/user/daniel-mccarthy-13/
+</td>
+<td style="text-align:right;">
+4.442534
+</td>
+<td style="text-align:right;">
+8.824089
 </td>
 </tr>
 </tbody>
@@ -2849,19 +2853,19 @@ Jim Shirley
 ## lm(formula = udemy_model$content_length_min ~ udemy_model$num_lectures)
 ## 
 ## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -172.00  -42.43  -11.62   41.14  185.95 
+##      Min       1Q   Median       3Q      Max 
+## -155.098  -43.879   -9.676   36.167  175.535 
 ## 
 ## Coefficients:
 ##                          Estimate Std. Error t value            Pr(&gt;|t|)    
-## (Intercept)               69.4697     4.9977   13.90 &lt;0.0000000000000002 ***
-## udemy_model$num_lectures   2.5986     0.1765   14.72 &lt;0.0000000000000002 ***
+## (Intercept)               70.5435     4.9807   14.16 &lt;0.0000000000000002 ***
+## udemy_model$num_lectures   2.4474     0.1843   13.28 &lt;0.0000000000000002 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 60.18 on 523 degrees of freedom
-## Multiple R-squared:  0.2929, Adjusted R-squared:  0.2916 
-## F-statistic: 216.7 on 1 and 523 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+## Residual standard error: 58.44 on 472 degrees of freedom
+## Multiple R-squared:  0.272,  Adjusted R-squared:  0.2704 
+## F-statistic: 176.3 on 1 and 472 DF,  p-value: &lt; 0.00000000000000022</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>Интерпретируем результаты: чему равно p-value для коэффициента <code>num_lectures</code>? Видим, что оно очень маленькое и явно меньше зявленного уровня alpha – то есть коэффициент значим, наша гипотеза о том, что количество уроков определяет длительность курса, подтвердилось, ура! Чему равно само значение коэффиента? Примерно 2.16. То есть с увеличением количества уроков на 1 длина курса будет увеличиваться на 2.16 минуты! Чему равен <span class="math inline">\(R^2\)</span>? Он равен 0.19, что в целом вообще-то не очень много, но уже результат. То есть, 19% изменчивости наших данных по длительности курса определяются количеством уроков!</li>
 </ol>
@@ -2878,14 +2882,14 @@ Jim Shirley
 ##     udemy_model$num_subscribers_log)
 ## 
 ## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -174.76  -42.81  -12.02   40.97  186.54 
+##      Min       1Q   Median       3Q      Max 
+## -159.472  -44.752   -9.364   38.971  173.067 
 ## 
 ## Coefficients:
 ##                                 Estimate Std. Error t value            Pr(&gt;|t|)
-## (Intercept)                      73.3920     7.3801   9.945 &lt;0.0000000000000002
-## udemy_model$num_lectures          2.6309     0.1822  14.439 &lt;0.0000000000000002
-## udemy_model$num_subscribers_log  -0.9901     1.3702  -0.723                0.47
+## (Intercept)                      76.2820     7.2170  10.570 &lt;0.0000000000000002
+## udemy_model$num_lectures          2.4966     0.1896  13.165 &lt;0.0000000000000002
+## udemy_model$num_subscribers_log  -1.4861     1.3528  -1.099               0.273
 ##                                    
 ## (Intercept)                     ***
 ## udemy_model$num_lectures        ***
@@ -2893,9 +2897,9 @@ Jim Shirley
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 60.21 on 522 degrees of freedom
-## Multiple R-squared:  0.2936, Adjusted R-squared:  0.2909 
-## F-statistic: 108.5 on 2 and 522 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+## Residual standard error: 58.43 on 471 degrees of freedom
+## Multiple R-squared:  0.2738, Adjusted R-squared:  0.2707 
+## F-statistic:  88.8 on 2 and 471 DF,  p-value: &lt; 0.00000000000000022</code></pre>
 <p>Что можно сказать про эти результата? Оба ли коэффициента значимы?</p>
 
 </div>

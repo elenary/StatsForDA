@@ -129,3 +129,6 @@ linreg
 многофакторная-anova
 anova-с-повторными-измерениями
 tasks_sem6
+rsquared
+assumptions_linreg
+tasks_sem7

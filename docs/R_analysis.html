@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2023-02-23" />
+<meta name="date" content="2023-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -262,10 +262,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a>
 <ul>
 <li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициенты-регрессии"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
-<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициент-детерминации-и-доля-объясненной-изменчивости"><i class="fa fa-check"></i><b>11.2.2</b> Коэффициент детерминации и доля объясненной изменчивости</a></li>
+<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#rsquared"><i class="fa fa-check"></i><b>11.2.2</b> Коэффициент детерминации и доля объясненной изменчивости</a></li>
 <li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии"><i class="fa fa-check"></i><b>11.2.3</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
 <li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#множественный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2.4</b> Множественный регрессионный анализ</a></li>
-<li class="chapter" data-level="11.2.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.5</b> Допущения для регрессионного анализа</a></li>
+<li class="chapter" data-level="11.2.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#assumptions_linreg"><i class="fa fa-check"></i><b>11.2.5</b> Допущения для регрессионного анализа</a></li>
 <li class="chapter" data-level="11.2.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.6</b> Расчет регрессионного анализа</a></li>
 </ul></li>
 </ul></li>
@@ -312,6 +312,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.13.1" data-path="R_analysis.html"><a href="R_analysis.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>13.13.1</b> ANOVA (дисперсионный анализ)</a></li>
 </ul></li>
 <li class="chapter" data-level="13.14" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem6"><i class="fa fa-check"></i><b>13.14</b> Задания после семинара 6</a></li>
+<li class="chapter" data-level="13.15" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg"><i class="fa fa-check"></i><b>13.15</b> Линейный регрессионный анализ</a></li>
+<li class="chapter" data-level="13.16" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem7"><i class="fa fa-check"></i><b>13.16</b> Задания после семинара 7</a></li>
 </ul></li>
 </ul>
 
@@ -1927,10 +1929,23 @@ summary(whr_new$<code>Happiness Score</code>)</p>
 <h2><span class="header-section-number">13.14</span> Задания после семинара 6<a href="R_analysis.html#tasks_sem6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Проверьте несколько гипотез на датасете <code>whr_tests_hw</code> с помощью ANOVA и линейного регресионного анализа: выберете подходящие для этих тестов переменные, сформулируйте гипотезу, сформулируйте <span class="math inline">\(H_0\)</span> и <span class="math inline">\(H_1\)</span>, выберете уровень <span class="math inline">\(\alpha\)</span>, (если нужно, предобработайте данные), проверьте допущения для тестов.</p>
 <ol style="list-style-type: decimal">
-<li>Выберете подходящие переменные, сформулируйте осмысленную гипотезу и проверьте ее с помощью однофакторной ANOVA</li>
-<li>Выберете подходящие переменные, сформулируйте осмысленную гипотезу и проверьте ее и проверьте ее с многофакторной ANOVA</li>
-<li>Выберете подходящие переменные, сформулируйте осмысленную гипотезу и проверьте ее с помощью ANOVA повторными измерениями</li>
+<li>Выберете подходящие переменные, сформулируйте осмысленную гипотезу и проверьте ее с помощью однофакторной ANOVA. Проинтерпретируйте результаты: подвердилась ли гипотеза?</li>
+<li>Выберете подходящие переменные, сформулируйте осмысленную гипотезу и проверьте ее и проверьте ее с многофакторной ANOVA. Проинтерпретируйте результаты: подвердилась ли гипотеза?</li>
+<li>Выберете подходящие переменные, сформулируйте осмысленную гипотезу и проверьте ее с помощью ANOVA c повторными измерениями. Проинтерпретируйте результаты: подвердилась ли гипотеза?</li>
 <li>Проведите те же самые проверки гипотез 1-3 с помощью линейного регрессионного анализа.</li>
+</ol>
+</div>
+<div id="linreg" class="section level2 hasAnchor" number="13.15">
+<h2><span class="header-section-number">13.15</span> Линейный регрессионный анализ<a href="stats_criteria_linear.html#linreg" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="tasks_sem7" class="section level2 hasAnchor" number="13.16">
+<h2><span class="header-section-number">13.16</span> Задания после семинара 7<a href="R_analysis.html#tasks_sem7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Отобрать переменные, подходящие для построения линейной регрессии, в данных <code>whr_tests_hw.csv</code></li>
+<li>Построить линейную регрессию на этих переменных, с одним фактором (НП)</li>
+<li>Построить линейную регрессию на этих переменных, но уже хотя бы с двумя факторами (НП)</li>
+<li>Построить диагностические графики для каждой модели: насколько равной получилась дисперсия остатков для этих моделей? Можно ли доверять результатом этих моделей?</li>
+<li>Определеить, какая модель лучше объясняет данные (вариативность ЗП)?</li>
 </ol>
 
 </div>
