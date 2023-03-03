@@ -1257,8 +1257,8 @@ plot(lm_model1, 1)
 Можем сделать график покрасивее через ggplot(). Для этого воспользуемся тем, что результат выполнения lm() -- это список, в котором содержится много разныз данных, в том числе, и остатки модели, и предсказанные значения отдельно.
 
 ```{r eval=TRUE, echo = TRUE, message = FALSE}
-lm_model1$residuals
-lm_model1$fitted.values
+head(lm_model1$residuals) #head() выводит заголовок, первые элементы
+head(lm_model1$fitted.values)
 ```
 
 ```{r eval=TRUE, echo = TRUE, message = FALSE}
