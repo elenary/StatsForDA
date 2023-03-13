@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2023-03-06" />
+<meta name="date" content="2023-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -319,6 +319,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.15.2" data-path="R_analysis.html"><a href="R_analysis.html#линейная-регрессия-с-несколькими-предикторами-факторами"><i class="fa fa-check"></i><b>13.15.2</b> Линейная регрессия с несколькими предикторами (факторами)</a></li>
 </ul></li>
 <li class="chapter" data-level="13.16" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem7"><i class="fa fa-check"></i><b>13.16</b> Задания после семинара 7</a></li>
+<li class="chapter" data-level="13.17" data-path="R_analysis.html"><a href="R_analysis.html#логистическая-регрессия-1"><i class="fa fa-check"></i><b>13.17</b> Логистическая регрессия</a></li>
 </ul></li>
 </ul>
 
@@ -2200,6 +2201,72 @@ summary(whr_new$<code>Happiness Score</code>)</p>
 <li>Определеите, какая модель лучше объясняет данные (то есть вариативность ЗП)?</li>
 <li>Запишите уравнение линейной регрессии для обеих моделей.</li>
 </ol>
+</div>
+<div id="логистическая-регрессия-1" class="section level2 hasAnchor" number="13.17">
+<h2><span class="header-section-number">13.17</span> Логистическая регрессия<a href="R_analysis.html#логистическая-регрессия-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Перейдем от линейной регрессии к <a href="#logreg">логистической</a>. Сначала вспомним, что это за метод, и когда используется – он используется, когда ЗП не количественная, а категориальная, и, как правило, имеет две градации. Это самый классический случай логистической регрессии, хотя ЗП в ней может иметь и большее количество градаций, чем две – тогда это будет уже <em>мультиномиальная логистическая регрессия</em>. На лог регрессии построено все машинное обучение – задачи, в которых нужно определить, относится ли изображение к определенному шаблону (например, распознавание текста), является ли кредитный заемщик благонадежным для выдачи кредиты (скоринговые модели в банках) и тд используют именно этот метод.</p>
+<p>Мы рассмотрим его на все том же примере наших данных с World Happiness Report. Они не очень подходят для этого метода, поэтому задача будет немного искусственной – попроуем предсказать, будет ли попадать страна в первую или вторую половину рейтнга по уровню счастья (мы создавали специальную переменную для этого). Сначала я перекодирую эту переменную в 1 и 0, так как лог регрессия работает с численными значениями 0 и 1.</p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="R_analysis.html#cb308-1" aria-hidden="true" tabindex="-1"></a>whr_tests_hw <span class="sc">%&gt;%</span></span>
+<span id="cb308-2"><a href="R_analysis.html#cb308-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_position_bi =</span> <span class="fu">ifelse</span>(mean_position <span class="sc">==</span> <span class="st">&quot;upper&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="ot">-&gt;</span> whr_tests_hw</span></code></pre></div>
+<p>Сначала построим самую простую модель, в которую будет входить только интерцепт. Эта модель, по сути, аналог хи квадрата – не имея никаких предикторов оценить, попадет ли страна в первую или вторую половину рейтинга, чисто на основании частоты встречаемости стран из первой и второй половины? Конкретно в этом примере частоты будут примерно одинаковыми, но прицнип работы этой модели примерно такой.</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="R_analysis.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(whr_tests_hw<span class="sc">$</span>mean_position)</span></code></pre></div>
+<pre><code>## 
+## lower upper 
+##    78    75</code></pre>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="R_analysis.html#cb311-1" aria-hidden="true" tabindex="-1"></a>whr_tests_hw <span class="sc">%&gt;%</span></span>
+<span id="cb311-2"><a href="R_analysis.html#cb311-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(mean_position_bi <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> ., <span class="at">family =</span> binomial) <span class="ot">-&gt;</span> lm_model_log1</span>
+<span id="cb311-3"><a href="R_analysis.html#cb311-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_model_log1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = mean_position_bi ~ 1, family = binomial, data = .)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -1.161  -1.161  -1.161   1.194   1.194  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept) -0.03922    0.16172  -0.243    0.808
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 212.04  on 152  degrees of freedom
+## Residual deviance: 212.04  on 152  degrees of freedom
+##   (1268 observations deleted due to missingness)
+## AIC: 214.04
+## 
+## Number of Fisher Scoring iterations: 3</code></pre>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="R_analysis.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">75</span><span class="sc">/</span><span class="dv">78</span>)</span></code></pre></div>
+<pre><code>## [1] -0.03922071</code></pre>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="R_analysis.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="co"># log(p/1-p) = intercept</span></span></code></pre></div>
+<p>Усложним модель и добавим в нее ВВП на душу населения в качестве предиктора</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="R_analysis.html#cb316-1" aria-hidden="true" tabindex="-1"></a>whr_tests_hw <span class="sc">%&gt;%</span></span>
+<span id="cb316-2"><a href="R_analysis.html#cb316-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(mean_position_bi <span class="sc">~</span> Log_GDP_per_capita, ., <span class="at">family =</span> binomial) <span class="ot">-&gt;</span> lm_model_log2</span>
+<span id="cb316-3"><a href="R_analysis.html#cb316-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_model_log2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = mean_position_bi ~ Log_GDP_per_capita, family = binomial, 
+##     data = .)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.9946  -0.4687  -0.0601   0.5165   2.1031  
+## 
+## Coefficients:
+##                    Estimate Std. Error z value       Pr(&gt;|z|)    
+## (Intercept)        -21.8266     3.5703  -6.113 0.000000000976 ***
+## Log_GDP_per_capita   2.3186     0.3758   6.169 0.000000000685 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 207.84  on 149  degrees of freedom
+## Residual deviance: 109.90  on 148  degrees of freedom
+##   (1271 observations deleted due to missingness)
+## AIC: 113.9
+## 
+## Number of Fisher Scoring iterations: 6</code></pre>
 
 </div>
 </div>
