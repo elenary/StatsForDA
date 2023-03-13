@@ -353,22 +353,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Чтобы ее решить, перейдем сначала к вероятностям: вместо значений 0 и 1 будем использовать вероятность для, например, 1.</p>
 <p align="center">
 <span class="math inline">\(p_1= b_0 + b_1 \times x_1\)</span>,
-$p_1 $
+</p>
+<p align="center">
+<span class="math inline">\(p_1 \in [0;1]\)</span>
 </p>
 <p>Уже лучше, но мы все еще остались в границах от 0 до 1. Чтобы все-таки превратить это уравнение в уже привычную нам линейную регрессию с количественной ЗП, сделаем <em>логарифмическую трансформацию шансов</em> – перейдем от вероятности к шансам для каждого исхода, 0 и 1, и посчитаем логарифм от них. Вероятность наступления исхода тогда станет обратной этому логарифму величиной.</p>
 <p align="center">
 <span class="math inline">\(odds_1 = \frac{p_1}{p_0} = \frac{p_1}{1 - p_1}\)</span>,
-$p_1 $
+</p>
+<p align="center">
+<span class="math inline">\(p_1 \in [0;1]\)</span>
 </p>
 <p align="center">
 <span class="math inline">\(ln(odds_1) = logit(p_1) = ln(\frac{p_1}{1 - p_1}) = b_0 + b_1 \times x_1\)</span>,
+</p>
+<p align="center">
 <span class="math inline">\(p_1 = \frac{e^{b_0 + b_1 x}}{1 + e^{b_0 + b_1 x}}\)</span>,
-$ln() (-;) $
+</p>
+<p align="center">
+<span class="math inline">\(ln(\frac{p_1}{1 - p_1}) \in (-\infty;\infty)\)</span>
 </p>
 <p>Здесь сильно упрощена математика, вслед за <a href="https://stepik.org/course/524">курсом Анатолия Карпова на степике</a> не будем вдаваться в подробности. Здесь важно, что мы постарались применить одинаковое преобразование к обеим частям уравнения, поэтому вероятность теперь считается по функции с экспонентой (эта функция, к слову, очень важна в машинном обучении и называется сигма-функцией или сигмоидой из-за ее вида) – то есть, по определению логарифма, это показатель степени, в которую нужно возвести основание логарифма, чтобы получить данное число (<span class="math inline">\(ln(p_1) = b_0 + b_1 \times x_1\)</span>).</p>
 <p align="center">
 <p><img src="docs/images/Logistic-curve.svg.png" width="80%" style="display: block; margin: auto;" /></p>
-<p>Построим несколько моделей логистичекой регрессии для World Happiness Report. Буду строить модели для переменной, которая показывает, попадает ли страна по уровню счастья в первую или вторую половину.</p>
 <p>Сначала построим просто модель только с интерсептом, которая будет показывать, каковы шансы, что студент заплатит за курс на Udemy сами по себе, без учета каких-либо переменных – то есть, по сути, это тот же самый анализ, что и хи-квадрат – мы берем только частоты и строим на них модель.</p>
 <p>! Важный момент! R считает за референс (первое значение, то, что будет в числителе) всегда наименьшее значение, то есть шансы будут считаться для 0, а не для 1. Если мы имеем дело с не числовыми значениями, то можем перезадать их с помощью функции relevel().</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="stats_criteria_categ.html#cb1-1" aria-hidden="true" tabindex="-1"></a>udemy_sample <span class="sc">%&gt;%</span> </span>
@@ -385,16 +392,16 @@ $ln() (-;) $
 ## 
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(&gt;|z|)
-## (Intercept)    26.57   18033.04   0.001    0.999
+## (Intercept)    26.57   17630.77   0.002    0.999
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 0.0000e+00  on 389  degrees of freedom
-## Residual deviance: 2.2626e-09  on 389  degrees of freedom
+##     Null deviance: 0.000e+00  on 407  degrees of freedom
+## Residual deviance: 2.367e-09  on 407  degrees of freedom
 ## AIC: 2
 ## 
 ## Number of Fisher Scoring iterations: 25</code></pre>
-<p>Интерсепт здесь получился равен <code>coef()</code> – и есть натуральный логарифм шансов для оплаты. Посчитаем саму вероятность:
+<p>Интерсепт здесь получился равен 26.566069 – и есть натуральный логарифм шансов для оплаты. Посчитаем саму вероятность:
 <span class="math inline">\(p = \frac{exp^{26.56}}{1+exp^{26.56}}\)</span></p>
 <p>Это число получилось равно 692204438686. То есть, шансы, что студенты НЕ заплят за курс (0) весьма высокие…</p>
 <p>Теперь посчитаем, как влияет на оплату цена курса</p>
@@ -412,13 +419,13 @@ $ln() (-;) $
 ## 
 ## Coefficients:
 ##              Estimate Std. Error z value Pr(&gt;|z|)
-## (Intercept) 2.657e+01  7.740e+04       0        1
-## price_log   6.520e-10  1.991e+04       0        1
+## (Intercept) 2.657e+01  7.795e+04       0        1
+## price_log   2.601e-09  1.983e+04       0        1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 0.0000e+00  on 389  degrees of freedom
-## Residual deviance: 2.2626e-09  on 388  degrees of freedom
+##     Null deviance: 0.000e+00  on 407  degrees of freedom
+## Residual deviance: 2.367e-09  on 406  degrees of freedom
 ## AIC: 4
 ## 
 ## Number of Fisher Scoring iterations: 25</code></pre>
