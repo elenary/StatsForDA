@@ -207,7 +207,7 @@
 </ul></li>
 <li class="chapter" data-level="12" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html"><i class="fa fa-check"></i><b>12</b> Анализ категориальных данных</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#логистическая-регрессия"><i class="fa fa-check"></i><b>12.1</b> Логистическая регрессия</a></li>
+<li class="chapter" data-level="12.1" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#logreg"><i class="fa fa-check"></i><b>12.1</b> Логистическая регрессия</a></li>
 <li class="chapter" data-level="12.2" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#хи-квадрат"><i class="fa fa-check"></i><b>12.2</b> Хи-квадрат</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="cluster_analysis.html"><a href="cluster_analysis.html"><i class="fa fa-check"></i><b>13</b> Кластерный анализ</a></li>
@@ -256,7 +256,7 @@
 <li class="chapter" data-level="14.15.2" data-path="R_analysis.html"><a href="R_analysis.html#линейная-регрессия-с-несколькими-предикторами-факторами"><i class="fa fa-check"></i><b>14.15.2</b> Линейная регрессия с несколькими предикторами (факторами)</a></li>
 </ul></li>
 <li class="chapter" data-level="14.16" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem7"><i class="fa fa-check"></i><b>14.16</b> Задания после семинара 7</a></li>
-<li class="chapter" data-level="14.17" data-path="R_analysis.html"><a href="R_analysis.html#логистическая-регрессия-1"><i class="fa fa-check"></i><b>14.17</b> Логистическая регрессия</a></li>
+<li class="chapter" data-level="14.17" data-path="R_analysis.html"><a href="R_analysis.html#логистическая-регрессия"><i class="fa fa-check"></i><b>14.17</b> Логистическая регрессия</a></li>
 </ul></li>
 </ul>
 
@@ -277,6 +277,18 @@
             <section class="normal" id="section-">
 <div id="cluster_analysis" class="section level1 hasAnchor" number="13">
 <h1><span class="header-section-number">13</span> Кластерный анализ<a href="cluster_analysis.html#cluster_analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Мы закончили проверку статистических гипотез c помощью статистичекой нулевой гипотезы (NHST). Значит ли это, что мы закончили весь анализ данных? Совсем нет! Мы рассмотрели только одну задачу – проверку гипотез – из множества.</p>
+<p>Какие задачи мы кратко рассмотрим еще:</p>
+<ul>
+<li>Кластеризация</li>
+<li>Понижение размерности</li>
+<li>Факторный анализ</li>
+</ul>
+<p>Начнем с кластеризации.</p>
+<p>Кластеризация – это процесс объединения похожих данных (наблюдений) в группы. Это может быть полезно, например, чтобы определить, какие категории пользователей нашего сервиса выделяются, и работать с ними практически персонально (например, какие-то специальные предложения для этой группы), или выделять группы сотрудников и также делать им индивидуальные предложения, чтобы мотивировать к работе (потому что мотивация не универсальна для всех).</p>
+<p>Кластеризация немного похожа на <a href="stats_criteria_ttest_anova.html#anova">дисперсионный анализ</a> по виду данных: она осмысленна тогда, когда на диаграмме рассеяния выделяются группы наблюдений.</p>
+<p>Для изучения кластерного анализа будем использовать датасет <code>iris</code> <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set" class="uri">https://en.wikipedia.org/wiki/Iris_flower_data_set</a></p>
+<p><img src="docs/images/iris-meme1.jpg" width="60%" style="display: block; margin: auto;" /></p>
 
 </div>
             </section>

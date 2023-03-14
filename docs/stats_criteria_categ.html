@@ -379,9 +379,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Сначала построим просто модель только с интерсептом, которая будет показывать, каковы шансы, что студент заплатит за курс на Udemy сами по себе, без учета каких-либо переменных – то есть, по сути, это тот же самый анализ, что и хи-квадрат – мы берем только частоты и строим на них модель.</p>
 <p>! Важный момент! R считает за референс (первое значение, то, что будет в числителе) всегда наименьшее значение, то есть шансы будут считаться для 0, а не для 1. Если мы имеем дело с не числовыми значениями, то можем перезадать их с помощью функции relevel().</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="stats_criteria_categ.html#cb1-1" aria-hidden="true" tabindex="-1"></a>udemy_sample <span class="sc">%&gt;%</span> </span>
-<span id="cb1-2"><a href="stats_criteria_categ.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(is_paid <span class="sc">~</span><span class="dv">1</span>, ., <span class="at">family =</span> binomial) <span class="ot">-&gt;</span>logmodel1</span></code></pre></div>
-<pre><code>## Warning: glm.fit: algorithm did not converge</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="stats_criteria_categ.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(logmodel1)</span></code></pre></div>
+<span id="cb1-2"><a href="stats_criteria_categ.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(is_paid <span class="sc">~</span><span class="dv">1</span>, ., <span class="at">family =</span> binomial) <span class="ot">-&gt;</span>logmodel1</span>
+<span id="cb1-3"><a href="stats_criteria_categ.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(logmodel1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = is_paid ~ 1, family = binomial, data = .)
@@ -392,12 +391,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Coefficients:
 ##             Estimate Std. Error z value Pr(&gt;|z|)
-## (Intercept)    26.57   17630.77   0.002    0.999
+## (Intercept)    26.57   17055.25   0.002    0.999
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 0.000e+00  on 407  degrees of freedom
-## Residual deviance: 2.367e-09  on 407  degrees of freedom
+##     Null deviance: 0.0000e+00  on 435  degrees of freedom
+## Residual deviance: 2.5295e-09  on 435  degrees of freedom
 ## AIC: 2
 ## 
 ## Number of Fisher Scoring iterations: 25</code></pre>
@@ -405,10 +404,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math inline">\(p = \frac{exp^{26.56}}{1+exp^{26.56}}\)</span></p>
 <p>Это число получилось равно 692204438686. То есть, шансы, что студенты НЕ заплят за курс (0) весьма высокие…</p>
 <p>Теперь посчитаем, как влияет на оплату цена курса</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="stats_criteria_categ.html#cb5-1" aria-hidden="true" tabindex="-1"></a>udemy_sample <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="stats_criteria_categ.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(is_paid <span class="sc">~</span> price_log, ., <span class="at">family =</span> binomial) <span class="ot">-&gt;</span>logmodel2</span></code></pre></div>
-<pre><code>## Warning: glm.fit: algorithm did not converge</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="stats_criteria_categ.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(logmodel2)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="stats_criteria_categ.html#cb3-1" aria-hidden="true" tabindex="-1"></a>udemy_sample <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="stats_criteria_categ.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glm</span>(is_paid <span class="sc">~</span> price_log, ., <span class="at">family =</span> binomial) <span class="ot">-&gt;</span>logmodel2</span>
+<span id="cb3-3"><a href="stats_criteria_categ.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(logmodel2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = is_paid ~ price_log, family = binomial, data = .)
@@ -418,20 +416,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2.409e-06  2.409e-06  2.409e-06  2.409e-06  2.409e-06  
 ## 
 ## Coefficients:
-##              Estimate Std. Error z value Pr(&gt;|z|)
-## (Intercept) 2.657e+01  7.795e+04       0        1
-## price_log   2.601e-09  1.983e+04       0        1
+##               Estimate Std. Error z value Pr(&gt;|z|)
+## (Intercept)  2.657e+01  7.149e+04       0        1
+## price_log   -5.674e-08  1.821e+04       0        1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 0.000e+00  on 407  degrees of freedom
-## Residual deviance: 2.367e-09  on 406  degrees of freedom
+##     Null deviance: 0.0000e+00  on 435  degrees of freedom
+## Residual deviance: 2.5295e-09  on 434  degrees of freedom
 ## AIC: 4
 ## 
 ## Number of Fisher Scoring iterations: 25</code></pre>
 </div>
 <div id="хи-квадрат" class="section level2 hasAnchor" number="12.2">
 <h2><span class="header-section-number">12.2</span> Хи-квадрат<a href="stats_criteria_categ.html#хи-квадрат" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Хи-квадратом мы обычно проверяем коррялцию категориальных переменных между собой: порядковых, если у нас не шкала Лайерта или мало возможных значений, и метод корреляции Спирмена не подходит, или номинальных, где корреляцию Спирмена провести уже невозможно.</p>
+<p>Например, давайте проверим гипотезу о том, что наличие или отсутствие интернета в квартире связано с наличием или отсутствием романтических отношений. Предположим, что португальские школьники, у кого дома есть интернет, реже вступают в романтические отношения, по сравнению с теми, у кого интернета нет. Для этого будем использовать метод хи-квадрат. НП – наличие или отсутствие интернета (переменная internet), ЗП – наличие или отсутствие романтических отношений (romantic).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="stats_criteria_categ.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(students<span class="sc">$</span>internet, students<span class="sc">$</span>romantic, <span class="at">correct=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  students$internet and students$romantic
+## X-squared = 3.9258, df = 1, p-value = 0.04755</code></pre>
+<p>Сравниваем полученное p-value с выбранным уровнем α=0.05. p-value &lt; α, значит, вероятность получить такую связь между переменными при условии, если на самом деле ее нет, меньше нашего допустимого уровня ложноположительных результатов, мы отвергаем нулевую гипотезу и делаем вывод о наличии корреляционной связи.</p>
+<p>Хи-квадрат чаще всего визуализируют уже знакомым по корреляции Спирмена мозаичным графиком. Указываем НП как x=product(НП), и ЗП как fill = ЗП.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="stats_criteria_categ.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span>
+<span id="cb7-2"><a href="stats_criteria_categ.html#cb7-2" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="stats_criteria_categ.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>()) <span class="sc">+</span> </span>
+<span id="cb7-4"><a href="stats_criteria_categ.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(internet), <span class="at">fill =</span> romantic)) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="stats_criteria_categ.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="stats_criteria_categ.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 
 </div>
 </div>

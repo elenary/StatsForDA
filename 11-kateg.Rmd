@@ -1,5 +1,28 @@
 #  Анализ категориальных данных {#stats_criteria_categ} 
 
+```{r, eval=TRUE, echo = FALSE, message = FALSE}
+library(tidyverse)
+library(kableExtra)
+library(viridis)
+studens_mat <- read_csv("student-mat.csv") %>% 
+  rename_with(., ~ paste0(., "_mat"), .cols = c(absences, paid, G1, G2, G3)) -> studens_mat 
+studens_por <- read_csv("student-por.csv") %>% 
+  rename_with(., ~ paste0(., "_por"), .cols = c(absences, paid, G1, G2, G3)) -> studens_por
+studens_mat %>% 
+  full_join(studens_por, by = c("school","sex","age","address","famsize","Pstatus","Medu","Fedu",
+                             "Mjob","Fjob","reason", "guardian", "traveltime","studytime", "failures", "schoolsup", "famsup",
+                             "activities", "nursery", "higher", "internet", "romantic", "famrel", "freetime", "goout", 
+                             "Dalc", "Walc", "health")) -> students 
+
+students %>% 
+  mutate("student" = paste0("id", row_number()), .before = "school")  %>% 
+  drop_na() %>% 
+  mutate(G_mat = rowMeans(dplyr::select(., c(G1_mat, G2_mat, G3_mat))),
+         G_por = rowMeans(dplyr::select(., c(G1_por, G2_por, G3_por)))) %>% 
+  mutate(absences_mat_groups = ifelse(absences_mat <=5, "less", ifelse(absences_mat <=15, "middle", "more"))) %>% 
+  mutate(absences_por_groups = ifelse(absences_por <=5, "less", ifelse(absences_por <=15, "middle", "more"))) -> students
+```
+
 До этого мы все время работали с линейными моделями, где целевая (зависимая) переменная была количественной. И линейные регрессионные модели, и ANOVA модели относятся к **общим линейным омделям (general linear models)**. Но что делать, если цеелвая переменнаая -- категориальная? Уже нельзя строить линейные модели? Общие линейные -- нет, а обобщенные -- можно! Модели с категориальными предикторами включаются в обобщенные линейные модели generalized linear modela (не перепутайте...)
 
 ## Логистическая регрессия {#logreg} 
@@ -52,7 +75,7 @@ udemy_sample %>%
 ! Важный момент! R считает за референс (первое значение, то, что будет в числителе) всегда наименьшее значение, то есть шансы будут считаться для 0, а не для 1. Если мы имеем дело с не числовыми значениями, то можем перезадать их с помощью функции relevel().
 
 
-```{r, eval=TRUE, echo = TRUE, message = FALSE}
+```{r, eval=TRUE, echo = TRUE, message = FALSE,warning=FALSE}
 udemy_sample %>% 
   glm(is_paid ~1, ., family = binomial) ->logmodel1
 summary(logmodel1)
@@ -65,9 +88,29 @@ $p = \frac{exp^{26.56}}{1+exp^{26.56}}$
 Теперь посчитаем, как влияет на оплату цена курса
 
 
-```{r, eval=TRUE, echo = TRUE, message = FALSE}
+```{r, eval=TRUE, echo = TRUE, message = FALSE, warning=FALSE}
 udemy_sample %>% 
   glm(is_paid ~ price_log, ., family = binomial) ->logmodel2
 summary(logmodel2)
 ```
 ## Хи-квадрат
+
+Хи-квадратом мы обычно проверяем коррялцию категориальных переменных между собой: порядковых, если у нас не шкала Лайерта или мало возможных значений, и метод корреляции Спирмена не подходит, или номинальных, где корреляцию Спирмена провести уже невозможно.
+
+Например, давайте проверим гипотезу о том, что наличие или отсутствие интернета в квартире связано с наличием или отсутствием романтических отношений. Предположим, что португальские школьники, у кого дома есть интернет, реже вступают в романтические отношения, по сравнению с теми, у кого интернета нет. Для этого будем использовать метод хи-квадрат. НП – наличие или отсутствие интернета (переменная internet), ЗП – наличие или отсутствие романтических отношений (romantic).
+
+```{r, eval=TRUE, echo = TRUE, message = FALSE}
+chisq.test(students$internet, students$romantic, correct=FALSE)
+```
+Сравниваем полученное p-value с выбранным уровнем  α=0.05. p-value < α, значит, вероятность получить такую связь между переменными при условии, если на самом деле ее нет, меньше нашего допустимого уровня ложноположительных результатов, мы отвергаем нулевую гипотезу и делаем вывод о наличии корреляционной связи.
+ 
+Хи-квадрат чаще всего визуализируют уже знакомым по корреляции Спирмена мозаичным графиком. Указываем НП как x=product(НП), и ЗП как fill = ЗП.
+ 
+```{r, eval=TRUE, echo = TRUE, message = FALSE, warning=FALSE}
+library(ggmosaic)
+students %>% 
+  ggplot(aes()) + 
+  geom_mosaic(aes(x = product(internet), fill = romantic)) +
+  scale_fill_viridis(discrete=TRUE) +
+  theme_minimal() 
+```
