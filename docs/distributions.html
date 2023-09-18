@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Распределения | Статистика для анализа данных</title>
   <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Распределения | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2022-12-06" />
+<meta name="date" content="2023-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,25 +49,24 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,13 +86,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -120,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -137,49 +140,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Статистика для анализа данных</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#вероятности-формулировки-и-выводы"><i class="fa fa-check"></i><b>1.1</b> Вероятности, формулировки и выводы</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a><ul>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#применение-статистики"><i class="fa fa-check"></i><b>1.2.1</b> Применение статистики</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#виды-статистики"><i class="fa fa-check"></i><b>1.3</b> Виды статистики</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="sample.html"><a href="sample.html"><i class="fa fa-check"></i><b>2</b> Выборка</a><ul>
+<li class="chapter" data-level="2" data-path="sample.html"><a href="sample.html"><i class="fa fa-check"></i><b>2</b> Выборка</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="sample.html"><a href="sample.html#выборочные-оценки"><i class="fa fa-check"></i><b>2.1</b> Выборочные оценки</a></li>
 <li class="chapter" data-level="2.2" data-path="sample.html"><a href="sample.html#репрезентативность-выборки"><i class="fa fa-check"></i><b>2.2</b> Репрезентативность выборки</a></li>
 <li class="chapter" data-level="2.3" data-path="sample.html"><a href="sample.html#dependent_samples"><i class="fa fa-check"></i><b>2.3</b> Зависимые и независимые выборки</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a><ul>
+<li class="chapter" data-level="3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="scales.html"><a href="scales.html#измерение-и-переменная"><i class="fa fa-check"></i><b>3.1</b> Измерение и переменная</a></li>
 <li class="chapter" data-level="3.2" data-path="scales.html"><a href="scales.html#количественные-и-неколичественные-данные"><i class="fa fa-check"></i><b>3.2</b> Количественные и неколичественные данные</a></li>
 <li class="chapter" data-level="3.3" data-path="scales.html"><a href="scales.html#типы-шкал"><i class="fa fa-check"></i><b>3.3</b> Типы шкал</a></li>
 <li class="chapter" data-level="3.4" data-path="scales.html"><a href="scales.html#непрерывные-и-дискретные-данные"><i class="fa fa-check"></i><b>3.4</b> Непрерывные и дискретные данные</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>4</b> Вероятность и случайные величины</a><ul>
+<li class="chapter" data-level="4" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>4</b> Вероятность и случайные величины</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="probability.html"><a href="probability.html#random-variable"><i class="fa fa-check"></i><b>4.1</b> Случайная величина</a></li>
 <li class="chapter" data-level="4.2" data-path="probability.html"><a href="probability.html#вероятность"><i class="fa fa-check"></i><b>4.2</b> Вероятность</a></li>
 <li class="chapter" data-level="4.3" data-path="probability.html"><a href="probability.html#дискретные-св-и-статистическое-определение-вероятности"><i class="fa fa-check"></i><b>4.3</b> Дискретные СВ и статистическое определение вероятности</a></li>
-<li class="chapter" data-level="4.4" data-path="probability.html"><a href="probability.html#столбчатая-диаграмма"><i class="fa fa-check"></i><b>4.4</b> Столбчатая диаграмма</a></li>
+<li class="chapter" data-level="4.4" data-path="probability.html"><a href="probability.html#столбчатая-диаграмма-и-отличия-от-гистограммы"><i class="fa fa-check"></i><b>4.4</b> Столбчатая диаграмма и отличия от гистограммы</a></li>
 <li class="chapter" data-level="4.5" data-path="probability.html"><a href="probability.html#непрерывные-св-и-геометрическое-определение-вероятности"><i class="fa fa-check"></i><b>4.5</b> Непрерывные СВ и геометрическое определение вероятности</a></li>
 <li class="chapter" data-level="4.6" data-path="probability.html"><a href="probability.html#график-плотности-вероятности-и-гистограмма"><i class="fa fa-check"></i><b>4.6</b> График плотности вероятности и гистограмма</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Распределения</a><ul>
+<li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Распределения</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="distributions.html"><a href="distributions.html#виды-распределений"><i class="fa fa-check"></i><b>5.1</b> Виды распределений</a></li>
 <li class="chapter" data-level="5.2" data-path="distributions.html"><a href="distributions.html#функции-распределения"><i class="fa fa-check"></i><b>5.2</b> Функции распределения</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a><ul>
+<li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#descriptive_vis"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a></li>
-<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a><ul>
+<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="descriptives.html"><a href="descriptives.html#среднее-медиана-мода"><i class="fa fa-check"></i><b>6.2.1</b> Среднее, медиана, мода</a></li>
 <li class="chapter" data-level="6.2.2" data-path="descriptives.html"><a href="descriptives.html#особенности-использования"><i class="fa fa-check"></i><b>6.2.2</b> Особенности использования</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="descriptives.html"><a href="descriptives.html#квантили-квартили-и-перцентили"><i class="fa fa-check"></i><b>6.3</b> Квантили, квартили и перцентили</a></li>
-<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.4</b> Меры вариативности</a><ul>
+<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.4</b> Меры вариативности</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="descriptives.html"><a href="descriptives.html#размах-стандартное-отклонение-и-дисперсия"><i class="fa fa-check"></i><b>6.4.1</b> Размах, стандартное отклонение и дисперсия</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="descriptives.html"><a href="descriptives.html#боксплот-и-вайолинплот"><i class="fa fa-check"></i><b>6.5</b> Боксплот и вайолинплот</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение и оценки</a><ul>
+<li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение и оценки</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="normdist.html"><a href="normdist.html#ctt"><i class="fa fa-check"></i><b>7.1</b> Центральная предельная теорема</a></li>
 <li class="chapter" data-level="7.2" data-path="normdist.html"><a href="normdist.html#standart_error"><i class="fa fa-check"></i><b>7.2</b> Стандартная ошибка среднего</a></li>
 <li class="chapter" data-level="7.3" data-path="normdist.html"><a href="normdist.html#нормальное-распределение-и-его-свойства"><i class="fa fa-check"></i><b>7.3</b> Нормальное распределение и его свойства</a></li>
@@ -187,38 +200,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="normdist.html"><a href="normdist.html#z-преобразование-и-стандартизация"><i class="fa fa-check"></i><b>7.5</b> Z-преобразование и стандартизация</a></li>
 <li class="chapter" data-level="7.6" data-path="normdist.html"><a href="normdist.html#доверительный-интервал"><i class="fa fa-check"></i><b>7.6</b> Доверительный интервал</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>8</b> Статистический вывод</a><ul>
+<li class="chapter" data-level="8" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>8</b> Статистический вывод</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="inference.html"><a href="inference.html#идея-статистического-вывода"><i class="fa fa-check"></i><b>8.1</b> Идея статистического вывода</a></li>
 <li class="chapter" data-level="8.2" data-path="inference.html"><a href="inference.html#nhst"><i class="fa fa-check"></i><b>8.2</b> NHST: алгоритм проверки гипотезы и анализа данных</a></li>
-<li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a><ul>
+<li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="inference.html"><a href="inference.html#variables"><i class="fa fa-check"></i><b>8.3.1</b> Зависимые и независимые переменные</a></li>
 <li class="chapter" data-level="8.3.2" data-path="inference.html"><a href="inference.html#уровни-нп-в-категориальных-переменных"><i class="fa fa-check"></i><b>8.3.2</b> Уровни НП в категориальных переменных</a></li>
-<li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#связь-между-зп-и-нп"><i class="fa fa-check"></i><b>8.3.3</b> Связь между ЗП и НП</a></li>
+<li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#relationship"><i class="fa fa-check"></i><b>8.3.3</b> Связь между ЗП и НП</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="inference.html"><a href="inference.html#нулевая-и-альтернативные-статистические-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные статистические гипотезы</a><ul>
+<li class="chapter" data-level="8.4" data-path="inference.html"><a href="inference.html#нулевая-и-альтернативные-статистические-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные статистические гипотезы</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="inference.html"><a href="inference.html#направленные-и-ненаправленные-гипотезы"><i class="fa fa-check"></i><b>8.4.1</b> Направленные и ненаправленные гипотезы</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="inference.html"><a href="inference.html#уровень-значимости-и-статистическая-мощность"><i class="fa fa-check"></i><b>8.5</b> Уровень значимости и статистическая мощность</a></li>
 <li class="chapter" data-level="8.6" data-path="inference.html"><a href="inference.html#выбор-статистического-критерия"><i class="fa fa-check"></i><b>8.6</b> Выбор статистического критерия</a></li>
-<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки</a></li>
+<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки и размер эффекта</a></li>
 <li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#stat_test_example"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a><ul>
+<li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="stats_criteria.html"><a href="stats_criteria.html#степени-свободы"><i class="fa fa-check"></i><b>9.1</b> Степени свободы</a></li>
 <li class="chapter" data-level="9.2" data-path="stats_criteria.html"><a href="stats_criteria.html#ключевые-распределения-и-статистики-критериев-z-t-f"><i class="fa fa-check"></i><b>9.2</b> Ключевые распределения и статистики критериев (Z, T, F)</a></li>
-<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.3</b> Выбор статистического критерия</a><ul>
+<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.3</b> Выбор статистического критерия</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="stats_criteria.html"><a href="stats_criteria.html#param_nonparam"><i class="fa fa-check"></i><b>9.3.1</b> Параметрические и непараметрические критерии</a></li>
 <li class="chapter" data-level="9.3.2" data-path="stats_criteria.html"><a href="stats_criteria.html#зависимые-и-независимые-выборки"><i class="fa fa-check"></i><b>9.3.2</b> Зависимые и независимые выборки</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html"><i class="fa fa-check"></i><b>10</b> Сравнение средних по группам</a><ul>
-<li class="chapter" data-level="10.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#ttest"><i class="fa fa-check"></i><b>10.1</b> T-тест</a><ul>
+<li class="chapter" data-level="10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html"><i class="fa fa-check"></i><b>10</b> Сравнение средних по группам</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#ttest"><i class="fa fa-check"></i><b>10.1</b> T-тест</a>
+<ul>
 <li class="chapter" data-level="10.1.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#допущения-для-т-теста"><i class="fa fa-check"></i><b>10.1.1</b> Допущения для т-теста</a></li>
 <li class="chapter" data-level="10.1.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#непараметрические-аналоги"><i class="fa fa-check"></i><b>10.1.2</b> Непараметрические аналоги</a></li>
 <li class="chapter" data-level="10.1.3" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#независимые-и-парные-тесты"><i class="fa fa-check"></i><b>10.1.3</b> Независимые и парные тесты</a></li>
 <li class="chapter" data-level="10.1.4" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#вычисление-т-теста-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>10.1.4</b> Вычисление т-теста и непараметрических аналогов</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>10.2</b> ANOVA (дисперсионный анализ)</a><ul>
+<li class="chapter" data-level="10.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#anova"><i class="fa fa-check"></i><b>10.2</b> ANOVA (дисперсионный анализ)</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#levels"><i class="fa fa-check"></i><b>10.2.1</b> Факторы и уровни</a></li>
 <li class="chapter" data-level="10.2.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#почему-он-дисперсионный"><i class="fa fa-check"></i><b>10.2.2</b> Почему он дисперсионный</a></li>
 <li class="chapter" data-level="10.2.3" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#f-распределение-фишера"><i class="fa fa-check"></i><b>10.2.3</b> F-распределение (Фишера)</a></li>
@@ -231,8 +252,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#вычисление-anova-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>10.2.10</b> Вычисление ANOVA и непараметрических аналогов</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html"><i class="fa fa-check"></i><b>11</b> Проверка линейной свзяи</a><ul>
-<li class="chapter" data-level="11.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#corr_test"><i class="fa fa-check"></i><b>11.1</b> Корреляционный анализ</a><ul>
+<li class="chapter" data-level="11" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html"><i class="fa fa-check"></i><b>11</b> Проверка линейной свзяи</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#corr_test"><i class="fa fa-check"></i><b>11.1</b> Корреляционный анализ</a>
+<ul>
 <li class="chapter" data-level="11.1.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционный-тест"><i class="fa fa-check"></i><b>11.1.1</b> Корреляционный тест</a></li>
 <li class="chapter" data-level="11.1.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-корреляционного-теста"><i class="fa fa-check"></i><b>11.1.2</b> Допущения для корреляционного теста</a></li>
 <li class="chapter" data-level="11.1.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#непараметрические-аналоги-2"><i class="fa fa-check"></i><b>11.1.3</b> Непараметрические аналоги</a></li>
@@ -240,12 +263,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#интерпретация-результатов"><i class="fa fa-check"></i><b>11.1.5</b> Интерпретация результатов</a></li>
 <li class="chapter" data-level="11.1.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционные-матрицы"><i class="fa fa-check"></i><b>11.1.6</b> Корреляционные матрицы</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#линейный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициенты-регрессии"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
-<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии"><i class="fa fa-check"></i><b>11.2.2</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
-<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.3</b> Допущения для регрессионного анализа</a></li>
-<li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.4</b> Расчет регрессионного анализа</a></li>
+<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg_coef"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
+<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#rsquared"><i class="fa fa-check"></i><b>11.2.2</b> Коэффициент детерминации и доля объясненной изменчивости</a></li>
+<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg_null"><i class="fa fa-check"></i><b>11.2.3</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
+<li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#множественный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2.4</b> Множественный регрессионный анализ</a></li>
+<li class="chapter" data-level="11.2.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#assumptions_linreg"><i class="fa fa-check"></i><b>11.2.5</b> Допущения для регрессионного анализа</a></li>
+<li class="chapter" data-level="11.2.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg_example"><i class="fa fa-check"></i><b>11.2.6</b> Расчет регрессионного анализа</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html"><i class="fa fa-check"></i><b>12</b> Анализ категориальных данных</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#logreg"><i class="fa fa-check"></i><b>12.1</b> Логистическая регрессия</a></li>
+<li class="chapter" data-level="12.2" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#хи-квадрат"><i class="fa fa-check"></i><b>12.2</b> Хи-квадрат</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="cluster_analysis.html"><a href="cluster_analysis.html"><i class="fa fa-check"></i><b>13</b> Кластерный анализ</a></li>
+<li class="chapter" data-level="14" data-path="R_analysis.html"><a href="R_analysis.html"><i class="fa fa-check"></i><b>14</b> Введение в анализ данных в R</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="R_analysis.html"><a href="R_analysis.html#данные-и-переменные"><i class="fa fa-check"></i><b>14.1</b> Данные и переменные</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="R_analysis.html"><a href="R_analysis.html#data_types"><i class="fa fa-check"></i><b>14.1.1</b> Основные типы данных</a></li>
+<li class="chapter" data-level="14.1.2" data-path="R_analysis.html"><a href="R_analysis.html#data_structures"><i class="fa fa-check"></i><b>14.1.2</b> Основные структуры данных</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="R_analysis.html"><a href="R_analysis.html#operarions"><i class="fa fa-check"></i><b>14.2</b> Операции с переменными и функции</a></li>
+<li class="chapter" data-level="14.3" data-path="R_analysis.html"><a href="R_analysis.html#начало-работы-в-среде"><i class="fa fa-check"></i><b>14.3</b> Начало работы в среде</a></li>
+<li class="chapter" data-level="14.4" data-path="R_analysis.html"><a href="R_analysis.html#начало-работы-с-данными"><i class="fa fa-check"></i><b>14.4</b> Начало работы с данными</a></li>
+<li class="chapter" data-level="14.5" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem2"><i class="fa fa-check"></i><b>14.5</b> Задания после семинара 2</a></li>
+<li class="chapter" data-level="14.6" data-path="R_analysis.html"><a href="R_analysis.html#preprocessing"><i class="fa fa-check"></i><b>14.6</b> Предобработка данных</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="R_analysis.html"><a href="R_analysis.html#columns"><i class="fa fa-check"></i><b>14.6.1</b> Отбор колонок</a></li>
+<li class="chapter" data-level="14.6.2" data-path="R_analysis.html"><a href="R_analysis.html#filter"><i class="fa fa-check"></i><b>14.6.2</b> Фильтрация (отбор строк)</a></li>
+<li class="chapter" data-level="14.6.3" data-path="R_analysis.html"><a href="R_analysis.html#mutate"><i class="fa fa-check"></i><b>14.6.3</b> Создание колонок</a></li>
+<li class="chapter" data-level="14.6.4" data-path="R_analysis.html"><a href="R_analysis.html#NA"><i class="fa fa-check"></i><b>14.6.4</b> Работа с пропущенными значениями (NA)</a></li>
+<li class="chapter" data-level="14.6.5" data-path="R_analysis.html"><a href="R_analysis.html#sorting"><i class="fa fa-check"></i><b>14.6.5</b> Сортировка</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem3"><i class="fa fa-check"></i><b>14.7</b> Задания после семинара 3</a></li>
+<li class="chapter" data-level="14.8" data-path="R_analysis.html"><a href="R_analysis.html#descriptives_r"><i class="fa fa-check"></i><b>14.8</b> Описательные статистики и агрегация</a>
+<ul>
+<li class="chapter" data-level="14.8.1" data-path="R_analysis.html"><a href="R_analysis.html#описательные-статистики"><i class="fa fa-check"></i><b>14.8.1</b> Описательные статистики</a></li>
+<li class="chapter" data-level="14.8.2" data-path="R_analysis.html"><a href="R_analysis.html#aggregate"><i class="fa fa-check"></i><b>14.8.2</b> Агрегация данных</a></li>
+</ul></li>
+<li class="chapter" data-level="14.9" data-path="R_analysis.html"><a href="R_analysis.html#visualization"><i class="fa fa-check"></i><b>14.9</b> Визуализации</a></li>
+<li class="chapter" data-level="14.10" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem4"><i class="fa fa-check"></i><b>14.10</b> Задания после семинара 4</a></li>
+<li class="chapter" data-level="14.11" data-path="R_analysis.html"><a href="R_analysis.html#проверка-гипотез"><i class="fa fa-check"></i><b>14.11</b> Проверка гипотез</a>
+<ul>
+<li class="chapter" data-level="14.11.1" data-path="R_analysis.html"><a href="R_analysis.html#корреляционный-тест-1"><i class="fa fa-check"></i><b>14.11.1</b> Корреляционный тест</a></li>
+<li class="chapter" data-level="14.11.2" data-path="R_analysis.html"><a href="R_analysis.html#т-тест"><i class="fa fa-check"></i><b>14.11.2</b> Т-тест</a></li>
+</ul></li>
+<li class="chapter" data-level="14.12" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem5"><i class="fa fa-check"></i><b>14.12</b> Задания после семинара 5</a></li>
+<li class="chapter" data-level="14.13" data-path="R_analysis.html"><a href="R_analysis.html#проверка-гипоте-2-anova-и-линейная-регрессия"><i class="fa fa-check"></i><b>14.13</b> Проверка гипоте-2: ANOVA и линейная регрессия</a>
+<ul>
+<li class="chapter" data-level="14.13.1" data-path="R_analysis.html"><a href="R_analysis.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>14.13.1</b> ANOVA (дисперсионный анализ)</a></li>
+<li class="chapter" data-level="14.13.2" data-path="R_analysis.html"><a href="R_analysis.html#reshaping"><i class="fa fa-check"></i><b>14.13.2</b> Решейпинг</a></li>
+</ul></li>
+<li class="chapter" data-level="14.14" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem6"><i class="fa fa-check"></i><b>14.14</b> Задания после семинара 6</a></li>
+<li class="chapter" data-level="14.15" data-path="R_analysis.html"><a href="R_analysis.html#lin_reg"><i class="fa fa-check"></i><b>14.15</b> Линейный регрессионный анализ</a>
+<ul>
+<li class="chapter" data-level="14.15.1" data-path="R_analysis.html"><a href="R_analysis.html#линейная-регрессия-с-одним-предиктором-фактором"><i class="fa fa-check"></i><b>14.15.1</b> Линейная регрессия с одним предиктором (фактором)</a></li>
+<li class="chapter" data-level="14.15.2" data-path="R_analysis.html"><a href="R_analysis.html#линейная-регрессия-с-несколькими-предикторами-факторами"><i class="fa fa-check"></i><b>14.15.2</b> Линейная регрессия с несколькими предикторами (факторами)</a></li>
+</ul></li>
+<li class="chapter" data-level="14.16" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem7"><i class="fa fa-check"></i><b>14.16</b> Задания после семинара 7</a></li>
+<li class="chapter" data-level="14.17" data-path="R_analysis.html"><a href="R_analysis.html#логистическая-регрессия"><i class="fa fa-check"></i><b>14.17</b> Логистическая регрессия</a></li>
 </ul></li>
 </ul>
 
@@ -264,32 +343,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="distributions" class="section level1 hasAnchor">
+<div id="distributions" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">5</span> Распределения<a href="distributions.html#distributions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Что такое распределение? Мы постоянно употребляем это слово.</p>
 <p>Говоря о распределениях, мы имеем в виду <strong>закон распределения случайной величины</strong> – соответствие между возможными значениями этой величины из области ее допустимых значений и: вероятностями этих значений – для дискретной величины, либо плотностью вероятности – для непрерывной величины.</p>
-<div id="виды-распределений" class="section level2 hasAnchor">
+<div id="виды-распределений" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Виды распределений<a href="distributions.html#виды-распределений" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Законы распределений вероятностей можно вывести совсем не для всех величин! Но так сложилось, что некоторые закономерности, распределения вероятностей мы можем описать формулами, как в физике: сила тяжести (сила, с которой Земля притягивает все теля) прямо пропорциональная массе объекта, взятая с коэффициентом ускорения свободного падения <span class="math inline">\(F = m*g\)</span>. Мы это заметили относительно окружающего мира и вывели закон (не лично мы, а вообще представители планеты Земля). Точно так же и с распределниями: мы заметили, что вероятности распределения некоторых случайных величин подчиняются определенным законам, и записали их. Например, доказано, что непрерывные случайные величины, на которые действует множество случайных факторов (например, рост, вес и тд), распределяются в соответствии с <strong>распределением Гаусса</strong>, оно же – <strong>нормальное распределение</strong>. Его формула:</p>
 <p><span class="math inline">\(P(x) = \frac{e^{-(x - \mu)^{2}/(2\sigma^{2}) }} {\sigma\sqrt{2\pi}}\)</span></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="distributions.html#cb1-1"></a><span class="kw">plot</span>(<span class="kw">dnorm</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>, <span class="dt">mean =</span> <span class="dv">500</span>, <span class="dt">sd =</span> <span class="dv">100</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="distributions.html#cb1-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">dnorm</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd =</span> <span class="dv">100</span>))</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Или, например, экспоненциальное распределение:</p>
 <p><span class="math inline">\(P(x)= \lambda \times e^{-\lambda x}\)</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="distributions.html#cb2-1"></a><span class="kw">plot</span>(<span class="kw">dexp</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dt">rate =</span> <span class="fl">0.1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="distributions.html#cb2-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">dexp</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">rate =</span> <span class="fl">0.1</span>))</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 χ2-распределение:</p>
 <p><span class="math inline">\(P(x)= \lambda \times e^{-\lambda x}\)</span></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="distributions.html#cb3-1"></a><span class="kw">plot</span>(<span class="kw">dchisq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>, <span class="dt">df=</span><span class="dv">100</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="distributions.html#cb3-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">dchisq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>, <span class="at">df=</span><span class="dv">100</span>))</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Или, например, биномиальное распределение:</p>
 <p><span class="math inline">\(P(k | n, p) = \frac{n!}{k!(n-k)!} \times p^k \times (1-p)^{n-k} = {n \choose k} \times p^k \times (1-p)^{n-k}\)</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="distributions.html#cb4-1"></a><span class="kw">plot</span>(<span class="kw">dbinom</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dt">size=</span><span class="dv">100</span>, <span class="dt">prob=</span><span class="fl">0.5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="distributions.html#cb4-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">dbinom</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">size=</span><span class="dv">100</span>, <span class="at">prob=</span><span class="fl">0.5</span>))</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 Посмотреть и ужаснуться можно тут <a href="http://www.math.wm.edu/~leemis/chart/UDR/UDR.html" class="uri">http://www.math.wm.edu/~leemis/chart/UDR/UDR.html</a>. Нам, к счастью, ничего из этого не понадобится.</p>
 <p>Менее пугающая версия <a href="https://www.johndcook.com/blog/distribution_chart/#normal" class="uri">https://www.johndcook.com/blog/distribution_chart/#normal</a></p>
 <p>На примере данных про выгорание:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="distributions.html#cb5-1"></a><span class="kw">kable</span>(burnout)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="distributions.html#cb5-1" tabindex="-1"></a><span class="fu">kable</span>(burnout)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -319,16 +398,16 @@ univer
 1
 </td>
 <td style="text-align:right;">
-47
+39
 </td>
 <td style="text-align:right;">
-2
+4
 </td>
 <td style="text-align:left;">
-от 1 до 2
+от 3 до 5
 </td>
 <td style="text-align:right;">
-20
+53
 </td>
 <td style="text-align:left;">
 MSU
@@ -339,16 +418,16 @@ MSU
 2
 </td>
 <td style="text-align:right;">
-23
+34
 </td>
 <td style="text-align:right;">
-7
+2
 </td>
 <td style="text-align:left;">
-больше 5
+от 1 до 2
 </td>
 <td style="text-align:right;">
-63
+29
 </td>
 <td style="text-align:left;">
 HSE
@@ -359,16 +438,16 @@ HSE
 3
 </td>
 <td style="text-align:right;">
-46
+53
 </td>
 <td style="text-align:right;">
-1
+7
 </td>
 <td style="text-align:left;">
-от 1 до 2
+больше 5
 </td>
 <td style="text-align:right;">
-30
+55
 </td>
 <td style="text-align:left;">
 MSU
@@ -379,16 +458,16 @@ MSU
 4
 </td>
 <td style="text-align:right;">
-25
+28
 </td>
 <td style="text-align:right;">
-4
+8
 </td>
 <td style="text-align:left;">
-от 3 до 5
+больше 5
 </td>
 <td style="text-align:right;">
-48
+26
 </td>
 <td style="text-align:left;">
 RANEPA
@@ -399,16 +478,16 @@ RANEPA
 5
 </td>
 <td style="text-align:right;">
-46
+36
 </td>
 <td style="text-align:right;">
-2
+3
 </td>
 <td style="text-align:left;">
-от 1 до 2
+от 3 до 5
 </td>
 <td style="text-align:right;">
-40
+20
 </td>
 <td style="text-align:left;">
 HSE
@@ -419,16 +498,16 @@ HSE
 6
 </td>
 <td style="text-align:right;">
-40
+41
 </td>
 <td style="text-align:right;">
-8
+4
 </td>
 <td style="text-align:left;">
-больше 5
+от 3 до 5
 </td>
 <td style="text-align:right;">
-54
+23
 </td>
 <td style="text-align:left;">
 RANEPA
@@ -439,16 +518,16 @@ RANEPA
 7
 </td>
 <td style="text-align:right;">
-45
+48
 </td>
 <td style="text-align:right;">
-2
+6
 </td>
 <td style="text-align:left;">
-от 1 до 2
+больше 5
 </td>
 <td style="text-align:right;">
-65
+39
 </td>
 <td style="text-align:left;">
 MSU
@@ -459,16 +538,16 @@ MSU
 8
 </td>
 <td style="text-align:right;">
-47
+29
 </td>
 <td style="text-align:right;">
-6
+8
 </td>
 <td style="text-align:left;">
 больше 5
 </td>
 <td style="text-align:right;">
-67
+21
 </td>
 <td style="text-align:left;">
 HSE
@@ -477,6 +556,206 @@ HSE
 <tr>
 <td style="text-align:right;">
 9
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+от 1 до 2
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+MSU
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+больше 5
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:left;">
+HSE
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+от 3 до 5
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:left;">
+RANEPA
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+19
 </td>
 <td style="text-align:right;">
 56
@@ -488,207 +767,7 @@ HSE
 от 1 до 2
 </td>
 <td style="text-align:right;">
-38
-</td>
-<td style="text-align:left;">
-MSU
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-44
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-от 1 до 2
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:left;">
-RANEPA
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-46
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-от 3 до 5
-</td>
-<td style="text-align:right;">
-58
-</td>
-<td style="text-align:left;">
-HSE
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-31
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:left;">
-больше 5
-</td>
-<td style="text-align:right;">
-19
-</td>
-<td style="text-align:left;">
-RANEPA
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-13
-</td>
-<td style="text-align:right;">
-51
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-от 3 до 5
-</td>
-<td style="text-align:right;">
-55
-</td>
-<td style="text-align:left;">
-MSU
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-14
-</td>
-<td style="text-align:right;">
-39
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-от 3 до 5
-</td>
-<td style="text-align:right;">
-28
-</td>
-<td style="text-align:left;">
-HSE
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-15
-</td>
-<td style="text-align:right;">
-58
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-от 3 до 5
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:left;">
-MSU
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-16
-</td>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-от 1 до 2
-</td>
-<td style="text-align:right;">
-33
-</td>
-<td style="text-align:left;">
-RANEPA
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-17
-</td>
-<td style="text-align:right;">
-46
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:left;">
-от 3 до 5
-</td>
-<td style="text-align:right;">
-70
-</td>
-<td style="text-align:left;">
-HSE
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-18
-</td>
-<td style="text-align:right;">
-58
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-от 1 до 2
-</td>
-<td style="text-align:right;">
-19
-</td>
-<td style="text-align:left;">
-RANEPA
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-19
-</td>
-<td style="text-align:right;">
-45
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:left;">
-больше 5
-</td>
-<td style="text-align:right;">
-36
+25
 </td>
 <td style="text-align:left;">
 MSU
@@ -699,16 +778,16 @@ MSU
 20
 </td>
 <td style="text-align:right;">
-41
+45
 </td>
 <td style="text-align:right;">
-5
+2
 </td>
 <td style="text-align:left;">
-от 3 до 5
+от 1 до 2
 </td>
 <td style="text-align:right;">
-22
+27
 </td>
 <td style="text-align:left;">
 HSE
@@ -719,16 +798,16 @@ HSE
 21
 </td>
 <td style="text-align:right;">
-31
+49
 </td>
 <td style="text-align:right;">
-3
+5
 </td>
 <td style="text-align:left;">
 от 3 до 5
 </td>
 <td style="text-align:right;">
-48
+56
 </td>
 <td style="text-align:left;">
 MSU
@@ -739,7 +818,7 @@ MSU
 22
 </td>
 <td style="text-align:right;">
-44
+34
 </td>
 <td style="text-align:right;">
 8
@@ -748,7 +827,7 @@ MSU
 больше 5
 </td>
 <td style="text-align:right;">
-39
+29
 </td>
 <td style="text-align:left;">
 RANEPA
@@ -759,16 +838,16 @@ RANEPA
 23
 </td>
 <td style="text-align:right;">
-46
+38
 </td>
 <td style="text-align:right;">
-6
+5
 </td>
 <td style="text-align:left;">
-больше 5
+от 3 до 5
 </td>
 <td style="text-align:right;">
-54
+57
 </td>
 <td style="text-align:left;">
 HSE
@@ -779,16 +858,16 @@ HSE
 24
 </td>
 <td style="text-align:right;">
-41
+57
 </td>
 <td style="text-align:right;">
-2
+6
 </td>
 <td style="text-align:left;">
-от 1 до 2
+больше 5
 </td>
 <td style="text-align:right;">
-21
+68
 </td>
 <td style="text-align:left;">
 RANEPA
@@ -799,7 +878,7 @@ RANEPA
 25
 </td>
 <td style="text-align:right;">
-59
+38
 </td>
 <td style="text-align:right;">
 2
@@ -808,7 +887,7 @@ RANEPA
 от 1 до 2
 </td>
 <td style="text-align:right;">
-40
+42
 </td>
 <td style="text-align:left;">
 MSU
@@ -822,13 +901,13 @@ MSU
 29
 </td>
 <td style="text-align:right;">
-8
+3
 </td>
 <td style="text-align:left;">
-больше 5
+от 3 до 5
 </td>
 <td style="text-align:right;">
-24
+23
 </td>
 <td style="text-align:left;">
 HSE
@@ -839,7 +918,7 @@ HSE
 27
 </td>
 <td style="text-align:right;">
-34
+45
 </td>
 <td style="text-align:right;">
 6
@@ -848,7 +927,7 @@ HSE
 больше 5
 </td>
 <td style="text-align:right;">
-40
+21
 </td>
 <td style="text-align:left;">
 MSU
@@ -859,16 +938,16 @@ MSU
 28
 </td>
 <td style="text-align:right;">
-31
+28
 </td>
 <td style="text-align:right;">
-8
+1
 </td>
 <td style="text-align:left;">
-больше 5
+от 1 до 2
 </td>
 <td style="text-align:right;">
-38
+42
 </td>
 <td style="text-align:left;">
 RANEPA
@@ -879,7 +958,7 @@ RANEPA
 29
 </td>
 <td style="text-align:right;">
-27
+60
 </td>
 <td style="text-align:right;">
 8
@@ -888,7 +967,7 @@ RANEPA
 больше 5
 </td>
 <td style="text-align:right;">
-59
+67
 </td>
 <td style="text-align:left;">
 HSE
@@ -899,16 +978,16 @@ HSE
 30
 </td>
 <td style="text-align:right;">
-60
+54
 </td>
 <td style="text-align:right;">
-7
+5
 </td>
 <td style="text-align:left;">
-больше 5
+от 3 до 5
 </td>
 <td style="text-align:right;">
-65
+36
 </td>
 <td style="text-align:left;">
 RANEPA
@@ -916,18 +995,18 @@ RANEPA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="distributions.html#cb6-1"></a>burnout <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb6-2"><a href="distributions.html#cb6-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>exp_years)) <span class="op">+</span></span>
-<span id="cb6-3"><a href="distributions.html#cb6-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
-<span id="cb6-4"><a href="distributions.html#cb6-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="distributions.html#cb6-1" tabindex="-1"></a>burnout <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="distributions.html#cb6-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>exp_years)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="distributions.html#cb6-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="distributions.html#cb6-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="distributions.html#cb7-1"></a>burnout <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb7-2"><a href="distributions.html#cb7-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>age)) <span class="op">+</span></span>
-<span id="cb7-3"><a href="distributions.html#cb7-3"></a><span class="st">  </span><span class="kw">geom_density</span>() <span class="op">+</span></span>
-<span id="cb7-4"><a href="distributions.html#cb7-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="distributions.html#cb7-1" tabindex="-1"></a>burnout <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="distributions.html#cb7-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>age)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="distributions.html#cb7-3" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb7-4"><a href="distributions.html#cb7-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
-<div id="функции-распределения" class="section level2 hasAnchor">
+<div id="функции-распределения" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Функции распределения<a href="distributions.html#функции-распределения" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Выше мы познакомились с плотностью вероятностью, зафиксируем все применимые к вероятности функции, которые бывают полезны:</p>
 <ul>
@@ -939,11 +1018,11 @@ RANEPA
 <p>Зачем они нужны?</p>
 <p>Разберемся на примере тестов на IQ.</p>
 <p><strong>Функция плотности вероятности (probability density function)</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="distributions.html#cb8-1"></a>iq &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">50</span>,<span class="dv">150</span>, <span class="fl">0.1</span>)</span>
-<span id="cb8-2"><a href="distributions.html#cb8-2"></a><span class="kw">plot</span>(iq, <span class="kw">dnorm</span>(iq, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="distributions.html#cb8-1" tabindex="-1"></a>iq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">50</span>,<span class="dv">150</span>, <span class="fl">0.1</span>)</span>
+<span id="cb8-2"><a href="distributions.html#cb8-2" tabindex="-1"></a><span class="fu">plot</span>(iq, <span class="fu">dnorm</span>(iq, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>))</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p><strong>Функция накопленной плотности (cumulative distribution function; cdf)</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="distributions.html#cb9-1"></a><span class="kw">plot</span>(iq, <span class="kw">pnorm</span>(iq, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="distributions.html#cb9-1" tabindex="-1"></a><span class="fu">plot</span>(iq, <span class="fu">pnorm</span>(iq, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>))</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <!--chapter:end-->
 
@@ -1015,7 +1094,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
