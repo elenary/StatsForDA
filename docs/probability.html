@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Вероятность и случайные величины | Статистика для анализа данных</title>
   <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Вероятность и случайные величины | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2022-12-06" />
+<meta name="date" content="2023-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -49,25 +49,24 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,13 +86,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -106,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -120,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -137,49 +140,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Статистика для анализа данных</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Статистика и ее место в жизни</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#вероятности-формулировки-и-выводы"><i class="fa fa-check"></i><b>1.1</b> Вероятности, формулировки и выводы</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a><ul>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#определение-статистики"><i class="fa fa-check"></i><b>1.2</b> Определение статистики</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#применение-статистики"><i class="fa fa-check"></i><b>1.2.1</b> Применение статистики</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#виды-статистики"><i class="fa fa-check"></i><b>1.3</b> Виды статистики</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="sample.html"><a href="sample.html"><i class="fa fa-check"></i><b>2</b> Выборка</a><ul>
+<li class="chapter" data-level="2" data-path="sample.html"><a href="sample.html"><i class="fa fa-check"></i><b>2</b> Выборка</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="sample.html"><a href="sample.html#выборочные-оценки"><i class="fa fa-check"></i><b>2.1</b> Выборочные оценки</a></li>
 <li class="chapter" data-level="2.2" data-path="sample.html"><a href="sample.html#репрезентативность-выборки"><i class="fa fa-check"></i><b>2.2</b> Репрезентативность выборки</a></li>
 <li class="chapter" data-level="2.3" data-path="sample.html"><a href="sample.html#dependent_samples"><i class="fa fa-check"></i><b>2.3</b> Зависимые и независимые выборки</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a><ul>
+<li class="chapter" data-level="3" data-path="scales.html"><a href="scales.html"><i class="fa fa-check"></i><b>3</b> Данные и типы шкал</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="scales.html"><a href="scales.html#измерение-и-переменная"><i class="fa fa-check"></i><b>3.1</b> Измерение и переменная</a></li>
 <li class="chapter" data-level="3.2" data-path="scales.html"><a href="scales.html#количественные-и-неколичественные-данные"><i class="fa fa-check"></i><b>3.2</b> Количественные и неколичественные данные</a></li>
 <li class="chapter" data-level="3.3" data-path="scales.html"><a href="scales.html#типы-шкал"><i class="fa fa-check"></i><b>3.3</b> Типы шкал</a></li>
 <li class="chapter" data-level="3.4" data-path="scales.html"><a href="scales.html#непрерывные-и-дискретные-данные"><i class="fa fa-check"></i><b>3.4</b> Непрерывные и дискретные данные</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>4</b> Вероятность и случайные величины</a><ul>
+<li class="chapter" data-level="4" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>4</b> Вероятность и случайные величины</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="probability.html"><a href="probability.html#random-variable"><i class="fa fa-check"></i><b>4.1</b> Случайная величина</a></li>
-<li class="chapter" data-level="4.2" data-path="probability.html"><a href="probability.html#вероятность"><i class="fa fa-check"></i><b>4.2</b> Вероятность</a></li>
-<li class="chapter" data-level="4.3" data-path="probability.html"><a href="probability.html#дискретные-св-и-статистическое-определение-вероятности"><i class="fa fa-check"></i><b>4.3</b> Дискретные СВ и статистическое определение вероятности</a></li>
-<li class="chapter" data-level="4.4" data-path="probability.html"><a href="probability.html#столбчатая-диаграмма"><i class="fa fa-check"></i><b>4.4</b> Столбчатая диаграмма</a></li>
-<li class="chapter" data-level="4.5" data-path="probability.html"><a href="probability.html#непрерывные-св-и-геометрическое-определение-вероятности"><i class="fa fa-check"></i><b>4.5</b> Непрерывные СВ и геометрическое определение вероятности</a></li>
-<li class="chapter" data-level="4.6" data-path="probability.html"><a href="probability.html#график-плотности-вероятности-и-гистограмма"><i class="fa fa-check"></i><b>4.6</b> График плотности вероятности и гистограмма</a></li>
+<li class="chapter" data-level="4.2" data-path="probability.html"><a href="probability.html#дискретные-св-и-статистическое-определение-вероятности"><i class="fa fa-check"></i><b>4.2</b> Дискретные СВ и статистическое определение вероятности</a></li>
+<li class="chapter" data-level="4.3" data-path="probability.html"><a href="probability.html#столбчатая-диаграмма-и-гистограмма"><i class="fa fa-check"></i><b>4.3</b> Столбчатая диаграмма и гистограмма</a></li>
+<li class="chapter" data-level="4.4" data-path="probability.html"><a href="probability.html#непрерывные-св-и-геометрическое-определение-вероятности"><i class="fa fa-check"></i><b>4.4</b> Непрерывные СВ и геометрическое определение вероятности</a></li>
+<li class="chapter" data-level="4.5" data-path="probability.html"><a href="probability.html#график-плотности-вероятности-и-гистограмма"><i class="fa fa-check"></i><b>4.5</b> График плотности вероятности и гистограмма</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Распределения</a><ul>
+<li class="chapter" data-level="5" data-path="distributions.html"><a href="distributions.html"><i class="fa fa-check"></i><b>5</b> Распределения</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="distributions.html"><a href="distributions.html#виды-распределений"><i class="fa fa-check"></i><b>5.1</b> Виды распределений</a></li>
 <li class="chapter" data-level="5.2" data-path="distributions.html"><a href="distributions.html#функции-распределения"><i class="fa fa-check"></i><b>5.2</b> Функции распределения</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a><ul>
+<li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#descriptive_vis"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a></li>
-<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a><ul>
+<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="descriptives.html"><a href="descriptives.html#среднее-медиана-мода"><i class="fa fa-check"></i><b>6.2.1</b> Среднее, медиана, мода</a></li>
 <li class="chapter" data-level="6.2.2" data-path="descriptives.html"><a href="descriptives.html#особенности-использования"><i class="fa fa-check"></i><b>6.2.2</b> Особенности использования</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="descriptives.html"><a href="descriptives.html#квантили-квартили-и-перцентили"><i class="fa fa-check"></i><b>6.3</b> Квантили, квартили и перцентили</a></li>
-<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.4</b> Меры вариативности</a><ul>
+<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.4</b> Меры вариативности</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="descriptives.html"><a href="descriptives.html#размах-стандартное-отклонение-и-дисперсия"><i class="fa fa-check"></i><b>6.4.1</b> Размах, стандартное отклонение и дисперсия</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="descriptives.html"><a href="descriptives.html#боксплот-и-вайолинплот"><i class="fa fa-check"></i><b>6.5</b> Боксплот и вайолинплот</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение и оценки</a><ul>
+<li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение и оценки</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="normdist.html"><a href="normdist.html#ctt"><i class="fa fa-check"></i><b>7.1</b> Центральная предельная теорема</a></li>
 <li class="chapter" data-level="7.2" data-path="normdist.html"><a href="normdist.html#standart_error"><i class="fa fa-check"></i><b>7.2</b> Стандартная ошибка среднего</a></li>
 <li class="chapter" data-level="7.3" data-path="normdist.html"><a href="normdist.html#нормальное-распределение-и-его-свойства"><i class="fa fa-check"></i><b>7.3</b> Нормальное распределение и его свойства</a></li>
@@ -187,38 +199,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.5" data-path="normdist.html"><a href="normdist.html#z-преобразование-и-стандартизация"><i class="fa fa-check"></i><b>7.5</b> Z-преобразование и стандартизация</a></li>
 <li class="chapter" data-level="7.6" data-path="normdist.html"><a href="normdist.html#доверительный-интервал"><i class="fa fa-check"></i><b>7.6</b> Доверительный интервал</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>8</b> Статистический вывод</a><ul>
+<li class="chapter" data-level="8" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>8</b> Статистический вывод</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="inference.html"><a href="inference.html#идея-статистического-вывода"><i class="fa fa-check"></i><b>8.1</b> Идея статистического вывода</a></li>
 <li class="chapter" data-level="8.2" data-path="inference.html"><a href="inference.html#nhst"><i class="fa fa-check"></i><b>8.2</b> NHST: алгоритм проверки гипотезы и анализа данных</a></li>
-<li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a><ul>
+<li class="chapter" data-level="8.3" data-path="inference.html"><a href="inference.html#эмпирические-гипотезы-и-переменные"><i class="fa fa-check"></i><b>8.3</b> Эмпирические гипотезы и переменные</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="inference.html"><a href="inference.html#variables"><i class="fa fa-check"></i><b>8.3.1</b> Зависимые и независимые переменные</a></li>
 <li class="chapter" data-level="8.3.2" data-path="inference.html"><a href="inference.html#уровни-нп-в-категориальных-переменных"><i class="fa fa-check"></i><b>8.3.2</b> Уровни НП в категориальных переменных</a></li>
-<li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#связь-между-зп-и-нп"><i class="fa fa-check"></i><b>8.3.3</b> Связь между ЗП и НП</a></li>
+<li class="chapter" data-level="8.3.3" data-path="inference.html"><a href="inference.html#relationship"><i class="fa fa-check"></i><b>8.3.3</b> Связь между ЗП и НП</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="inference.html"><a href="inference.html#нулевая-и-альтернативные-статистические-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные статистические гипотезы</a><ul>
+<li class="chapter" data-level="8.4" data-path="inference.html"><a href="inference.html#нулевая-и-альтернативные-статистические-гипотезы"><i class="fa fa-check"></i><b>8.4</b> Нулевая и альтернативные статистические гипотезы</a>
+<ul>
 <li class="chapter" data-level="8.4.1" data-path="inference.html"><a href="inference.html#направленные-и-ненаправленные-гипотезы"><i class="fa fa-check"></i><b>8.4.1</b> Направленные и ненаправленные гипотезы</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="inference.html"><a href="inference.html#уровень-значимости-и-статистическая-мощность"><i class="fa fa-check"></i><b>8.5</b> Уровень значимости и статистическая мощность</a></li>
 <li class="chapter" data-level="8.6" data-path="inference.html"><a href="inference.html#выбор-статистического-критерия"><i class="fa fa-check"></i><b>8.6</b> Выбор статистического критерия</a></li>
-<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки</a></li>
+<li class="chapter" data-level="8.7" data-path="inference.html"><a href="inference.html#sample_size"><i class="fa fa-check"></i><b>8.7</b> Размер выборки и размер эффекта</a></li>
 <li class="chapter" data-level="8.8" data-path="inference.html"><a href="inference.html#stat_test_example"><i class="fa fa-check"></i><b>8.8</b> Расчет статического критерия и проверка значимости</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a><ul>
+<li class="chapter" data-level="9" data-path="stats_criteria.html"><a href="stats_criteria.html"><i class="fa fa-check"></i><b>9</b> Статистические критерии</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="stats_criteria.html"><a href="stats_criteria.html#степени-свободы"><i class="fa fa-check"></i><b>9.1</b> Степени свободы</a></li>
 <li class="chapter" data-level="9.2" data-path="stats_criteria.html"><a href="stats_criteria.html#ключевые-распределения-и-статистики-критериев-z-t-f"><i class="fa fa-check"></i><b>9.2</b> Ключевые распределения и статистики критериев (Z, T, F)</a></li>
-<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.3</b> Выбор статистического критерия</a><ul>
+<li class="chapter" data-level="9.3" data-path="stats_criteria.html"><a href="stats_criteria.html#выбор-статистического-критерия-1"><i class="fa fa-check"></i><b>9.3</b> Выбор статистического критерия</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="stats_criteria.html"><a href="stats_criteria.html#param_nonparam"><i class="fa fa-check"></i><b>9.3.1</b> Параметрические и непараметрические критерии</a></li>
 <li class="chapter" data-level="9.3.2" data-path="stats_criteria.html"><a href="stats_criteria.html#зависимые-и-независимые-выборки"><i class="fa fa-check"></i><b>9.3.2</b> Зависимые и независимые выборки</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html"><i class="fa fa-check"></i><b>10</b> Сравнение средних по группам</a><ul>
-<li class="chapter" data-level="10.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#ttest"><i class="fa fa-check"></i><b>10.1</b> T-тест</a><ul>
+<li class="chapter" data-level="10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html"><i class="fa fa-check"></i><b>10</b> Сравнение средних по группам</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#ttest"><i class="fa fa-check"></i><b>10.1</b> T-тест</a>
+<ul>
 <li class="chapter" data-level="10.1.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#допущения-для-т-теста"><i class="fa fa-check"></i><b>10.1.1</b> Допущения для т-теста</a></li>
 <li class="chapter" data-level="10.1.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#непараметрические-аналоги"><i class="fa fa-check"></i><b>10.1.2</b> Непараметрические аналоги</a></li>
 <li class="chapter" data-level="10.1.3" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#независимые-и-парные-тесты"><i class="fa fa-check"></i><b>10.1.3</b> Независимые и парные тесты</a></li>
 <li class="chapter" data-level="10.1.4" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#вычисление-т-теста-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>10.1.4</b> Вычисление т-теста и непараметрических аналогов</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>10.2</b> ANOVA (дисперсионный анализ)</a><ul>
+<li class="chapter" data-level="10.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#anova"><i class="fa fa-check"></i><b>10.2</b> ANOVA (дисперсионный анализ)</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#levels"><i class="fa fa-check"></i><b>10.2.1</b> Факторы и уровни</a></li>
 <li class="chapter" data-level="10.2.2" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#почему-он-дисперсионный"><i class="fa fa-check"></i><b>10.2.2</b> Почему он дисперсионный</a></li>
 <li class="chapter" data-level="10.2.3" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#f-распределение-фишера"><i class="fa fa-check"></i><b>10.2.3</b> F-распределение (Фишера)</a></li>
@@ -231,8 +251,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2.10" data-path="stats_criteria_ttest_anova.html"><a href="stats_criteria_ttest_anova.html#вычисление-anova-и-непараметрических-аналогов"><i class="fa fa-check"></i><b>10.2.10</b> Вычисление ANOVA и непараметрических аналогов</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html"><i class="fa fa-check"></i><b>11</b> Проверка линейной свзяи</a><ul>
-<li class="chapter" data-level="11.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#corr_test"><i class="fa fa-check"></i><b>11.1</b> Корреляционный анализ</a><ul>
+<li class="chapter" data-level="11" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html"><i class="fa fa-check"></i><b>11</b> Проверка линейной свзяи</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#corr_test"><i class="fa fa-check"></i><b>11.1</b> Корреляционный анализ</a>
+<ul>
 <li class="chapter" data-level="11.1.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционный-тест"><i class="fa fa-check"></i><b>11.1.1</b> Корреляционный тест</a></li>
 <li class="chapter" data-level="11.1.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-корреляционного-теста"><i class="fa fa-check"></i><b>11.1.2</b> Допущения для корреляционного теста</a></li>
 <li class="chapter" data-level="11.1.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#непараметрические-аналоги-2"><i class="fa fa-check"></i><b>11.1.3</b> Непараметрические аналоги</a></li>
@@ -240,12 +262,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#интерпретация-результатов"><i class="fa fa-check"></i><b>11.1.5</b> Интерпретация результатов</a></li>
 <li class="chapter" data-level="11.1.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#корреляционные-матрицы"><i class="fa fa-check"></i><b>11.1.6</b> Корреляционные матрицы</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#линейный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a><ul>
-<li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#коэффициенты-регрессии"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
-<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#регрессионный-анализ-тестирование-коэффициентов-регрессии"><i class="fa fa-check"></i><b>11.2.2</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
-<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#допущения-для-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.3</b> Допущения для регрессионного анализа</a></li>
-<li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#расчет-регрессионного-анализа"><i class="fa fa-check"></i><b>11.2.4</b> Расчет регрессионного анализа</a></li>
+<li class="chapter" data-level="11.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg"><i class="fa fa-check"></i><b>11.2</b> Линейный регрессионный анализ</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg_coef"><i class="fa fa-check"></i><b>11.2.1</b> Коэффициенты регрессии</a></li>
+<li class="chapter" data-level="11.2.2" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#rsquared"><i class="fa fa-check"></i><b>11.2.2</b> Коэффициент детерминации и доля объясненной изменчивости</a></li>
+<li class="chapter" data-level="11.2.3" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg_null"><i class="fa fa-check"></i><b>11.2.3</b> Регрессионный анализ (тестирование коэффициентов регрессии)</a></li>
+<li class="chapter" data-level="11.2.4" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#множественный-регрессионный-анализ"><i class="fa fa-check"></i><b>11.2.4</b> Множественный регрессионный анализ</a></li>
+<li class="chapter" data-level="11.2.5" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#assumptions_linreg"><i class="fa fa-check"></i><b>11.2.5</b> Допущения для регрессионного анализа</a></li>
+<li class="chapter" data-level="11.2.6" data-path="stats_criteria_linear.html"><a href="stats_criteria_linear.html#linreg_example"><i class="fa fa-check"></i><b>11.2.6</b> Расчет регрессионного анализа</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html"><i class="fa fa-check"></i><b>12</b> Анализ категориальных данных</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#logreg"><i class="fa fa-check"></i><b>12.1</b> Логистическая регрессия</a></li>
+<li class="chapter" data-level="12.2" data-path="stats_criteria_categ.html"><a href="stats_criteria_categ.html#хи-квадрат"><i class="fa fa-check"></i><b>12.2</b> Хи-квадрат</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="cluster_analysis.html"><a href="cluster_analysis.html"><i class="fa fa-check"></i><b>13</b> Кластерный анализ</a></li>
+<li class="chapter" data-level="14" data-path="R_analysis.html"><a href="R_analysis.html"><i class="fa fa-check"></i><b>14</b> Введение в анализ данных в R</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="R_analysis.html"><a href="R_analysis.html#данные-и-переменные"><i class="fa fa-check"></i><b>14.1</b> Данные и переменные</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="R_analysis.html"><a href="R_analysis.html#data_types"><i class="fa fa-check"></i><b>14.1.1</b> Основные типы данных</a></li>
+<li class="chapter" data-level="14.1.2" data-path="R_analysis.html"><a href="R_analysis.html#data_structures"><i class="fa fa-check"></i><b>14.1.2</b> Основные структуры данных</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="R_analysis.html"><a href="R_analysis.html#operarions"><i class="fa fa-check"></i><b>14.2</b> Операции с переменными и функции</a></li>
+<li class="chapter" data-level="14.3" data-path="R_analysis.html"><a href="R_analysis.html#начало-работы-в-среде"><i class="fa fa-check"></i><b>14.3</b> Начало работы в среде</a></li>
+<li class="chapter" data-level="14.4" data-path="R_analysis.html"><a href="R_analysis.html#начало-работы-с-данными"><i class="fa fa-check"></i><b>14.4</b> Начало работы с данными</a></li>
+<li class="chapter" data-level="14.5" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem2"><i class="fa fa-check"></i><b>14.5</b> Задания после семинара 2</a></li>
+<li class="chapter" data-level="14.6" data-path="R_analysis.html"><a href="R_analysis.html#preprocessing"><i class="fa fa-check"></i><b>14.6</b> Предобработка данных</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="R_analysis.html"><a href="R_analysis.html#columns"><i class="fa fa-check"></i><b>14.6.1</b> Отбор колонок</a></li>
+<li class="chapter" data-level="14.6.2" data-path="R_analysis.html"><a href="R_analysis.html#filter"><i class="fa fa-check"></i><b>14.6.2</b> Фильтрация (отбор строк)</a></li>
+<li class="chapter" data-level="14.6.3" data-path="R_analysis.html"><a href="R_analysis.html#mutate"><i class="fa fa-check"></i><b>14.6.3</b> Создание колонок</a></li>
+<li class="chapter" data-level="14.6.4" data-path="R_analysis.html"><a href="R_analysis.html#NA"><i class="fa fa-check"></i><b>14.6.4</b> Работа с пропущенными значениями (NA)</a></li>
+<li class="chapter" data-level="14.6.5" data-path="R_analysis.html"><a href="R_analysis.html#sorting"><i class="fa fa-check"></i><b>14.6.5</b> Сортировка</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem3"><i class="fa fa-check"></i><b>14.7</b> Задания после семинара 3</a></li>
+<li class="chapter" data-level="14.8" data-path="R_analysis.html"><a href="R_analysis.html#descriptives_r"><i class="fa fa-check"></i><b>14.8</b> Описательные статистики и агрегация</a>
+<ul>
+<li class="chapter" data-level="14.8.1" data-path="R_analysis.html"><a href="R_analysis.html#описательные-статистики"><i class="fa fa-check"></i><b>14.8.1</b> Описательные статистики</a></li>
+<li class="chapter" data-level="14.8.2" data-path="R_analysis.html"><a href="R_analysis.html#aggregate"><i class="fa fa-check"></i><b>14.8.2</b> Агрегация данных</a></li>
+</ul></li>
+<li class="chapter" data-level="14.9" data-path="R_analysis.html"><a href="R_analysis.html#visualization"><i class="fa fa-check"></i><b>14.9</b> Визуализации</a></li>
+<li class="chapter" data-level="14.10" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem4"><i class="fa fa-check"></i><b>14.10</b> Задания после семинара 4</a></li>
+<li class="chapter" data-level="14.11" data-path="R_analysis.html"><a href="R_analysis.html#проверка-гипотез"><i class="fa fa-check"></i><b>14.11</b> Проверка гипотез</a>
+<ul>
+<li class="chapter" data-level="14.11.1" data-path="R_analysis.html"><a href="R_analysis.html#корреляционный-тест-1"><i class="fa fa-check"></i><b>14.11.1</b> Корреляционный тест</a></li>
+<li class="chapter" data-level="14.11.2" data-path="R_analysis.html"><a href="R_analysis.html#т-тест"><i class="fa fa-check"></i><b>14.11.2</b> Т-тест</a></li>
+</ul></li>
+<li class="chapter" data-level="14.12" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem5"><i class="fa fa-check"></i><b>14.12</b> Задания после семинара 5</a></li>
+<li class="chapter" data-level="14.13" data-path="R_analysis.html"><a href="R_analysis.html#проверка-гипоте-2-anova-и-линейная-регрессия"><i class="fa fa-check"></i><b>14.13</b> Проверка гипоте-2: ANOVA и линейная регрессия</a>
+<ul>
+<li class="chapter" data-level="14.13.1" data-path="R_analysis.html"><a href="R_analysis.html#anova-дисперсионный-анализ"><i class="fa fa-check"></i><b>14.13.1</b> ANOVA (дисперсионный анализ)</a></li>
+<li class="chapter" data-level="14.13.2" data-path="R_analysis.html"><a href="R_analysis.html#reshaping"><i class="fa fa-check"></i><b>14.13.2</b> Решейпинг</a></li>
+</ul></li>
+<li class="chapter" data-level="14.14" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem6"><i class="fa fa-check"></i><b>14.14</b> Задания после семинара 6</a></li>
+<li class="chapter" data-level="14.15" data-path="R_analysis.html"><a href="R_analysis.html#lin_reg"><i class="fa fa-check"></i><b>14.15</b> Линейный регрессионный анализ</a>
+<ul>
+<li class="chapter" data-level="14.15.1" data-path="R_analysis.html"><a href="R_analysis.html#линейная-регрессия-с-одним-предиктором-фактором"><i class="fa fa-check"></i><b>14.15.1</b> Линейная регрессия с одним предиктором (фактором)</a></li>
+<li class="chapter" data-level="14.15.2" data-path="R_analysis.html"><a href="R_analysis.html#линейная-регрессия-с-несколькими-предикторами-факторами"><i class="fa fa-check"></i><b>14.15.2</b> Линейная регрессия с несколькими предикторами (факторами)</a></li>
+</ul></li>
+<li class="chapter" data-level="14.16" data-path="R_analysis.html"><a href="R_analysis.html#tasks_sem7"><i class="fa fa-check"></i><b>14.16</b> Задания после семинара 7</a></li>
+<li class="chapter" data-level="14.17" data-path="R_analysis.html"><a href="R_analysis.html#логистическая-регрессия"><i class="fa fa-check"></i><b>14.17</b> Логистическая регрессия</a></li>
 </ul></li>
 </ul>
 
@@ -264,9 +342,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="probability" class="section level1 hasAnchor">
+<div id="probability" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">4</span> Вероятность и случайные величины<a href="probability.html#probability" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="random-variable" class="section level2 hasAnchor">
+<div id="random-variable" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Случайная величина<a href="probability.html#random-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Мы немного поговорили про переменные, они же – признаки исследуего нами объекта (рост, вес, пол, уровень образования и так далее). Поговорили, что чтобы измерить признак, нужно привести в соответствие какое-либо значение из шкалы. Теперь давайте посмотрим на математический смысл переменных и их значений.</p>
 <p>С математической точки зрения значения переменных являются <strong>случайными величинами</strong>. В теории вероятностей случайной величиной называется величина, которая <em>в данный момент времени (момент измерения) может принимать только одно значение, которое нельзя предугадать точно (до измерения)</em>.</p>
@@ -275,20 +353,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Результат прохождения опросника – случайная величина.</p>
 <p>Название ВУЗа, из которого пришел наш испытуемый – случайная величина.</p>
 <p>Это понятие нужно нам для того, чтобы мы могли считать <strong>вероятности</strong> наступления определенных <strong>событий</strong>, то есть наших измеренных переменных. Дело в том, что про вероятности случайных величин нам плюс-минус понятно и просто, а вот если величина перестает быть случайной, расчет вероятности становится сложнее. И мы пока рассматриваем только случайные величины.</p>
-</div>
-<div id="вероятность" class="section level2 hasAnchor">
-<h2><span class="header-section-number">4.2</span> Вероятность<a href="probability.html#вероятность" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>(Более подробный экскурс в случайный величины и теорию вероятностей можно получить в отличном учебнике Mathprofi <a href="http://mathprofi.ru/sluchainaya_velichina.html" class="uri">http://mathprofi.ru/sluchainaya_velichina.html</a>)
+## Вероятность</p>
 <p>Что такое вероятность?</p>
 <p>По сути, <strong>вероятность</strong> – это численно выраженая возможность наступления того или иного события.</p>
 <p>Вероятность может рассматриваться как <strong>частота наступления</strong> уже свершившегося события: по тому, как часто оно происходило, можно оценить, какова вероятность его наступления в дальнейшем.</p>
 <p>Здесь начинается неожиданная развилка: в зависимости от того, как мы понимаем вероятность, приравниваем ли ее к частоте, статистика делится на <strong>байесовскую (bayesian)</strong> и <strong>частотную (фреквинтистскую, frequentist)</strong>. Статистика, в которой мы заменяем вероятности частотами, а не высчитываем вероятность по сложной формуле, и в которой мы будем работать – частотная (<a href="https://en.wikipedia.org/wiki/Frequentist_inference" class="uri">https://en.wikipedia.org/wiki/Frequentist_inference</a>). То есть говоря о вероятности, мы будем понимать ее исключительно так же, как и частоту, забываем про существование условной вероятности, формулу полной вероятности и других сложных концепций: если бы мы провели много раз одно и то же исследование, скажем, тысячу, и посмотрели, сколько раз в этом исследовании выпадает результат, который нас интересует, мы бы сказали, что вероятность наступления этого события – это сколько раз оно выпадало из тысячи. И будем руководствоваться только этим смыслом.</p>
-<p>Есть разные определения, в рамках статистики различают статистическое и геометрическое определение вероятностей. Можно углубиться на <a href="http://mathprofi.ru/sluchainaya_velichina.html" class="uri">http://mathprofi.ru/sluchainaya_velichina.html</a>. Разные определения вероятности используются в зависимости от того, с какими случайными величинами (СВ) мы работаем, различают два их типа:
-* <strong>дискретные СВ</strong>
-* <strong>непрерывные СВ</strong></p>
+<p>Есть разные определения, в рамках статистики различают статистическое и геометрическое определение вероятностей. Можно углубиться на <a href="http://mathprofi.ru/sluchainaya_velichina.html" class="uri">http://mathprofi.ru/sluchainaya_velichina.html</a>. Разные определения вероятности используются в зависимости от того, с какими случайными величинами (СВ) мы работаем, различают два их типа:</p>
+<ul>
+<li><strong>дискретные СВ</strong></li>
+<li><strong>непрерывные СВ</strong></li>
+</ul>
 </div>
-<div id="дискретные-св-и-статистическое-определение-вероятности" class="section level2 hasAnchor">
-<h2><span class="header-section-number">4.3</span> Дискретные СВ и статистическое определение вероятности<a href="probability.html#дискретные-св-и-статистическое-определение-вероятности" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Самая часто используемая в теории вероятностей модель – бросание обычного шестигранного игрального кубика. Кубик отличает то, что всего возможно наступление 6 событий (не будем рассматривать, что кубик смещенный или какой-то неправильный). То есть <strong>область допустимых значений</strong> или <strong>область определения</strong> для случайной величины “бросок кубика” это 6 значений: $ D {1, 2, 3, 4, 5, 6}$</p>
+<div id="дискретные-св-и-статистическое-определение-вероятности" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Дискретные СВ и статистическое определение вероятности<a href="probability.html#дискретные-св-и-статистическое-определение-вероятности" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Самая часто используемая в теории вероятностей модель – бросание обычного шестигранного игрального кубика. Кубик отличает то, что всего возможно наступление 6 событий (не будем рассматривать, что кубик смещенный или какой-то неправильный). То есть <strong>область допустимых значений</strong> или <strong>область определения</strong> для случайной величины “бросок кубика” это 6 значений: <span class="math inline">\(D \in \{1, 2, 3, 4, 5, 6\}\)</span></p>
 <p>Величина, область значений которой состоит из конечного числа натуральных чисел (1; 2; 3; 4; 5…), называется <strong>дискретной</strong>.</p>
 <p>Для определения вероятности дискретной величны воспользуемся ее статистическим определением, не углубляясь в статистические термины: если при проведении испытания возможны <span class="math inline">\(n\)</span> равновероятных исходов значений случайной величины <span class="math inline">\(A\)</span>, при этом в <span class="math inline">\(m\)</span> из них случается интересующее нас конкретное событие <span class="math inline">\(A_{i}\)</span>,то <em>вероятность наступления события</em> <span class="math inline">\(P(A_{i}) = \frac{m}{n}\)</span></p>
 <img src="docs/images/kubik.jpg" width="25%" style="display: block; margin: auto;" />
@@ -303,35 +382,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Как можно вывести это математически из вероятностей наступления событий в бросании игрального кубика?
 <span class="math inline">\(P(K_{1})\)</span> + <span class="math inline">\(P(K_{2})\)</span> + <span class="math inline">\(P(K_{3})\)</span> + <span class="math inline">\(P(K_{4})\)</span> + <span class="math inline">\(P(K_{5})\)</span> + <span class="math inline">\(P(K_{6})\)</span> = <span class="math inline">\(1\)</span></p>
 <p>Единичные события нас мало интересуют (предмет изучения теории вероятностей – массовые события), поэтому давайте представим, что мы бросили кубик несколько раз. Например, 20.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="probability.html#cb1-1"></a><span class="kw">library</span>(TeachingDemos)</span>
-<span id="cb1-2"><a href="probability.html#cb1-2"></a>rolls &lt;-<span class="st"> </span><span class="kw">dice</span>(<span class="dv">20</span>,<span class="dv">1</span>)</span>
-<span id="cb1-3"><a href="probability.html#cb1-3"></a><span class="kw">t</span>(rolls)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="probability.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="probability.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(TeachingDemos)</span>
+<span id="cb1-3"><a href="probability.html#cb1-3" tabindex="-1"></a>rolls <span class="ot">&lt;-</span> <span class="fu">dice</span>(<span class="dv">20</span>,<span class="dv">1</span>)</span>
+<span id="cb1-4"><a href="probability.html#cb1-4" tabindex="-1"></a><span class="fu">t</span>(rolls)</span></code></pre></div>
 <pre><code>##     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-## Red    1    6    4    1    5    4    2    3    1     3     4     1     5     5
+## Red    6    4    4    4    3    1    5    3    4     3     2     6     1     6
 ##     [,15] [,16] [,17] [,18] [,19] [,20]
-## Red     3     6     1     4     4     3</code></pre>
+## Red     4     5     3     3     2     3</code></pre>
 </div>
-<div id="столбчатая-диаграмма" class="section level2 hasAnchor">
-<h2><span class="header-section-number">4.4</span> Столбчатая диаграмма<a href="probability.html#столбчатая-диаграмма" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="столбчатая-диаграмма-и-гистограмма" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Столбчатая диаграмма и гистограмма<a href="probability.html#столбчатая-диаграмма-и-гистограмма" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Построим таблицу частот выпадения каждой грани</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="probability.html#cb3-1"></a><span class="kw">table</span>(rolls)</span></code></pre></div>
-<pre><code>## rolls
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="probability.html#cb3-1" tabindex="-1"></a><span class="fu">table</span>(rolls)</span></code></pre></div>
+<pre><code>## Red
 ## 1 2 3 4 5 6 
-## 5 1 4 5 3 2</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="probability.html#cb5-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(rolls))</span></code></pre></div>
-<pre><code>## rolls
+## 2 2 6 5 2 3</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="probability.html#cb5-1" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(rolls))</span></code></pre></div>
+<pre><code>## Red
 ##    1    2    3    4    5    6 
-## 0.25 0.05 0.20 0.25 0.15 0.10</code></pre>
-<p>Можем наглядно посмотреть это на <strong>столбчатой (столбиковой) диаграмме</strong> – графике, отображающем частоты встречаемости событий дискретной переменной.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="probability.html#cb7-1"></a>rolls <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb7-2"><a href="probability.html#cb7-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Red)) <span class="op">+</span></span>
-<span id="cb7-3"><a href="probability.html#cb7-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">6</span>, <span class="dt">binwidth =</span> <span class="dv">1</span>) <span class="op">+</span></span>
-<span id="cb7-4"><a href="probability.html#cb7-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+## 0.10 0.10 0.30 0.25 0.10 0.15</code></pre>
+<p>Можем наглядно посмотреть это на <strong>столбчатой (или столбиковой) диаграмме</strong> – графике, отображающем частоты встречаемости событий дискретной переменной.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="probability.html#cb7-1" tabindex="-1"></a>rolls <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="probability.html#cb7-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Red)) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="probability.html#cb7-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">bins =</span> <span class="dv">6</span>, <span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="probability.html#cb7-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning in geom_bar(bins = 6, binwidth = 1): Ignoring unknown parameters:
+## `bins` and `binwidth`</code></pre>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p><strong>Гистограмма</strong> – это частный случай <strong>столбчатой (или столбиковой) диаграммы</strong>. Она отличается от столбчатой диаграммы тем, что, в отличие от нее, мы сами можем регулировать ширину столбика по оси <span class="math inline">\(x\)</span>, задавать, сколько значений переменной х в него войдет, и высотка столбика будут пересчитана в зависимости от этого количества. В столбиковой диаграмме мы так сделать не можем, по оси <span class="math inline">\(x\)</span> всегда только одно значение, каждый столбик соотносится с конкретным значением переменной.</p>
+<p>Сразу введем понятие <strong>гистограммы</strong> – это похожий на столбчатую диаграмму график, но, в отличие от столбчатой диаграммы, он используется исключительно для количественных данных, и мы можем регулировать ширину столбика по оси <span class="math inline">\(x\)</span>, задавать, сколько значений переменной х в него войдет (например,не только грань 1, но и грани 1 + 2), и высотка столбика будут пересчитана в зависимости от этого количества. В столбиковой диаграмме мы так сделать не можем, по оси <span class="math inline">\(x\)</span> всегда только одно значение, каждый столбик соотносится с конкретным значением переменной.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="probability.html#cb9-1" tabindex="-1"></a>rolls <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="probability.html#cb9-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Red)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="probability.html#cb9-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">6</span>, <span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="probability.html#cb9-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
-<div id="непрерывные-св-и-геометрическое-определение-вероятности" class="section level2 hasAnchor">
-<h2><span class="header-section-number">4.5</span> Непрерывные СВ и геометрическое определение вероятности<a href="probability.html#непрерывные-св-и-геометрическое-определение-вероятности" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="непрерывные-св-и-геометрическое-определение-вероятности" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Непрерывные СВ и геометрическое определение вероятности<a href="probability.html#непрерывные-св-и-геометрическое-определение-вероятности" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>С непрерывными величинами чуть посложнее, поэтому нам понадобится геометрическое определение вероятности.</p>
 Построим отрезок на оси <span class="math inline">\(x\)</span> от 0 до 1.
 <img src="docs/images/line.png" width="60%" style="display: block; margin: auto;" />
@@ -346,16 +433,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>В пределе это число равно 0.</p>
 <p>Получается, что мы не можем посчитать математически (статистически), и приходится прибегать к геометрическому определению.</p>
 </div>
-<div id="график-плотности-вероятности-и-гистограмма" class="section level2 hasAnchor">
-<h2><span class="header-section-number">4.6</span> График плотности вероятности и гистограмма<a href="probability.html#график-плотности-вероятности-и-гистограмма" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="график-плотности-вероятности-и-гистограмма" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> График плотности вероятности и гистограмма<a href="probability.html#график-плотности-вероятности-и-гистограмма" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Построим таблицу и график частот для значений из отрезка.
 Для это сгенерируем набор из 10 случайных чисел в диапазоне [0;1].</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="probability.html#cb8-1"></a><span class="kw">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb8-2"><a href="probability.html#cb8-2"></a>line_sample &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min=</span><span class="dv">0</span>, <span class="dt">max=</span><span class="dv">1</span>)</span>
-<span id="cb8-3"><a href="probability.html#cb8-3"></a>line_sample</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="probability.html#cb10-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb10-2"><a href="probability.html#cb10-2" tabindex="-1"></a>line_sample <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">1</span>)</span>
+<span id="cb10-3"><a href="probability.html#cb10-3" tabindex="-1"></a>line_sample</span></code></pre></div>
 <pre><code>##  [1] 0.9148060 0.9370754 0.2861395 0.8304476 0.6417455 0.5190959 0.7365883
 ##  [8] 0.1346666 0.6569923 0.7050648</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="probability.html#cb10-1"></a><span class="kw">table</span>(line_sample)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="probability.html#cb12-1" tabindex="-1"></a><span class="fu">table</span>(line_sample)</span></code></pre></div>
 <pre><code>## line_sample
 ##  0.13466659723781 0.286139534786344 0.519095949130133 0.641745518893003 
 ##                 1                 1                 1                 1 
@@ -363,7 +450,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##                 1                 1                 1                 1 
 ## 0.914806043496355 0.937075413297862 
 ##                 1                 1</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="probability.html#cb12-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(line_sample))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="probability.html#cb14-1" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(line_sample))</span></code></pre></div>
 <pre><code>## line_sample
 ##  0.13466659723781 0.286139534786344 0.519095949130133 0.641745518893003 
 ##               0.1               0.1               0.1               0.1 
@@ -372,37 +459,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 0.914806043496355 0.937075413297862 
 ##               0.1               0.1</code></pre>
 <p>Видим, что все значения встретились только один раз. Построим график. Можем построить гистограмму для этих значений:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="probability.html#cb14-1"></a><span class="kw">as_tibble</span>(line_sample) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb14-2"><a href="probability.html#cb14-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>value)) <span class="op">+</span></span>
-<span id="cb14-3"><a href="probability.html#cb14-3"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">10</span>) <span class="op">+</span></span>
-<span id="cb14-4"><a href="probability.html#cb14-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="probability.html#cb16-1" tabindex="-1"></a><span class="fu">as_tibble</span>(line_sample) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="probability.html#cb16-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>value)) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="probability.html#cb16-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="probability.html#cb16-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Получается довольно странно: мы видели, что частота встречаемости разных значений – всегда была единичка, а на гистограмме кажется по-другому. Так происходит, потому что мы взяли только 10 очень конкретных крошечных значений из непрерывной величины, и нам попались какие-то значения – рядом друг с другом, и столбики для их частот “слиплись” в один большой столбик, и частота получилась не 1, а 2. А какие-то значения попались далеко друг от друга, поэтому их столбики слиплись не друг с другом, а с более близкими к ним столбиками, и на месте частоты для этого значения образовалась дырка.</p>
 <p>Такой график для непрерывной величины не очень верный: чтобы стобики не “слипались” и не обманывали нас визуально, будто где-то в значениях есть дыра, для непрерывных величин мы будем использовать другой график – <strong>график плотности вероятности (probability density)</strong></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="probability.html#cb15-1"></a><span class="kw">as_tibble</span>(line_sample) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb15-2"><a href="probability.html#cb15-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>value)) <span class="op">+</span></span>
-<span id="cb15-3"><a href="probability.html#cb15-3"></a><span class="st">  </span><span class="kw">geom_density</span>() <span class="op">+</span></span>
-<span id="cb15-4"><a href="probability.html#cb15-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="probability.html#cb17-1" tabindex="-1"></a><span class="fu">as_tibble</span>(line_sample) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="probability.html#cb17-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>value)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="probability.html#cb17-3" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb17-4"><a href="probability.html#cb17-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 Он тоже показывает так, будто какие-то значения более частые, какие-то менее – но ситуация уже гораздо лучше. Здесь мы сгенерировали 10 значений, а если нам вдруг нужно визуализировать все возможные значения из отрезка [0;1], а х бесконечность? Тогда гистограмма вообще потеряет всякий смысл, так как разбивает все значения на столбики из конечных интервалов, а вот непрерывная линию будет подходящей – в непрерывной линии бесконечное число значений! То есть выходит следующая логика: для визуализации дискретных величин обычно используют гистограмму, для визуализации непрерывных – график плотности вероятности.</p>
 <p>Почему <strong>плотности вероятности</strong>, а не самой вероятности? Потому что как мы вывели выше, если бы мы считали точно именно вероятность, она бы стремилась к нулю. А засчет того, что это именно плотность, буквально, “тут побольше значений”, “тут поменьше значений” – получается осмысленный график. То есть, простыми словами, плотность вероятности – характер распределения вероятностей в самом значении и его окрестности. Если в интервале [0.25;0.35] оказалось (чисто случайно) мало значений, а в интервале [0.58;0.65] оказалось побольше – то на графике плотности вероятности мы увидим различия в вероятности для этих интервалов, хотя вероятность встретить каждое конкретное очень точно заданное число (например, 0.4857856) стремится к 0.
 Мы не будем рассматривать математически смысл плотности вероятности, но функция плотности вероятности является производной от функции самой вероятности.</p>
 <p>Попробуем сгенерировать этот же график для 500 и 10 000 точек и посмотреть, к чему будет стремиться график плотности вероятности в случае, когда мы случайно генерируем множество значений, все из которых равновероятны?</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="probability.html#cb16-1"></a>line_sample_<span class="dv">500</span> &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">500</span>, <span class="dt">min=</span><span class="dv">0</span>, <span class="dt">max=</span><span class="dv">1</span>)</span>
-<span id="cb16-2"><a href="probability.html#cb16-2"></a></span>
-<span id="cb16-3"><a href="probability.html#cb16-3"></a><span class="kw">as_tibble</span>(line_sample_<span class="dv">500</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb16-4"><a href="probability.html#cb16-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>value)) <span class="op">+</span></span>
-<span id="cb16-5"><a href="probability.html#cb16-5"></a><span class="st">  </span><span class="kw">geom_density</span>() <span class="op">+</span></span>
-<span id="cb16-6"><a href="probability.html#cb16-6"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="probability.html#cb18-1" tabindex="-1"></a>line_sample_500 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">500</span>, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">1</span>)</span>
+<span id="cb18-2"><a href="probability.html#cb18-2" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="probability.html#cb18-3" tabindex="-1"></a><span class="fu">as_tibble</span>(line_sample_500) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-4"><a href="probability.html#cb18-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>value)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="probability.html#cb18-5" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb18-6"><a href="probability.html#cb18-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 10000 точек из этого же диапазона</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="probability.html#cb17-1"></a>line_sample_<span class="dv">10000</span> &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10000</span>, <span class="dt">min=</span><span class="dv">0</span>, <span class="dt">max=</span><span class="dv">1</span>)</span>
-<span id="cb17-2"><a href="probability.html#cb17-2"></a></span>
-<span id="cb17-3"><a href="probability.html#cb17-3"></a><span class="kw">as_tibble</span>(line_sample_<span class="dv">10000</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb17-4"><a href="probability.html#cb17-4"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>value)) <span class="op">+</span></span>
-<span id="cb17-5"><a href="probability.html#cb17-5"></a><span class="st">  </span><span class="kw">geom_density</span>() <span class="op">+</span></span>
-<span id="cb17-6"><a href="probability.html#cb17-6"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="probability.html#cb19-1" tabindex="-1"></a>line_sample_10000 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10000</span>, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">1</span>)</span>
+<span id="cb19-2"><a href="probability.html#cb19-2" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="probability.html#cb19-3" tabindex="-1"></a><span class="fu">as_tibble</span>(line_sample_10000) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-4"><a href="probability.html#cb19-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>value)) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="probability.html#cb19-5" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a href="probability.html#cb19-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <blockquote>
 <p>Итак, запомнили, что мы рассматриваем признаки (переменные) как случайные величины, они могут быть дисркетные и непрерывные, и их вероятности описываются определенными законами распределения.</p>
 </blockquote>
@@ -475,7 +562,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
