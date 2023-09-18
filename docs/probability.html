@@ -166,7 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1" data-path="probability.html"><a href="probability.html#random-variable"><i class="fa fa-check"></i><b>4.1</b> Случайная величина</a></li>
 <li class="chapter" data-level="4.2" data-path="probability.html"><a href="probability.html#дискретные-св-и-статистическое-определение-вероятности"><i class="fa fa-check"></i><b>4.2</b> Дискретные СВ и статистическое определение вероятности</a></li>
-<li class="chapter" data-level="4.3" data-path="probability.html"><a href="probability.html#столбчатая-диаграмма-и-гистограмма"><i class="fa fa-check"></i><b>4.3</b> Столбчатая диаграмма и гистограмма</a></li>
+<li class="chapter" data-level="4.3" data-path="probability.html"><a href="probability.html#столбчатая-диаграмма-и-отличия-от-гистограммы"><i class="fa fa-check"></i><b>4.3</b> Столбчатая диаграмма и отличия от гистограммы</a></li>
 <li class="chapter" data-level="4.4" data-path="probability.html"><a href="probability.html#непрерывные-св-и-геометрическое-определение-вероятности"><i class="fa fa-check"></i><b>4.4</b> Непрерывные СВ и геометрическое определение вероятности</a></li>
 <li class="chapter" data-level="4.5" data-path="probability.html"><a href="probability.html#график-плотности-вероятности-и-гистограмма"><i class="fa fa-check"></i><b>4.5</b> График плотности вероятности и гистограмма</a></li>
 </ul></li>
@@ -387,21 +387,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-3"><a href="probability.html#cb1-3" tabindex="-1"></a>rolls <span class="ot">&lt;-</span> <span class="fu">dice</span>(<span class="dv">20</span>,<span class="dv">1</span>)</span>
 <span id="cb1-4"><a href="probability.html#cb1-4" tabindex="-1"></a><span class="fu">t</span>(rolls)</span></code></pre></div>
 <pre><code>##     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-## Red    6    4    4    4    3    1    5    3    4     3     2     6     1     6
+## Red    1    5    6    5    4    4    2    3    6     4     4     2     1     1
 ##     [,15] [,16] [,17] [,18] [,19] [,20]
-## Red     4     5     3     3     2     3</code></pre>
+## Red     5     5     5     6     2     5</code></pre>
 </div>
-<div id="столбчатая-диаграмма-и-гистограмма" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Столбчатая диаграмма и гистограмма<a href="probability.html#столбчатая-диаграмма-и-гистограмма" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="столбчатая-диаграмма-и-отличия-от-гистограммы" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Столбчатая диаграмма и отличия от гистограммы<a href="probability.html#столбчатая-диаграмма-и-отличия-от-гистограммы" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Построим таблицу частот выпадения каждой грани</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="probability.html#cb3-1" tabindex="-1"></a><span class="fu">table</span>(rolls)</span></code></pre></div>
 <pre><code>## Red
 ## 1 2 3 4 5 6 
-## 2 2 6 5 2 3</code></pre>
+## 3 3 1 4 6 3</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="probability.html#cb5-1" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(rolls))</span></code></pre></div>
 <pre><code>## Red
 ##    1    2    3    4    5    6 
-## 0.10 0.10 0.30 0.25 0.10 0.15</code></pre>
+## 0.15 0.15 0.05 0.20 0.30 0.15</code></pre>
 <p>Можем наглядно посмотреть это на <strong>столбчатой (или столбиковой) диаграмме</strong> – графике, отображающем частоты встречаемости событий дискретной переменной.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="probability.html#cb7-1" tabindex="-1"></a>rolls <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="probability.html#cb7-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Red)) <span class="sc">+</span></span>
@@ -471,7 +471,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-3"><a href="probability.html#cb17-3" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
 <span id="cb17-4"><a href="probability.html#cb17-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-11-1.png" width="672" />
-Он тоже показывает так, будто какие-то значения более частые, какие-то менее – но ситуация уже гораздо лучше. Здесь мы сгенерировали 10 значений, а если нам вдруг нужно визуализировать все возможные значения из отрезка [0;1], а х бесконечность? Тогда гистограмма вообще потеряет всякий смысл, так как разбивает все значения на столбики из конечных интервалов, а вот непрерывная линию будет подходящей – в непрерывной линии бесконечное число значений! То есть выходит следующая логика: для визуализации дискретных величин обычно используют гистограмму, для визуализации непрерывных – график плотности вероятности.</p>
+Он тоже показывает так, будто какие-то значения более частые, какие-то менее – но ситуация уже гораздо лучше. Здесь мы сгенерировали 10 значений, а если нам вдруг нужно визуализировать все возможные значения из отрезка [0;1], а х бесконечность? Тогда гистограмма вообще потеряет всякий смысл, так как разбивает все значения на столбики из конечных интервалов, а вот непрерывная линию будет подходящей – в непрерывной линии бесконечное число значений! То есть выходит следующая логика:</p>
+<ul>
+<li>для визуализации категориальных данных (номинативных и порядковых – количественных дискретных) используют столбчатую диаграмму (например, количество выбравших в опроснике ответ “1”, “2”, “3”; средняя температура по месяцам)</li>
+<li>для визуализации непрерывных величин на маленьком диапазоне, где хорошо выделяются интервалы, иногда для визуализации количественных дискретных (порядковых) данных – используют гистограмму;</li>
+<li>для визуализации непрерывных величин (шкала отношений, относительная шкала) – график плотности вероятности.</li>
+</ul>
 <p>Почему <strong>плотности вероятности</strong>, а не самой вероятности? Потому что как мы вывели выше, если бы мы считали точно именно вероятность, она бы стремилась к нулю. А засчет того, что это именно плотность, буквально, “тут побольше значений”, “тут поменьше значений” – получается осмысленный график. То есть, простыми словами, плотность вероятности – характер распределения вероятностей в самом значении и его окрестности. Если в интервале [0.25;0.35] оказалось (чисто случайно) мало значений, а в интервале [0.58;0.65] оказалось побольше – то на графике плотности вероятности мы увидим различия в вероятности для этих интервалов, хотя вероятность встретить каждое конкретное очень точно заданное число (например, 0.4857856) стремится к 0.
 Мы не будем рассматривать математически смысл плотности вероятности, но функция плотности вероятности является производной от функции самой вероятности.</p>
 <p>Попробуем сгенерировать этот же график для 500 и 10 000 точек и посмотреть, к чему будет стремиться график плотности вероятности в случае, когда мы случайно генерируем множество значений, все из которых равновероятны?</p>
