@@ -29,12 +29,15 @@ univer <-  rep(c("MSU", "HSE", "MSU", "RANEPA", "HSE", "RANEPA"),5)
 burnout <- tibble(teacher_number, age, exp_years, exp_scaled, burnout_MBI, univer)
 ```
 
+Для визуализации порядковой переменной Опыта преподавания *exp_scaled*
 ```{r}
 burnout %>% 
-  ggplot(aes(x=exp_years)) +
-  geom_histogram(binwidth = 1) +
+  ggplot(aes(x=exp_scaled)) +
+  geom_bar() +
   theme_minimal()
 ```
+
+Для визуализации количественной переменной Возраст *age* (шкала отношений)
 
 ```{r}
 burnout %>% 

@@ -359,11 +359,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.1</span> Описательные визуализации<a href="descriptives.html#descriptive_vis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Мы уже обсуждали два важных графика – гистограмму и график плотности вероятности – когда говорили про распределения. Эти графики стоит строить каждый раз, когда мы хотим поисследовать эмпирически полученные данные методами описательной статистики. Такого термина, кажется, официально не существует, но я называю эти графики также описательными.</p>
 <p>Например, мы строили их для данных про эмоциональное выгорание:</p>
+<p>Для визуализации порядковой переменной Опыта преподавания <em>exp_scaled</em></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="descriptives.html#cb1-1" tabindex="-1"></a>burnout <span class="sc">%&gt;%</span> </span>
-<span id="cb1-2"><a href="descriptives.html#cb1-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>exp_years)) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="descriptives.html#cb1-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="descriptives.html#cb1-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>exp_scaled)) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="descriptives.html#cb1-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb1-4"><a href="descriptives.html#cb1-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Для визуализации количественной переменной Возраст <em>age</em> (шкала отношений)</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="descriptives.html#cb2-1" tabindex="-1"></a>burnout <span class="sc">%&gt;%</span> </span>
 <span id="cb2-2"><a href="descriptives.html#cb2-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>age)) <span class="sc">+</span></span>
 <span id="cb2-3"><a href="descriptives.html#cb2-3" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
