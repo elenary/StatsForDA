@@ -321,7 +321,7 @@ kable(students[1:10,]) %>% scroll_box(width = "100%")
 ```{r, eval=TRUE, , echo=FALSE,  message = FALSE, warning= FALSE, out.width="60%"}
 students %>% 
   ggplot(aes(x=G_mat, y = ..density..)) +
-  geom_histogram() +
+  geom_histogram(alpha = 0.5) +
   geom_density() +
   theme_minimal()
 ```

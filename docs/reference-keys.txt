@@ -144,3 +144,6 @@ cluster_analysis
 logreg
 столбчатая-диаграмма-и-гистограмма
 столбчатая-диаграмма-и-отличия-от-гистограммы
+barplot
+histogram
+densityplot
