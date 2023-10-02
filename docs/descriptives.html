@@ -2005,9 +2005,9 @@ less
 <p><strong>Свойства дисперсии и стандартного отклонения</strong></p>
 <p>Так же, как и для среднего, для дисперсии / стандартного отклонения есть важные свойства</p>
 <ol style="list-style-type: decimal">
-<li><p>Если к каждому значению выборки прибавить (или вычесть) одно и то же число (константу), то дисперсия и стандартное отлокнение не изменятся</p></li>
-<li><p>Если каждое значение выборки умножить (или разделить) одно и то же число, то среднее так же увеличится (или уменьшится) в это же число раз <span class="math inline">\(\bar X_(x_i \times c) = \bar X \times c\)</span></p></li>
-<li><p>Сумма всех отклонений от среднего равна нулю <span class="math inline">\(\sum_{i=1}^{n}(\bar X - x_i) = 0\)</span></p></li>
+<li><p>Если к каждому значению выборки прибавить (или вычесть) одно и то же число (константу) <span class="math inline">\(c\)</span>, то дисперсия и стандартное отлокнение не изменятся: <span class="math inline">\(D_(x_i+c) = D\)</span>, <span class="math inline">\(sd_(x_i+c) = sd\)</span></p></li>
+<li><p>Если каждое значение выборки умножить (или разделить) одно и то же число <span class="math inline">\(c\)</span>, то дисперсия увеличится (уменьшится) в <span class="math inline">\(c^2\)</span> раз <span class="math inline">\(D_(x_i \times c) = D \times c^2\)</span>, а реднее увеличится (или уменьшится) в <span class="math inline">\(c\)</span> раз: <span class="math inline">\(sd_(x_i \times c) = sd \times c\)</span></p></li>
+<li><p>Если значения двух выборок не отличаются друг от друга, то у них равная дисперсия и стандартное отклонение</p></li>
 </ol>
 <p>На примере с данными студентов:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="descriptives.html#cb46-1" tabindex="-1"></a><span class="fu">range</span>(students<span class="sc">$</span>age)</span></code></pre></div>
