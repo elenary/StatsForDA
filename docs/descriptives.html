@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2023-09-25" />
+<meta name="date" content="2023-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -188,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.2" data-path="descriptives.html"><a href="descriptives.html#особенности-использования"><i class="fa fa-check"></i><b>6.2.2</b> Особенности использования</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="descriptives.html"><a href="descriptives.html#квантили-квартили-и-перцентили"><i class="fa fa-check"></i><b>6.3</b> Квантили, квартили и перцентили</a></li>
-<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.4</b> Меры вариативности</a>
+<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.4</b> Меры вариативности (изменчивости)</a>
 <ul>
 <li class="chapter" data-level="6.4.1" data-path="descriptives.html"><a href="descriptives.html#размах-стандартное-отклонение-и-дисперсия"><i class="fa fa-check"></i><b>6.4.1</b> Размах, стандартное отклонение и дисперсия</a></li>
 </ul></li>
@@ -395,7 +395,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Его среднее</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="descriptives.html#cb4-1" tabindex="-1"></a><span class="fu">mean</span>(sample_data1)</span></code></pre></div>
 <pre><code>## [1] 27.18182</code></pre>
-<p><strong>Медиана (median)</strong> – это граница, которая делает упорядочненное множество данных пополам. Для того, чтобы посчитать медиану, нам нужно: 1) расставить все имеющиеся значения в порядке возрастания; 2) найти середину: это будет либо значение, соответствующее месту <span class="math inline">\(\frac{n}{2}+1\)</span>, если n – нечетное, либо среднее из двух центральных значений <span class="math inline">\(\frac{1}{2}(X_{n/2}+X_{n+1/2})\)</span>, если n – четное.</p>
+<p><strong>Свойства среднего</strong></p>
+<p>Полезно помнить о свойствах среднего:</p>
+<ol style="list-style-type: decimal">
+<li><p>Если к каждому значению выборки прибавить (или вычесть) одно и то же число, то среднее так же увеличится (или уменьшится) на это же число: <span class="math inline">\(\bar X_(x_i+c) = \bar X + c\)</span></p></li>
+<li><p>Если каждое значение выборки умножить (или разделить) одно и то же число, то среднее так же увеличится (или уменьшится) в это же число раз <span class="math inline">\(\bar X_(x_i \times c) = \bar X \times c\)</span></p></li>
+<li><p>Сумма всех отклонений от среднего равна нулю <span class="math inline">\(\sum_{i=1}^{n}(\bar X - x_i) = 0\)</span></p></li>
+</ol>
+<p><strong>Медиана (median)</strong> – это граница, которая делает упорядочненное множество данных пополам. Для того, чтобы посчитать медиану, нам нужно: 1) расставить все имеющиеся значения в порядке возрастания; 2) найти середину: это будет либо значение, соответствующее месту <span class="math inline">\(\frac{n}{2}+1\)</span>, если n – нечетное, либо среднее из двух центральных значений <span class="math inline">\((\frac{1}{2}(X_{n/2}+X_{n+1})/2\)</span>, если n – четное.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="descriptives.html#cb6-1" tabindex="-1"></a><span class="fu">sort</span>(sample_data1)</span></code></pre></div>
 <pre><code>##  [1]  1  7 10 18 24 25 36 37 45 47 49</code></pre>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="descriptives.html#cb8-1" tabindex="-1"></a><span class="fu">median</span>(sample_data1)</span></code></pre></div>
@@ -422,22 +429,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>В примере с оценкой благосостояния мы выяснили, что среднее значение здесь – плохой выбор для описания этих данных с помощью мер центральной тенденции. Тогда какие меры центральной тенденции выбрать?</p>
 <table>
 <colgroup>
-<col width="23%" />
-<col width="44%" />
-<col width="32%" />
+<col width="16%" />
+<col width="31%" />
+<col width="52%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th>Мера ЦТ</th>
 <th>Данные и шкала</th>
-<th>Особенности</th>
+<th>Особенности использования</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Среднее</td>
 <td>Только количественная: шкала отношений или интервальная</td>
-<td>распределение симметрично, нет заметных выборосов</td>
+<td>достаточно большая выборка, распределение симметрично, нет заметных выборосов</td>
 </tr>
 <tr class="even">
 <td>Медиана</td>
@@ -447,23 +454,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td>Мода</td>
 <td>Любая шкала, Номинативная (номинальная), порядковая, количественная (отношений или интервальная)</td>
-<td>чаще всего используется там, где не можем производить метрические операции, но не можем посчитать ее для непрерывных величин</td>
+<td>чаще всего используется там, где не можем производить метрические операции, но не можем точно посчитать моду для количественных непрерывных величин</td>
 </tr>
 </tbody>
 </table>
 <p><em>Где на графиках среднее, медиана и мода?</em></p>
-<pre><code>## Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
-## ℹ Please use `after_stat(density)` instead.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.</code></pre>
 <p><img src="StatsForDA_files/figure-html/central_tendency_symm-1.png" width="672" /></p>
 <p><img src="StatsForDA_files/figure-html/central_tendency_asymm_right-1.png" width="672" /></p>
 <hr />
 <p>Мы подошли вплотную к понятиям, которые можно (и мы будем) непосредственно применять на даннных. Чтобы сделать эти понятия близкими к реальности, возьмем реальный датасет (собранные данные), на котором будем дальше работать.
 В качестве примера возьмем датасет с kaggle <a href="https://www.kaggle.com/datasets/uciml/student-alcohol-consumption" class="uri">https://www.kaggle.com/datasets/uciml/student-alcohol-consumption</a>.
 Это – данные из двух португальских школ (скорее колледжей) с подробной социо-демографической информации о студентах, включая ту, как они учатся по математике и португальскому языку и как часто пьют алкоголь. Этот датасет я взяла, так как он содержит переменные разного типа данных в разных шкалах (и шкала отношений, например, возраст, и порядковая шкала, например, рейтинггования образования мамы или папы или поддержка в семье).</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="descriptives.html#cb17-1" tabindex="-1"></a><span class="fu">kable</span>(students[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]) <span class="sc">%&gt;%</span> <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="descriptives.html#cb16-1" tabindex="-1"></a><span class="fu">kable</span>(students[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]) <span class="sc">%&gt;%</span> <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>) </span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <thead>
@@ -1913,54 +1915,55 @@ less
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="descriptives.html#cb18-1" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
-<span id="cb18-2"><a href="descriptives.html#cb18-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>age)) <span class="sc">+</span></span>
-<span id="cb18-3"><a href="descriptives.html#cb18-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb18-4"><a href="descriptives.html#cb18-4" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
-<span id="cb18-5"><a href="descriptives.html#cb18-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="descriptives.html#cb17-1" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="descriptives.html#cb17-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>age)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="descriptives.html#cb17-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="descriptives.html#cb17-4" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="descriptives.html#cb17-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="descriptives.html#cb19-1" tabindex="-1"></a><span class="fu">table</span>(students<span class="sc">$</span>age)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="descriptives.html#cb18-1" tabindex="-1"></a><span class="fu">table</span>(students<span class="sc">$</span>age)</span></code></pre></div>
 <pre><code>## 
 ## 15 16 17 18 19 22 
 ## 71 91 87 64  6  1</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="descriptives.html#cb21-1" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(students<span class="sc">$</span>age))</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="descriptives.html#cb20-1" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(students<span class="sc">$</span>age))</span></code></pre></div>
 <pre><code>## 
 ##       15       16       17       18       19       22 
 ## 0.221875 0.284375 0.271875 0.200000 0.018750 0.003125</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="descriptives.html#cb23-1" tabindex="-1"></a><span class="co"># round(prop.table(table(students$age, students$Walc), 1), 2)</span></span></code></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="descriptives.html#cb24-1" tabindex="-1"></a><span class="fu">mean</span>(students<span class="sc">$</span>age)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="descriptives.html#cb22-1" tabindex="-1"></a><span class="co"># round(prop.table(table(students$age, students$Walc), 1), 2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="descriptives.html#cb23-1" tabindex="-1"></a><span class="fu">mean</span>(students<span class="sc">$</span>age)</span></code></pre></div>
 <pre><code>## [1] 16.525</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="descriptives.html#cb26-1" tabindex="-1"></a><span class="fu">median</span>(students<span class="sc">$</span>age)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="descriptives.html#cb25-1" tabindex="-1"></a><span class="fu">median</span>(students<span class="sc">$</span>age)</span></code></pre></div>
 <pre><code>## [1] 16</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="descriptives.html#cb28-1" tabindex="-1"></a><span class="fu">mode</span>(students<span class="sc">$</span>age)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="descriptives.html#cb27-1" tabindex="-1"></a><span class="fu">mode</span>(students<span class="sc">$</span>age)</span></code></pre></div>
 <pre><code>## [1] 16</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="descriptives.html#cb30-1" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
-<span id="cb30-2"><a href="descriptives.html#cb30-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>G_mat)) <span class="sc">+</span></span>
-<span id="cb30-3"><a href="descriptives.html#cb30-3" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
-<span id="cb30-4"><a href="descriptives.html#cb30-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="descriptives.html#cb29-1" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href="descriptives.html#cb29-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>G_mat)) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="descriptives.html#cb29-3" tabindex="-1"></a>  <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb29-4"><a href="descriptives.html#cb29-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="descriptives.html#cb31-1" tabindex="-1"></a><span class="fu">mean</span>(students<span class="sc">$</span>G_mat)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="descriptives.html#cb30-1" tabindex="-1"></a><span class="fu">mean</span>(students<span class="sc">$</span>G_mat)</span></code></pre></div>
 <pre><code>## [1] 11.16979</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="descriptives.html#cb33-1" tabindex="-1"></a><span class="fu">median</span>(students<span class="sc">$</span>G_mat)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="descriptives.html#cb32-1" tabindex="-1"></a><span class="fu">median</span>(students<span class="sc">$</span>G_mat)</span></code></pre></div>
 <pre><code>## [1] 11</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="descriptives.html#cb35-1" tabindex="-1"></a><span class="fu">table</span>(students<span class="sc">$</span>Mjob)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="descriptives.html#cb34-1" tabindex="-1"></a><span class="fu">table</span>(students<span class="sc">$</span>Mjob)</span></code></pre></div>
 <pre><code>## 
 ##  at_home   health    other services  teacher 
 ##       44       30      116       75       55</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="descriptives.html#cb37-1" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(students<span class="sc">$</span>Mjob))</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="descriptives.html#cb36-1" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(students<span class="sc">$</span>Mjob))</span></code></pre></div>
 <pre><code>## 
 ##  at_home   health    other services  teacher 
 ## 0.137500 0.093750 0.362500 0.234375 0.171875</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="descriptives.html#cb39-1" tabindex="-1"></a><span class="fu">mode</span>(students<span class="sc">$</span>Mjob)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="descriptives.html#cb38-1" tabindex="-1"></a><span class="fu">mode</span>(students<span class="sc">$</span>Mjob)</span></code></pre></div>
 <pre><code>## [1] &quot;other&quot;</code></pre>
 </div>
 </div>
 <div id="квантили-квартили-и-перцентили" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Квантили, квартили и перцентили<a href="descriptives.html#квантили-квартили-и-перцентили" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Мы выяснили, что медиана делит распределение пополам. Это удобно. Например, чтобы оценить, ниже / выше каког значения находится первая или вторая половина данных.</p>
+<p>Мы выяснили, что медиана делит распределение пополам. Это удобно. Например, чтобы оценить, ниже / выше какого значения находится первая или вторая половина данных.</p>
 <p>Такие вопросы возникают достаточно часто, и не только про половину данных, а про определенные кусочки данных.
-<strong>Квантили</strong> – общее обозначение для черт, которые делят распределение на определенное число равных по объему данных.</p>
-<p><strong>Перцентили</strong> – частные случаи квантилей, которые делят все распределение на 100 равных частей. Таким образом, в каждой части оказывается 1% данных.</p>
+<strong>Квантили</strong> – общее обозначение для точек, которые делят распределение на равные по объему данных кусочки – например, на кусочки по десять процентов.</p>
+<p><strong>Децили</strong> – частные случаи квантилей, 9 точек, которые делят все распределение на 10 равных частей. Таким образом, в каждой части оказывается 10% данных.</p>
+<p><strong>Перцентили</strong> – частные случаи квантилей, 99 точек, которые делят все распределение на 100 равных частей. Таким образом, в каждой части оказывается 1% данных.</p>
 <p><strong>Квартили</strong> – частные случаи квантилей, делят все распределение на четыре части, по 25% данных. То есть, всего квартителей 4, и они обозначаются буквой Q: Q1, Q2, Q3, Q4.</p>
 <p>Получается, что:</p>
 <ul>
@@ -1969,19 +1972,24 @@ less
 <li>слева от третьего (верхнего) квартиля <span class="math inline">\(Q_3\)</span> лежит 75% наблюдений</li>
 </ul>
 <p align="center">
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="descriptives.html#cb41-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/images/quartiles.png&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="descriptives.html#cb40-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/images/quartiles.png&quot;</span>)</span></code></pre></div>
 <img src="docs/images/quartiles.png" width="60%" style="display: block; margin: auto;" />
 </p>
 </div>
 <div id="varm" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Меры вариативности<a href="descriptives.html#varm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">6.4</span> Меры вариативности (изменчивости)<a href="descriptives.html#varm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Вариативность – изменичвость значений, как сильно разнятся данные от наблюдения к наблюдению.</p>
 <p>Помимо мер центральной тенденции – меры вариативности, они же меры изменчивости или разброса.</p>
 <blockquote>
 <p>Допустим, вы рбнаружили, что ваш показатель эритроцитов в крови равен 3,8 * 10 при норме 4*10. Насколько сильное это отклонение?</p>
 </blockquote>
 <p>Меры центральной тенденции могут совпадать, хотя меры изменчивость значительно отличаться, например</p>
-<p><img src="StatsForDA_files/figure-html/distributions_with_the_same_means_generation-1.png" width="672" /></p>
+<p><img src="StatsForDA_files/figure-html/distributions_with_the_same_means_generation-1.png" width="672" />
+Эти распределения очень разные, но <del>все-таки они вместе</del> если посмотреть на их средние – они будут одинаковыми</p>
+<p align="center">
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="descriptives.html#cb41-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/images/distributions_with_the_same_means_mean-1.png&quot;</span>)</span></code></pre></div>
+<img src="docs/images/distributions_with_the_same_means_mean-1.png" width="100%" style="display: block; margin: auto;" />
+</p>
 <div id="размах-стандартное-отклонение-и-дисперсия" class="section level3 hasAnchor" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> Размах, стандартное отклонение и дисперсия<a href="descriptives.html#размах-стандартное-отклонение-и-дисперсия" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Размах (range)</strong> – разница между максимальным и минимальным значением в выборке, <span class="math inline">\(x_{max}-x_{min}\)</span></p>
@@ -1989,8 +1997,18 @@ less
 <pre><code>##  [1] 49 37  1 25 10 36 18 24  7 45 47</code></pre>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="descriptives.html#cb44-1" tabindex="-1"></a><span class="fu">range</span>(sample_data1)</span></code></pre></div>
 <pre><code>## [1]  1 49</code></pre>
+<p>Здесь показаны минимальное и максимальные значения, чтобы посчитать размах, нужно из максимальнго вычесть минимальное. И как можно понять, размах очень чувствителен к выбросам – если добавить значение “3000” к этой выборке, размах изменится кардинально.</p>
+<p>Мы уже слышали о стандартном отклонении (как минимум, оно фигурирует в формуле нормального распределения). Теперь познакомимся с ним ближе и попробуем его вывести.</p>
 <p><strong>Стандартное отклонение, оно же среднеквадратичное отклонение (standard deviation)</strong> – это среднее отклонение наблюдений от их среднего означения.</p>
-<p>Свойства дисперсии.</p>
+<p>Попробуем его посчитать:</p>
+<p><strong>Дисперсия</strong></p>
+<p><strong>Свойства дисперсии и стандартного отклонения</strong></p>
+<p>Так же, как и для среднего, для дисперсии / стандартного отклонения есть важные свойства</p>
+<ol style="list-style-type: decimal">
+<li><p>Если к каждому значению выборки прибавить (или вычесть) одно и то же число (константу), то дисперсия и стандартное отлокнение не изменятся</p></li>
+<li><p>Если каждое значение выборки умножить (или разделить) одно и то же число, то среднее так же увеличится (или уменьшится) в это же число раз <span class="math inline">\(\bar X_(x_i \times c) = \bar X \times c\)</span></p></li>
+<li><p>Сумма всех отклонений от среднего равна нулю <span class="math inline">\(\sum_{i=1}^{n}(\bar X - x_i) = 0\)</span></p></li>
+</ol>
 <p>На примере с данными студентов:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="descriptives.html#cb46-1" tabindex="-1"></a><span class="fu">range</span>(students<span class="sc">$</span>age)</span></code></pre></div>
 <pre><code>## [1] 15 22</code></pre>
@@ -2027,7 +2045,7 @@ less
 <span id="cb64-4"><a href="descriptives.html#cb64-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> ansences_mat_groups), <span class="at">width=</span>.<span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb64-5"><a href="descriptives.html#cb64-5" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete=</span><span class="cn">TRUE</span>) <span class="sc">+</span></span>
 <span id="cb64-6"><a href="descriptives.html#cb64-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="StatsForDA_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 
 </div>
 </div>
