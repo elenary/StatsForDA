@@ -305,7 +305,7 @@ mode(students$Mjob)
 
 <p align="center"> 
 ```{r fig.align = 'center', out.width="60%"}
-knitr::include_graphics("docs/images/quartiles.png")
+knitr::include_graphics("docs/images/quartiles-2.png")
 ```
 </p>
 

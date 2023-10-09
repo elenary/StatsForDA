@@ -148,3 +148,4 @@ barplot
 histogram
 densityplot
 как-опрделить-в-какой-шкале-данные
+clt
