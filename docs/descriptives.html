@@ -23,7 +23,7 @@
 <meta name="author" content="Елена Рыбина" />
 
 
-<meta name="date" content="2023-10-09" />
+<meta name="date" content="2023-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -182,18 +182,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="descriptives.html"><a href="descriptives.html"><i class="fa fa-check"></i><b>6</b> Описательная статистика</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#descriptive_vis"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a></li>
-<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#ctm"><i class="fa fa-check"></i><b>6.2</b> Меры центральной тенденции</a>
+<li class="chapter" data-level="6.1" data-path="descriptives.html"><a href="descriptives.html#descriptive_vis"><i class="fa fa-check"></i><b>6.1</b> Описательные визуализации</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="descriptives.html"><a href="descriptives.html#среднее-медиана-мода"><i class="fa fa-check"></i><b>6.2.1</b> Среднее, медиана, мода</a></li>
-<li class="chapter" data-level="6.2.2" data-path="descriptives.html"><a href="descriptives.html#особенности-использования"><i class="fa fa-check"></i><b>6.2.2</b> Особенности использования</a></li>
+<li class="chapter" data-level="6.1.1" data-path="descriptives.html"><a href="descriptives.html#среднее-медиана-мода"><i class="fa fa-check"></i><b>6.1.1</b> Среднее, медиана, мода</a></li>
+<li class="chapter" data-level="6.1.2" data-path="descriptives.html"><a href="descriptives.html#особенности-использования"><i class="fa fa-check"></i><b>6.1.2</b> Особенности использования</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="descriptives.html"><a href="descriptives.html#квантили-квартили-и-перцентили"><i class="fa fa-check"></i><b>6.3</b> Квантили, квартили и перцентили</a></li>
-<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.4</b> Меры вариативности (изменчивости)</a>
+<li class="chapter" data-level="6.2" data-path="descriptives.html"><a href="descriptives.html#квантили-квартили-и-перцентили"><i class="fa fa-check"></i><b>6.2</b> Квантили, квартили и перцентили</a></li>
+<li class="chapter" data-level="6.3" data-path="descriptives.html"><a href="descriptives.html#varm"><i class="fa fa-check"></i><b>6.3</b> Меры вариативности (изменчивости)</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="descriptives.html"><a href="descriptives.html#размах-стандартное-отклонение-и-дисперсия"><i class="fa fa-check"></i><b>6.4.1</b> Размах, стандартное отклонение и дисперсия</a></li>
+<li class="chapter" data-level="6.3.1" data-path="descriptives.html"><a href="descriptives.html#размах-стандартное-отклонение-и-дисперсия"><i class="fa fa-check"></i><b>6.3.1</b> Размах, стандартное отклонение и дисперсия</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="descriptives.html"><a href="descriptives.html#боксплот-и-вайолинплот"><i class="fa fa-check"></i><b>6.5</b> Боксплот и вайолинплот</a></li>
+<li class="chapter" data-level="6.4" data-path="descriptives.html"><a href="descriptives.html#боксплот-и-вайолинплот"><i class="fa fa-check"></i><b>6.4</b> Боксплот и вайолинплот</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="normdist.html"><a href="normdist.html"><i class="fa fa-check"></i><b>7</b> Нормальное распределение: сравнение данных и интервальные оценки</a>
 <ul>
@@ -374,21 +373,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Графики распределений, на самом деле, уже дают нам многое – как миниум понимание, к какому семейству распределений может принадлежать переменная, и каковы свойства распредедения этих данных. Говоря о свойствах графиков, обычно имеются два.</p>
 <p><strong>Коэффициент ассиметрии, “скошенность” (skewness)</strong> – показатель симметричности графика: если график симметричен6 этот показатель равен 0, если нет, имеет значение отличное от нуля в ту сторону, в котороую график скошен.</p>
+<ul>
+<li>Если коэффициент ассиметрии положительный, <span class="math inline">\(S &gt; 0\)</span> – говорят о <strong>правосторонней ассиметии</strong> (правая часть вытянута больше, чем левая).</li>
+<li>Если коэффициент ассиметрии отрицательный, <span class="math inline">\(S &lt; 0\)</span> – говорят о <strong>левосторонней ассиметии</strong> (левая часть вытянута больше, чем правая).</li>
+</ul>
 <p><strong>Эксцесс, “вытянутость” (kurtosis)</strong> – показатель, насколько график вытянут вверх или “приплюснут” вдоль оси абсцисс.</p>
 <p align="center">
 <img src="docs/images/Illustration.jpeg" width="125%" />
 </p>
-</div>
-<div id="ctm" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Меры центральной тенденции<a href="descriptives.html#ctm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Если
+## Меры центральной тенденции {#ctm}</p>
 <p>Меры центральной тенденции – это такие описательные статистики, которые позволяют что-то сказать про “центр масс” распределения: где у него центр, где больше всего данных в этом распределении? Это бывает очень полезно на прикладных вопросах.</p>
 <blockquote>
 <p>Представим, что нас интересует вопрос: каково благосостояние россиян? Изменилось ли оно с 2008 по 2022 год, и если да, то как? Как можно ответить на этот вопрос? (<em>представим, что у нас есть доступ к реалистиным данными всех россиян, собранных по этому вопросу, и делать статистический вывод по небольшой выборке нет необходимости</em>)</p>
 </blockquote>
 <p>Допустим, будем оценивать благосостояние по годовому доходу на душу населения. Первое, что напрашивается – это посчитать среднее значение дохода в 2008 году и в 2022 году и посмотреть, как они отличаются. Правильный ли это будет расчет? Скорее всего, нет.</p>
 <p>Дело в том, что доход на душу населения – очень неравномерный признак (переменная). <a href="https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D1%8D%D1%84%D1%84%D0%B8%D1%86%D0%B8%D0%B5%D0%BD%D1%82_%D0%94%D0%B6%D0%B8%D0%BD%D0%B8" class="uri">https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D1%8D%D1%84%D1%84%D0%B8%D1%86%D0%B8%D0%B5%D0%BD%D1%82_%D0%94%D0%B6%D0%B8%D0%BD%D0%B8</a></p>
-<div id="среднее-медиана-мода" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Среднее, медиана, мода<a href="descriptives.html#среднее-медиана-мода" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="среднее-медиана-мода" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Среднее, медиана, мода<a href="descriptives.html#среднее-медиана-мода" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Среднее арифметическое (mean) </strong> – сумма всех значений, поделенная на количество наблюдений. Вычисляется поо формуле
 <span class="math inline">\(\bar X = \dfrac{\sum_{i=1}^{n}x_i}{n}\)</span></p>
 <p>Например, у нас есть набор данных:</p>
@@ -425,8 +427,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Взвешенное среднее.</p>
 <p>Квадратичное среднее.</p>
 </div>
-<div id="особенности-использования" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Особенности использования<a href="descriptives.html#особенности-использования" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="особенности-использования" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Особенности использования<a href="descriptives.html#особенности-использования" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>В примере с оценкой благосостояния мы выяснили, что среднее значение здесь – плохой выбор для описания этих данных с помощью мер центральной тенденции. Тогда какие меры центральной тенденции выбрать?</p>
 <table>
 <colgroup>
@@ -1958,8 +1960,8 @@ less
 <pre><code>## [1] &quot;other&quot;</code></pre>
 </div>
 </div>
-<div id="квантили-квартили-и-перцентили" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Квантили, квартили и перцентили<a href="descriptives.html#квантили-квартили-и-перцентили" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="квантили-квартили-и-перцентили" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Квантили, квартили и перцентили<a href="descriptives.html#квантили-квартили-и-перцентили" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Мы выяснили, что медиана делит распределение пополам. Это удобно. Например, чтобы оценить, ниже / выше какого значения находится первая или вторая половина данных.</p>
 <p>Такие вопросы возникают достаточно часто, и не только про половину данных, а про определенные кусочки данных.
 <strong>Квантили</strong> – общее обозначение для точек, которые делят распределение на равные по объему данных кусочки – например, на кусочки по десять процентов.</p>
@@ -1977,22 +1979,25 @@ less
 <img src="docs/images/quartiles-2.png" width="60%" style="display: block; margin: auto;" />
 </p>
 </div>
-<div id="varm" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Меры вариативности (изменчивости)<a href="descriptives.html#varm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="varm" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Меры вариативности (изменчивости)<a href="descriptives.html#varm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Помимо мер центральной тенденции – меры вариативности, они же меры изменчивости или разброса. Вариативность – изменчивость значений, как сильно разнятся данные от наблюдения к наблюдению в рамках выборки.</p>
 <blockquote>
 <p>Допустим, вы рбнаружили, что ваш показатель эритроцитов в крови равен 3,8 * 10 при норме 4*10. Насколько сильное это отклонение?</p>
 </blockquote>
 <p>Зачем они нужны? Разве недостаточно только мер центральной тенденции для описания распределения? Нет, недостаточно. В то время как меры ЦТ показывают, куда тяготяют наши данные, где их “центр масс”, то есть каким одним числом можно охарактеризовать наши данные в общем – меры изменчивость показывают, а насколько большой разброс в наших данных, насколько каждое из наших наблюдений лежит близко к среднему?</p>
 <p>Меры центральной тенденции могут совпадать, хотя меры изменчивость значительно отличаться, например</p>
-<p><img src="StatsForDA_files/figure-html/distributions_with_the_same_means_generation-1.png" width="672" />
-Эти распределения очень разные, но <del>все-таки они вместе</del> если посмотреть на их средние – они будут одинаковыми</p>
+<img src="StatsForDA_files/figure-html/distributions_with_the_same_means_generation-1.png" width="672" />
+<p align="center">
+<font color="gray"> <a href="https://angelgardt.github.io/SFDA2022/book/variation.html">Изображения из учебника Антона Ангельгардта</a> </font>
+</p>
+<p>Эти распределения очень разные, но <del>все-таки они вместе</del> если посмотреть на их средние – они будут одинаковыми</p>
 <p align="center">
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="descriptives.html#cb41-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/images/distributions_with_the_same_means_mean-1.png&quot;</span>)</span></code></pre></div>
 <img src="docs/images/distributions_with_the_same_means_mean-1.png" width="100%" style="display: block; margin: auto;" />
 </p>
-<div id="размах-стандартное-отклонение-и-дисперсия" class="section level3 hasAnchor" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Размах, стандартное отклонение и дисперсия<a href="descriptives.html#размах-стандартное-отклонение-и-дисперсия" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="размах-стандартное-отклонение-и-дисперсия" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Размах, стандартное отклонение и дисперсия<a href="descriptives.html#размах-стандартное-отклонение-и-дисперсия" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Размах (range)</strong> – разница между максимальным и минимальным значением в выборке, <span class="math inline">\(x_{max}-x_{min}\)</span></p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="descriptives.html#cb42-1" tabindex="-1"></a>sample_data1</span></code></pre></div>
 <pre><code>##  [1] 49 37  1 25 10 36 18 24  7 45 47</code></pre>
@@ -2030,8 +2035,8 @@ less
 <p><strong>Межквартильный размах</strong></p>
 </div>
 </div>
-<div id="боксплот-и-вайолинплот" class="section level2 hasAnchor" number="6.5">
-<h2><span class="header-section-number">6.5</span> Боксплот и вайолинплот<a href="descriptives.html#боксплот-и-вайолинплот" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="боксплот-и-вайолинплот" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Боксплот и вайолинплот<a href="descriptives.html#боксплот-и-вайолинплот" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p align="center">
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="descriptives.html#cb60-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/images/Boxplot_vs_PDF.png&quot;</span>)</span></code></pre></div>
 <img src="docs/images/Boxplot_vs_PDF.png" width="60%" style="display: block; margin: auto;" />
