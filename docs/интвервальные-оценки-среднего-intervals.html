@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Нормальное распределение и стандартизация | Статистика для анализа данных</title>
+  <title>8 Интвервальные оценки среднего {intervals} | Статистика для анализа данных</title>
   <meta name="description" content="Семинарские занятия по статистике для анализа данных" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Нормальное распределение и стандартизация | Статистика для анализа данных" />
+  <meta property="og:title" content="8 Интвервальные оценки среднего {intervals} | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Семинарские занятия по статистике для анализа данных" />
   <meta name="github-repo" content="elenary/StatsForDA" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Нормальное распределение и стандартизация | Статистика для анализа данных" />
+  <meta name="twitter:title" content="8 Интвервальные оценки среднего {intervals} | Статистика для анализа данных" />
   
   <meta name="twitter:description" content="Семинарские занятия по статистике для анализа данных" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="descriptives.html"/>
-<link rel="next" href="интвервальные-оценки-среднего-intervals.html"/>
+<link rel="prev" href="normdist.html"/>
+<link rel="next" href="inference.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -348,86 +348,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="normdist" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">7</span> Нормальное распределение и стандартизация<a href="normdist.html#normdist" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="нормальное-распределение-и-его-свойства" class="section level2 hasAnchor" number="7.1">
-<h2><span class="header-section-number">7.1</span> Нормальное распределение и его свойства<a href="normdist.html#нормальное-распределение-и-его-свойства" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Мы уже обсуждали нормальное распределение, когда говорили про распределения в целом [# Распределения]. Это вероятностный закон, где заданным значениям признака приводится в соответствие вероятность встретить признак с таким значением, выраженный по формуле <span class="math inline">\(P(x) = \frac{1}{\sigma\sqrt{2\pi}} * e^{-\frac{(x - \mu)^2}{2(\sigma)^2}}\)</span></p>
-<p>Если внимательно посмотреть на формулу нормального распределения, можно обратить внимание, что почти все в ней является константами, кроме переменной <span class="math inline">\(x\)</span> и двух неизвестных параметров: <span class="math inline">\(\mu\)</span> и <span class="math inline">\(\sigma\)</span>. Это уже знакомые наши друзья: <em>среднее генеральной совокупности (математическое ожидание</em> и <em>стандартное отклонение генеральной совокупности</em>. Таким образом, чтобы построить распределение для любого признака, который в генеральной совокупности распределен нормально, нам необходимо знать <strong>только два параметра распределения</strong>:</p>
-<ul>
-<li>среднее</li>
-<li>стандартное отклонение</li>
-</ul>
-<p>Помимо, собственно, формулы, часто можно увидеть такую запись, обозначающую нормальное распределение: <span class="math inline">\(\sim \mathcal{N}(\mu, \, \sigma^2)\)</span></p>
-<p>На рисунке видно, что среднее отвечает за положение цента распределения, а стандартное отклонение – за его “растянутость” вдоль оси <span class="math inline">\(х\)</span>, ширину колокола.</p>
-<p align="center">
-<img src="docs/images/different_norm_vis-1.png" width="80%" style="display: block; margin: auto;" />
-<font color="gray">Изображение из <a href="https://ru.wikipedia.org/wiki/%D0%9D%D0%BE%D1%80%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5">википедии</a></font>
-</p>
-<p>Почему такое внимание мы уделяем именно нормальному распределению?</p>
-<ul>
-<li>Нормальное распределение интересно нам как минимум потому, что большинство признаковв, которые мы исследуем, являются случайными величинами, на которые действует большое количество случайныз факторов – а значит, согласно <a href="https://ru.wikipedia.org/wiki/%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D1%82%D0%B5%D0%BE%D1%80%D0%B5%D0%BC%D0%B0">центальной предельной теореме</a>, распределены номрально. Как следствие, физические, биологические и психологические признаки (рост, вес, выраженность черт личности) обычно распределены нормально: средние признаки встречаются в природе чаще, чем более радикальные</li>
-<li>Нормальное распределение симметично и унимодально, и в некоторых операциях с ним попроще работать.</li>
-<li>Для того, чтобы оценить вероятность встетить человека определенного роста, нам нужно знать (или оценить) только среднее и стандартное отклонение генеральной совокупности – и далее мы вычислим эту вероятность по формуле нормального распределения.</li>
-</ul>
-<p><strong>Нормальное распределение обладает рядом свойств</strong>:</p>
-<ul>
-<li>симметрично</li>
-<li>унимодально (только одна мода)</li>
-<li>отклонения от среднего подчинаются вероятностному закону: знаем, сколько процентов данных содержится в скольких стандартных отклонения от среднего</li>
-</ul>
-<p align="center">
-<img src="docs/images/Standard_deviation_diagram.png" width="80%" style="display: block; margin: auto;" />
-</p>
-<p>Последнее свойство дает нам очень большие возможности при работе с нормальным распределением: например, имея репрезентативную выборку замеров роста, мы можем посчитать, с какой вероятностью, например, встетим женщину с ростом 158 см. Вспоминаем визуализацию из первых семинаров <a href="https://ourworldindata.org/human-height" class="uri">https://ourworldindata.org/human-height</a></p>
-<p align="center">
-<img src="docs/images/height_distribution.png" width="60%" style="display: block; margin: auto;" />
-</p>
-<p>Чтобы посчитать эту вероятность, нам, по сути, нужно в формулу нормального распределения в качестве <span class="math inline">\(x\)</span> вставить <span class="math inline">\(x=158\)</span>, а в качестве <span class="math inline">\(\mu\)</span> и <span class="math inline">\(\sigma\)</span> использовать выборочные средние и стандартные отклонения.</p>
-<p>Некоторые значения процентов из этого распределения нужно запомнить, так как они будут встечаться часто – это значения для количества данных, лежащих внутри одного или нескольких стандартных отклонений от среднего.</p>
-<p><strong>“Правило трех сигм”</strong>:</p>
-<ul>
-<li>в пределах одного стандартного отклонения от среднего значения (<span class="math inline">\(\bar x ± \sigma\)</span>) лежит 68% значений — это очень частые значения;</li>
-<li>в пределах двух стандартных отклонений от среднего значения (<span class="math inline">\(\bar x ± 2\sigma\)</span>) лежит 95% значений — бо́льшая часть выборки;</li>
-<li>в пределах трех стандартных отклонений от среднего значения (<span class="math inline">\(\bar x ± 3\sigma\)</span>) лежит практически 100% выборки — то есть вся выборка.</li>
-</ul>
+<div id="интвервальные-оценки-среднего-intervals" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Интвервальные оценки среднего {intervals}<a href="интвервальные-оценки-среднего-intervals.html#интвервальные-оценки-среднего-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="clt" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Центральная предельная теорема<a href="интвервальные-оценки-среднего-intervals.html#clt" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Центральная предельная теорема</strong> – важное понятие в статистике, применимое к исследованиям в социальных науках. Мы уже выучили, что переменные, с которыми мы работаем – это случайные величины [#random-variable]. Именно этот факт позволяет нам вычислять могие параметры по тем формулам, которые мы используем: если бы мы работали не с случайными величинами, у нас была бы совсем другая статистика (кажется, куда более сложная)!</p>
+<p>В общем виде, ее можно сформулировать так:</p>
+<blockquote>
+<p>Значения признака, являющегося случайной величиной (чье значение нельзя предсказать точно) и подтверженного влиянию нескольких независимых факторов, распределены нормально.</p>
+</blockquote>
+<p>Из нее есть важное следствие:
+&gt; Если мы проводим много одинаковых исследований, то выборочные средние этих исследований будут распределены нормально.</p>
+<p><img src="StatsForDA_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="интвервальные-оценки-среднего-intervals.html#cb2-1" tabindex="-1"></a><span class="fu">mean</span>(means_from_samples)</span></code></pre></div>
+<pre><code>## [1] 99.94633</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="интвервальные-оценки-среднего-intervals.html#cb4-1" tabindex="-1"></a><span class="fu">sd</span>(means_from_samples)</span></code></pre></div>
+<pre><code>## [1] 1.519674</code></pre>
+<p>Стандартное отклонение распределение выборочных срених называется <strong>стандартной ошибкой среднего (standard error of the mean (s.e.m. или se)</strong> и вычисляется по формуле <span class="math inline">\(\sigma_{\overline{x}}= \frac{\sigma} {\sqrt{n}}\)</span> или, используя выборочное стандартное отклонение по одной выборке <span class="math inline">\(s_{\overline{x}}= \frac{s} {\sqrt{n}}\)</span></p>
+<p>Визуализация принципов работы
+<a href="https://gallery.shinyapps.io/CLT_mean/" class="uri">https://gallery.shinyapps.io/CLT_mean/</a></p>
 </div>
-<div id="стандартное-нормальное-распределение-z-распределение" class="section level2 hasAnchor" number="7.2">
-<h2><span class="header-section-number">7.2</span> Стандартное нормальное распределение (z-распределение)<a href="normdist.html#стандартное-нормальное-распределение-z-распределение" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Что делать, если нам нужно оценить, какая вероятность больше: встретить женщину ростом 158 см или мужчину ростом 174 см? Как видим из вузаилизации выше, эти распределения немного отличаются, и мы не можем расположить эти значения на одном. Здесь на помощь нам приходит <strong>стандартное нормальное распределение</strong> или <strong>z-распределение</strong></p>
-<p><strong>Стандартное нормальное распределение</strong> – это нормальное распределение c центром в нуле (<span class="math inline">\(\mu=0\)</span>) и стандартным отклонением равным 1 (<span class="math inline">\(\sigma=1\)</span>).</p>
-<p align="center">
-<img src="docs/images/z-dist.png" width="80%" style="display: block; margin: auto;" />
-</p>
-<p>Это распределение универсально и безразмерно: на шкале у нас уже не <span class="math inline">\(\sigma\)</span>, а цифры, не имеющие размерности. Эта шкала назвается z-шкалой, а само распределение так же называется z-распределением. Любое нормальное распределение можно привести к виду стандартного нормального – это процедура называется z-преобразованием</p>
+<div id="standart_error" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Стандартная ошибка среднего<a href="интвервальные-оценки-среднего-intervals.html#standart_error" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math inline">\(se = \frac{\sigma}{\sqrt{n}} = \frac{sd}{\sqrt{n}}\)</span></p>
 </div>
-<div id="z-преобразование-и-стандартизация" class="section level2 hasAnchor" number="7.3">
-<h2><span class="header-section-number">7.3</span> Z-преобразование и стандартизация<a href="normdist.html#z-преобразование-и-стандартизация" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Стандартизация – это процесс преобразования нормального распределения к стандартной безразмерной Z-шкале со средним 0 и стандартным отклонением 1.</p>
-<p>Чтобы провести стандартизацию, нужно сделать две вещи:</p>
+<div id="доверительный-интервал" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Доверительный интервал<a href="интвервальные-оценки-среднего-intervals.html#доверительный-интервал" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Мы рассмотрели описательные статистики: меры центральной тенденции и меры вариативности переменной. Этоо были тоочечные оценки: мы используем эти величины, чтобы описать наши данные, перейти от таблички с одному или нескольким числам. Помимо точечных оценок используются также интервальные – если мы хотим получить не конкретное число, а интервал, в котором зато точно будет содержаться интересующий нас параметр.</p>
+<p>Доверительный интервал – процент выборок из генеральной совокупности, интервальные оценки которых будут содержать популяционное среднее.</p>
+<p><a href="https://rpsychologist.com/d3/ci/" class="uri">https://rpsychologist.com/d3/ci/</a></p>
+<p>Интервальные оценки</p>
+<p>Доверительные интервал считаются как <span class="math inline">\(\pm Z_\% \times \mathrm{se} \\\)</span></p>
 <ul>
-<li>центрировать распределение — если оно было смещено от нуля (например, <span class="math inline">\(\mu=15\)</span>), то нам нужно вернуть его в центр <span class="math inline">\(\mu=0\)</span></li>
-<li>нормировать распределение — избавиться от разницы в отклонениях <span class="math inline">\(\sigma\)</span>, привести наше распределени к распределению с <span class="math inline">\(\sigma=1\)</span></li>
+<li><span class="math inline">\(68\%: \pm 1 \times \mathrm{se} \\\)</span></li>
+<li><span class="math inline">\(95\%: \pm 2 \times \mathrm{se} \\\)</span></li>
+<li><span class="math inline">\(99\%: \pm 3 \times \mathrm{se} \\\)</span></li>
 </ul>
-<p>Учитывая две эти операции, формула z-преобразования выглядит следующим образом:</p>
-<p align="center">
-<span class="math inline">\(Z_x = \frac{x - \mu}{\sigma}\)</span>
-</p>
-<p>Z-оценку можно расположить на Z-распределении и посмотреть, какой процент данных лежит <em>левее</em> Z-оценки, то есть <em>менее вероятен</em>. Высчитать этот процент можно по формуле нормального распределения, подставив <span class="math inline">\(\mu=0\)</span> и <span class="math inline">\(\sigma=1\)</span>, но проще воспользоваться таблицами Z-оценок (они легко гуглятся), например <a href="https://www.z-table.com/" class="uri">https://www.z-table.com/</a></p>
-<p>Стандартизация не меняет характер распределения, менят только положения его центра и “расплющенность” вдоль оси ч– то есть буквально то, что мы знаем по свойствам среднего и дисперсии</p>
-<p align="center">
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="normdist.html#cb1-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;docs/images/centring_norming-1.png&quot;</span>)</span></code></pre></div>
-<img src="docs/images/centring_norming-1.png" width="100%" style="display: block; margin: auto;" />
-</p>
-<p>Можно интерпретировать Z-шкалу как шкалу типичности или частотности встечаемости значний: все, что лежит в +- 1 – встечается очень часто, и чем дальше от цента – тем более редкие значения нам попадаются.</p>
-<p>Например, мы (откуда-то) знаем, что средний рост женщин 165 см со стандартным отклонением 7, а средний рост мужчин – 178 и станд откл 8.</p>
-<p>Возвращаясь к нашему вопросу:</p>
-<p><span class="math inline">\(Ж_{158}\)</span>: <span class="math inline">\(Z_{158} = \frac{x - \mu_ж}{\sigma_ж} = \frac{158 - 165}{7} = -1\)</span></p>
-<p><span class="math inline">\(М_{174}\)</span>: <span class="math inline">\(Z_{174} = \frac{x - \mu_м}{\sigma_м} = \frac{174- 178}{8} = -0.5\)</span></p>
-<p>Мы перевели рост мужчин и женщи в Z-оценки и теперь можем расположить их на Z-распределнии. Уже видно, что число -1 располагается левее, чем число -0.5, значит, вероятность встретить женщину с ростом 158 см меньше, чем мужчину с ростом 174 см. Чтобы оценить эту вероятность точно, нам придется воспользоваться таблицами Z-оценок <a href="https://www.z-table.com/" class="uri">https://www.z-table.com/</a></p>
-<p><span class="math inline">\(Z_{ж_158} = -1\)</span>, что соответствует примерно 16% вероятности
-<span class="math inline">\(Z_{м_174} = -0.5\)</span>, что соответствует примерно 30% вероятности</p>
-<p>Таким образом, вероятность встретить женщину с ростом 158 см составляет 16%, и это на 14% меньше, чем вероятность встретить мужчину ростом 174 см.</p>
+
 </div>
 </div>
             </section>
@@ -435,8 +392,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="descriptives.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="интвервальные-оценки-среднего-intervals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="normdist.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
