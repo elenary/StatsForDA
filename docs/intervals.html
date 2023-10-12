@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1" data-path="intervals.html"><a href="intervals.html#clt"><i class="fa fa-check"></i><b>8.1</b> Центральная предельная теорема</a></li>
 <li class="chapter" data-level="8.2" data-path="intervals.html"><a href="intervals.html#standart_error"><i class="fa fa-check"></i><b>8.2</b> Стандартная ошибка среднего</a></li>
-<li class="chapter" data-level="8.3" data-path="intervals.html"><a href="intervals.html#доверительный-интервал"><i class="fa fa-check"></i><b>8.3</b> Доверительный интервал</a></li>
+<li class="chapter" data-level="8.3" data-path="intervals.html"><a href="intervals.html#ci"><i class="fa fa-check"></i><b>8.3</b> Доверительный интервал</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>9</b> Статистический вывод</a>
 <ul>
@@ -361,9 +361,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 &gt; Если мы проводим много одинаковых исследований, то выборочные средние этих исследований будут распределены нормально.</p>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intervals.html#cb1-1" tabindex="-1"></a><span class="fu">mean</span>(means_from_samples)</span></code></pre></div>
-<pre><code>## [1] 100.0477</code></pre>
+<pre><code>## [1] 100.0056</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intervals.html#cb3-1" tabindex="-1"></a><span class="fu">sd</span>(means_from_samples)</span></code></pre></div>
-<pre><code>## [1] 1.557376</code></pre>
+<pre><code>## [1] 1.507749</code></pre>
 <p>Стандартное отклонение распределение выборочных срених называется <strong>стандартной ошибкой среднего (standard error of the mean (s.e.m. или se)</strong> и вычисляется по формуле <span class="math inline">\(\sigma_{\overline{x}}= \frac{\sigma} {\sqrt{n}}\)</span> или, используя выборочное стандартное отклонение по одной выборке <span class="math inline">\(s_{\overline{x}}= \frac{s} {\sqrt{n}}\)</span></p>
 <p>Визуализация принципов работы
 <a href="https://gallery.shinyapps.io/CLT_mean/" class="uri">https://gallery.shinyapps.io/CLT_mean/</a></p>
@@ -372,8 +372,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.2</span> Стандартная ошибка среднего<a href="intervals.html#standart_error" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><span class="math inline">\(se = \frac{\sigma}{\sqrt{n}} = \frac{sd}{\sqrt{n}}\)</span></p>
 </div>
-<div id="доверительный-интервал" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Доверительный интервал<a href="intervals.html#доверительный-интервал" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ci" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Доверительный интервал<a href="intervals.html#ci" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Мы рассмотрели описательные статистики: меры центральной тенденции и меры вариативности переменной. Этоо были тоочечные оценки: мы используем эти величины, чтобы описать наши данные, перейти от таблички с одному или нескольким числам. Помимо точечных оценок используются также интервальные – если мы хотим получить не конкретное число, а интервал, в котором зато точно будет содержаться интересующий нас параметр.</p>
 <p>Доверительный интервал – процент выборок из генеральной совокупности, интервальные оценки которых будут содержать популяционное среднее.</p>
 <p><a href="https://rpsychologist.com/d3/ci/" class="uri">https://rpsychologist.com/d3/ci/</a></p>
@@ -384,6 +384,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(95\%: \pm 2 \times \mathrm{se} \\\)</span></li>
 <li><span class="math inline">\(99\%: \pm 3 \times \mathrm{se} \\\)</span></li>
 </ul>
+<blockquote>
+<p>Исследование семейных пар в России (объем выборки составил 100 семейных пар), в которых есть дети подросткового возраста, показало, что те пары, где отец и мать работают полный рабочий день, они проводят со своими детьми в среднем 15 часов свободного времени в неделю. Согласно данным проведенного исследования, стандартное отклонение оказалось равным 4,5 (ч). Можно ли на уровне доверия 0,99 утверждать, что в семьях, в которых работают и отец, и мать, в среднем в течение недели родители проводят с детьми подросткового возраста больше 14 часов?</p>
+</blockquote>
 
 </div>
 </div>
