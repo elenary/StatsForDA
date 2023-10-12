@@ -350,6 +350,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="intervals" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">8</span> Интвервальные оценки среднего<a href="intervals.html#intervals" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>До этого мы пыталась оценить генеральную совокупность, подставив вместо неизвестных значений среднего и стандартного отклонения генеральной совокупности – выборочные. Это <em>точечные оценки</em>.</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="37%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">Генеральная совокупность</th>
+<th align="center">Выборка</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Среднее (математическое ожидание)</td>
+<td align="center"><span class="math inline">\(\mu\)</span></td>
+<td align="center">M, <span class="math inline">\(\overline X\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Стандартное отклонение</td>
+<td align="center"><span class="math inline">\(\sigma\)</span></td>
+<td align="center">s, sd</td>
+</tr>
+</tbody>
+</table>
+<p>Однако, это не единственный способ узнать что-то о генеральной совокупности. Вместо того, чтобы оценить <em>точно</em>, мы можем использовать еще и интервалы – то есть сказать, что <em>среднее генеральной совокупности с заданной вероятностью лежит в таком-то интервале</em>. Это – интервальный подход к оценке генеральной совокупности, и он будет нам сильно полезен, когда мы перейдем к статистике вывода.</p>
 <div id="clt" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Центральная предельная теорема<a href="intervals.html#clt" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Центральная предельная теорема</strong> – важное понятие в статистике, применимое к исследованиям в социальных науках. Мы уже выучили, что переменные, с которыми мы работаем – это случайные величины [#random-variable]. Именно этот факт позволяет нам вычислять могие параметры по тем формулам, которые мы используем: если бы мы работали не с случайными величинами, у нас была бы совсем другая статистика (кажется, куда более сложная)!</p>
@@ -361,9 +389,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 &gt; Если мы проводим много одинаковых исследований, то выборочные средние этих исследований будут распределены нормально.</p>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intervals.html#cb1-1" tabindex="-1"></a><span class="fu">mean</span>(means_from_samples)</span></code></pre></div>
-<pre><code>## [1] 100.0056</code></pre>
+<pre><code>## [1] 99.88059</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intervals.html#cb3-1" tabindex="-1"></a><span class="fu">sd</span>(means_from_samples)</span></code></pre></div>
-<pre><code>## [1] 1.507749</code></pre>
+<pre><code>## [1] 1.472802</code></pre>
 <p>Стандартное отклонение распределение выборочных срених называется <strong>стандартной ошибкой среднего (standard error of the mean (s.e.m. или se)</strong> и вычисляется по формуле <span class="math inline">\(\sigma_{\overline{x}}= \frac{\sigma} {\sqrt{n}}\)</span> или, используя выборочное стандартное отклонение по одной выборке <span class="math inline">\(s_{\overline{x}}= \frac{s} {\sqrt{n}}\)</span></p>
 <p>Визуализация принципов работы
 <a href="https://gallery.shinyapps.io/CLT_mean/" class="uri">https://gallery.shinyapps.io/CLT_mean/</a></p>
@@ -384,6 +412,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(95\%: \pm 2 \times \mathrm{se} \\\)</span></li>
 <li><span class="math inline">\(99\%: \pm 3 \times \mathrm{se} \\\)</span></li>
 </ul>
+<p>Задача на доверительный интервал:</p>
 <blockquote>
 <p>Исследование семейных пар в России (объем выборки составил 100 семейных пар), в которых есть дети подросткового возраста, показало, что те пары, где отец и мать работают полный рабочий день, они проводят со своими детьми в среднем 15 часов свободного времени в неделю. Согласно данным проведенного исследования, стандартное отклонение оказалось равным 4,5 (ч). Можно ли на уровне доверия 0,99 утверждать, что в семьях, в которых работают и отец, и мать, в среднем в течение недели родители проводят с детьми подросткового возраста больше 14 часов?</p>
 </blockquote>
