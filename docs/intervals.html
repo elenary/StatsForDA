@@ -390,9 +390,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Например, мы изучаем выгорание среди преподавателей, но вместо одного исследования провели сто, и в каждом исследовании посчитали выборочное среднее. Такое распредление и называется <em>распределением выборочных средних</em>, и оно будет распределено нормально. Причем чем больше выборок мы будем извлекать – тем более будет стемиться к нормальному это распределение, и тем <strong>ближе к среднему генеральной совокупности будет ближе среднее распределения выборочных средних</strong> (да, тут очень много слов “средние” и “распределения”, но постарайтесь не запутаться).</p>
 <p><img src="StatsForDA_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intervals.html#cb1-1" tabindex="-1"></a><span class="fu">mean</span>(means_from_samples)</span></code></pre></div>
-<pre><code>## [1] 99.98699</code></pre>
+<pre><code>## [1] 100.0502</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intervals.html#cb3-1" tabindex="-1"></a><span class="fu">sd</span>(means_from_samples)</span></code></pre></div>
-<pre><code>## [1] 1.492902</code></pre>
+<pre><code>## [1] 1.506849</code></pre>
 <p>Визуализацию принципов работы этого важного следствия ЦПТ можно посмотреть здесь <a href="https://gallery.shinyapps.io/CLT_mean/" class="uri">https://gallery.shinyapps.io/CLT_mean/</a>. Меняя число извлеченных из ГС выборок можно посмотреть, как выборочные распределения становятся ближе к нормальному распредедению, а их среднее – к среднему генеральной совокупности.
 Эта визуализация наглядно показывает, как количество наблюдений в выборке и количество извлекаемых выборок влияет на оценку среднего ГС.
 Допустим распределение данных в ГС выглядит так</p>
@@ -436,11 +436,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p align="center">
 <span class="math inline">\(CI_\%: \bar X \pm Z_\% \times \mathrm{se} \\\)</span>, где <span class="math inline">\(\bar X\)</span> – выборочное среднее, $Z_% $ – Z-оценка для заданного процента данных, <span class="math inline">\(se\)</span> – стандартная ошибка среднего.
 </p>
-<p>Полезно помнить ключевые значения:
-* <span class="math inline">\(Z_{68\%} = 1\)</span>, значит <span class="math inline">\(CI_{68\%} = \pm 1 \times \mathrm{se} \\\)</span>
-* <span class="math inline">\(Z_{95\%} = 1.96 ≈ 2\)</span>, значит <span class="math inline">\(CI_{95\%} = \pm 2 \times \mathrm{se} \\\)</span>
-* <span class="math inline">\(Z_{99\%} = 2.576\)</span>, значит <span class="math inline">\(CI_{99\%} = \pm 2.576 \times \mathrm{se} \\\)</span>
-* <span class="math inline">\(Z_{99.7\%} = 3\)</span>, значит <span class="math inline">\(CI_{99.7\%} = \pm 3 \times \mathrm{se} \\\)</span></p>
+<p>Полезно помнить ключевые значения:</p>
+<ul>
+<li><p><span class="math inline">\(Z_{68\%} = 1\)</span>, значит <span class="math inline">\(CI_{68\%} = \pm 1 \times \mathrm{se} \\\)</span></p></li>
+<li><p><span class="math inline">\(Z_{95\%} = 1.96 ≈ 2\)</span>, значит <span class="math inline">\(CI_{95\%} = \pm 2 \times \mathrm{se} \\\)</span></p></li>
+<li><p><span class="math inline">\(Z_{99\%} = 2.576\)</span>, значит <span class="math inline">\(CI_{99\%} = \pm 2.576 \times \mathrm{se} \\\)</span></p></li>
+<li><p><span class="math inline">\(Z_{99.7\%} = 3\)</span>, значит <span class="math inline">\(CI_{99.7\%} = \pm 3 \times \mathrm{se} \\\)</span></p></li>
+</ul>
 <p>Чаще всего на практике используется 95%-доверительный интервал, и в следующем блоке про статистический вывод мы поймем, почему.</p>
 <p>Задача на доверительный интервал:</p>
 <blockquote>
