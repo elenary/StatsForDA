@@ -154,3 +154,4 @@ clt
 интвервальные-оценки-среднего-intervals
 intervals
 ci
+tab:unnamed-chunk-40
